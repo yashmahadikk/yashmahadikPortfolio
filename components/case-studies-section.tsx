@@ -1,8 +1,9 @@
 import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 
 const caseStudies = [
   {
-    id: 1,
+    id: "amazon-prime",
     category: "AMAZON PRIME | CONTENT DISCOVERY",
     title: "From 15 Minutes to 30 Seconds: Cutting Decision Fatigue in Streaming",
     description: "A deep dive into reducing friction in Amazon Prime Video's content discovery experience. This case study explores how AI-powered personalization and streamlined UX can transform the way users find what to watch, dramatically improving time-to-play metrics.",
@@ -17,7 +18,7 @@ const caseStudies = [
     linkText: "View Deck & MVP"
   },
   {
-    id: 2,
+    id: "cred",
     category: "CRED | ENGAGEMENT & RETENTION",
     title: "Breaking the Monthly Habit: Transforming a $6.4B App with 3% DAU/MAU",
     description: "How to transform CRED from a once-a-month bill payment utility into a daily financial companion. This case study addresses the core engagement challenge: users open the app exactly once a month on bill day, leaving billions of coins unredeemed.",
@@ -61,15 +62,24 @@ export function CaseStudiesSection() {
                 <p className="text-muted-foreground leading-relaxed mb-6">
                   {study.description}
                 </p>
-                <a
-                  href={study.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
-                >
-                  {study.linkText}
-                  <ArrowUpRight size={18} />
-                </a>
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    href={`/case-studies/${study.id}`}
+                    className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                  >
+                    Read Case Study
+                    <ArrowUpRight size={18} />
+                  </Link>
+                  <a
+                    href={study.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-muted-foreground font-medium hover:text-foreground"
+                  >
+                    {study.linkText}
+                    <ArrowUpRight size={18} />
+                  </a>
+                </div>
               </div>
 
               {/* Highlights Card */}

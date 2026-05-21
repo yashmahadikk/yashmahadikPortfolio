@@ -1,5 +1,5 @@
 import { Film, Kanban, Scan, Workflow, Bot } from "lucide-react"
-import Image from "next/image"
+import Link from "next/link"
 
 const projects = [
   {
@@ -93,10 +93,10 @@ export function PortfolioSection() {
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                     {project.description}
                   </p>
-                  <button className="inline-flex items-center text-primary font-medium hover:underline underline-offset-4 group">
+                  <Link href={`/work/${project.id}`} className="inline-flex items-center text-primary font-medium hover:underline underline-offset-4 group">
                     Learn more
                     <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
-                  </button>
+                  </Link>
                 </div>
               </article>
             )

@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-import { Oxanium as V0_Font_Oxanium, Source_Code_Pro as V0_Font_Source_Code_Pro, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
+import { Inter, Source_Code_Pro as V0_Font_Source_Code_Pro, Playfair_Display } from 'next/font/google'
 
 // Initialize fonts
-const _oxanium = V0_Font_Oxanium({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800"] })
-const _sourceCodePro = V0_Font_Source_Code_Pro({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
-const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
+const _inter = Inter({ subsets: ['latin'], weight: ["300","400","500","600","700"] })
+const _sourceCodePro = V0_Font_Source_Code_Pro({ subsets: ['latin'], weight: ["400","500","600","700"] })
+const _playfairDisplay = Playfair_Display({ subsets: ['latin'], weight: ["400","500","600","700"], style: ['normal', 'italic'] })
 
 export const metadata: Metadata = {
   title: 'Yash Mahadik | Product Manager & Digital Transformation Leader',

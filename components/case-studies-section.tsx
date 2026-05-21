@@ -26,11 +26,41 @@ const caseStudies = [
       "Identified root cause: 65% of users are 'Bill Payers' who never return",
       "Validated hypotheses through UX audit and competitor analysis",
       "Designed 'CRED Pulse' - a lightweight daily engagement layer",
-      "Projected ₹53.3 Cr incremental GMV revenue from engagement lift"
+      "Projected Rs.53.3 Cr incremental GMV revenue from engagement lift"
     ],
     bgColor: "bg-slate-100",
     link: "https://canva.link/credcasestudybyyash",
     linkText: "View Full Case Study"
+  },
+  {
+    id: "swiggy",
+    category: "SWIGGY | FOOD DELIVERY",
+    title: "How to 2X Quality Text Reviews & Unlock $800M in Annual GOV",
+    description: "A comprehensive product case study on increasing quality text reviews on Swiggy's food delivery vertical. Explores the friction in the review process and proposes AI-powered voice reviews with smart hashtag tagging to drive menu page conversion.",
+    highlights: [
+      "Identified 2.2M target users who value reviews but only leave ratings",
+      "Mapped user behavior: 63% find reviews inconvenient, 28% see no value",
+      "Designed Lean Review with Speech-to-Text and contextual hashtags",
+      "Projected $800M GOV increase from improved conversion rates"
+    ],
+    bgColor: "bg-orange-50",
+    link: null,
+    linkText: null
+  },
+  {
+    id: "zepto",
+    category: "ZEPTO | QUICK COMMERCE",
+    title: "Turning Notifications Into Revenue: A Product Teardown of Push Strategy",
+    description: "A deep analysis of how quick commerce platforms can leverage AI-driven personalization and interactive notifications to boost engagement and conversion. Includes user personas, journey mapping, and strategic recommendations.",
+    highlights: [
+      "Analyzed current notification strategy strengths and gaps",
+      "Created detailed user personas for busy professionals and homemakers",
+      "Proposed AI-driven personalization and interactive notifications",
+      "Defined comprehensive metrics framework with North Star and guardrails"
+    ],
+    bgColor: "bg-purple-50",
+    link: null,
+    linkText: null
   }
 ]
 
@@ -70,15 +100,17 @@ export function CaseStudiesSection() {
                     Read Case Study
                     <ArrowUpRight size={18} />
                   </Link>
-                  <a
-                    href={study.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-muted-foreground font-medium hover:text-foreground"
-                  >
-                    {study.linkText}
-                    <ArrowUpRight size={18} />
-                  </a>
+                  {study.link && (
+                    <a
+                      href={study.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-muted-foreground font-medium hover:text-foreground"
+                    >
+                      {study.linkText}
+                      <ArrowUpRight size={18} />
+                    </a>
+                  )}
                 </div>
               </div>
 

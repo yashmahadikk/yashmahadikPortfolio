@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, ArrowUpRight, Phone } from "lucide-react"
+import { Mail, Linkedin, Instagram, ArrowUpRight, Phone } from "lucide-react"
 
 export function ContactSection() {
   return (
@@ -43,18 +43,22 @@ export function ContactSection() {
 
         <div className="flex items-center justify-center gap-6">
           <a
-            href="#"
+            href="https://linkedin.com/in/yashmahadik2"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors"
             aria-label="LinkedIn"
           >
             <Linkedin size={20} />
           </a>
           <a
-            href="#"
+            href="https://instagram.com/yashmahadikofficial"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors"
-            aria-label="GitHub"
+            aria-label="Instagram"
           >
-            <Github size={20} />
+            <Instagram size={20} />
           </a>
           <a
             href="mailto:yashmahadik2005@gmail.com"

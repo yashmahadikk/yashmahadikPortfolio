@@ -97,7 +97,7 @@ export default function SprintUpProject() {
             <ul className="space-y-2 mt-6">
               <li>Conducted extensive user research with 50+ engineering teams</li>
               <li>Designed the AI recommendation engine architecture</li>
-              <li>Built integration partnerships with Jira, Asana, and Linear</li>
+              <li>Built Project Management Dashboard</li>
               <li>Achieved 25% productivity improvement in pilot programs</li>
             </ul>
           </div>

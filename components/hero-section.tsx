@@ -35,6 +35,14 @@ export function HeroSection() {
           >
             Get In Touch
           </Link>
+          <a
+            href="https://drive.google.com/drive/folders/1jll4Xyqc_uIfkDlBFyuh_4Y6SufN_P5D?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-foreground font-semibold border border-border hover:border-primary hover:text-primary transition-colors rounded-md"
+          >
+            View Resume
+          </a>
         </div>
 
         <div className="flex items-center gap-2 text-muted-foreground animate-bounce">

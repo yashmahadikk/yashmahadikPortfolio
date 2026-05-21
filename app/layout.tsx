@@ -2,12 +2,7 @@ import type { Metadata } from 'next'
 
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-import { Inter, Source_Code_Pro as V0_Font_Source_Code_Pro, Playfair_Display } from 'next/font/google'
-
-// Initialize fonts
-const _inter = Inter({ subsets: ['latin'], weight: ["300","400","500","600","700"] })
-const _sourceCodePro = V0_Font_Source_Code_Pro({ subsets: ['latin'], weight: ["400","500","600","700"] })
-const _playfairDisplay = Playfair_Display({ subsets: ['latin'], weight: ["400","500","600","700"], style: ['normal', 'italic'] })
+// Using system fonts to match the original design (Georgia + Helvetica)
 
 export const metadata: Metadata = {
   title: 'Yash Mahadik | Product Manager & Digital Transformation Leader',

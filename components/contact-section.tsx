@@ -1,10 +1,11 @@
-import { Mail, Linkedin, Github, ArrowUpRight, Phone } from "lucide-react"
+import { Mail, Linkedin, Instagram, ArrowUpRight, Phone } from "lucide-react"
 
 export function ContactSection() {
   return (
     <section id="contact" className="py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+        <p className="text-primary text-sm font-semibold tracking-wider mb-2">CONTACT</p>
+        <h2 className="text-4xl md:text-5xl font-serif italic text-foreground mb-6">
           Let&apos;s Connect
         </h2>
         <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -43,25 +44,22 @@ export function ContactSection() {
 
         <div className="flex items-center justify-center gap-6">
           <a
-            href="#"
+            href="https://linkedin.com/in/yashmahadik2"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors"
             aria-label="LinkedIn"
           >
             <Linkedin size={20} />
           </a>
           <a
-            href="#"
+            href="https://instagram.com/yashmahadikofficial"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors"
-            aria-label="GitHub"
+            aria-label="Instagram"
           >
-            <Github size={20} />
-          </a>
-          <a
-            href="mailto:yashmahadik2005@gmail.com"
-            className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors"
-            aria-label="Email"
-          >
-            <Mail size={20} />
+            <Instagram size={20} />
           </a>
         </div>
       </div>

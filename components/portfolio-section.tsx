@@ -1,5 +1,5 @@
 import { Film, Kanban, Scan, Workflow, Bot } from "lucide-react"
-import Image from "next/image"
+import Link from "next/link"
 
 const projects = [
   {
@@ -56,8 +56,14 @@ const projects = [
 
 export function PortfolioSection() {
   return (
-    <section id="work" className="py-20 px-6">
+    <section id="work" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
+        <div className="mb-16">
+          <p className="text-primary text-sm font-semibold tracking-wider mb-2">WORK</p>
+          <h2 className="text-4xl md:text-5xl font-serif italic text-foreground">
+            Products I&apos;ve Built
+          </h2>
+        </div>
         <div className="space-y-24">
           {projects.map((project, index) => {
             const Icon = project.icon
@@ -93,10 +99,10 @@ export function PortfolioSection() {
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                     {project.description}
                   </p>
-                  <button className="inline-flex items-center text-primary font-medium hover:underline underline-offset-4 group">
+                  <Link href={`/work/${project.id}`} className="inline-flex items-center text-primary font-medium hover:underline underline-offset-4 group">
                     Learn more
                     <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
-                  </button>
+                  </Link>
                 </div>
               </article>
             )

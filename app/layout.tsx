@@ -11,7 +11,7 @@ const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["20
 
 export const metadata: Metadata = {
   title: 'Yash Mahadik | Product Manager & Digital Transformation Leader',
-  description: 'Product portfolio showcasing AI-powered solutions, enterprise transformation, and digital innovation. 15 years of experience building products people love.',
+  description: 'Product portfolio showcasing AI-powered solutions, enterprise transformation, and digital innovation. 5 years in project management and operations, 4 years in product management.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark bg-background scroll-smooth">
+    <html lang="en" className="bg-background scroll-smooth">
       <body className="font-sans antialiased bg-background text-foreground">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

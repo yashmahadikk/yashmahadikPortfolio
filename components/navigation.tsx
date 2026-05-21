@@ -8,22 +8,22 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-bold text-xl tracking-wider text-foreground hover:text-primary transition-colors">
+        <Link href="/" className="font-bold text-lg tracking-wide text-foreground hover:text-primary transition-colors">
           YASH MAHADIK
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="#work" className="text-sm font-medium text-primary hover:text-primary/80 transition-colors uppercase tracking-widest">
-            Work
+          <Link href="#work" className="text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+            WORK
           </Link>
-          <Link href="#skills" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-widest">
-            Skills
+          <Link href="#skills" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            SKILLS
           </Link>
-          <Link href="#contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-widest">
-            Contact
+          <Link href="#contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            CONTACT
           </Link>
         </div>
 
@@ -44,23 +44,23 @@ export function Navigation() {
             <Link 
               href="#work" 
               onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-primary uppercase tracking-widest"
+              className="text-sm font-medium text-primary"
             >
-              Work
+              WORK
             </Link>
             <Link 
               href="#skills" 
               onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground uppercase tracking-widest"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground"
             >
-              Skills
+              SKILLS
             </Link>
             <Link 
               href="#contact" 
               onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground uppercase tracking-widest"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground"
             >
-              Contact
+              CONTACT
             </Link>
           </div>
         </div>

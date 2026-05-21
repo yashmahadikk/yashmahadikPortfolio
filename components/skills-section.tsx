@@ -35,7 +35,7 @@ const skillCategories = [
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 px-6 bg-card/30 border-y border-border">
+    <section id="skills" className="py-20 px-6 bg-muted/30 border-y border-border">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -52,10 +52,10 @@ export function SkillsSection() {
             return (
               <div
                 key={index}
-                className="bg-card border-2 border-border p-6 hover:border-primary transition-colors group"
+                className="bg-background border border-border p-6 hover:border-primary hover:shadow-md transition-all rounded-lg group"
               >
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Icon size={24} className="text-primary" />
                   </div>
                   <h3 className="font-bold text-lg text-foreground">
@@ -69,7 +69,7 @@ export function SkillsSection() {
                   {category.skills.map((skill, i) => (
                     <span
                       key={i}
-                      className="px-2 py-1 text-xs font-medium bg-background border border-border text-muted-foreground"
+                      className="px-2 py-1 text-xs font-medium bg-muted text-muted-foreground rounded"
                     >
                       {skill}
                     </span>

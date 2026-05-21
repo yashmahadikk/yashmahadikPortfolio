@@ -2,7 +2,7 @@ export function StatsSection() {
   const stats = [
     {
       value: "87%",
-      label: "efficiency gain: AI measurement tool reducing customer journey from 4 minutes to 30 seconds",
+      label: "efficiency gain: AI measurement tool reducing customer journey from 15 minutes to 30 seconds",
     },
     {
       value: "60%",
@@ -19,7 +19,7 @@ export function StatsSection() {
   ]
 
   return (
-    <section className="py-20 px-6 border-y border-border bg-card/50">
+    <section className="py-20 px-6 border-y border-border bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (

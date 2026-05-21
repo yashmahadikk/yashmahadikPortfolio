@@ -56,8 +56,14 @@ const projects = [
 
 export function PortfolioSection() {
   return (
-    <section id="work" className="py-20 px-6">
+    <section id="work" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
+        <div className="mb-16">
+          <p className="text-primary text-sm font-semibold tracking-wider mb-2">WORK</p>
+          <h2 className="text-4xl md:text-5xl font-serif italic text-foreground">
+            Products I&apos;ve Built
+          </h2>
+        </div>
         <div className="space-y-24">
           {projects.map((project, index) => {
             const Icon = project.icon

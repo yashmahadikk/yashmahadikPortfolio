@@ -3,6 +3,21 @@ import Link from "next/link"
 
 const caseStudies = [
   {
+    id: "harley-davidson",
+    category: "HARLEY-DAVIDSON | BRAND STRATEGY",
+    title: "Enjoy Till It Lasts: Unlocking $1.5B Before the ICE Era Ends",
+    description: "A bold brand strategy case study on how Harley-Davidson can turn the end of the ICE motorcycle era into its biggest commercial opportunity. Explores nostalgia marketing, scarcity positioning, and community activation to drive revenue growth.",
+    highlights: [
+      "Analyzed the 30-year ICE countdown and competitive threat from Royal Enfield",
+      "Segmented customers into The Faithful, Aspiring Riders, and Nostalgic Prospects",
+      "Designed 'Enjoy Till It Lasts' campaign with experiential programs",
+      "Projected $1.5B+ addressable incremental revenue over 5-year window"
+    ],
+    bgColor: "bg-orange-100",
+    link: null,
+    linkText: null
+  },
+  {
     id: "amazon-prime",
     category: "AMAZON PRIME | CONTENT DISCOVERY",
     title: "From 15 Minutes to 30 Seconds: Cutting Decision Fatigue in Streaming",

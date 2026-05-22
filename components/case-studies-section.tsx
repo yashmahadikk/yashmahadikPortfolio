@@ -3,6 +3,36 @@ import Link from "next/link"
 
 const caseStudies = [
   {
+    id: "chase",
+    category: "CHASE | FINTECH & BANKING",
+    title: "Increasing Financial Feature Engagement: Unlocking $1.9B in Annual Revenue",
+    description: "A comprehensive product case study on revamping Chase Mobile into Chase Compass - an AI-powered financial navigation platform. Addresses the structural engagement failure where 47% of high-frequency users only check balance and transfer money.",
+    highlights: [
+      "Identified 47% of users stuck in 'transactional loop' with 2 or fewer features",
+      "Designed CompassGuide with Financial Health Score, Goal Compass, and Smart Nudges",
+      "Projected $1.9B annual incremental revenue from 25% MAFE lift",
+      "Built working MVP at chasecompass.vercel.app"
+    ],
+    bgColor: "bg-blue-100",
+    link: "https://chasecompass.vercel.app",
+    linkText: "View MVP"
+  },
+  {
+    id: "harley-davidson",
+    category: "HARLEY-DAVIDSON | BRAND STRATEGY",
+    title: "Enjoy Till It Lasts: Unlocking $1.5B Before the ICE Era Ends",
+    description: "A bold brand strategy case study on how Harley-Davidson can turn the end of the ICE motorcycle era into its biggest commercial opportunity. Explores nostalgia marketing, scarcity positioning, and community activation to drive revenue growth.",
+    highlights: [
+      "Analyzed the 30-year ICE countdown and competitive threat from Royal Enfield",
+      "Segmented customers into The Faithful, Aspiring Riders, and Nostalgic Prospects",
+      "Designed 'Enjoy Till It Lasts' campaign with experiential programs",
+      "Projected $1.5B+ addressable incremental revenue over 5-year window"
+    ],
+    bgColor: "bg-orange-100",
+    link: null,
+    linkText: null
+  },
+  {
     id: "amazon-prime",
     category: "AMAZON PRIME | CONTENT DISCOVERY",
     title: "From 15 Minutes to 30 Seconds: Cutting Decision Fatigue in Streaming",

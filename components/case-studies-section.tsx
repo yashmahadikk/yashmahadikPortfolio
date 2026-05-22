@@ -3,6 +3,21 @@ import Link from "next/link"
 
 const caseStudies = [
   {
+    id: "chase",
+    category: "CHASE | FINTECH & BANKING",
+    title: "Increasing Financial Feature Engagement: Unlocking $1.9B in Annual Revenue",
+    description: "A comprehensive product case study on revamping Chase Mobile into Chase Compass - an AI-powered financial navigation platform. Addresses the structural engagement failure where 47% of high-frequency users only check balance and transfer money.",
+    highlights: [
+      "Identified 47% of users stuck in 'transactional loop' with 2 or fewer features",
+      "Designed CompassGuide with Financial Health Score, Goal Compass, and Smart Nudges",
+      "Projected $1.9B annual incremental revenue from 25% MAFE lift",
+      "Built working MVP at chasecompass.vercel.app"
+    ],
+    bgColor: "bg-blue-100",
+    link: "https://chasecompass.vercel.app",
+    linkText: "View MVP"
+  },
+  {
     id: "harley-davidson",
     category: "HARLEY-DAVIDSON | BRAND STRATEGY",
     title: "Enjoy Till It Lasts: Unlocking $1.5B Before the ICE Era Ends",

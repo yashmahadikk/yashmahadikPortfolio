@@ -127,7 +127,7 @@ export default function TheHinduCaseStudy() {
             Despite 143 years of editorial trust and 12M monthly visitors, The Hindu converts less than 1% to paying subscribers. 
             The funnel leaks at every stage.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             <div className="bg-background p-6 rounded-lg text-center border border-border">
               <p className="text-3xl font-bold text-foreground mb-2">12M</p>
               <p className="text-sm text-muted-foreground">Monthly Visitors</p>
@@ -149,6 +149,31 @@ export default function TheHinduCaseStudy() {
               <p className="text-xs text-red-500 mt-2">-70% drop</p>
             </div>
           </div>
+
+          {/* Funnel Diagnosis */}
+          <h3 className="text-xl font-bold text-foreground mb-6">Funnel Stage Diagnosis</h3>
+          <div className="space-y-4">
+            <div className="bg-background p-4 rounded-lg border border-border flex flex-col md:flex-row md:items-center gap-4">
+              <div className="md:w-40 font-semibold text-foreground">Monthly Visitors</div>
+              <div className="flex-1 text-sm text-muted-foreground">Top of funnel is healthy, driven by organic search and brand authority.</div>
+              <div className="md:w-24 text-xs text-green-600 font-medium">Healthy</div>
+            </div>
+            <div className="bg-background p-4 rounded-lg border border-border flex flex-col md:flex-row md:items-center gap-4">
+              <div className="md:w-40 font-semibold text-foreground">Engaged Readers</div>
+              <div className="flex-1 text-sm text-muted-foreground">High bounce rate. Users read one linked article and leave due to poor internal linking and lack of &quot;next best action.&quot;</div>
+              <div className="md:w-24 text-xs text-red-500 font-medium">-79% Drop</div>
+            </div>
+            <div className="bg-background p-4 rounded-lg border border-border flex flex-col md:flex-row md:items-center gap-4">
+              <div className="md:w-40 font-semibold text-foreground">Registered Users</div>
+              <div className="flex-1 text-sm text-muted-foreground">Extreme friction. Creating an account offers no immediate, tangible value to the user before they hit the paywall.</div>
+              <div className="md:w-24 text-xs text-red-500 font-medium">-84% Drop</div>
+            </div>
+            <div className="bg-background p-4 rounded-lg border border-border flex flex-col md:flex-row md:items-center gap-4">
+              <div className="md:w-40 font-semibold text-foreground">Paying Subscribers</div>
+              <div className="flex-1 text-sm text-muted-foreground">&quot;One Size Fits All&quot; paywall blocks casual readers too early and fails to offer flexible pricing for power users.</div>
+              <div className="md:w-24 text-xs text-red-500 font-medium">-70% Drop</div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -159,7 +184,7 @@ export default function TheHinduCaseStudy() {
             <Users className="text-primary" size={24} />
             <h2 className="text-2xl font-bold text-foreground">User Segmentation</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <div className="bg-green-50 p-6 rounded-lg border border-green-200">
               <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mb-4">1</div>
               <h3 className="font-semibold text-foreground mb-2">The Loyal Lifer</h3>
@@ -183,6 +208,39 @@ export default function TheHinduCaseStudy() {
               <h3 className="font-semibold text-foreground mb-2">The Young Sceptic</h3>
               <p className="text-sm text-muted-foreground mb-3">18-25, digital native, questions paying for news when free options exist</p>
               <p className="text-xs font-medium text-purple-600">FUTURE LTV - Education needed</p>
+            </div>
+          </div>
+
+          {/* Jobs To Be Done */}
+          <h3 className="text-xl font-bold text-foreground mb-6">Jobs To Be Done (JTBD) Analysis</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+              <h4 className="font-semibold text-foreground mb-2">The Loyal Lifer</h4>
+              <p className="text-sm text-muted-foreground italic mb-3">&quot;When I start my day, I want to read trusted, in-depth news, so I can feel informed and intellectually prepared.&quot;</p>
+              <div className="text-xs text-green-700 space-y-1">
+                <p><strong>Intervention:</strong> Offer a bundled Print + Digital subscription at a discount to retain and upsell.</p>
+              </div>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h4 className="font-semibold text-foreground mb-2">The Habitual Browser</h4>
+              <p className="text-sm text-muted-foreground italic mb-3">&quot;When I have a few minutes, I want to quickly catch up on headlines, so I can stay current without a big time investment.&quot;</p>
+              <div className="text-xs text-blue-700 space-y-1">
+                <p><strong>Intervention:</strong> The Morning Brief newsletter. Give them value in 5 mins, then convert.</p>
+              </div>
+            </div>
+            <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
+              <h4 className="font-semibold text-foreground mb-2">The Google Drifter</h4>
+              <p className="text-sm text-muted-foreground italic mb-3">&quot;When I search for a topic, I want the most relevant article, so I can get answers without caring who wrote it.&quot;</p>
+              <div className="text-xs text-amber-700 space-y-1">
+                <p><strong>Intervention:</strong> Strong internal linking and &quot;related stories&quot; to build habit from a single visit.</p>
+              </div>
+            </div>
+            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+              <h4 className="font-semibold text-foreground mb-2">The Young Sceptic</h4>
+              <p className="text-sm text-muted-foreground italic mb-3">&quot;When I see paywalls, I want to know if it&apos;s worth my money, so I don&apos;t feel like I&apos;m paying for something I can get free.&quot;</p>
+              <div className="text-xs text-purple-700 space-y-1">
+                <p><strong>Intervention:</strong> Student tier at Rs.49/month with campus ambassador program.</p>
+              </div>
             </div>
           </div>
         </div>

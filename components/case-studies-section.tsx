@@ -3,6 +3,21 @@ import Link from "next/link"
 
 const caseStudies = [
   {
+    id: "the-hindu",
+    category: "THE HINDU | DIGITAL MEDIA & GROWTH",
+    title: "Converting 12M Monthly Visitors Into Paying Subscribers",
+    description: "A comprehensive Growth PM case study on fixing The Hindu's discovery-to-subscription funnel. Addresses the structural challenge where <1% of 12M monthly visitors convert to paying subscribers despite 143 years of editorial trust.",
+    highlights: [
+      "Mapped the leaky funnel: 12M visitors → 2.5M engaged → 400K registered → 120K paying",
+      "Designed RERE Engine with 4 growth levers: Reach, Engagement, Retention, Revenue",
+      "Proposed The Hindu Morning Brief newsletter with projected ₹7.2 Cr ARR",
+      "Created tiered subscription model: Student (₹49), Corporate (₹2,999/seat), Hindu+ (₹999)"
+    ],
+    bgColor: "bg-red-50",
+    link: null,
+    linkText: null
+  },
+  {
     id: "chase",
     category: "CHASE | FINTECH & BANKING",
     title: "Increasing Financial Feature Engagement: Unlocking $1.9B in Annual Revenue",

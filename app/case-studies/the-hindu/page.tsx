@@ -377,7 +377,7 @@ export default function TheHinduCaseStudy() {
               <p className="text-xs text-muted-foreground">Paywall redesign negatively impacts retention</p>
             </div>
             <div className="p-4 bg-white border border-red-200 rounded">
-              <p className="font-semibold text-red-700 mb-1">Organic Share > 70%</p>
+              <p className="font-semibold text-red-700 mb-1">Organic Share {'>'}70%</p>
               <p className="text-xs text-muted-foreground">Owned channel strategy not working</p>
             </div>
             <div className="p-4 bg-white border border-red-200 rounded">

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, TrendingDown, Users, Target, Zap } from "lucide-react"
 
 export default function TheHinduCaseStudy() {
   return (
@@ -16,30 +16,81 @@ export default function TheHinduCaseStudy() {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-20 px-6 border-b border-border">
+      <section className="bg-gradient-to-br from-red-50 via-white to-blue-50 py-24 px-6 border-b border-border">
         <div className="max-w-4xl mx-auto">
-          <p className="text-primary text-sm font-semibold tracking-wider mb-4">THE HINDU | DIGITAL MEDIA & GROWTH</p>
-          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-foreground">Breaking the Bounce</h1>
-          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-            How to transform The Hindu from India&apos;s most trusted news source into its most engaged digital media platform. A comprehensive Growth PM case study addressing engagement, retention, and digital revenue.
-          </p>
+          <div className="mb-8">
+            <span className="inline-block px-3 py-1 bg-red-100 text-red-700 text-xs font-semibold rounded-full mb-4">THE HINDU | DIGITAL MEDIA</span>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4 text-foreground leading-tight">
+              Breaking the <span className="text-red-600">Bounce</span>
+            </h1>
+            <p className="text-2xl text-muted-foreground mb-6 font-serif italic">
+              32M visitors. 77% bounce rate. ₹200Cr opportunity.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              How to transform The Hindu from India&apos;s most trusted news source into its most engaged digital media platform. A comprehensive Growth PM case study addressing engagement, retention, and digital revenue.
+            </p>
+          </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="p-4 bg-primary/5 rounded-lg border border-border">
-              <p className="text-sm text-muted-foreground mb-1">Role</p>
-              <p className="font-semibold text-foreground">Growth Product Manager</p>
+            <div className="p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-xs text-muted-foreground font-semibold uppercase mb-2">Role</p>
+              <p className="text-sm font-semibold text-foreground">Growth PM</p>
             </div>
-            <div className="p-4 bg-primary/5 rounded-lg border border-border">
-              <p className="text-sm text-muted-foreground mb-1">Focus Areas</p>
-              <p className="font-semibold text-foreground">8 product surfaces</p>
+            <div className="p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-xs text-muted-foreground font-semibold uppercase mb-2">Impact</p>
+              <p className="text-sm font-semibold text-red-600">₹22–25Cr</p>
             </div>
-            <div className="p-4 bg-primary/5 rounded-lg border border-border">
-              <p className="text-sm text-muted-foreground mb-1">Year 1 Revenue Impact</p>
-              <p className="font-semibold text-primary">₹22–25Cr</p>
+            <div className="p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-xs text-muted-foreground font-semibold uppercase mb-2">North Star</p>
+              <p className="text-sm font-semibold text-foreground">MAD: 1.8 → 4.0</p>
             </div>
-            <div className="p-4 bg-primary/5 rounded-lg border border-border">
-              <p className="text-sm text-muted-foreground mb-1">Target Metric</p>
-                  <p className="font-semibold text-foreground">MAD: 1.8 → 4.0</p>
+            <div className="p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-xs text-muted-foreground font-semibold uppercase mb-2">Users</p>
+              <p className="text-sm font-semibold text-foreground">32M/month</p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {["Engagement", "Growth", "Retention", "Monetization", "Discovery"].map((tag) => (
+              <span key={tag} className="px-3 py-1.5 bg-red-50 text-red-700 text-xs font-medium rounded-full border border-red-200">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Key Metrics Section */}
+      <section className="py-12 px-6 bg-red-50 border-b border-red-200">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
+                <TrendingDown className="text-red-600" size={24} />
+              </div>
+              <p className="text-2xl md:text-3xl font-bold text-red-600 mb-1">77%</p>
+              <p className="text-xs text-red-700 font-medium">Bounce Rate</p>
+            </div>
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
+                <Users className="text-red-600" size={24} />
+              </div>
+              <p className="text-2xl md:text-3xl font-bold text-red-600 mb-1">32M</p>
+              <p className="text-xs text-red-700 font-medium">Monthly Visitors</p>
+            </div>
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
+                <Target className="text-red-600" size={24} />
+              </div>
+              <p className="text-2xl md:text-3xl font-bold text-red-600 mb-1">0.5%</p>
+              <p className="text-xs text-red-700 font-medium">Conversion Rate</p>
+            </div>
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
+                <Zap className="text-red-600" size={24} />
+              </div>
+              <p className="text-2xl md:text-3xl font-bold text-red-600 mb-1">₹200Cr</p>
+              <p className="text-xs text-red-700 font-medium">Opportunity</p>
             </div>
           </div>
         </div>
@@ -49,8 +100,11 @@ export default function TheHinduCaseStudy() {
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto space-y-16">
           {/* Section 1 */}
-          <div>
-            <h2 className="text-3xl font-bold text-foreground mb-6">Section 1: Assumptions & Data Sources</h2>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+              <span className="w-3 h-3 bg-blue-600 rounded-full"></span>
+              Section 1: Assumptions & Data Sources
+            </h2>
             <div className="space-y-4 text-muted-foreground">
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Financial Assumptions:</h3>
@@ -72,8 +126,11 @@ export default function TheHinduCaseStudy() {
           </div>
 
           {/* Section 2 */}
-          <div>
-            <h2 className="text-3xl font-bold text-foreground mb-6">Section 2: Product Overview</h2>
+          <div className="bg-purple-50 border border-purple-200 rounded-lg p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+              <span className="w-3 h-3 bg-purple-600 rounded-full"></span>
+              Section 2: Product Overview
+            </h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
                 <strong>What is The Hindu?</strong> Founded in 1878 as a weekly broadsheet, The Hindu is one of India&apos;s most institutionally respected English-language dailies. It represents something rare in contemporary Indian media: a reputation for restraint, editorial independence, and fact-first journalism. The Hindu Group operates 17 print editions across India with the website thehindu.com as a growing digital ecosystem.
@@ -91,8 +148,11 @@ export default function TheHinduCaseStudy() {
           </div>
 
           {/* Section 3 */}
-          <div>
-            <h2 className="text-3xl font-bold text-foreground mb-6">Section 3: Focus Area — The Revenue Chain</h2>
+          <div className="bg-green-50 border border-green-200 rounded-lg p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+              <span className="w-3 h-3 bg-green-600 rounded-full"></span>
+              Section 3: Focus Area — The Revenue Chain
+            </h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
                 <strong>Revenue Chain:</strong> Total Revenue flows into two buckets. Advertising Revenue is driven by page views per session, return visit frequency, time on site, and ad fill rates. Subscription Revenue is driven by subscriber count, driven by subscription conversion rate, driven by habit formation, driven by daily active engagement.
@@ -107,8 +167,11 @@ export default function TheHinduCaseStudy() {
           </div>
 
           {/* Section 4 */}
-          <div>
-            <h2 className="text-3xl font-bold text-foreground mb-6">Section 4: The Problem — 32M Visitors, 77% Bounce Rate</h2>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+              <span className="w-3 h-3 bg-amber-600 rounded-full"></span>
+              Section 4: The Problem — 32M Visitors, 77% Bounce Rate
+            </h2>
             <div className="space-y-4 text-muted-foreground">
               <p>Most users arrive from search or social, read one article, and leave. The homepage and article experience offer no compelling reason to continue reading, return tomorrow, or subscribe.</p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 my-6">

@@ -369,7 +369,7 @@ export default function TheHinduCaseStudy() {
           <h3 className="font-bold text-foreground mb-6">Failure Metrics (Kill Signals)</h3>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-white border border-red-200 rounded">
-              <p className="font-semibold text-red-700 mb-1">Push Opt-Out Rate > 4%</p>
+              <p className="font-semibold text-red-700 mb-1">Push Opt-Out Rate {'>'}4%</p>
               <p className="text-xs text-muted-foreground">Notification is too aggressive or irrelevant</p>
             </div>
             <div className="p-4 bg-white border border-red-200 rounded">

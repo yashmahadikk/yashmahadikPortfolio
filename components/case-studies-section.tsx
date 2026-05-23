@@ -121,21 +121,6 @@ const caseStudies = [
     bgColor: "bg-gray-100",
     link: null,
     linkText: null
-  },
-  {
-    id: "project-uday",
-    category: "JPMORGAN CHASE | MARKET ENTRY STRATEGY",
-    title: "Project Uday: India Digital Banking Market Entry",
-    description: "A strategic GTM case study on JPMorgan Chase's India market entry through fintech infrastructure innovation. Addresses how to capture ₹2.5Tr TAM through partnership model, treasury solutions, and regulatory compliance infrastructure.",
-    highlights: [
-      "Designed partnership-first strategy with Tier-1 Indian banks (₹45Cr revenue)",
-      "Built treasury & corporate solutions targeting ₹500B+ forex market (₹60Cr revenue)",
-      "Created regulatory-as-a-service compliance offering for Indian fintechs (₹40Cr revenue)",
-      "Projected ₹145Cr Year 1 revenue with 18% CAGR over 5 years"
-    ],
-    bgColor: "bg-blue-100",
-    link: null,
-    linkText: null
   }
 ]
 

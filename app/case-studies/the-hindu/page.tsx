@@ -409,7 +409,7 @@ export default function TheHinduCaseStudy() {
             </div>
             <p className="text-sm text-muted-foreground mb-3">Daily briefs to 350K users risks opt-out spikes if personalisation is weak early.</p>
             <p className="text-sm font-semibold text-foreground mb-2">Mitigation:</p>
-            <p className="text-sm text-muted-foreground">Rollout to 20% users first month. Monitor open rate weekly. Only scale if > 18%. Cap total notifications per user per day at 2. No promotional-only pushes.</p>
+            <p className="text-sm text-muted-foreground">Rollout to 20% users first month. Monitor open rate weekly. Only scale if {'>'}18%. Cap total notifications per user per day at 2. No promotional-only pushes.</p>
           </div>
 
           <div className="border border-border rounded-lg p-6">

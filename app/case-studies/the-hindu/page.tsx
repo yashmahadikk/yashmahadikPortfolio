@@ -39,7 +39,7 @@ export default function TheHinduCaseStudy() {
             </div>
             <div className="p-4 bg-primary/5 rounded-lg border border-border">
               <p className="text-sm text-muted-foreground mb-1">Target Metric</p>
-              <p className="font-semibold text-foreground">MAD: 1.8 {String.fromCharCode(8594)} 4.0</p>
+                  <p className="font-semibold text-foreground">MAD: 1.8 → 4.0</p>
             </div>
           </div>
         </div>
@@ -171,9 +171,9 @@ export default function TheHinduCaseStudy() {
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Impact Model:</h3>
                 <ul className="space-y-2 text-sm">
-                  <li>• 25% session depth improvement (1.8 {String.fromCharCode(8594)} 2.25 articles/visit)</li>
-                  <li>• 15% return visit lift (3 {String.fromCharCode(8594)} 3.45 visits/month)</li>
-                  <li>• Subscription conversion: 0.4% {String.fromCharCode(8594)} 0.9% (8+ articles/month users)</li>
+              <li>• 25% session depth improvement (1.8 → 2.25 articles/visit)</li>
+              <li>• 15% return visit lift (3 → 3.45 visits/month)</li>
+              <li>• Subscription conversion: 0.4% → 0.9% (8+ articles/month users)</li>
                   <li>• Average ARPU: ₹750/year</li>
                 </ul>
               </div>
@@ -249,7 +249,7 @@ export default function TheHinduCaseStudy() {
             <div className="bg-background border border-border rounded-lg p-6 space-y-4 text-muted-foreground">
               <div>
                 <p className="font-semibold text-foreground">32 years old. Deputy Manager, public sector bank. Chennai. Economics postgraduate. Preparing for UPSC Mains.</p>
-                <p className="italic mt-2">{String.fromCharCode(34)}I check The Hindu when there&apos;s something big happening — an election result, a Budget. The rest of the time I forget it exists.{String.fromCharCode(34)}</p>
+                <p className="italic mt-2">&quot;I check The Hindu when there&apos;s something big happening — an election result, a Budget. The rest of the time I forget it exists.&quot;</p>
               </div>
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Unmet Goals:</h3>
@@ -315,11 +315,11 @@ export default function TheHinduCaseStudy() {
               </div>
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">Root Cause 4: Subscription Funnel Lacks Value Narrative</h3>
-                <p className="text-sm">Paywall is hard stop without context. No {String.fromCharCode(34)}you&apos;ve read 15 articles this month{String.fromCharCode(34)}} message. No cost anchoring. No free trial. NYT paywall converts 1.5–2% of free users; The Hindu under 0.5%.</p>
+                  <p className="text-sm">Paywall is hard stop without context. No &quot;you&apos;ve read 15 articles this month&quot; message. No cost anchoring. No free trial. NYT paywall converts 1.5–2% of free users; The Hindu under 0.5%.</p>
               </div>
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">Root Cause 5: Google Dependency Is Existential Risk</h3>
-                <p className="text-sm">50–65% of traffic from search/Discover (borrowed traffic). Direct traffic only 20–25%. Google algorithm changes cause documented drops. Goal-Gradient Effect: engaged users invested in 5 topics, 3 newsletters, app = won{String.fromCharCode(39)}t leave if Google changes.</p>
+                  <p className="text-sm">50–65% of traffic from search/Discover (borrowed traffic). Direct traffic only 20–25%. Google algorithm changes cause documented drops. Goal-Gradient Effect: engaged users invested in 5 topics, 3 newsletters, app = won&apos;t leave if Google changes.</p>
               </div>
             </div>
           </div>
@@ -334,11 +334,11 @@ export default function TheHinduCaseStudy() {
               </div>
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">Option 2: Subscription-First Funnel Redesign</h3>
-                <p className="text-sm mb-2">Focus on converting Habitual Readers (15%) via paywall redesign, trial, subscriber-exclusive features. Benefits: Direct monetisation. Risks: Doesn{String.fromCharCode(39)}t solve engagement — high conversion of low traffic.</p>
+                  <p className="text-sm mb-2">Focus on converting Habitual Readers (15%) via paywall redesign, trial, subscriber-exclusive features. Benefits: Direct monetisation. Risks: Doesn&apos;t solve engagement — high conversion of low traffic.</p>
               </div>
               <div className="p-4 bg-primary/5 border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">Option 3: The Hindu Pulse — Chosen for MVP (Recommended)</h3>
-                <p className="text-sm mb-2"><strong>Lightweight daily engagement layer:</strong> Personalised morning push + newsletter, topic-follow feature, improved article-end recommendations, {String.fromCharCode(34)}catch-up{String.fromCharCode(34)}} homepage state, redesigned subscription with trial.</p>
+                  <p className="text-sm mb-2"><strong>Lightweight daily engagement layer:</strong> Personalised morning push + newsletter, topic-follow feature, improved article-end recommendations, &quot;catch-up&quot; homepage state, redesigned subscription with trial.</p>
                 <p className="text-sm"><strong>Benefits:</strong> Solves all 4 pain points, lower engineering effort (additive), incremental A/B testing, respects editorial hierarchy. <strong>Philosophy:</strong> Editorial experience must remain editorial. Product serves reader intelligence, never exploits attention psychology.</p>
               </div>
             </div>
@@ -398,7 +398,7 @@ export default function TheHinduCaseStudy() {
                 </div>
                 <div className="p-4 bg-background border border-border rounded-lg">
                   <h3 className="font-semibold text-foreground mb-2">Component 5: Push Notification Cadence</h3>
-                  <p className="text-sm">Morning: personalised brief (7 AM). Breaking: high-importance only (max 1/day). Evening: {{String.fromCharCode(34)}Top read today{{String.fromCharCode(34)}} (if no morning open). Weekly: {{String.fromCharCode(34)}Your reading month{{String.fromCharCode(34)}} (Spotify Wrapped style). <strong>Rule:</strong> No purely commercial pushes — editorial value first.</p>
+                  <p className="text-sm">Morning: personalised brief (7 AM). Breaking: high-importance only (max 1/day). Evening: &quot;Top read today&quot; (if no morning open). Weekly: &quot;Your reading month&quot; (Spotify Wrapped style). <strong>Rule:</strong> No purely commercial pushes — editorial value first.</p>
                 </div>
               </div>
             </div>
@@ -415,13 +415,13 @@ export default function TheHinduCaseStudy() {
               </div>
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">User Story 2: Next Read Module (MVP)</h3>
-                <p className="text-sm mb-2"><strong>As a</strong> user who finished article, <strong>I want</strong> curated {{String.fromCharCode(34)}what next{{String.fromCharCode(34)}} selection, <strong>so that</strong> I continue without returning to homepage.</p>
-                <p className="text-sm"><strong>Acceptance Criteria:</strong> Render within 200ms at {{String.fromCharCode(34)}scroll end, 3 cards (Next in story / More from Reporter / Recommended), show headline/section/read-time/age, SPA transition, never older than 14 days, A/B test vs current 5-card layout measuring next-article CTR.</p>
+                <p className="text-sm mb-2"><strong>As a</strong> user who finished article, <strong>I want</strong> curated &quot;what next&quot; selection, <strong>so that</strong> I continue without returning to homepage.</p>
+                <p className="text-sm"><strong>Acceptance Criteria:</strong> Render within 200ms at scroll end, 3 cards (Next in story / More from Reporter / Recommended), show headline/section/read-time/age, SPA transition, never older than 14 days, A/B test vs current 5-card layout measuring next-article CTR.</p>
               </div>
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">User Story 3: Paywall & Trial (MVP)</h3>
                 <p className="text-sm mb-2"><strong>As a</strong> paywall-hitting user, <strong>I want</strong> clear value + low-friction trial, <strong>so that</strong> I make confident decision.</p>
-                <p className="text-sm"><strong>Acceptance Criteria:</strong> Soft counter visible to logged-in users, personalised {{String.fromCharCode(34)}you{{String.fromCharCode(39)}ve read N articles{{String.fromCharCode(34)}} messaging, monthly pricing + annual default, 7-day trial button prominent (email + payment method, not charged until Day 8), Day 6 reminder push, trial conversion tracked, no paywall on AMP first article per session.</p>
+                <p className="text-sm"><strong>Acceptance Criteria:</strong> Soft counter visible to logged-in users, personalised &quot;you&apos;ve read N articles&quot; messaging, monthly pricing + annual default, 7-day trial button prominent (email + payment method, not charged until Day 8), Day 6 reminder push, trial conversion tracked, no paywall on AMP first article per session.</p>
               </div>
             </div>
           </div>
@@ -438,12 +438,12 @@ export default function TheHinduCaseStudy() {
               <div className="p-3 bg-background border border-border rounded">
                 <p className="font-semibold text-foreground mb-1">Month 3–4</p>
                 <p>Test 3: Paywall soft counter visible vs invisible (measure surprise abandonment + trial start rate)</p>
-                <p>Test 4: Generic {{String.fromCharCode(34)}subscribe{String.fromCharCode(34)}} vs personalised {{String.fromCharCode(34)}you{String.fromCharCode(39)}ve read N{String.fromCharCode(34)}} copy (measure trial + subscription conversion)</p>
+                <p>Test 4: Generic &quot;subscribe&quot; vs personalised &quot;you&apos;ve read N&quot; copy (measure trial + subscription conversion)</p>
               </div>
               <div className="p-3 bg-background border border-border rounded">
                 <p className="font-semibold text-foreground mb-1">Month 5–6</p>
                 <p>Test 5: 7-day trial vs 14-day trial (measure trial-to-paid conversion + abuse rate)</p>
-                <p>Test 6: {{String.fromCharCode(34)}Top read today{{String.fromCharCode(34)}} evening push vs no push (measure incremental daily opens + opt-out rate)</p>
+                <p>Test 6: &quot;Top read today&quot; evening push vs no push (measure incremental daily opens + opt-out rate)</p>
               </div>
               <p className="text-xs italic mt-4">All tests run minimum 2 weeks, 80% statistical power before winner declared. Learnings documented, presented fortnightly.</p>
             </div>
@@ -462,11 +462,11 @@ export default function TheHinduCaseStudy() {
                 <div className="space-y-2 text-sm">
                   <div className="p-3 bg-background border border-border rounded">
                     <p><strong>Morning Push Open Rate</strong></p>
-                    <p>Target: {String.fromCharCode(62)}22% (WhatsApp-level for high-trust senders)</p>
+                    <p>Target: {'>'} 22% (WhatsApp-level for high-trust senders)</p>
                   </div>
                   <div className="p-3 bg-background border border-border rounded">
                     <p><strong>Article-End Module CTR</strong></p>
-                    <p>Target: {String.fromCharCode(62)}28% vs current est. 8–12%</p>
+                    <p>Target: {'>'} 28% vs current est. 8–12%</p>
                   </div>
                   <div className="p-3 bg-background border border-border rounded">
                     <p><strong>Session Depth</strong></p>
@@ -474,7 +474,7 @@ export default function TheHinduCaseStudy() {
                   </div>
                   <div className="p-3 bg-background border border-border rounded">
                     <p><strong>Subscription Trial Start Rate</strong></p>
-                    <p>Target: 8–12% of paywall-hit users (vs {{String.fromCharCode(60)}}1% currently)</p>
+                    <p>Target: 8–12% of paywall-hit users (vs {'<'} 1% currently)</p>
                   </div>
                   <div className="p-3 bg-background border border-border rounded">
                     <p><strong>Trial-to-Paid Conversion</strong></p>
@@ -485,8 +485,8 @@ export default function TheHinduCaseStudy() {
               <div>
                 <h3 className="font-semibold text-foreground mb-3">L2 — Secondary Functional Metrics:</h3>
                 <ul className="text-sm space-y-2">
-                  <li>• Direct Traffic Share: 20–25% {String.fromCharCode(8594)} 30% (12 months)</li>
-                  <li>• Newsletter Open Rate: Target {String.fromCharCode(62)}35% (above industry avg)</li>
+              <li>• Direct Traffic Share: 20–25% → 30% (12 months)</li>
+              <li>• Newsletter Open Rate: Target {'>'} 35% (above industry avg)</li>
                   <li>• App DAU: tracked separately from web</li>
                   <li>• UPSC segment engagement: articles-per-visit + return rate</li>
                 </ul>
@@ -510,17 +510,17 @@ export default function TheHinduCaseStudy() {
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">Risk 1: Editorial Resistance</h3>
                 <p className="text-sm mb-2"><strong>Problem:</strong> Editorial team may resist algorithmic personalisation, viewing it as compromising curation.</p>
-                <p className="text-sm"><strong>Mitigation:</strong> {{String.fromCharCode(34)}Next Read{{String.fromCharCode(34)}} editorially guardrailed — stories tagged by reporters, not algorithm. Personalisation supplements curation, not replaces. Propose joint editorial-product working group owning taxonomy.</p>
+                <p className="text-sm"><strong>Mitigation:</strong> &quot;Next Read&quot; editorially guardrailed — stories tagged by reporters, not algorithm. Personalisation supplements curation, not replaces. Propose joint editorial-product working group owning taxonomy.</p>
               </div>
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">Risk 2: Notification Fatigue</h3>
                 <p className="text-sm mb-2"><strong>Problem:</strong> Daily morning briefs to 350k+ users risks opt-out spikes if personalisation weak early.</p>
-                <p className="text-sm"><strong>Mitigation:</strong> Rollout to 20% first month. Monitor open + opt-out weekly. Scale only if {{String.fromCharCode(62)}}18% open rate. Cap 2 notifications/user/day (morning + breaking). Never purely promotional.</p>
+                <p className="text-sm"><strong>Mitigation:</strong> Rollout to 20% first month. Monitor open + opt-out weekly. Scale only if {'>'}18% open rate. Cap 2 notifications/user/day (morning + breaking). Never purely promotional.</p>
               </div>
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">Risk 3: Trial Abuse</h3>
                 <p className="text-sm mb-2"><strong>Problem:</strong> 7-day free trial exploitable via multiple accounts.</p>
-                <p className="text-sm"><strong>Mitigation:</strong> Require payment method at trial start (industry standard). Flag duplicate payment methods. One trial per instrument. Monitor trial-completion ratio — if {{String.fromCharCode(60)}}40%, trial experience needs fixing not access controls.</p>
+                <p className="text-sm"><strong>Mitigation:</strong> Require payment method at trial start (industry standard). Flag duplicate payment methods. One trial per instrument. Monitor trial-completion ratio — if {'<'}40%, trial experience needs fixing not access controls.</p>
               </div>
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">Risk 4: Google Algorithm Vulnerability</h3>
@@ -541,11 +541,11 @@ export default function TheHinduCaseStudy() {
             <div className="space-y-4 text-muted-foreground">
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">V2 — Topic & Journalist Follows</h3>
-                <p className="text-sm">Follow Supreme Court, Union Budget, Climate topics. Follow individual journalists. Drives loyalty — NYT{String.fromCharCode(39)}s most-followed journalists have lowest churn.</p>
+                <p className="text-sm">Follow Supreme Court, Union Budget, Climate topics. Follow individual journalists. Drives loyalty — NYT&apos;s most-followed journalists have lowest churn.</p>
               </div>
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">V2 — The Hindu Wrapped (Annual)</h3>
-                <p className="text-sm">Spotify Wrapped model: total articles read, top topics/journalists/headlines. Shareable. Drives affinity + social proof. Subscribers get exclusive {{String.fromCharCode(34)}top 10% depth{String.fromCharCode(34)}} stats.</p>
+                <p className="text-sm">Spotify Wrapped model: total articles read, top topics/journalists/headlines. Shareable. Drives affinity + social proof. Subscribers get exclusive &quot;top 10% depth&quot; stats.</p>
               </div>
               <div className="p-4 bg-background border border-border rounded-lg">
                 <h3 className="font-semibold text-foreground mb-2">V2 — The Hindu for UPSC</h3>
@@ -569,37 +569,37 @@ export default function TheHinduCaseStudy() {
               <div className="p-3 bg-primary/5 border border-border rounded-lg">
                 <div className="flex justify-between items-center font-semibold text-foreground">
                   <span>Monthly Active Days (MAD)</span>
-                  <span>1.8 {String.fromCharCode(8594)} 4.0 days/month</span>
+                  <span>1.8 → 4.0 days/month</span>
                 </div>
               </div>
               <div className="p-3 bg-background border border-border rounded-lg">
                 <div className="flex justify-between items-center">
                   <span>Article-End CTR</span>
-                  <span className="font-semibold">~10% {String.fromCharCode(8594)} 28%+</span>
+                  <span className="font-semibold">~10% → 28%+</span>
                 </div>
               </div>
               <div className="p-3 bg-background border border-border rounded-lg">
                 <div className="flex justify-between items-center">
                   <span>Morning Push Open Rate</span>
-                  <span className="font-semibold">New {String.fromCharCode(8594)} {String.fromCharCode(62)}}22%</span>
+                  <span className="font-semibold">New → {'>'}22%</span>
                 </div>
               </div>
               <div className="p-3 bg-background border border-border rounded-lg">
                 <div className="flex justify-between items-center">
                   <span>Trial Start Rate</span>
-                  <span className="font-semibold">~0.5% {String.fromCharCode(8594)} 8–12%</span>
+                  <span className="font-semibold">~0.5% → 8–12%</span>
                 </div>
               </div>
               <div className="p-3 bg-background border border-border rounded-lg">
                 <div className="flex justify-between items-center">
                   <span>Trial-to-Paid Conversion</span>
-                  <span className="font-semibold">New {String.fromCharCode(8594)} 35–40%</span>
+                  <span className="font-semibold">New → 35–40%</span>
                 </div>
               </div>
               <div className="p-3 bg-background border border-border rounded-lg">
                 <div className="flex justify-between items-center">
                   <span>Direct Traffic Share</span>
-                  <span className="font-semibold">20–25% {String.fromCharCode(8594)} 30%</span>
+                  <span className="font-semibold">20–25% → 30%</span>
                 </div>
               </div>
               <div className="p-3 bg-primary/5 border border-border rounded-lg font-semibold text-foreground">

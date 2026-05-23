@@ -494,9 +494,9 @@ export default function TheHinduCaseStudy() {
               <div>
                 <h3 className="font-semibold text-foreground mb-3">Failure / Counter-Metrics (Circuit Breakers):</h3>
                 <ul className="text-sm space-y-2">
-                  <li>• Push opt-out rate {{String.fromCharCode(62)}}4% = notification too aggressive</li>
+                  <li>• Push opt-out rate {'>'}4% = notification too aggressive</li>
                   <li>• Subscription churn increase = paywall redesign failed</li>
-                  <li>• Organic search {String.fromCharCode(62)}70% of traffic = owned channels not working</li>
+                  <li>• Organic search {'>'}70% of traffic = owned channels not working</li>
                   <li>• Editorial NPS decline = product compromised journalism perception</li>
                 </ul>
               </div>

@@ -25,7 +25,7 @@ export default function TheHinduCaseStudy() {
                 Breaking the Bounce
               </h1>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-[#BE1E2D]">
-                32M Visitors, 79% Bounce Rate, ₹22Cr Opportunity
+                32M Visitors, 77% Bounce Rate, ₹22Cr Opportunity
               </h1>
               <p className="text-lg text-[#9E9386] italic max-w-xl mb-8 leading-relaxed">
                 How The Hindu can transform India&apos;s most trusted news brand into its most engaged digital platform by fixing the discovery-to-subscription funnel through product and distribution intelligence.
@@ -56,7 +56,7 @@ export default function TheHinduCaseStudy() {
               </div>
               <div>
                 <p className="text-[#6A6058] text-xs uppercase tracking-wider mb-2">Growth Metric</p>
-                <p className="text-2xl font-bold text-white">1.8 → 4.0</p>
+                <p className="text-2xl font-bold text-white">1.8 → 4.5</p>
                 <p className="text-xs text-[#9E9386] mt-1">Monthly Active Days</p>
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function TheHinduCaseStudy() {
                 <Newspaper className="text-primary" size={24} />
                 <h3 className="font-semibold text-foreground">The Problem</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">32M monthly visitors but 79% bounce rate. Users read one article and leave. No daily habit formation means no subscription conversion. Revenue opportunity abandoned at the product layer.</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">32M monthly visitors but 77% bounce rate. Users read one article and leave. No daily habit formation means no subscription conversion. Revenue opportunity abandoned at the product layer.</p>
             </div>
             <div className="bg-background border border-border p-6 rounded-lg">
               <div className="flex items-center gap-3 mb-4">
@@ -103,19 +103,19 @@ export default function TheHinduCaseStudy() {
                 <p className="text-xs text-red-500 mt-2">100%</p>
               </div>
               <div className="text-center p-4 bg-white rounded border border-red-200">
-                <p className="text-3xl font-bold text-[#BE1E2D] mb-1">2.5M</p>
-                <p className="text-xs font-semibold text-muted-foreground">Engaged Readers</p>
-                <p className="text-xs text-red-500 mt-2">-79% drop</p>
+                <p className="text-3xl font-bold text-[#BE1E2D] mb-1">4.6M</p>
+                <p className="text-xs font-semibold text-muted-foreground">Engaged Readers (3+ visits)</p>
+                <p className="text-xs text-red-500 mt-2">-77% drop</p>
               </div>
               <div className="text-center p-4 bg-white rounded border border-red-200">
-                <p className="text-3xl font-bold text-[#BE1E2D] mb-1">400K</p>
-                <p className="text-xs font-semibold text-muted-foreground">Registered Users</p>
-                <p className="text-xs text-red-500 mt-2">-84% drop</p>
+                <p className="text-3xl font-bold text-[#BE1E2D] mb-1">350K</p>
+                <p className="text-xs font-semibold text-muted-foreground">Paid Subscribers</p>
+                <p className="text-xs text-red-500 mt-2">1% conversion</p>
               </div>
               <div className="text-center p-4 bg-white rounded border border-red-200">
-                <p className="text-3xl font-bold text-[#BE1E2D] mb-1">120K</p>
-                <p className="text-xs font-semibold text-muted-foreground">Paying Subscribers</p>
-                <p className="text-xs text-red-500 mt-2">-70% drop</p>
+                <p className="text-3xl font-bold text-[#BE1E2D] mb-1">0.5%</p>
+                <p className="text-xs font-semibold text-muted-foreground">Free to Paid Conv.</p>
+                <p className="text-xs text-red-500 mt-2">Critical gap</p>
               </div>
             </div>
           </div>
@@ -183,17 +183,17 @@ export default function TheHinduCaseStudy() {
             <h3 className="text-lg font-bold text-foreground mb-6">Success Metrics & Targets</h3>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h4 className="font-semibold text-foreground mb-4">North Star: Monthly Active Days (MAD)</h4>
+                <h4 className="font-semibold text-foreground mb-2">North Star: Monthly Active Days (MAD)</h4>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center p-2 bg-background">
                     <span className="text-sm text-muted-foreground">Baseline</span>
                     <span className="font-bold text-foreground">1.8-2.2 days/month</span>
                   </div>
                   <div className="flex justify-between items-center p-2 bg-primary/5 rounded">
-                    <span className="text-sm text-foreground">Target (6 months)</span>
-                    <span className="font-bold text-primary">4.0 days/month</span>
+                    <span className="text-sm text-foreground">Target (12 months)</span>
+                    <span className="font-bold text-primary">4.5 days/month</span>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-4">This single metric drives both ad revenue per user and subscription conversion. 2.2× improvement compounds into ₹22-25Cr Year 1 impact.</p>
+                  <p className="text-xs text-muted-foreground mt-4">This single metric drives both ad revenue per user and subscription conversion. 2.5× improvement compounds into ₹22-25Cr Year 1 impact.</p>
                 </div>
               </div>
               <div>

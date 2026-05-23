@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, TrendingUp, Users, Mail, Target, BarChart3, Newspaper, Zap } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 
 export default function TheHinduCaseStudy() {
   return (
@@ -7,436 +7,630 @@ export default function TheHinduCaseStudy() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/#case-studies" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/#case-studies" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
             <ArrowLeft size={18} />
-            <span className="text-sm font-medium">Back to Case Studies</span>
+            Back to Case Studies
           </Link>
-          <span className="text-sm font-semibold text-foreground">The Hindu - Growth PM Case Study</span>
+          <p className="text-sm text-muted-foreground">THE HINDU</p>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="bg-[#1C1008] text-white py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-[1fr_320px] gap-12">
-            <div>
-              <p className="text-[#BE1E2D] text-sm font-semibold tracking-wider mb-4">GROWTH PRODUCT MANAGER - APPLICATION CASE STUDY</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-2 text-[#F5F0E8]">
-                The Hindu&apos;s
-              </h1>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-[#BE1E2D]">
-                Subscription Flywheel
-              </h1>
-              <p className="text-lg text-[#9E9386] italic max-w-xl mb-8 leading-relaxed">
-                How The Hindu can convert 12 million monthly visitors into a loyal, paying digital readership - 
-                by fixing the discovery-to-subscription funnel, one experiment at a time.
-              </p>
-              <div className="flex flex-wrap gap-8 text-sm">
-                <div>
-                  <p className="text-[#6A6058] text-xs uppercase tracking-wider mb-1">Role Applied</p>
-                  <p className="text-[#F5F0E8] font-semibold">Growth Product Manager</p>
-                </div>
-                <div>
-                  <p className="text-[#6A6058] text-xs uppercase tracking-wider mb-1">Company</p>
-                  <p className="text-[#F5F0E8] font-semibold">The Hindu Group, Chennai</p>
-                </div>
-                <div>
-                  <p className="text-[#6A6058] text-xs uppercase tracking-wider mb-1">Author</p>
-                  <p className="text-[#F5F0E8] font-semibold">Yash Mahadik</p>
-                </div>
-              </div>
+      {/* Hero Section */}
+      <section className="py-20 px-6 border-b border-border">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-primary text-sm font-semibold tracking-wider mb-4">THE HINDU | DIGITAL MEDIA & GROWTH</p>
+          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-foreground">Breaking the Bounce</h1>
+          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            How to transform The Hindu from India&apos;s most trusted news source into its most engaged digital media platform. A comprehensive Growth PM case study addressing engagement, retention, and digital revenue.
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="p-4 bg-primary/5 rounded-lg border border-border">
+              <p className="text-sm text-muted-foreground mb-1">Role</p>
+              <p className="font-semibold text-foreground">Growth Product Manager</p>
             </div>
-            <div className="bg-white/5 p-8 rounded-lg space-y-6">
-              <div className="border-b border-white/10 pb-6">
-                <p className="text-[#6A6058] text-xs uppercase tracking-wider mb-2">Monthly Visitors</p>
-                <p className="text-4xl font-bold text-[#F5F0E8]">12M</p>
-              </div>
-              <div className="border-b border-white/10 pb-6">
-                <p className="text-[#6A6058] text-xs uppercase tracking-wider mb-2">Current Conversion</p>
-                <p className="text-4xl font-bold text-[#BE1E2D]">{"<"}1%</p>
-              </div>
-              <div className="border-b border-white/10 pb-6">
-                <p className="text-[#6A6058] text-xs uppercase tracking-wider mb-2">Growth Levers</p>
-                <p className="text-4xl font-bold text-[#F5F0E8]">4</p>
-              </div>
-              <div>
-                <p className="text-[#6A6058] text-xs uppercase tracking-wider mb-2">Brand Heritage</p>
-                <p className="text-4xl font-bold text-[#F5F0E8]">143 Years</p>
-              </div>
+            <div className="p-4 bg-primary/5 rounded-lg border border-border">
+              <p className="text-sm text-muted-foreground mb-1">Focus Areas</p>
+              <p className="font-semibold text-foreground">8 product surfaces</p>
+            </div>
+            <div className="p-4 bg-primary/5 rounded-lg border border-border">
+              <p className="text-sm text-muted-foreground mb-1">Year 1 Revenue Impact</p>
+              <p className="font-semibold text-primary">₹22–25Cr</p>
+            </div>
+            <div className="p-4 bg-primary/5 rounded-lg border border-border">
+              <p className="text-sm text-muted-foreground mb-1">Target Metric</p>
+                  <p className="font-semibold text-foreground">MAD: 1.8 → 4.0</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Business Context */}
-      <section className="py-16 px-6 border-b border-border">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <Newspaper className="text-primary" size={24} />
-            <h2 className="text-2xl font-bold text-foreground">Business Context</h2>
+      {/* Content Sections */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto space-y-16">
+          {/* Section 1 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 1: Assumptions & Data Sources</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Financial Assumptions:</h3>
+                <p>The Hindu Group (THG Publishing Private Limited) does not publicly release line-item revenue statements. Based on financial registry data from Tofler.in and Bitscale.ai, operating revenue is consistently above ₹500 crore annually. This case study assumes a FY2024–25 base revenue of ₹520 crore, with revenue mix: print advertising ~45%, digital advertising ~25%, digital subscriptions ~12%, print subscriptions ~10%, events and licensing ~8%.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Revenue Growth Trajectory:</h3>
+                <p>FY25 actual ~₹520Cr, FY26 projected ~₹572Cr (+10%), FY27 projected ~₹640Cr (+12%), FY28 projected ~₹720Cr (+12.5%), driven primarily by digital subscription and programmatic ad revenue growth. Conservative 10–12% growth assumption relative to 15–18% CAGR seen by digital-first Indian media peers.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Digital Traffic (Semrush, May 2025):</h3>
+                <p>Monthly visits: ~29–37M (average 32M). Bounce rate: approximately 77–80%, meaningfully higher than international peers like NYT (~55%) and The Guardian (~60%).</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Digital Subscription:</h3>
+                <p>Current paid digital subscribers estimated at 300,000–400,000 (case uses 350,000). Average ARPU ~₹750/year. Digital subscription revenue estimated at ~₹26Cr annually.</p>
+              </div>
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-semibold text-foreground mb-3">The Hindu Group</h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                The Hindu is one of India&apos;s most respected English-language newspapers, with 143 years of editorial trust. 
-                The digital arm receives 12 million monthly visitors but struggles to convert them into paying subscribers.
+
+          {/* Section 2 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 2: Product Overview</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <p>
+                <strong>What is The Hindu?</strong> Founded in 1878 as a weekly broadsheet, The Hindu is one of India&apos;s most institutionally respected English-language dailies. It represents something rare in contemporary Indian media: a reputation for restraint, editorial independence, and fact-first journalism. The Hindu Group operates 17 print editions across India with the website thehindu.com as a growing digital ecosystem.
               </p>
-              <div className="bg-muted/50 p-4 rounded-lg">
-                <p className="text-sm font-medium text-foreground mb-2">Business Model</p>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>- Print subscriptions (declining)</li>
-                  <li>- Digital advertising (commoditized)</li>
-                  <li>- Digital subscriptions (growth focus)</li>
+              <p>
+                <strong>The Business Model:</strong> Revenue engine has three pillars: print advertising (~45%, structurally declining), digital advertising (~25%, growing), and subscriptions (~22% combined digital and print, highest-margin and most strategic). Credible journalism attracts a high-quality, high-intent audience of professionals, students, and policymakers (70% in upper-middle or high income brackets).
+              </p>
+              <p>
+                <strong>The Problem:</strong> Despite 32 million monthly website visitors, The Hindu&apos;s bounce rate sits at 77–80%. Most visitors read one article and leave. Sessions are shallow. Subscription funnel converts poorly because visitors never develop a daily habit that precedes a payment decision.
+              </p>
+              <p>
+                <strong>The Opportunity:</strong> The digital transformation opportunity is a ₹200Cr upside over 3 years if the engagement gap is closed.
+              </p>
+            </div>
+          </div>
+
+          {/* Section 3 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 3: Focus Area — The Revenue Chain</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <p>
+                <strong>Revenue Chain:</strong> Total Revenue flows into two buckets. Advertising Revenue is driven by page views per session, return visit frequency, time on site, and ad fill rates. Subscription Revenue is driven by subscriber count, driven by subscription conversion rate, driven by habit formation, driven by daily active engagement.
+              </p>
+              <p>
+                <strong>The Focus Metric: Monthly Active Days per User (MAD)</strong> — currently estimated at 1.8–2.2 days per month for the average thehindu.com visitor. Target: 4.5 days per month within 12 months. A user who visits once contributes fractionally to ad revenue and near-zero to subscription likelihood. A user who returns four days a week contributes 4–8× more ad revenue.
+              </p>
+              <p>
+                <strong>Key Insight:</strong> The Hindu&apos;s brand value and Google Discover traffic bring users to the door every day. The product is failing to make them stay, return, or pay. This is entirely fixable without editorial change.
+              </p>
+            </div>
+          </div>
+
+          {/* Section 4 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 4: The Problem — 32M Visitors, 77% Bounce Rate</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <p>Most users arrive from search or social, read one article, and leave. The homepage and article experience offer no compelling reason to continue reading, return tomorrow, or subscribe.</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 my-6">
+                <div className="p-4 bg-background border border-border rounded-lg">
+                  <p className="text-xs text-muted-foreground mb-1">The Hindu DAU/MAU</p>
+                  <p className="text-2xl font-bold text-foreground">6–8%</p>
+                </div>
+                <div className="p-4 bg-background border border-border rounded-lg">
+                  <p className="text-xs text-muted-foreground mb-1">The Guardian</p>
+                  <p className="text-2xl font-bold text-foreground">18%</p>
+                </div>
+                <div className="p-4 bg-background border border-border rounded-lg">
+                  <p className="text-xs text-muted-foreground mb-1">NYT Digital</p>
+                  <p className="text-2xl font-bold text-foreground">22%</p>
+                </div>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Core Problem Numbers:</h3>
+                <ul className="space-y-2 text-sm">
+                  <li>• ~77% of visits end after reading a single article</li>
+                  <li>• Average session depth: 1.8 articles</li>
+                  <li>• Returning visitor rate: 55% (nearly half traffic is one-time)</li>
+                  <li>• Digital subscription conversion rate: under 0.5%</li>
+                  <li>• Google Discover & SEO: drive ~65% of traffic (algorithmic dependency risk)</li>
                 </ul>
               </div>
             </div>
-            <div>
-              <h3 className="font-semibold text-foreground mb-3">Competitive Positioning</h3>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center p-3 bg-muted/30 rounded">
-                  <span className="text-sm text-muted-foreground">The Hindu</span>
-                  <span className="text-sm font-semibold text-foreground">12M visitors, 120K paying</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-muted/30 rounded">
-                  <span className="text-sm text-muted-foreground">Times of India</span>
-                  <span className="text-sm font-semibold text-foreground">Ad-heavy, low conversion</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-muted/30 rounded">
-                  <span className="text-sm text-muted-foreground">Indian Express</span>
-                  <span className="text-sm font-semibold text-foreground">Growing digital subs</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-muted/30 rounded">
-                  <span className="text-sm text-muted-foreground">Mint/ET</span>
-                  <span className="text-sm font-semibold text-foreground">Premium positioning</span>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Problem Definition */}
-      <section className="py-16 px-6 bg-muted/30 border-b border-border">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <Target className="text-primary" size={24} />
-            <h2 className="text-2xl font-bold text-foreground">The Problem: A Leaky Funnel</h2>
-          </div>
-          <p className="text-muted-foreground mb-8 max-w-3xl">
-            Despite 143 years of editorial trust and 12M monthly visitors, The Hindu converts less than 1% to paying subscribers. 
-            The funnel leaks at every stage.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            <div className="bg-background p-6 rounded-lg text-center border border-border">
-              <p className="text-3xl font-bold text-foreground mb-2">12M</p>
-              <p className="text-sm text-muted-foreground">Monthly Visitors</p>
-              <p className="text-xs text-primary mt-2">100%</p>
-            </div>
-            <div className="bg-background p-6 rounded-lg text-center border border-border">
-              <p className="text-3xl font-bold text-foreground mb-2">2.5M</p>
-              <p className="text-sm text-muted-foreground">Engaged Readers</p>
-              <p className="text-xs text-red-500 mt-2">-79% drop</p>
-            </div>
-            <div className="bg-background p-6 rounded-lg text-center border border-border">
-              <p className="text-3xl font-bold text-foreground mb-2">400K</p>
-              <p className="text-sm text-muted-foreground">Registered Users</p>
-              <p className="text-xs text-red-500 mt-2">-84% drop</p>
-            </div>
-            <div className="bg-background p-6 rounded-lg text-center border border-border">
-              <p className="text-3xl font-bold text-foreground mb-2">120K</p>
-              <p className="text-sm text-muted-foreground">Paying Subscribers</p>
-              <p className="text-xs text-red-500 mt-2">-70% drop</p>
+          {/* Section 5 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 5: User Segmentation</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Segment 1: Search Arrivals (45% of monthly visitors)</h3>
+                <p>Come via Google search for specific story, read one article, leave. Bounce rate ~85–90%. No brand relationship with The Hindu.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Segment 2: Occasional Readers / Primary Target (40% of monthly visitors)</h3>
+                <p>Visit 2–5 times/month, have brand awareness, read 2–3 sections, never subscribed. Highest volume of addressable users. Converting 20% from 3 visits/month to 8 visits/month would move the needle dramatically.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Segment 3: Habitual Daily Readers (15% of monthly visitors)</h3>
+                <p>Visit 15–25 times/month, read across sections, many are UPSC aspirants. High subscription intent but high resistance due to paywall friction.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Segment 4: Paid Subscribers (~350,000, ~1% of monthly visitors)</h3>
+                <p>Unlimited access, highest loyalty, highest LTV. Each subscriber represents ~₹750/year in direct revenue. 5% churn reduction is worth ~₹1.3Cr annually.</p>
+              </div>
             </div>
           </div>
 
-          {/* Funnel Diagnosis */}
-          <h3 className="text-xl font-bold text-foreground mb-6">Funnel Stage Diagnosis</h3>
-          <div className="space-y-4">
-            <div className="bg-background p-4 rounded-lg border border-border flex flex-col md:flex-row md:items-center gap-4">
-              <div className="md:w-40 font-semibold text-foreground">Monthly Visitors</div>
-              <div className="flex-1 text-sm text-muted-foreground">Top of funnel is healthy, driven by organic search and brand authority.</div>
-              <div className="md:w-24 text-xs text-green-600 font-medium">Healthy</div>
-            </div>
-            <div className="bg-background p-4 rounded-lg border border-border flex flex-col md:flex-row md:items-center gap-4">
-              <div className="md:w-40 font-semibold text-foreground">Engaged Readers</div>
-              <div className="flex-1 text-sm text-muted-foreground">High bounce rate. Users read one linked article and leave due to poor internal linking and lack of &quot;next best action.&quot;</div>
-              <div className="md:w-24 text-xs text-red-500 font-medium">-79% Drop</div>
-            </div>
-            <div className="bg-background p-4 rounded-lg border border-border flex flex-col md:flex-row md:items-center gap-4">
-              <div className="md:w-40 font-semibold text-foreground">Registered Users</div>
-              <div className="flex-1 text-sm text-muted-foreground">Extreme friction. Creating an account offers no immediate, tangible value to the user before they hit the paywall.</div>
-              <div className="md:w-24 text-xs text-red-500 font-medium">-84% Drop</div>
-            </div>
-            <div className="bg-background p-4 rounded-lg border border-border flex flex-col md:flex-row md:items-center gap-4">
-              <div className="md:w-40 font-semibold text-foreground">Paying Subscribers</div>
-              <div className="flex-1 text-sm text-muted-foreground">&quot;One Size Fits All&quot; paywall blocks casual readers too early and fails to offer flexible pricing for power users.</div>
-              <div className="md:w-24 text-xs text-red-500 font-medium">-70% Drop</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* User Segmentation */}
-      <section className="py-16 px-6 border-b border-border">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <Users className="text-primary" size={24} />
-            <h2 className="text-2xl font-bold text-foreground">User Segmentation</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-              <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mb-4">1</div>
-              <h3 className="font-semibold text-foreground mb-2">The Loyal Lifer</h3>
-              <p className="text-sm text-muted-foreground mb-3">40+ years old, reads print edition daily, subscribes out of habit and trust</p>
-              <p className="text-xs font-medium text-green-600">HIGH LTV - Low churn risk</p>
-            </div>
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-              <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mb-4">2</div>
-              <h3 className="font-semibold text-foreground mb-2">The Habitual Browser</h3>
-              <p className="text-sm text-muted-foreground mb-3">25-40, visits 3-5x/week, reads headlines but rarely deep-dives</p>
-              <p className="text-xs font-medium text-blue-600">MEDIUM LTV - Conversion opportunity</p>
-            </div>
-            <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-              <div className="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center text-white font-bold mb-4">3</div>
-              <h3 className="font-semibold text-foreground mb-2">The Google Drifter</h3>
-              <p className="text-sm text-muted-foreground mb-3">Arrives via search, reads one article, bounces. No brand loyalty.</p>
-              <p className="text-xs font-medium text-amber-600">LOW LTV - Acquisition challenge</p>
-            </div>
-            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-              <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mb-4">4</div>
-              <h3 className="font-semibold text-foreground mb-2">The Young Sceptic</h3>
-              <p className="text-sm text-muted-foreground mb-3">18-25, digital native, questions paying for news when free options exist</p>
-              <p className="text-xs font-medium text-purple-600">FUTURE LTV - Education needed</p>
-            </div>
-          </div>
-
-          {/* Jobs To Be Done */}
-          <h3 className="text-xl font-bold text-foreground mb-6">Jobs To Be Done (JTBD) Analysis</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-              <h4 className="font-semibold text-foreground mb-2">The Loyal Lifer</h4>
-              <p className="text-sm text-muted-foreground italic mb-3">&quot;When I start my day, I want to read trusted, in-depth news, so I can feel informed and intellectually prepared.&quot;</p>
-              <div className="text-xs text-green-700 space-y-1">
-                <p><strong>Intervention:</strong> Offer a bundled Print + Digital subscription at a discount to retain and upsell.</p>
-              </div>
-            </div>
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-foreground mb-2">The Habitual Browser</h4>
-              <p className="text-sm text-muted-foreground italic mb-3">&quot;When I have a few minutes, I want to quickly catch up on headlines, so I can stay current without a big time investment.&quot;</p>
-              <div className="text-xs text-blue-700 space-y-1">
-                <p><strong>Intervention:</strong> The Morning Brief newsletter. Give them value in 5 mins, then convert.</p>
-              </div>
-            </div>
-            <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-              <h4 className="font-semibold text-foreground mb-2">The Google Drifter</h4>
-              <p className="text-sm text-muted-foreground italic mb-3">&quot;When I search for a topic, I want the most relevant article, so I can get answers without caring who wrote it.&quot;</p>
-              <div className="text-xs text-amber-700 space-y-1">
-                <p><strong>Intervention:</strong> Strong internal linking and &quot;related stories&quot; to build habit from a single visit.</p>
-              </div>
-            </div>
-            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-              <h4 className="font-semibold text-foreground mb-2">The Young Sceptic</h4>
-              <p className="text-sm text-muted-foreground italic mb-3">&quot;When I see paywalls, I want to know if it&apos;s worth my money, so I don&apos;t feel like I&apos;m paying for something I can get free.&quot;</p>
-              <div className="text-xs text-purple-700 space-y-1">
-                <p><strong>Intervention:</strong> Student tier at Rs.49/month with campus ambassador program.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* RERE Solution */}
-      <section className="py-16 px-6 bg-muted/30 border-b border-border">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <Zap className="text-primary" size={24} />
-            <h2 className="text-2xl font-bold text-foreground">The RERE Growth Engine</h2>
-          </div>
-          <p className="text-muted-foreground mb-8 max-w-3xl">
-            A four-lever framework to fix the funnel at each stage: Reach, Engagement, Retention, Revenue.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Reach */}
-            <div className="bg-background p-6 rounded-lg border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 bg-green-500 rounded flex items-center justify-center text-white font-bold text-sm">R</div>
-                <h3 className="font-semibold text-foreground">Reach: Google Discover Optimization</h3>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                Optimize article metadata, images, and headlines for Google Discover to increase organic traffic by 30%.
+          {/* Section 6 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 6: Size & Impact Calculation</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <p>
+                <strong>The Funnel:</strong> 32M monthly unique visitors, ~12.8M Occasional Readers, ~7.7M reachable via nudges, ~4.6M with 3+ visits in past 30 days.
               </p>
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span>RICE Score: 405</span>
-                <span className="text-green-600 font-medium">Priority: P0</span>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Impact Model:</h3>
+                <ul className="space-y-2 text-sm">
+              <li>• 25% session depth improvement (1.8 → 2.25 articles/visit)</li>
+              <li>• 15% return visit lift (3 → 3.45 visits/month)</li>
+              <li>• Subscription conversion: 0.4% → 0.9% (8+ articles/month users)</li>
+                  <li>• Average ARPU: ₹750/year</li>
+                </ul>
               </div>
-            </div>
-            {/* Engagement */}
-            <div className="bg-background p-6 rounded-lg border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center text-white font-bold text-sm">E</div>
-                <h3 className="font-semibold text-foreground">Engagement: Morning Brief Newsletter</h3>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                Launch The Hindu Morning Brief - a curated 5-minute daily newsletter with projected 7.2 Cr ARR.
-              </p>
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span>RICE Score: 320</span>
-                <span className="text-blue-600 font-medium">Priority: P0</span>
-              </div>
-            </div>
-            {/* Retention */}
-            <div className="bg-background p-6 rounded-lg border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 bg-amber-500 rounded flex items-center justify-center text-white font-bold text-sm">R</div>
-                <h3 className="font-semibold text-foreground">Retention: Smart Paywall + Onboarding</h3>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                Implement metered paywall with personalized article recommendations and progressive onboarding.
-              </p>
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span>RICE Score: 284</span>
-                <span className="text-amber-600 font-medium">Priority: P1</span>
-              </div>
-            </div>
-            {/* Revenue */}
-            <div className="bg-background p-6 rounded-lg border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 bg-purple-500 rounded flex items-center justify-center text-white font-bold text-sm">E</div>
-                <h3 className="font-semibold text-foreground">Revenue: Subscription Tier Expansion</h3>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                Launch Student (Rs.49), Corporate (Rs.2,999/seat), and Hindu+ Premium (Rs.999) tiers.
-              </p>
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span>RICE Score: 192</span>
-                <span className="text-purple-600 font-medium">Priority: P2</span>
+              <div className="bg-primary/5 p-4 rounded-lg border border-border">
+                <h3 className="font-semibold text-foreground mb-3">Projected Impact:</h3>
+                <p className="mb-2"><strong>Ad Revenue Impact:</strong> 4.6M users × 15% lift × ₹0.80 RPM ≈ ₹5.5Cr incremental annual</p>
+                <p className="mb-2"><strong>Subscription Revenue Impact:</strong> 4.6M users × 0.5% conversion lift = 23,000 new subscribers × ₹750 ≈ ₹17.3Cr incremental</p>
+                <p><strong>Total Year 1:</strong> ₹22–25Cr incremental revenue, growing to ₹40–50Cr in Year 2</p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Newsletter Deep Dive */}
-      <section className="py-16 px-6 border-b border-border">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <Mail className="text-primary" size={24} />
-            <h2 className="text-2xl font-bold text-foreground">Deep Dive: The Hindu Morning Brief</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-semibold text-foreground mb-3">Product Concept</h3>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                A 5-minute daily newsletter delivered at 6 AM with curated top stories, 
-                analysis, and exclusive subscriber content. Designed to build habit and drive conversions.
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-sm text-muted-foreground">5 top stories with 2-line summaries</span>
+          {/* Section 7 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 7: Problem Validation & Competitor Research</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">5 Validated Hypotheses:</h3>
+                <ul className="space-y-2 text-sm">
+                  <li><strong>H1:</strong> Homepage has no personalisation — users see identical content regardless of reading history</li>
+                  <li><strong>H2:</strong> Paywall experience creates confusion with unclear value proposition</li>
+                  <li><strong>H3:</strong> No daily reason to open thehindu.com — reactive, event-driven notifications only</li>
+                  <li><strong>H4:</strong> Article recommendation is weak — related articles are tangentially related or old</li>
+                  <li><strong>H5:</strong> Google Discover dependency is vulnerability — 50–65% of traffic is algorithmic</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Competitor Benchmarking (NYT, Guardian, FT, HT, Indian Express vs The Hindu):</h3>
+                <div className="overflow-x-auto text-xs">
+                  <table className="w-full">
+                    <tbody>
+                      <tr className="border-b border-border">
+                        <td className="py-2 font-semibold">Feature</td>
+                        <td className="py-2">NYT</td>
+                        <td className="py-2">Guardian</td>
+                        <td className="py-2">The Hindu</td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="py-2">Personalised homepage</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2 text-red-600">No</td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="py-2">Topic-follow feature</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2 text-red-600">No</td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="py-2">Morning briefing push</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2 text-red-600">No</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2">Free trial offer</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2 text-red-600">No</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-sm text-muted-foreground">1 deep-dive analysis piece</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-sm text-muted-foreground">Quote of the day + editorial cartoon</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-sm text-muted-foreground">Personalized reading recommendations</span>
-                </div>
+                <p className="mt-4 text-sm"><strong>Key Learning:</strong> The Hindu has the worst digital engagement feature set among global peers — despite strongest editorial brand among Indian peers. Enormous gap between brand quality and product quality.</p>
               </div>
             </div>
-            <div className="bg-muted/50 p-6 rounded-lg">
-              <h3 className="font-semibold text-foreground mb-4">Projected Impact</h3>
+          </div>
+
+          {/* Section 8 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 8: User Persona — Priya Raghavan</h2>
+            <div className="bg-background border border-border rounded-lg p-6 space-y-4 text-muted-foreground">
+              <div>
+                <p className="font-semibold text-foreground">32 years old. Deputy Manager, public sector bank. Chennai. Economics postgraduate. Preparing for UPSC Mains.</p>
+                <p className="italic mt-2">&quot;I check The Hindu when there&apos;s something big happening — an election result, a Budget. The rest of the time I forget it exists.&quot;</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Unmet Goals:</h3>
+                <ul className="text-sm space-y-1">
+                  <li>• Stay current on national affairs without 20+ min/day investment</li>
+                  <li>• Use The Hindu for UPSC prep (currently switches between apps)</li>
+                  <li>• Trust a single source instead of triangulating across three</li>
+                  <li>• Build consistent reading habit</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Pain Points:</h3>
+                <ul className="text-sm space-y-1">
+                  <li>• Homepage overwhelming, no hierarchy for her interests</li>
+                  <li>• No {String.fromCharCode(34)}catch up{String.fromCharCode(34)} feature when away</li>
+                  <li>• Can{String.fromCharCode(39)}t save articles within The Hindu (screenshots instead)</li>
+                  <li>• Paywall appears mid-article with no warning</li>
+                  <li>• No clarity on subscription cost until hit paywall in frustration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 9 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 9: User Journey Map — Daily News Cycle</h2>
+            <div className="space-y-4">
+              {[
+                { stage: "Stage 1: Trigger (Morning)", thought: "Let me see what The Hindu says", emotion: "Purposeful, focused" },
+                { stage: "Stage 2: Article Consumption", thought: "This is exactly the reporting I wanted", emotion: "Satisfied" },
+                { stage: "Stage 3: End of Article", thought: "What else should I read?", emotion: "Uncertain, lost" },
+                { stage: "Stage 4: Brief Exploration", thought: "I don't know where to go from here", emotion: "Overwhelmed" },
+                { stage: "Stage 5: Exit", thought: "I should subscribe but I don't open it enough", emotion: "Guilty, not compelled" }
+              ].map((item, idx) => (
+                <div key={idx} className="p-4 bg-background border border-border rounded-lg">
+                  <p className="font-semibold text-foreground mb-2">{item.stage}</p>
+                  <p className="text-sm text-muted-foreground">Thought: {item.thought}</p>
+                  <p className="text-sm text-muted-foreground">Emotion: {item.emotion}</p>
+                </div>
+              ))}
+              <div className="p-4 bg-primary/5 border border-border rounded-lg mt-4">
+                <p className="font-semibold text-foreground mb-2">The Engagement Graveyard Moment:</p>
+                <p className="text-sm text-muted-foreground">Article-end is The Hindu&apos;s highest-engagement moment, immediately followed by a void. No personalised next read. No topic thread. The highest-intent moment is completely wasted.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 10 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 10: Root Cause Analysis — 5 Core Issues</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Root Cause 1: No Owned Daily Habit Trigger</h3>
+                <p className="text-sm">Every major digital media brand solved engagement through proprietary daily ritual — NYT (The Morning), Guardian (Today in Focus), FT (Daily Briefing). The Hindu lacks this.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Root Cause 2: Article Recommendation Does Not Respect Reading History</h3>
+                <p className="text-sm">{String.fromCharCode(34)}Related Articles{String.fromCharCode(34)} at bottom of articles surfaces algorithmically weak or generic suggestions. User after reading RBI analysis sees old interest rates story, not related RBI pieces.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Root Cause 3: Homepage Is Not Personalised</h3>
+                <p className="text-sm">19-story editorial selection identical for every visitor. Right for print newspaper, wrong for digital product with reading history data. Hick&apos;s Law violation: equal visual weight causes decision paralysis.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Root Cause 4: Subscription Funnel Lacks Value Narrative</h3>
+                  <p className="text-sm">Paywall is hard stop without context. No &quot;you&apos;ve read 15 articles this month&quot; message. No cost anchoring. No free trial. NYT paywall converts 1.5–2% of free users; The Hindu under 0.5%.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Root Cause 5: Google Dependency Is Existential Risk</h3>
+                  <p className="text-sm">50–65% of traffic from search/Discover (borrowed traffic). Direct traffic only 20–25%. Google algorithm changes cause documented drops. Goal-Gradient Effect: engaged users invested in 5 topics, 3 newsletters, app = won&apos;t leave if Google changes.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 11 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 11: Solution Ideation — Three Options</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Option 1: Full Platform Personalisation Overhaul</h3>
+                <p className="text-sm mb-2">ML-driven homepage like Spotify. Every user different homepage. Benefits: Highest engagement lift. Risks: 12–18 month investment, over-personalisation filter bubbles, editorial resistance.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Option 2: Subscription-First Funnel Redesign</h3>
+                  <p className="text-sm mb-2">Focus on converting Habitual Readers (15%) via paywall redesign, trial, subscriber-exclusive features. Benefits: Direct monetisation. Risks: Doesn&apos;t solve engagement — high conversion of low traffic.</p>
+              </div>
+              <div className="p-4 bg-primary/5 border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Option 3: The Hindu Pulse — Chosen for MVP (Recommended)</h3>
+                  <p className="text-sm mb-2"><strong>Lightweight daily engagement layer:</strong> Personalised morning push + newsletter, topic-follow feature, improved article-end recommendations, &quot;catch-up&quot; homepage state, redesigned subscription with trial.</p>
+                <p className="text-sm"><strong>Benefits:</strong> Solves all 4 pain points, lower engineering effort (additive), incremental A/B testing, respects editorial hierarchy. <strong>Philosophy:</strong> Editorial experience must remain editorial. Product serves reader intelligence, never exploits attention psychology.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 12 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 12: MVP Scope via RICE Scoring</h2>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="p-3 bg-background border border-border rounded">
+                <p className="font-semibold text-foreground">Personalised Morning Push / Daily Brief</p>
+                <p>Reach 9 × Impact 9 × Confidence 8 ÷ Effort 2 = <strong>Score 324</strong> ✓ MVP</p>
+              </div>
+              <div className="p-3 bg-background border border-border rounded">
+                <p className="font-semibold text-foreground">Improved Article-End Recommendation</p>
+                <p>Reach 10 × Impact 9 × Confidence 8 ÷ Effort 3 = <strong>Score 240</strong> ✓ MVP</p>
+              </div>
+              <div className="p-3 bg-background border border-border rounded">
+                <p className="font-semibold text-foreground">Paywall Value Proposition + Trial</p>
+                <p>Reach 6 × Impact 10 × Confidence 8 ÷ Effort 3 = <strong>Score 160</strong> ✓ MVP</p>
+              </div>
+              <div className="p-3 bg-background border border-border rounded">
+                <p className="font-semibold text-foreground">Topic-Follow / Journalist-Follow</p>
+                <p>Reach 7 × Impact 8 × Confidence 7 ÷ Effort 4 = <strong>Score 98</strong> → V2</p>
+              </div>
+              <div className="p-3 bg-background border border-border rounded">
+                <p className="font-semibold text-foreground">Homepage Personalisation</p>
+                <p>Reach 8 × Impact 9 × Confidence 7 ÷ Effort 6 = <strong>Score 84</strong> → V2</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 13 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 13: Solution Overview — The Hindu Pulse</h2>
+            <div className="space-y-6 text-muted-foreground">
+              <p><strong>A personalised daily engagement layer giving every reader a compelling reason to open thehindu.com each morning and a clear reason to subscribe.</strong></p>
+              
               <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Target Subscribers</span>
-                  <span className="font-semibold text-foreground">500K</span>
+                <div className="p-4 bg-background border border-border rounded-lg">
+                  <h3 className="font-semibold text-foreground mb-2">Component 1: The Morning Pulse</h3>
+                  <p className="text-sm">7:00 AM personalised digest with: 3 top stories based on topic history, 1 &quot;missed&quot; story from past 24h, 1 continuing thread update if read 3+ articles. Subject lines editorially guardrailed, never clickbait. UX Law: Zeigarnik Effect (unfinished threads pull users back).</p>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Open Rate Target</span>
-                  <span className="font-semibold text-foreground">45%</span>
+                <div className="p-4 bg-background border border-border rounded-lg">
+                  <h3 className="font-semibold text-foreground mb-2">Component 2: The Next Read Module</h3>
+                  <p className="text-sm mb-2">Article-end redesign with 3 cards: (1) &quot;Next in this story&quot; — most recent same-thread article, (2) &quot;More from [Reporter]&quot; — drives journalist loyalty, (3) &quot;Readers in your area also read&quot; — collaborative filtering.</p>
+                  <p className="text-sm">UX Law: Miller&apos;s Law (exactly 3 options, not 8) + Peak-End Rule (end of good article = highest intent).</p>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">CTR Target</span>
-                  <span className="font-semibold text-foreground">12%</span>
+                <div className="p-4 bg-background border border-border rounded-lg">
+                  <h3 className="font-semibold text-foreground mb-2">Component 3: Paywall & Subscription Redesign</h3>
+                  <p className="text-sm mb-2">Soft counter: &quot;5 articles remaining this week&quot; visible to logged-in users (removes surprise). Paywall shows: &quot;You&apos;ve read 12 articles about Indian economy. Subscribers read avg 48.&quot; Pricing: &quot;₹65/month — less than your morning coffee.&quot; 7-day free trial (no charge until Day 8).</p>
+                  <p className="text-sm">UX Law: Loss Aversion (&quot;missing&quot; framing) + Transparency Heuristic (visible counter) + Anchoring (₹65 vs coffee).</p>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Conversion to Paid</span>
-                  <span className="font-semibold text-foreground">4%</span>
+                <div className="p-4 bg-background border border-border rounded-lg">
+                  <h3 className="font-semibold text-foreground mb-2">Component 4: Google Discover & SEO Optimisation</h3>
+                  <p className="text-sm">Domain authority 94–96 (extraordinary asset). Initiatives: structured data markup improvements, AMP optimisation, topic cluster strategy (10–15 hubs like &quot;Union Budget&quot;, &quot;Supreme Court&quot;), web stories for Discover.</p>
                 </div>
-                <div className="flex justify-between items-center border-t border-border pt-4 mt-4">
-                  <span className="text-sm font-medium text-foreground">Projected ARR</span>
-                  <span className="font-bold text-primary text-lg">Rs.7.2 Cr</span>
+                <div className="p-4 bg-background border border-border rounded-lg">
+                  <h3 className="font-semibold text-foreground mb-2">Component 5: Push Notification Cadence</h3>
+                  <p className="text-sm">Morning: personalised brief (7 AM). Breaking: high-importance only (max 1/day). Evening: &quot;Top read today&quot; (if no morning open). Weekly: &quot;Your reading month&quot; (Spotify Wrapped style). <strong>Rule:</strong> No purely commercial pushes — editorial value first.</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Success Metrics */}
-      <section className="py-16 px-6 bg-muted/30 border-b border-border">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <BarChart3 className="text-primary" size={24} />
-            <h2 className="text-2xl font-bold text-foreground">Success Metrics</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-background p-6 rounded-lg border border-border">
-              <div className="flex items-center gap-2 mb-4">
-                <TrendingUp className="text-primary" size={18} />
-                <h3 className="font-semibold text-foreground">North Star</h3>
+          {/* Section 14 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 14: User Stories & Acceptance Criteria</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">User Story 1: Morning Pulse (MVP)</h3>
+                <p className="text-sm mb-2"><strong>As a</strong> registered user, <strong>I want</strong> personalised morning brief, <strong>so that</strong> I have reason to open The Hindu first not Twitter.</p>
+                <p className="text-sm"><strong>Acceptance Criteria:</strong> 6:45–7:15 AM delivery by timezone, 3 personalised headlines, 1 missed story from top topics, deep-link to articles, 4-hour deduplication, customisable time, 1-tap opt-out, open rate tracked and shared.</p>
               </div>
-              <p className="text-2xl font-bold text-foreground mb-2">Monthly Paying Subscribers</p>
-              <p className="text-sm text-muted-foreground">Target: 120K to 200K in 12 months</p>
-            </div>
-            <div className="bg-background p-6 rounded-lg border border-border">
-              <h3 className="font-semibold text-foreground mb-4">L1 Metrics (Leading)</h3>
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>- Newsletter subscribers: 500K</li>
-                <li>- Registered users: 400K to 800K</li>
-                <li>- Articles/session: 1.2 to 2.5</li>
-                <li>- Return visitor rate: 25% to 40%</li>
-              </ul>
-            </div>
-            <div className="bg-background p-6 rounded-lg border border-border">
-              <h3 className="font-semibold text-foreground mb-4">L2 Metrics (Health)</h3>
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>- Subscriber churn rate: {"<"}5%/month</li>
-                <li>- NPS score: {">"} 50</li>
-                <li>- Support tickets: {"<"}2% of subs</li>
-                <li>- Payment success rate: {">"}95%</li>
-              </ul>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">User Story 2: Next Read Module (MVP)</h3>
+                <p className="text-sm mb-2"><strong>As a</strong> user who finished article, <strong>I want</strong> curated &quot;what next&quot; selection, <strong>so that</strong> I continue without returning to homepage.</p>
+                <p className="text-sm"><strong>Acceptance Criteria:</strong> Render within 200ms at scroll end, 3 cards (Next in story / More from Reporter / Recommended), show headline/section/read-time/age, SPA transition, never older than 14 days, A/B test vs current 5-card layout measuring next-article CTR.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">User Story 3: Paywall & Trial (MVP)</h3>
+                <p className="text-sm mb-2"><strong>As a</strong> paywall-hitting user, <strong>I want</strong> clear value + low-friction trial, <strong>so that</strong> I make confident decision.</p>
+                <p className="text-sm"><strong>Acceptance Criteria:</strong> Soft counter visible to logged-in users, personalised &quot;you&apos;ve read N articles&quot; messaging, monthly pricing + annual default, 7-day trial button prominent (email + payment method, not charged until Day 8), Day 6 reminder push, trial conversion tracked, no paywall on AMP first article per session.</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="py-16 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Interested in discussing this case study?</h2>
-          <p className="text-muted-foreground mb-8">
-            I&apos;d love to walk you through my approach to growth product management and how these frameworks can apply to your organization.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors rounded-md"
-            >
-              Get In Touch
-            </Link>
-            <Link
-              href="/#case-studies"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-foreground font-semibold border border-border hover:border-primary hover:text-primary transition-colors rounded-md"
-            >
-              View Other Case Studies
-            </Link>
+          {/* Section 15 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 15: A/B Testing Roadmap (6 Months)</h2>
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <div className="p-3 bg-background border border-border rounded">
+                <p className="font-semibold text-foreground mb-1">Month 1–2</p>
+                <p>Test 1: Morning push personalised vs editorial top 3 (measure 7-day open rate + Day 30 return rate)</p>
+                <p>Test 2: Article-end 3 curated cards vs 5 generic related (measure next-article CTR, session depth, bounce)</p>
+              </div>
+              <div className="p-3 bg-background border border-border rounded">
+                <p className="font-semibold text-foreground mb-1">Month 3–4</p>
+                <p>Test 3: Paywall soft counter visible vs invisible (measure surprise abandonment + trial start rate)</p>
+                <p>Test 4: Generic &quot;subscribe&quot; vs personalised &quot;you&apos;ve read N&quot; copy (measure trial + subscription conversion)</p>
+              </div>
+              <div className="p-3 bg-background border border-border rounded">
+                <p className="font-semibold text-foreground mb-1">Month 5–6</p>
+                <p>Test 5: 7-day trial vs 14-day trial (measure trial-to-paid conversion + abuse rate)</p>
+                <p>Test 6: &quot;Top read today&quot; evening push vs no push (measure incremental daily opens + opt-out rate)</p>
+              </div>
+              <p className="text-xs italic mt-4">All tests run minimum 2 weeks, 80% statistical power before winner declared. Learnings documented, presented fortnightly.</p>
+            </div>
+          </div>
+
+          {/* Section 16 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 16: Success Metrics Framework</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <div className="p-4 bg-primary/5 border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">North Star: Monthly Active Days per User (MAD)</h3>
+                <p className="text-sm mb-2">Baseline: 1.8–2.2 days/month (Occasional Readers). Target: 4.0 days/month (6 months). Leading indicator of both ad revenue per user and subscription conversion.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-3">L1 — Primary Functional Metrics:</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="p-3 bg-background border border-border rounded">
+                    <p><strong>Morning Push Open Rate</strong></p>
+                    <p>Target: {'>'} 22% (WhatsApp-level for high-trust senders)</p>
+                  </div>
+                  <div className="p-3 bg-background border border-border rounded">
+                    <p><strong>Article-End Module CTR</strong></p>
+                    <p>Target: {'>'} 28% vs current est. 8–12%</p>
+                  </div>
+                  <div className="p-3 bg-background border border-border rounded">
+                    <p><strong>Session Depth</strong></p>
+                    <p>Baseline: 1.8 articles/session. Target: 2.5</p>
+                  </div>
+                  <div className="p-3 bg-background border border-border rounded">
+                    <p><strong>Subscription Trial Start Rate</strong></p>
+                    <p>Target: 8–12% of paywall-hit users (vs {'<'} 1% currently)</p>
+                  </div>
+                  <div className="p-3 bg-background border border-border rounded">
+                    <p><strong>Trial-to-Paid Conversion</strong></p>
+                    <p>Industry benchmark: 35–45%</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-3">L2 — Secondary Functional Metrics:</h3>
+                <ul className="text-sm space-y-2">
+              <li>• Direct Traffic Share: 20–25% → 30% (12 months)</li>
+              <li>• Newsletter Open Rate: Target {'>'} 35% (above industry avg)</li>
+                  <li>• App DAU: tracked separately from web</li>
+                  <li>• UPSC segment engagement: articles-per-visit + return rate</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-3">Failure / Counter-Metrics (Circuit Breakers):</h3>
+                <ul className="text-sm space-y-2">
+                  <li>• Push opt-out rate {'>'}4% = notification too aggressive</li>
+                  <li>• Subscription churn increase = paywall redesign failed</li>
+                  <li>• Organic search {'>'}70% of traffic = owned channels not working</li>
+                  <li>• Editorial NPS decline = product compromised journalism perception</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 17 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 17: Risk & Mitigation Strategies</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Risk 1: Editorial Resistance</h3>
+                <p className="text-sm mb-2"><strong>Problem:</strong> Editorial team may resist algorithmic personalisation, viewing it as compromising curation.</p>
+                <p className="text-sm"><strong>Mitigation:</strong> &quot;Next Read&quot; editorially guardrailed — stories tagged by reporters, not algorithm. Personalisation supplements curation, not replaces. Propose joint editorial-product working group owning taxonomy.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Risk 2: Notification Fatigue</h3>
+                <p className="text-sm mb-2"><strong>Problem:</strong> Daily morning briefs to 350k+ users risks opt-out spikes if personalisation weak early.</p>
+                <p className="text-sm"><strong>Mitigation:</strong> Rollout to 20% first month. Monitor open + opt-out weekly. Scale only if {'>'}18% open rate. Cap 2 notifications/user/day (morning + breaking). Never purely promotional.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Risk 3: Trial Abuse</h3>
+                <p className="text-sm mb-2"><strong>Problem:</strong> 7-day free trial exploitable via multiple accounts.</p>
+                <p className="text-sm"><strong>Mitigation:</strong> Require payment method at trial start (industry standard). Flag duplicate payment methods. One trial per instrument. Monitor trial-completion ratio — if {'<'}40%, trial experience needs fixing not access controls.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Risk 4: Google Algorithm Vulnerability</h3>
+                <p className="text-sm mb-2"><strong>Problem:</strong> Transitioning from SEO to owned channels risks traffic dip if Discover deprioritised.</p>
+                <p className="text-sm"><strong>Mitigation:</strong> Maintain parallel SEO/Discover workstream. Never sacrifice SEO for engagement experiments. Track Google Discover impressions weekly as health metric.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">Risk 5: Digital Cannibalising Print</h3>
+                <p className="text-sm mb-2"><strong>Problem:</strong> Aggressive digital growth may hurt print subscriptions.</p>
+                <p className="text-sm"><strong>Mitigation:</strong> Digital skews younger/urban/mobile. Print different demographic = relatively clean segmentation. Monitor by region/cohort. Offer print-plus-digital bundles to prevent substitution.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 18 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 18: Future Roadmap — V2 & V3</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">V2 — Topic & Journalist Follows</h3>
+                <p className="text-sm">Follow Supreme Court, Union Budget, Climate topics. Follow individual journalists. Drives loyalty — NYT&apos;s most-followed journalists have lowest churn.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">V2 — The Hindu Wrapped (Annual)</h3>
+                <p className="text-sm">Spotify Wrapped model: total articles read, top topics/journalists/headlines. Shareable. Drives affinity + social proof. Subscribers get exclusive &quot;top 10% depth&quot; stats.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">V2 — The Hindu for UPSC</h3>
+                <p className="text-sm">Dedicated UPSC track with daily curated brief mapping stories to GS syllabus, editorials, vocabulary, practice questions. Premium tier ₹2,500–3,000/year. Addressable: 2–3M aspirants (highest-intent niche).</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">V3 — The Hindu Community</h3>
+                <p className="text-sm">Subscriber community: curated comments, journalist AMAs, subscriber-exclusive webinars, offline reader events (Chennai/Bengaluru/Delhi/Mumbai). Guardian model translated to India. Est. 15–20% churn reduction for members.</p>
+              </div>
+              <div className="p-4 bg-background border border-border rounded-lg">
+                <h3 className="font-semibold text-foreground mb-2">V3 — AI Newsroom Tools</h3>
+                <p className="text-sm">CMS-integrated AI: real-time SEO score, suggested article tags, automated structured data, headline A/B testing. Bridges editorial + tech. Journalists spend more time reporting, less on workflow.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 19 */}
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Section 19: Target Outcomes (6 Months)</h2>
+            <div className="space-y-3 text-sm">
+              <div className="p-3 bg-primary/5 border border-border rounded-lg">
+                <div className="flex justify-between items-center font-semibold text-foreground">
+                  <span>Monthly Active Days (MAD)</span>
+                  <span>1.8 → 4.0 days/month</span>
+                </div>
+              </div>
+              <div className="p-3 bg-background border border-border rounded-lg">
+                <div className="flex justify-between items-center">
+                  <span>Article-End CTR</span>
+                  <span className="font-semibold">~10% → 28%+</span>
+                </div>
+              </div>
+              <div className="p-3 bg-background border border-border rounded-lg">
+                <div className="flex justify-between items-center">
+                  <span>Morning Push Open Rate</span>
+                  <span className="font-semibold">New → {'>'}22%</span>
+                </div>
+              </div>
+              <div className="p-3 bg-background border border-border rounded-lg">
+                <div className="flex justify-between items-center">
+                  <span>Trial Start Rate</span>
+                  <span className="font-semibold">~0.5% → 8–12%</span>
+                </div>
+              </div>
+              <div className="p-3 bg-background border border-border rounded-lg">
+                <div className="flex justify-between items-center">
+                  <span>Trial-to-Paid Conversion</span>
+                  <span className="font-semibold">New → 35–40%</span>
+                </div>
+              </div>
+              <div className="p-3 bg-background border border-border rounded-lg">
+                <div className="flex justify-between items-center">
+                  <span>Direct Traffic Share</span>
+                  <span className="font-semibold">20–25% → 30%</span>
+                </div>
+              </div>
+              <div className="p-3 bg-primary/5 border border-border rounded-lg font-semibold text-foreground">
+                <div>Est. Incremental Revenue (Year 1)</div>
+                <div className="text-lg">₹22–25Cr</div>
+                <div className="text-xs font-normal text-muted-foreground mt-1">Growing to ₹40–50Cr in Year 2</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 20 */}
+          <div className="bg-primary/5 border border-border rounded-lg p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Summary: The Case in One Sentence</h2>
+            <p className="text-lg text-muted-foreground italic">
+              The Hindu has the most trusted journalism brand in India, the most premium digital audience of any Indian news property, and a product that currently fails to translate either into daily engagement or subscriber revenue — and every one of those failures is fixable at the product layer, without touching a single editorial decision.
+            </p>
+          </div>
+
+          {/* Meta */}
+          <div className="text-center pt-8 border-t border-border">
+            <p className="text-muted-foreground text-sm mb-2">Authored by Yash Mahadik</p>
+            <div className="flex items-center justify-center gap-4 text-sm">
+              <Link href="https://yashmahadik.vercel.app" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Portfolio
+              </Link>
+              <span className="text-border">•</span>
+              <Link href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                LinkedIn
+              </Link>
+            </div>
+            <p className="text-xs text-muted-foreground mt-4">Pain Points Addressed: 5 core | Product Areas: 8 | Experiments Designed: 6 | Revenue Uplift (Year 1): ₹22–25Cr | UX Laws Applied: 8+</p>
           </div>
         </div>
       </section>

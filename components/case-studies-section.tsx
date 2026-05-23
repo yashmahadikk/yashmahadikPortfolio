@@ -5,13 +5,13 @@ const caseStudies = [
   {
     id: "the-hindu",
     category: "THE HINDU | DIGITAL MEDIA & GROWTH",
-    title: "Converting 12M Monthly Visitors Into Paying Subscribers",
-    description: "A comprehensive Growth PM case study on fixing The Hindu's discovery-to-subscription funnel. Addresses the structural challenge where <1% of 12M monthly visitors convert to paying subscribers despite 143 years of editorial trust.",
+    title: "Converting 32M Monthly Visitors Into Paying Subscribers",
+    description: "A comprehensive Growth PM case study on fixing The Hindu's discovery-to-subscription funnel. Addresses the structural challenge where 77% of 32M monthly visitors bounce without converting to paying subscribers despite 143 years of editorial trust.",
     highlights: [
-      "Mapped the leaky funnel: 12M visitors → 2.5M engaged → 400K registered → 120K paying",
+      "Mapped the leaky funnel: 32M visitors → 4.6M engaged → 350K paid subscribers",
       "Designed RERE Engine with 4 growth levers: Reach, Engagement, Retention, Revenue",
-      "Proposed The Hindu Morning Brief newsletter with projected ₹7.2 Cr ARR",
-      "Created tiered subscription model: Student (₹49), Corporate (₹2,999/seat), Hindu+ (₹999)"
+      "Identified 5 root causes: navigation, habit formation, paywall design, content discovery, friction",
+      "Projected ₹22-25Cr Year 1 impact with 2.5× improvement in Monthly Active Days (1.8 → 4.5)"
     ],
     bgColor: "bg-red-50",
     link: null,
@@ -104,6 +104,21 @@ const caseStudies = [
       "Defined comprehensive metrics framework with North Star and guardrails"
     ],
     bgColor: "bg-purple-50",
+    link: null,
+    linkText: null
+  },
+  {
+    id: "yeezy",
+    category: "YEEZY SEASONS | ANTI-UX & BRAND STRATEGY",
+    title: "The Anti-User Experience: Why Conventional UX Fails (Sometimes)",
+    description: "A critical case study examining YEEZY Seasons 1-10 as a deliberate rejection of user-centred design principles. When friction is intentional. When confusion is strategic. When violating every UX law drives €1.5B in commercial success.",
+    highlights: [
+      "Analyzed 7 fundamental UX laws deliberately violated to drive cultural resonance",
+      "Documented how intentional friction created exclusivity and cult status",
+      "Examined scarcity, ambiguity, and transgression as strategic design tools",
+      "Explored the limits of user-centred design thinking in cultural products"
+    ],
+    bgColor: "bg-gray-100",
     link: null,
     linkText: null
   }

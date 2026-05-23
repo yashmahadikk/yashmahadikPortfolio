@@ -106,6 +106,21 @@ const caseStudies = [
     bgColor: "bg-purple-50",
     link: null,
     linkText: null
+  },
+  {
+    id: "yeezy",
+    category: "YEEZY SEASONS | ANTI-UX & BRAND STRATEGY",
+    title: "The Anti-User Experience: Why Conventional UX Fails (Sometimes)",
+    description: "A critical case study examining YEEZY Seasons 1-10 as a deliberate rejection of user-centred design principles. When friction is intentional. When confusion is strategic. When violating every UX law drives €1.5B in commercial success.",
+    highlights: [
+      "Analyzed 7 fundamental UX laws deliberately violated to drive cultural resonance",
+      "Documented how intentional friction created exclusivity and cult status",
+      "Examined scarcity, ambiguity, and transgression as strategic design tools",
+      "Explored the limits of user-centred design thinking in cultural products"
+    ],
+    bgColor: "bg-gray-100",
+    link: null,
+    linkText: null
   }
 ]
 

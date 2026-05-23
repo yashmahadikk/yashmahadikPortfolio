@@ -380,21 +380,21 @@ export default function TheHinduCaseStudy() {
               <div className="space-y-4">
                 <div className="p-4 bg-background border border-border rounded-lg">
                   <h3 className="font-semibold text-foreground mb-2">Component 1: The Morning Pulse</h3>
-                  <p className="text-sm">7:00 AM personalised digest with: 3 top stories based on topic history, 1 {String.fromCharCode(34)}missed{String.fromCharCode(34)}} story from past 24h, 1 continuing thread update if read 3+ articles. Subject lines editorially guardrailed, never clickbait. UX Law: Zeigarnik Effect (unfinished threads pull users back).</p>
+                  <p className="text-sm">7:00 AM personalised digest with: 3 top stories based on topic history, 1 &quot;missed&quot; story from past 24h, 1 continuing thread update if read 3+ articles. Subject lines editorially guardrailed, never clickbait. UX Law: Zeigarnik Effect (unfinished threads pull users back).</p>
                 </div>
                 <div className="p-4 bg-background border border-border rounded-lg">
                   <h3 className="font-semibold text-foreground mb-2">Component 2: The Next Read Module</h3>
-                  <p className="text-sm mb-2">Article-end redesign with 3 cards: (1) {String.fromCharCode(34)}Next in this story{String.fromCharCode(34)}} — most recent same-thread article, (2) {String.fromCharCode(34)}More from [Reporter]{String.fromCharCode(34)}} — drives journalist loyalty, (3) {{String.fromCharCode(34)}Readers in your area also read{String.fromCharCode(34)}} — collaborative filtering.</p>
-                  <p className="text-sm">UX Law: Miller{String.fromCharCode(39)}s Law (exactly 3 options, not 8) + Peak-End Rule (end of good article = highest intent).</p>
+                  <p className="text-sm mb-2">Article-end redesign with 3 cards: (1) &quot;Next in this story&quot; — most recent same-thread article, (2) &quot;More from [Reporter]&quot; — drives journalist loyalty, (3) &quot;Readers in your area also read&quot; — collaborative filtering.</p>
+                  <p className="text-sm">UX Law: Miller&apos;s Law (exactly 3 options, not 8) + Peak-End Rule (end of good article = highest intent).</p>
                 </div>
                 <div className="p-4 bg-background border border-border rounded-lg">
                   <h3 className="font-semibold text-foreground mb-2">Component 3: Paywall & Subscription Redesign</h3>
-                  <p className="text-sm mb-2">Soft counter: {{String.fromCharCode(34)}5 articles remaining this week{String.fromCharCode(34)}}} visible to logged-in users (removes surprise). Paywall shows: {{String.fromCharCode(34)}You{String.fromCharCode(39)}ve read 12 articles about Indian economy. Subscribers read avg 48.{String.fromCharCode(34)}} Pricing: {{String.fromCharCode(34)}₹65/month — less than your morning coffee.{String.fromCharCode(34)}} 7-day free trial (no charge until Day 8).</p>
-                  <p className="text-sm">UX Law: Loss Aversion ({{String.fromCharCode(34)}missing{String.fromCharCode(34)}} framing) + Transparency Heuristic (visible counter) + Anchoring (₹65 vs coffee).</p>
+                  <p className="text-sm mb-2">Soft counter: &quot;5 articles remaining this week&quot; visible to logged-in users (removes surprise). Paywall shows: &quot;You&apos;ve read 12 articles about Indian economy. Subscribers read avg 48.&quot; Pricing: &quot;₹65/month — less than your morning coffee.&quot; 7-day free trial (no charge until Day 8).</p>
+                  <p className="text-sm">UX Law: Loss Aversion (&quot;missing&quot; framing) + Transparency Heuristic (visible counter) + Anchoring (₹65 vs coffee).</p>
                 </div>
                 <div className="p-4 bg-background border border-border rounded-lg">
                   <h3 className="font-semibold text-foreground mb-2">Component 4: Google Discover & SEO Optimisation</h3>
-                  <p className="text-sm">Domain authority 94–96 (extraordinary asset). Initiatives: structured data markup improvements, AMP optimisation, topic cluster strategy (10–15 hubs like {{String.fromCharCode(34)}Union Budget{{String.fromCharCode(34)}}, {{String.fromCharCode(34)}Supreme Court{{String.fromCharCode(34)}}), web stories for Discover.</p>
+                  <p className="text-sm">Domain authority 94–96 (extraordinary asset). Initiatives: structured data markup improvements, AMP optimisation, topic cluster strategy (10–15 hubs like &quot;Union Budget&quot;, &quot;Supreme Court&quot;), web stories for Discover.</p>
                 </div>
                 <div className="p-4 bg-background border border-border rounded-lg">
                   <h3 className="font-semibold text-foreground mb-2">Component 5: Push Notification Cadence</h3>

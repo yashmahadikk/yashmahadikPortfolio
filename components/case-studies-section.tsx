@@ -3,6 +3,21 @@ import Link from "next/link"
 
 const caseStudies = [
   {
+    id: "jpmc-india",
+    category: "JPMORGAN CHASE | INDIA MARKET ENTRY",
+    title: "How JPMC Could Make Their Next Billions In India",
+    description: "A strategic product case study on JPMorgan Chase's dual-brand market entry into India. Explores how a two-tier banking model (Chase for middle-class, J.P. Morgan for HNIs) can capture ₹200L Cr retail banking market with zero-fee digital-first banking and premium wealth management.",
+    highlights: [
+      "Designed dual-brand strategy targeting 5M Chase customers + 3.5M HNI/UHNI wealth clients",
+      "Unit economics: ₹335 revenue per Chase customer/month; ₹50K+ AUM fees for J.P. Morgan",
+      "Identified key entry levers: salary accounts, UPI partnerships, regulatory moats, and talent arbitrage",
+      "Built comprehensive 8-section strategic roadmap with prototypes, system design, and RBI compliance path"
+    ],
+    bgColor: "bg-blue-50",
+    link: null,
+    linkText: null
+  },
+  {
     id: "the-hindu",
     category: "THE HINDU | DIGITAL MEDIA & GROWTH",
     title: "Converting 32M Monthly Visitors Into Paying Subscribers",

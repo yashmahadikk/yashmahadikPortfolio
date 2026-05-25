@@ -1,4 +1,4 @@
-import { Target, LineChart, Users, Cog, Lightbulb, Wrench, Blocks, Award, BookOpen, FileText, ExternalLink } from "lucide-react"
+ import { Target, LineChart, Users, Cog, Lightbulb, Wrench, Blocks, Award, BookOpen, FileText, ExternalLink } from "lucide-react"
 
 const skillCategories = [
   {

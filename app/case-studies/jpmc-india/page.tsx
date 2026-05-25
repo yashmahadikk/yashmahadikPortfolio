@@ -411,7 +411,7 @@ const ProjectUdayCaseStudy: React.FC = () => {
             <div>
               <div className="cover-eyebrow"><div className="cover-rule"></div><div className="cover-eyebrow-text">Project Uday — India Market Entry</div></div>
               <h1>How <span className="accent">JPMC</span> Can<br/>Disrupt India's<br/>₹200L Cr<br/>Banking Market</h1>
-              <div className="cover-sub-title">A dual-brand strategy: Chase for the middle class.<br/>J.P. Morgan for India's wealthy.</div>
+              <div className="cover-sub-title">A dual-brand strategy: Chase for the middle class.<br/>J.P. Morgan for India's wealthy. If They Are Allowed To</div>
               <div className="cover-obj">
                 <strong>Objective:</strong> Acquire <strong>5 million Chase India customers</strong> from HDFC, Axis, and SBI's urban middle-class base within 5 years through a zero-fee, AI-first banking model — while establishing <strong>J.P. Morgan Private Banking India</strong> as the premier wealth management platform for India's 3.5 million HNIs and UHNIs.
               </div>

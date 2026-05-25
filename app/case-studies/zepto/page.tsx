@@ -438,12 +438,20 @@ export default function ZeptoCaseStudyPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-serif text-foreground mb-4">Interested in discussing this analysis?</h2>
           <p className="text-muted-foreground mb-8">I&apos;d love to walk you through the full teardown and strategic recommendations.</p>
-          <Link
-            href="/#contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors rounded-md"
-          >
-            Get In Touch
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
+            <Link
+              href="/#contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-primary text-primary-foreground font-semibold text-sm md:text-base hover:bg-primary/90 transition-colors rounded-md"
+            >
+              Get In Touch
+            </Link>
+            <Link
+              href="/#case-studies"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-transparent text-foreground font-semibold text-sm md:text-base border border-border rounded-md hover:border-primary hover:text-primary transition-colors"
+            >
+              View More Case Studies
+            </Link>
+          </div>
         </div>
       </section>
     </main>

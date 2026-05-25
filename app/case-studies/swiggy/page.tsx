@@ -70,24 +70,24 @@ export default function SwigyCaseStudyPage() {
           <h2 className="text-3xl font-serif text-foreground mb-8">Why Text Reviews Matter for Swiggy</h2>
           <div className="bg-slate-50 p-8 rounded-lg mb-8">
             <h3 className="font-semibold text-foreground mb-4">The Growth Loop</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4 text-center text-xs md:text-sm">
-              <div className="bg-white p-2 md:p-4 rounded-lg shadow-sm">
-                <p className="font-medium text-xs md:text-sm">User Visits Swiggy</p>
+            <div className="grid md:grid-cols-6 gap-4 text-center text-sm">
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <p className="font-medium">User Visits Swiggy</p>
               </div>
-              <div className="bg-white p-2 md:p-4 rounded-lg shadow-sm">
-                <p className="font-medium text-xs md:text-sm">Checks Reviews</p>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <p className="font-medium">Checks Restaurant Reviews</p>
               </div>
-              <div className="bg-white p-2 md:p-4 rounded-lg shadow-sm">
-                <p className="font-medium text-xs md:text-sm">Makes Decision</p>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <p className="font-medium">Makes Ordering Decision</p>
               </div>
-              <div className="bg-white p-2 md:p-4 rounded-lg shadow-sm">
-                <p className="font-medium text-xs md:text-sm">Gets Experience</p>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <p className="font-medium">Receives Predictable Experience</p>
               </div>
-              <div className="bg-white p-2 md:p-4 rounded-lg shadow-sm">
-                <p className="font-medium text-xs md:text-sm">Trusts Platform</p>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <p className="font-medium">Trusts Platform</p>
               </div>
-              <div className="bg-white p-2 md:p-4 rounded-lg shadow-sm border-2 border-primary">
-                <p className="font-medium text-primary text-xs md:text-sm">Reviews Order</p>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-2 border-primary">
+                <p className="font-medium text-primary">Reviews the Order</p>
               </div>
             </div>
             <p className="text-muted-foreground mt-6 text-center">Google indexes reviews, driving organic discovery and completing the growth loop.</p>
@@ -270,22 +270,22 @@ export default function SwigyCaseStudyPage() {
 
           <div className="bg-primary/5 p-8 rounded-lg border border-primary/20">
             <h3 className="font-semibold text-foreground mb-4">RICE Prioritization: Lean Review with Speech-to-Text Wins</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 text-center">
+            <div className="grid md:grid-cols-4 gap-6 text-center">
               <div>
-                <p className="text-xl md:text-2xl font-bold text-primary">5</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Reach</p>
+                <p className="text-2xl font-bold text-primary">5</p>
+                <p className="text-sm text-muted-foreground">Reach</p>
               </div>
               <div>
-                <p className="text-xl md:text-2xl font-bold text-primary">5</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Impact</p>
+                <p className="text-2xl font-bold text-primary">5</p>
+                <p className="text-sm text-muted-foreground">Impact</p>
               </div>
               <div>
-                <p className="text-xl md:text-2xl font-bold text-primary">4</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Confidence</p>
+                <p className="text-2xl font-bold text-primary">4</p>
+                <p className="text-sm text-muted-foreground">Confidence</p>
               </div>
               <div>
-                <p className="text-xl md:text-2xl font-bold text-primary">3</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Effort</p>
+                <p className="text-2xl font-bold text-primary">3</p>
+                <p className="text-sm text-muted-foreground">Effort</p>
               </div>
             </div>
             <p className="text-center text-muted-foreground mt-4">RICE Score: 33 (Highest among alternatives)</p>

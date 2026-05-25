@@ -266,32 +266,32 @@ export default function TheHinduCaseStudy() {
               </div>
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Competitor Benchmarking (NYT, Guardian, FT, HT, Indian Express vs The Hindu):</h3>
-                <div className="overflow-x-auto md:overflow-visible text-xs">
-                  <table className="w-full min-w-max md:min-w-0 text-[10px] md:text-xs">
+                <div className="overflow-x-auto text-xs">
+                  <table className="w-full">
                     <tbody>
                       <tr className="border-b border-border">
-                        <td className="py-1 md:py-2 px-1 md:px-2 font-semibold whitespace-nowrap">Feature</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">NYT</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Guardian</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Hindu</td>
+                        <td className="py-2 font-semibold">Feature</td>
+                        <td className="py-2">NYT</td>
+                        <td className="py-2">Guardian</td>
+                        <td className="py-2">The Hindu</td>
                       </tr>
                       <tr className="border-b border-border">
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Personalised homepage</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Yes</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Yes</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 text-red-600 whitespace-nowrap">No</td>
+                        <td className="py-2">Personalised homepage</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2 text-red-600">No</td>
                       </tr>
                       <tr className="border-b border-border">
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Topic-follow feature</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Yes</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Yes</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 text-red-600 whitespace-nowrap">No</td>
+                        <td className="py-2">Topic-follow feature</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2 text-red-600">No</td>
                       </tr>
                       <tr className="border-b border-border">
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Morning briefing push</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Yes</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 whitespace-nowrap">Yes</td>
-                        <td className="py-1 md:py-2 px-1 md:px-2 text-red-600 whitespace-nowrap">No</td>
+                        <td className="py-2">Morning briefing push</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2">Yes</td>
+                        <td className="py-2 text-red-600">No</td>
                       </tr>
                       <tr>
                         <td className="py-2">Free trial offer</td>

@@ -5,7 +5,7 @@ const caseStudies = [
   {
     id: "jpmc-india",
     category: "JPMORGAN CHASE | INDIA MARKET ENTRY",
-    title: "How JPMC Could Make Their Next Billions In India",
+    title: "How JPMC Could Make Their Next Billions In India(If They Were Allowed To Enter)",
     description: "A strategic product case study on JPMorgan Chase's dual-brand market entry into India. Explores how a two-tier banking model (Chase for middle-class, J.P. Morgan for HNIs) can capture ₹200L Cr retail banking market with zero-fee digital-first banking and premium wealth management.",
     highlights: [
       "Designed dual-brand strategy targeting 5M Chase customers + 3.5M HNI/UHNI wealth clients",

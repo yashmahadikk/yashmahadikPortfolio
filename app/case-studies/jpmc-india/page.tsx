@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 
 const CaseStudyStyles = `
@@ -769,7 +771,7 @@ const ProjectUdayCaseStudy: React.FC = () => {
           </div>
         </section>
 
-        {/* ── SECTION 5: SOLUTION IDEATION ── */}
+        {/* ���─ SECTION 5: SOLUTION IDEATION ── */}
         <section id="s5">
           <div className="s-header">
             <div className="s-eyebrow"><div className="s-rule"></div><div className="s-num">Section 05</div></div>

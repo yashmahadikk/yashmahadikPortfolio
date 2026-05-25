@@ -8,66 +8,67 @@ export default function CredCaseStudy() {
     <main className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <Link href="/#case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft size={18} />
-            Back to Portfolio
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
+          <Link href="/#case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm md:text-base">
+            <ArrowLeft size={16} className="md:w-5 md:h-5" />
+            <span className="hidden sm:inline">Back to Portfolio</span>
+            <span className="sm:hidden">Back</span>
           </Link>
         </div>
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-20 md:pt-32 pb-12 md:pb-16 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
-          <p className="text-primary text-sm font-semibold tracking-wider mb-4">
+          <p className="text-primary text-xs md:text-sm font-semibold tracking-wider mb-3 md:mb-4">
             CRED | ENGAGEMENT & RETENTION
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-foreground mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-serif italic text-foreground mb-4 md:mb-6 leading-tight">
             Breaking the Monthly Habit: Transforming a $6.4B App with 3% DAU/MAU
           </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+          <p className="text-sm md:text-xl text-muted-foreground leading-relaxed mb-6 md:mb-8">
             How to transform CRED from a once-a-month bill payment utility into a daily financial companion. Addressing the core engagement challenge: users open the app exactly once a month on bill day.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3">
             <a
               href="https://canva.link/credcasestudybyyash"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors rounded-md"
+              className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-primary text-primary-foreground font-semibold text-sm md:text-base hover:bg-primary/90 transition-colors rounded-md"
             >
               View Full Case Study
-              <ArrowUpRight size={18} />
+              <ArrowUpRight size={16} className="md:w-[18px] md:h-[18px]" />
             </a>
           </div>
         </div>
       </section>
 
       {/* Problem Statement */}
-      <section className="py-16 px-6 bg-slate-100">
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-slate-100">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-foreground mb-8">The Problem</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6 md:mb-8">The Problem</h2>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             <div className="flex flex-col items-start">
-              <div className="text-4xl font-bold text-primary mb-2">3-5%</div>
-              <p className="text-muted-foreground">Estimated DAU/MAU ratio - most users open the app exactly once a month on bill due date.</p>
+              <div className="text-2xl md:text-4xl font-bold text-primary mb-1 md:mb-2">3-5%</div>
+              <p className="text-xs md:text-sm text-muted-foreground">Estimated DAU/MAU ratio - most users open the app exactly once a month on bill due date.</p>
             </div>
             <div className="flex flex-col items-start">
-              <div className="text-4xl font-bold text-primary mb-2">65%</div>
-              <p className="text-muted-foreground">Of earned coins are never redeemed - sitting unused in user accounts.</p>
+              <div className="text-2xl md:text-4xl font-bold text-primary mb-1 md:mb-2">65%</div>
+              <p className="text-xs md:text-sm text-muted-foreground">Of earned coins are never redeemed - sitting unused in user accounts.</p>
             </div>
             <div className="flex flex-col items-start">
-              <div className="text-4xl font-bold text-primary mb-2">90%+</div>
-              <p className="text-muted-foreground">App opens happen in the first week of the month, collapsing to near-zero after.</p>
+              <div className="text-2xl md:text-4xl font-bold text-primary mb-1 md:mb-2">90%+</div>
+              <p className="text-xs md:text-sm text-muted-foreground">App opens happen in the first week of the month, collapsing to near-zero after.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* User Segmentation */}
-      <section className="py-16 px-6">
+      <section className="py-12 md:py-16 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-foreground mb-8">User Segmentation</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6 md:mb-8">User Segmentation</h2>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             <div className="bg-amber-50 p-6 rounded-lg border-2 border-primary">
               <div className="flex items-center gap-2 mb-4">
                 <Target className="text-primary" size={24} />
@@ -232,6 +233,29 @@ export default function CredCaseStudy() {
             View Full Case Study
             <ArrowUpRight size={18} />
           </a>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-12 md:py-16 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-xl md:text-3xl font-serif italic text-foreground mb-6">
+            Interested in discussing this strategy?
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
+            <Link
+              href="/#contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-primary text-primary-foreground font-semibold text-sm md:text-base hover:bg-primary/90 transition-colors rounded-md"
+            >
+              Get In Touch
+            </Link>
+            <Link
+              href="/#case-studies"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-transparent text-foreground font-semibold text-sm md:text-base border border-border rounded-md hover:border-primary hover:text-primary transition-colors"
+            >
+              View More Case Studies
+            </Link>
+          </div>
         </div>
       </section>
 

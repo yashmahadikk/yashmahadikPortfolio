@@ -11,46 +11,47 @@ export default function HarleyDavidsonCaseStudy() {
     <main className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm z-50 border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <Link href="/#case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft size={20} />
-            Back to Case Studies
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
+          <Link href="/#case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm md:text-base">
+            <ArrowLeft size={16} className="md:w-5 md:h-5" />
+            <span className="hidden sm:inline">Back to Case Studies</span>
+            <span className="sm:hidden">Back</span>
           </Link>
         </div>
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-20 md:pt-32 pb-12 md:pb-16 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-primary text-sm font-semibold tracking-wider mb-4">BRAND STRATEGY CASE STUDY</p>
-          <h1 className="text-4xl md:text-6xl font-serif italic text-foreground mb-2">
+          <p className="text-primary text-xs md:text-sm font-semibold tracking-wider mb-3 md:mb-4">BRAND STRATEGY CASE STUDY</p>
+          <h1 className="text-2xl sm:text-3xl md:text-6xl font-serif italic text-foreground mb-1 md:mb-2">
             Enjoy Till
           </h1>
-          <h1 className="text-4xl md:text-6xl font-serif italic text-primary mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-6xl font-serif italic text-primary mb-4 md:mb-6">
             It Lasts.
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-8">
+          <p className="text-base md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6 md:mb-8">
             How Harley-Davidson can unlock its next billion in revenue before the ICE era ends.
           </p>
           
-          <div className="flex flex-wrap gap-8 text-sm text-muted-foreground mb-8">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 md:gap-8 text-xs md:text-sm text-muted-foreground mb-6 md:mb-8">
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-1">Role</p>
-              <p className="font-medium text-foreground">Brand & Growth Strategist</p>
+              <p className="font-medium text-foreground text-sm">Brand & Growth Strategist</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-1">Focus</p>
-              <p className="font-medium text-foreground">Revenue Growth & ICE Legacy</p>
+              <p className="font-medium text-foreground text-sm">Revenue Growth & ICE Legacy</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-1">Author</p>
-              <p className="font-medium text-foreground">Yash Mahadik</p>
+              <p className="font-medium text-foreground text-sm">Yash Mahadik</p>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-2">
             {["ICE Engine Era", "Brand Strategy", "Nostalgia Marketing", "Community Building", "Electric Future", "Royal Enfield Threat"].map((tag) => (
-              <span key={tag} className="px-3 py-1 bg-muted text-muted-foreground text-xs rounded-full">
+              <span key={tag} className="px-2 md:px-3 py-1 bg-muted text-muted-foreground text-xs rounded-full">
                 {tag}
               </span>
             ))}
@@ -59,9 +60,9 @@ export default function HarleyDavidsonCaseStudy() {
       </section>
 
       {/* Key Stats */}
-      <section className="py-12 px-6 bg-muted/30">
+      <section className="py-8 md:py-12 px-4 md:px-6 bg-muted/30">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               { stat: "~$5.8B", label: "2006 Revenue (Peak Era)" },
               { stat: "50%", label: "Unit Sales Decline Since Peak" },
@@ -69,8 +70,8 @@ export default function HarleyDavidsonCaseStudy() {
               { stat: "$1.5B+", label: "Addressable Revenue Increment" },
             ].map((item, index) => (
               <div key={index} className="text-center">
-                <p className="text-3xl md:text-4xl font-serif text-primary mb-2">{item.stat}</p>
-                <p className="text-sm text-muted-foreground">{item.label}</p>
+                <p className="text-lg sm:text-2xl md:text-4xl font-serif text-primary mb-1 md:mb-2">{item.stat}</p>
+                <p className="text-xs md:text-sm text-muted-foreground">{item.label}</p>
               </div>
             ))}
           </div>
@@ -78,13 +79,13 @@ export default function HarleyDavidsonCaseStudy() {
       </section>
 
       {/* Business Overview */}
-      <section className="py-16 px-6">
+      <section className="py-12 md:py-16 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-serif italic text-foreground mb-8">
+          <h2 className="text-xl md:text-3xl font-serif italic text-foreground mb-6 md:mb-8">
             Harley-Davidson - The American Icon
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
             <div className="space-y-6">
               <div>
                 <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">

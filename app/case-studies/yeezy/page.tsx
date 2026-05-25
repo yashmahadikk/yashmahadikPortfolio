@@ -296,6 +296,27 @@ export default function YeezyNEECaseStudy() {
               Tags: Anti-UX · Experience Design · Brand Friction · Cultural Product · Intentional Dissonance · Luxury Theory · UX Limits · Transgression as Strategy · Brand Mythology
             </p>
           </div>
+
+          {/* CTA */}
+          <div className="text-center pt-8 md:pt-12 border-t border-border">
+            <h2 className="text-xl md:text-3xl font-serif italic text-foreground mb-6">
+              Interested in discussing this strategy?
+            </h2>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
+              <Link
+                href="/#contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-primary text-primary-foreground font-semibold text-sm md:text-base hover:bg-primary/90 transition-colors rounded-md"
+              >
+                Get In Touch
+              </Link>
+              <Link
+                href="/#case-studies"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-transparent text-foreground font-semibold text-sm md:text-base border border-border rounded-md hover:border-primary hover:text-primary transition-colors"
+              >
+                View More Case Studies
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </main>

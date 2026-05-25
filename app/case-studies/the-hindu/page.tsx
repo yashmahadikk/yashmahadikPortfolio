@@ -6,53 +6,54 @@ export default function TheHinduCaseStudy() {
     <main className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/#case-studies" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-            <ArrowLeft size={18} />
-            Back to Case Studies
+        <div className="max-w-6xl mx-auto px-4 md:px-6 h-12 md:h-14 flex items-center justify-between">
+          <Link href="/#case-studies" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors text-sm md:text-base">
+            <ArrowLeft size={16} className="md:w-[18px] md:h-[18px]" />
+            <span className="hidden sm:inline">Back to Case Studies</span>
+            <span className="sm:hidden">Back</span>
           </Link>
-          <p className="text-sm text-muted-foreground">THE HINDU</p>
+          <p className="text-xs md:text-sm text-muted-foreground">THE HINDU</p>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-50 via-white to-blue-50 py-24 px-6 border-b border-border">
+      <section className="bg-gradient-to-br from-red-50 via-white to-blue-50 py-12 md:py-24 px-4 md:px-6 border-b border-border">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
-            <span className="inline-block px-3 py-1 bg-red-100 text-red-700 text-xs font-semibold rounded-full mb-4">THE HINDU | DIGITAL MEDIA</span>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4 text-foreground leading-tight">
+          <div className="mb-6 md:mb-8">
+            <span className="inline-block px-2 md:px-3 py-1 bg-red-100 text-red-700 text-xs font-semibold rounded-full mb-3 md:mb-4">THE HINDU | DIGITAL MEDIA</span>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold mb-3 md:mb-4 text-foreground leading-tight">
               Breaking the <span className="text-red-600">Bounce</span>
             </h1>
-            <p className="text-2xl text-muted-foreground mb-6 font-serif italic">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6 font-serif italic">
               32M visitors. 77% bounce rate. ₹200Cr opportunity.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               How to transform The Hindu from India&apos;s most trusted news source into its most engaged digital media platform. A comprehensive Growth PM case study addressing engagement, retention, and digital revenue.
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
-              <p className="text-xs text-muted-foreground font-semibold uppercase mb-2">Role</p>
-              <p className="text-sm font-semibold text-foreground">Growth PM</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-6 md:mb-8">
+            <div className="p-3 md:p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-xs text-muted-foreground font-semibold uppercase mb-1 md:mb-2">Role</p>
+              <p className="text-xs md:text-sm font-semibold text-foreground">Growth PM</p>
             </div>
-            <div className="p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
-              <p className="text-xs text-muted-foreground font-semibold uppercase mb-2">Impact</p>
-              <p className="text-sm font-semibold text-red-600">₹22–25Cr</p>
+            <div className="p-3 md:p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-xs text-muted-foreground font-semibold uppercase mb-1 md:mb-2">Impact</p>
+              <p className="text-xs md:text-sm font-semibold text-red-600">₹22–25Cr</p>
             </div>
-            <div className="p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
-              <p className="text-xs text-muted-foreground font-semibold uppercase mb-2">North Star</p>
-              <p className="text-sm font-semibold text-foreground">MAD: 1.8 → 4.0</p>
+            <div className="p-3 md:p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-xs text-muted-foreground font-semibold uppercase mb-1 md:mb-2">North Star</p>
+              <p className="text-xs md:text-sm font-semibold text-foreground">MAD: 1.8 → 4.0</p>
             </div>
-            <div className="p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
-              <p className="text-xs text-muted-foreground font-semibold uppercase mb-2">Users</p>
-              <p className="text-sm font-semibold text-foreground">32M/month</p>
+            <div className="p-3 md:p-4 bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-xs text-muted-foreground font-semibold uppercase mb-1 md:mb-2">Users</p>
+              <p className="text-xs md:text-sm font-semibold text-foreground">32M/month</p>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-2">
             {["Engagement", "Growth", "Retention", "Monetization", "Discovery"].map((tag) => (
-              <span key={tag} className="px-3 py-1.5 bg-red-50 text-red-700 text-xs font-medium rounded-full border border-red-200">
+              <span key={tag} className="px-2 md:px-3 py-1 md:py-1.5 bg-red-50 text-red-700 text-xs font-medium rounded-full border border-red-200">
                 {tag}
               </span>
             ))}
@@ -61,48 +62,48 @@ export default function TheHinduCaseStudy() {
       </section>
 
       {/* Key Metrics Section */}
-      <section className="py-12 px-6 bg-red-50 border-b border-red-200">
+      <section className="py-8 md:py-12 px-4 md:px-6 bg-red-50 border-b border-red-200">
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             <div className="text-center">
               <div className="flex justify-center mb-2">
-                <TrendingDown className="text-red-600" size={24} />
+                <TrendingDown className="text-red-600" size={20} className="md:w-6 md:h-6" />
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-red-600 mb-1">77%</p>
-              <p className="text-xs text-red-700 font-medium">Bounce Rate</p>
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 mb-1">77%</p>
+              <p className="text-xs md:text-sm text-red-700 font-medium">Bounce Rate</p>
             </div>
             <div className="text-center">
               <div className="flex justify-center mb-2">
-                <Users className="text-red-600" size={24} />
+                <Users className="text-red-600" size={20} className="md:w-6 md:h-6" />
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-red-600 mb-1">32M</p>
-              <p className="text-xs text-red-700 font-medium">Monthly Visitors</p>
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 mb-1">32M</p>
+              <p className="text-xs md:text-sm text-red-700 font-medium">Monthly Visitors</p>
             </div>
             <div className="text-center">
               <div className="flex justify-center mb-2">
-                <Target className="text-red-600" size={24} />
+                <Target className="text-red-600" size={20} className="md:w-6 md:h-6" />
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-red-600 mb-1">0.5%</p>
-              <p className="text-xs text-red-700 font-medium">Conversion Rate</p>
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 mb-1">0.5%</p>
+              <p className="text-xs md:text-sm text-red-700 font-medium">Conversion Rate</p>
             </div>
             <div className="text-center">
               <div className="flex justify-center mb-2">
-                <Zap className="text-red-600" size={24} />
+                <Zap className="text-red-600" size={20} className="md:w-6 md:h-6" />
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-red-600 mb-1">₹200Cr</p>
-              <p className="text-xs text-red-700 font-medium">Opportunity</p>
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 mb-1">₹200Cr</p>
+              <p className="text-xs md:text-sm text-red-700 font-medium">Opportunity</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Content Sections */}
-      <section className="py-20 px-6">
+      <section className="py-12 md:py-20 px-4 md:px-6">
         <div className="max-w-4xl mx-auto space-y-16">
           {/* Section 1 */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-              <span className="w-3 h-3 bg-blue-600 rounded-full"></span>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 flex items-center gap-2">
+              <span className="w-2 h-2 md:w-3 md:h-3 bg-blue-600 rounded-full"></span>
               Section 1: Assumptions & Data Sources
             </h2>
             <div className="space-y-4 text-muted-foreground">

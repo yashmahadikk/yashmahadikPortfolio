@@ -11,72 +11,73 @@ export default function ChaseCaseStudyPage() {
     <main className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/#case-studies" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft size={20} />
-            <span>Back to Case Studies</span>
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between flex-wrap gap-2">
+          <Link href="/#case-studies" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm md:text-base">
+            <ArrowLeft size={16} className="md:w-5 md:h-5" />
+            <span className="hidden sm:inline">Back to Case Studies</span>
+            <span className="sm:hidden">Back</span>
           </Link>
           <a 
             href="https://chasecompass.vercel.app" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+            className="flex items-center gap-2 px-3 md:px-4 py-2 bg-primary text-primary-foreground text-xs md:text-sm rounded-md hover:bg-primary/90 transition-colors"
           >
             View MVP
-            <ArrowUpRight size={16} />
+            <ArrowUpRight size={14} className="md:w-4 md:h-4" />
           </a>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 bg-[#002D6A] text-white">
+      <section className="pt-20 md:pt-32 pb-12 md:pb-16 px-4 md:px-6 bg-[#002D6A] text-white">
         <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-[#B8912A]/20 border border-[#B8912A]/30 rounded-full px-4 py-1.5 text-sm text-[#F0D078] mb-6">
+          <div className="inline-flex items-center gap-2 bg-[#B8912A]/20 border border-[#B8912A]/30 rounded-full px-2 md:px-4 py-1 md:py-1.5 text-xs md:text-sm text-[#F0D078] mb-4 md:mb-6">
             Product Case Study
           </div>
-          <h1 className="text-4xl md:text-5xl font-serif italic mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-serif italic mb-4 md:mb-6 leading-tight">
             Increasing <span className="text-[#F0D078]">Financial Feature</span> Engagement on Chase Compass
           </h1>
-          <p className="text-xl text-white/70 mb-8 max-w-2xl leading-relaxed">
+          <p className="text-sm md:text-xl text-white/70 mb-6 md:mb-8 max-w-2xl leading-relaxed">
             Chase Compass is a ground-up redesign of Chase Mobile - built to guide every user toward financial clarity through an AI-powered compass experience.
           </p>
-          <div className="bg-white/5 border border-white/10 border-l-4 border-l-[#B8912A] rounded-lg p-5 mb-8">
-            <p className="text-white/90">
+          <div className="bg-white/5 border border-white/10 border-l-4 border-l-[#B8912A] rounded-lg p-4 md:p-5 mb-6 md:mb-8">
+            <p className="text-sm md:text-base text-white/90">
               <span className="text-[#F0D078] font-semibold">Objective:</span> Increase Monthly Active Feature Engagement (MAFE) by <span className="text-[#F0D078] font-semibold">25%</span> through Chase Compass to reduce churn, deepen retention, and grow Assets Under Management.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white/5 border border-white/10 rounded-lg p-4 text-center">
-              <div className="text-3xl font-serif text-[#F0D078]">47%</div>
-              <div className="text-sm text-white/50 mt-1">of MAU targeted</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+            <div className="bg-white/5 border border-white/10 rounded-lg p-3 md:p-4 text-center">
+              <div className="text-2xl md:text-3xl font-serif text-[#F0D078]">47%</div>
+              <div className="text-xs md:text-sm text-white/50 mt-1">of MAU targeted</div>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-lg p-4 text-center">
-              <div className="text-3xl font-serif text-[#F0D078]">+25%</div>
-              <div className="text-sm text-white/50 mt-1">MAFE target lift</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-3 md:p-4 text-center">
+              <div className="text-2xl md:text-3xl font-serif text-[#F0D078]">+25%</div>
+              <div className="text-xs md:text-sm text-white/50 mt-1">MAFE target lift</div>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-lg p-4 text-center">
-              <div className="text-3xl font-serif text-[#F0D078]">$1.9B</div>
-              <div className="text-sm text-white/50 mt-1">annual revenue impact</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-3 md:p-4 text-center">
+              <div className="text-2xl md:text-3xl font-serif text-[#F0D078]">$1.9B</div>
+              <div className="text-xs md:text-sm text-white/50 mt-1">annual revenue impact</div>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-lg p-4 text-center">
-              <div className="text-3xl font-serif text-[#F0D078]">6 mo</div>
-              <div className="text-sm text-white/50 mt-1">measurement window</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-3 md:p-4 text-center">
+              <div className="text-2xl md:text-3xl font-serif text-[#F0D078]">6 mo</div>
+              <div className="text-xs md:text-sm text-white/50 mt-1">measurement window</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Section 1: Business & Product Outcome */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+          <div className="flex items-center gap-2 text-primary text-xs md:text-sm font-semibold mb-2">
             <span className="bg-[#002D6A] text-white px-2 py-0.5 rounded text-xs">01</span>
             BUSINESS & PRODUCT OUTCOME
           </div>
-          <h2 className="text-3xl font-serif italic text-foreground mb-4">Business & Product Outcome Mapping</h2>
-          <p className="text-muted-foreground mb-8">Understanding how increasing financial feature engagement connects to Chase&apos;s core business goals and unit economics.</p>
+          <h2 className="text-2xl md:text-3xl font-serif italic text-foreground mb-3 md:mb-4">Business & Product Outcome Mapping</h2>
+          <p className="text-sm md:text-base text-muted-foreground mb-6 md:mb-8">Understanding how increasing financial feature engagement connects to Chase&apos;s core business goals and unit economics.</p>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-8">
             <div className="space-y-4">
               <h3 className="font-semibold text-foreground">The US Digital Banking Market</h3>
               <div className="grid grid-cols-2 gap-3">

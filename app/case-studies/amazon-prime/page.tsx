@@ -8,69 +8,70 @@ export default function AmazonPrimeCaseStudy() {
     <main className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <Link href="/#case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft size={18} />
-            Back to Portfolio
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
+          <Link href="/#case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm md:text-base">
+            <ArrowLeft size={16} className="md:w-5 md:h-5" />
+            <span className="hidden sm:inline">Back to Portfolio</span>
+            <span className="sm:hidden">Back</span>
           </Link>
         </div>
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-20 md:pt-32 pb-12 md:pb-16 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
-          <p className="text-primary text-sm font-semibold tracking-wider mb-4">
+          <p className="text-primary text-xs md:text-sm font-semibold tracking-wider mb-3 md:mb-4">
             AMAZON PRIME VIDEO | CONTENT DISCOVERY
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-foreground mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-serif italic text-foreground mb-4 md:mb-6 leading-tight">
             From 15 Minutes to 30 Seconds: Cutting Decision Fatigue in Streaming
           </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+          <p className="text-sm md:text-xl text-muted-foreground leading-relaxed mb-6 md:mb-8">
             A deep dive into reducing friction in Amazon Prime Video&apos;s content discovery experience. This case study explores how AI-powered personalization and streamlined UX can transform the way users find what to watch.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3">
             <a
               href="https://canva.link/3wroonm1t092k4x"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors rounded-md"
+              className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-primary text-primary-foreground font-semibold text-sm md:text-base hover:bg-primary/90 transition-colors rounded-md"
             >
               View Full Deck & MVP
-              <ArrowUpRight size={18} />
+              <ArrowUpRight size={16} className="md:w-[18px] md:h-[18px]" />
             </a>
           </div>
         </div>
       </section>
 
       {/* Problem Statement */}
-      <section className="py-16 px-6 bg-amber-50">
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-amber-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-foreground mb-8">The Problem</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6 md:mb-8">The Problem</h2>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             <div className="flex flex-col items-start">
-              <Clock className="text-primary mb-4" size={32} />
-              <h3 className="font-bold text-foreground mb-2">15 Minutes Wasted</h3>
-              <p className="text-muted-foreground">Average time users spend browsing before making a selection - often leading to abandonment.</p>
+              <Clock className="text-primary mb-3 md:mb-4" size={28} />
+              <h3 className="font-bold text-foreground mb-1 md:mb-2 text-sm md:text-base">15 Minutes Wasted</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">Average time users spend browsing before making a selection - often leading to abandonment.</p>
             </div>
             <div className="flex flex-col items-start">
-              <Target className="text-primary mb-4" size={32} />
-              <h3 className="font-bold text-foreground mb-2">Decision Fatigue</h3>
-              <p className="text-muted-foreground">Overwhelming content catalog with no clear path to discovery creates cognitive overload.</p>
+              <Target className="text-primary mb-3 md:mb-4" size={28} />
+              <h3 className="font-bold text-foreground mb-1 md:mb-2 text-sm md:text-base">Decision Fatigue</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">Overwhelming content catalog with no clear path to discovery creates cognitive overload.</p>
             </div>
             <div className="flex flex-col items-start">
-              <Zap className="text-primary mb-4" size={32} />
-              <h3 className="font-bold text-foreground mb-2">Missed Engagement</h3>
-              <p className="text-muted-foreground">Users often give up and switch platforms rather than continue searching.</p>
+              <Zap className="text-primary mb-3 md:mb-4" size={28} />
+              <h3 className="font-bold text-foreground mb-1 md:mb-2 text-sm md:text-base">Missed Engagement</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">Users often give up and switch platforms rather than continue searching.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Approach */}
-      <section className="py-16 px-6">
+      <section className="py-12 md:py-16 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-foreground mb-8">My Approach</h2>
-          <div className="space-y-6">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6 md:mb-8">My Approach</h2>
+          <div className="space-y-4 md:space-y-6">
             {[
               {
                 step: "01",

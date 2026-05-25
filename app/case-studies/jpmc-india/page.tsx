@@ -30,8 +30,36 @@ const CaseStudyStyles = `
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--cream); display: flex; min-height: 100vh; }
-  nav { position: fixed; left: 0; top: 0; width: 230px; height: 100vh; background: var(--navy); display: flex; flex-direction: column; padding: 0; z-index: 100; overflow-y: auto; }
-  .nav-crown { padding: 24px 20px 20px; background: var(--ink); border-bottom: 1px solid rgba(196,154,42,.25); }
+  nav { position: fixed; left: 0; top: 0; width: 230px; height: 100vh; background: var(--navy); display: flex; flex-direction: column; padding: 0; z-index: 100; overflow-y: auto; transition: transform 0.3s ease; }
+  @media (max-width: 768px) {
+    nav { width: 280px; transform: translateX(-100%); }
+    nav.active { transform: translateX(0); }
+    .nav-toggle { display: flex !important; }
+  }
+  @media (min-width: 769px) {
+    .nav-toggle { display: none !important; }
+  }
+  .nav-toggle { position: fixed; top: 16px; left: 16px; width: 40px; height: 40px; background: var(--navy); border: 1px solid rgba(196,154,42,.3); border-radius: 6px; cursor: pointer; align-items: center; justify-content: center; z-index: 99; transition: all .2s; }
+  .nav-toggle:hover { background: rgba(0,0,0,.2); }
+  .nav-toggle span { width: 20px; height: 2px; background: var(--jpmorgan); display: block; position: relative; transition: all .3s; }
+  .nav-toggle.open span { background: #fff; }
+  .nav-toggle span::before { content: ''; position: absolute; width: 100%; height: 2px; background: var(--jpmorgan); top: -6px; left: 0; transition: all .3s; }
+  .nav-toggle.open span::before { transform: rotate(45deg); top: 0; background: #fff; }
+  .nav-toggle span::after { content: ''; position: absolute; width: 100%; height: 2px; background: var(--jpmorgan); bottom: -6px; left: 0; transition: all .3s; }
+  .nav-toggle.open span::after { transform: rotate(-45deg); bottom: 0; background: #fff; }
+  @media (max-width: 768px) {
+    main { margin-left: 0; }
+    .cover-left { padding: 40px 20px; }
+    .cover-right { display: none; }
+    section { padding: 40px 20px; }
+    .s-title { font-size: 24px; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    table { font-size: 11px; }
+    th, td { padding: 8px 10px; }
+  }
+  nav { position: fixed; left: 0; top: 0; width: 230px; height: 100vh; background: var(--navy); display: flex; flex-direction: column; padding: 0; z-index: 100; overflow-y: auto; transition: transform 0.3s ease; }
   .dual-brand { display: flex; flex-direction: column; gap: 6px; }
   .brand-chase { display: flex; align-items: center; gap: 8px; }
   .brand-jpm { display: flex; align-items: center; gap: 8px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,.08); margin-top: 4px; }
@@ -290,6 +318,7 @@ const CaseStudyStyles = `
 
 const ProjectUdayCaseStudy: React.FC = () => {
   const [activeSection, setActiveSection] = useState('cover');
+  const [navOpen, setNavOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -312,13 +341,41 @@ const ProjectUdayCaseStudy: React.FC = () => {
     return `nav-item ${activeSection === id ? 'active' : ''}`;
   };
 
+  const handleNavClick = () => {
+    setNavOpen(!navOpen);
+  };
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: CaseStudyStyles }} />
       <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
+      {/* Mobile Toggle Button */}
+      <button
+        className={`nav-toggle ${navOpen ? 'open' : ''}`}
+        onClick={handleNavClick}
+        aria-label="Toggle navigation"
+      >
+        <span></span>
+      </button>
+
+      {/* Mobile Overlay */}
+      {navOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.5)',
+            zIndex: 50,
+            display: 'none'
+          }}
+          onClick={() => setNavOpen(false)}
+          className="md:hidden"
+        />
+      )}
+
       {/* ── SIDEBAR ── */}
-      <nav>
+      <nav className={navOpen ? 'active' : ''} onClick={() => setNavOpen(false)}>
         <div className="nav-crown">
           <div className="dual-brand">
             <div className="brand-chase">

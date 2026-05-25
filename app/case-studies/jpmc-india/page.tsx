@@ -49,15 +49,18 @@ const CaseStudyStyles = `
   .nav-toggle.open span::after { transform: rotate(-45deg); bottom: 0; background: #fff; }
   @media (max-width: 768px) {
     main { margin-left: 0; }
-    .cover-left { padding: 40px 20px; }
+    .cover-left { padding: 20px 16px; }
     .cover-right { display: none; }
-    section { padding: 40px 20px; }
-    .s-title { font-size: 24px; }
+    section { padding: 24px 16px; }
+    .s-title { font-size: 20px; }
+    .s-sub { font-size: 14px; }
     .grid-2 { grid-template-columns: 1fr; }
     .grid-3 { grid-template-columns: 1fr; }
     .grid-4 { grid-template-columns: 1fr 1fr; }
-    table { font-size: 11px; }
-    th, td { padding: 8px 10px; }
+    table { font-size: 11px; width: 100%; overflow-x: auto; display: block; }
+    th, td { padding: 8px 10px; whitespace: nowrap; }
+    .cover h1 { font-size: 32px; line-height: 1.2; }
+    .cover-sub-title { font-size: 16px; }
   }
   nav { position: fixed; left: 0; top: 0; width: 230px; height: 100vh; background: var(--navy); display: flex; flex-direction: column; padding: 0; z-index: 100; overflow-y: auto; transition: transform 0.3s ease; }
   .dual-brand { display: flex; flex-direction: column; gap: 6px; }

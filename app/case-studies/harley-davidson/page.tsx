@@ -237,30 +237,30 @@ export default function HarleyDavidsonCaseStudy() {
             Royal Enfield is becoming the entry point to adventure motorcycling globally - a role HD abdicated by refusing to play in the accessible segment.
           </p>
 
-          <div className="overflow-x-auto mb-8">
-            <table className="w-full text-sm">
+          <div className="overflow-x-auto md:overflow-visible mb-8">
+            <table className="w-full min-w-max md:min-w-0 text-[11px] md:text-sm">
               <thead>
                 <tr className="bg-muted">
-                  <th className="text-left p-3 font-semibold">Parameter</th>
-                  <th className="text-center p-3 font-semibold">Harley-Davidson</th>
-                  <th className="text-center p-3 font-semibold">Royal Enfield</th>
-                  <th className="text-center p-3 font-semibold">Advantage</th>
+                  <th className="text-left px-2 md:px-3 py-2 md:py-3 font-semibold whitespace-nowrap">Parameter</th>
+                  <th className="text-center px-1 md:px-3 py-2 md:py-3 font-semibold whitespace-nowrap text-[10px] md:text-sm">Harley-Davidson</th>
+                  <th className="text-center px-1 md:px-3 py-2 md:py-3 font-semibold whitespace-nowrap text-[10px] md:text-sm">Royal Enfield</th>
+                  <th className="text-center px-1 md:px-3 py-2 md:py-3 font-semibold whitespace-nowrap">Advantage</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  ["Entry Price (US)", "$7,000-$12,000 (base)", "$4,000-$6,000", "RE"],
-                  ["Global Units/Year", "~177,000", "~900,000+", "RE"],
-                  ["North America Growth", "Declining YoY", "+18% YoY (estimated)", "RE"],
-                  ["Avg. Buyer Age", "~50 years", "~28-32 years", "RE"],
-                  ["Brand Heritage", "120+ years American icon", "Evocative but younger", "HD"],
-                  ["Engine Sound/Feel", "Iconic V-Twin rumble", "Thumper character", "HD"],
+                  ["Entry Price (US)", "$7K-$12K", "$4K-$6K", "RE"],
+                  ["Global Units/Year", "~177K", "~900K+", "RE"],
+                  ["NA Growth", "Declining", "+18% YoY", "RE"],
+                  ["Buyer Age", "~50 yrs", "~28-32 yrs", "RE"],
+                  ["Brand Heritage", "120+ yrs", "Younger", "HD"],
+                  ["Engine", "V-Twin", "Thumper", "HD"],
                 ].map((row, index) => (
                   <tr key={index} className={index % 2 === 0 ? "bg-background" : "bg-muted/50"}>
-                    <td className="p-3 text-muted-foreground">{row[0]}</td>
-                    <td className="p-3 text-center">{row[1]}</td>
-                    <td className="p-3 text-center">{row[2]}</td>
-                    <td className={`p-3 text-center font-semibold ${row[3] === "RE" ? "text-green-600" : "text-primary"}`}>
+                    <td className="px-2 md:px-3 py-1 md:py-3 text-muted-foreground text-[10px] md:text-sm whitespace-nowrap">{row[0]}</td>
+                    <td className="px-1 md:px-3 py-1 md:py-3 text-center text-[10px] md:text-sm">{row[1]}</td>
+                    <td className="px-1 md:px-3 py-1 md:py-3 text-center text-[10px] md:text-sm">{row[2]}</td>
+                    <td className={`px-1 md:px-3 py-1 md:py-3 text-center font-semibold text-[10px] md:text-sm whitespace-nowrap ${row[3] === "RE" ? "text-green-600" : "text-primary"}`}>
                       {row[3]} &#10003;
                     </td>
                   </tr>

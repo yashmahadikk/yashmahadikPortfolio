@@ -7,7 +7,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Yash Mahadik | Product Manager & Digital Transformation Leader',
   description: 'Product portfolio showcasing AI-powered solutions, enterprise transformation, and digital innovation. 5 years in project management and operations, 4 years in product management.',
-  generator: 'v0.app',
+  generator: 'Yash',
   icons: {
     icon: [
       {

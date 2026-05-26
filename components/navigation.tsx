@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useState } from "react"
 import Link from "next/link"
@@ -67,59 +67,6 @@ export function Navigation() {
             </Link>
             <Link 
               href="/contact" 
-              onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              CONTACT
-            </Link>
-          <Link href="/case-studies" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            CASE STUDIES
-          </Link>
-          <Link href="#skills" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            SKILLS
-          </Link>
-          <Link href="#contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            CONTACT
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground hover:text-primary transition-colors"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
-
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden bg-background border-b border-border">
-          <div className="px-6 py-4 flex flex-col gap-4">
-            <Link 
-              href="#work" 
-              onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-primary"
-            >
-              WORK
-            </Link>
-            <Link 
-              href="/case-studies" 
-              onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              CASE STUDIES
-            </Link>
-            <Link 
-              href="#skills" 
-              onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              SKILLS
-            </Link>
-            <Link 
-              href="#contact" 
               onClick={() => setIsOpen(false)}
               className="text-sm font-medium text-muted-foreground hover:text-foreground"
             >

@@ -1,4 +1,4 @@
-import { Film, Kanban, Scan, Workflow, Bot } from "lucide-react"
+import { Film, Kanban, Scan, Workflow, Bot, Package } from "lucide-react"
 import Link from "next/link"
 
 const projects = [
@@ -51,6 +51,16 @@ const projects = [
     icon: Bot,
     metrics: ["100% Adoption", "Reduced TTM", "Cultural Shift"],
     bgColor: "bg-violet-100",
+  },
+  {
+    id: "electronic-soundbook",
+    category: "PHYSICAL PRODUCT",
+    title: "Electronic Soundbook",
+    subtitle: "Screen-Free Learning for Toddlers",
+    description: "A product development journey building a screen-free alternative to smartphones for toddlers across five global markets. Zero redesigns post-DVT, multi-language support, and compliance across US, EU, UK, GCC, and India markets.",
+    icon: Package,
+    metrics: ["$7 COGS", "5 Markets", "85% PSR"],
+    bgColor: "bg-teal-100",
   },
 ]
 

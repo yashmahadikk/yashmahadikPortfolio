@@ -109,7 +109,7 @@ export function PortfolioSection() {
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                     {project.description}
                   </p>
-                  <Link href={`/work/${project.id}`} className="inline-flex items-center text-primary font-medium hover:underline underline-offset-4 group">
+                  <Link href={project.id === "electronic-soundbook" ? `/case-studies/electronic-soundbook` : `/work/${project.id}`} className="inline-flex items-center text-primary font-medium hover:underline underline-offset-4 group">
                     Learn more
                     <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
                   </Link>

@@ -95,7 +95,7 @@ export default function WorkPage() {
               return (
                 <Link
                   key={project.id}
-                  href={`/work/${project.id}`}
+                  href={project.id === "electronic-soundbook" ? `/case-studies/electronic-soundbook` : `/work/${project.id}`}
                   className={`${project.bgColor} p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
                 >
                   {/* Header */}

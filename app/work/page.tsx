@@ -78,7 +78,7 @@ export default function WorkPage() {
         <div className="max-w-6xl mx-auto">
           <p className="text-primary text-sm font-semibold tracking-wider mb-2">WORK</p>
           <h1 className="text-4xl md:text-6xl font-serif italic text-foreground mb-6">
-            Strategic Initiatives & Innovation
+            Products I have Built
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             A portfolio of transformative projects spanning AI, automation, and organizational transformation. Each project demonstrates strategic vision and execution excellence.
@@ -89,63 +89,49 @@ export default function WorkPage() {
       {/* Projects Grid */}
       <section className="py-20 px-6 bg-muted/30">
         <div className="max-w-6xl mx-auto">
-          <div className="space-y-16">
-            {projects.map((project, index) => {
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project) => {
               const IconComponent = project.icon
               return (
-                <div 
-                  key={project.id} 
-                  className={`grid md:grid-cols-2 gap-8 items-start ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+                <Link
+                  key={project.id}
+                  href={`/work/${project.id}`}
+                  className={`${project.bgColor} p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
                 >
-                  {/* Content Card */}
-                  <div className={`${project.bgColor} p-8 md:p-12 rounded-lg ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                    <div className="flex items-start gap-4 mb-6">
-                      <IconComponent size={32} className="text-foreground flex-shrink-0 mt-1" />
+                  {/* Header */}
+                  <div className="mb-4">
+                    <div className="flex items-start gap-3 mb-4">
+                      <IconComponent size={28} className="text-foreground flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
                       <div>
-                        <p className="text-primary text-xs font-semibold tracking-wider mb-2">
+                        <p className="text-primary text-xs font-semibold tracking-wider mb-1">
                           {project.category}
                         </p>
-                        <h3 className="text-3xl font-serif text-foreground">{project.title}</h3>
-                        <p className="text-sm text-muted-foreground mt-1">{project.subtitle}</p>
+                        <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
+                        <p className="text-xs text-muted-foreground mt-1">{project.subtitle}</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed mb-6">
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.metrics.map((metric, i) => (
-                        <span key={i} className="px-3 py-1 bg-white/50 text-xs font-medium text-foreground rounded-full">
-                          {metric}
-                        </span>
-                      ))}
-                    </div>
                   </div>
 
-                  {/* Details Card */}
-                  <div className={`p-8 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="text-sm font-semibold text-foreground mb-2 tracking-wider">PROJECT STATUS</h4>
-                        <p className="text-muted-foreground">Active</p>
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-semibold text-foreground mb-2 tracking-wider">IMPACT</h4>
-                        <p className="text-muted-foreground">Strategic initiative with significant organizational impact</p>
-                      </div>
-                      {project.id === "electronic-soundbook" && (
-                        <div className="pt-4 border-t border-border">
-                          <Link
-                            href={`/case-studies/electronic-soundbook`}
-                            className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm"
-                          >
-                            Read Full Case Study
-                            <ArrowUpRight size={16} />
-                          </Link>
-                        </div>
-                      )}
-                    </div>
+                  {/* Metrics */}
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10 mb-4">
+                    {project.metrics.map((metric, i) => (
+                      <span key={i} className="px-2 py-1 bg-white/60 text-xs font-medium text-foreground rounded">
+                        {metric}
+                      </span>
+                    ))}
                   </div>
-                </div>
+
+                  {/* Learn More Link */}
+                  <div className="pt-4 border-t border-black/10">
+                    <span className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2 text-sm">
+                      Learn more
+                      <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
+                    </span>
+                  </div>
+                </Link>
               )
             })}
           </div>

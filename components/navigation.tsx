@@ -19,7 +19,7 @@ export function Navigation() {
           <Link href="#work" className="text-sm font-medium text-primary hover:text-primary/80 transition-colors">
             WORK
           </Link>
-          <Link href="#case-studies" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/case-studies" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             CASE STUDIES
           </Link>
           <Link href="#skills" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
@@ -52,7 +52,7 @@ export function Navigation() {
               WORK
             </Link>
             <Link 
-              href="#case-studies" 
+              href="/case-studies" 
               onClick={() => setIsOpen(false)}
               className="text-sm font-medium text-muted-foreground hover:text-foreground"
             >

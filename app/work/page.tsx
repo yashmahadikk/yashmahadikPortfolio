@@ -93,19 +93,20 @@ export default function WorkPage() {
             {projects.map((project) => {
               const IconComponent = project.icon
               return (
-                <div 
+                <Link
                   key={project.id}
-                  className={`${project.bgColor} p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-md transition-shadow`}
+                  href={`/work/${project.id}`}
+                  className={`${project.bgColor} p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
                 >
                   {/* Header */}
                   <div className="mb-4">
                     <div className="flex items-start gap-3 mb-4">
-                      <IconComponent size={28} className="text-foreground flex-shrink-0 mt-1" />
+                      <IconComponent size={28} className="text-foreground flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
                       <div>
                         <p className="text-primary text-xs font-semibold tracking-wider mb-1">
                           {project.category}
                         </p>
-                        <h3 className="text-xl font-serif text-foreground">{project.title}</h3>
+                        <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
                         <p className="text-xs text-muted-foreground mt-1">{project.subtitle}</p>
                       </div>
                     </div>
@@ -115,7 +116,7 @@ export default function WorkPage() {
                   </div>
 
                   {/* Metrics */}
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10">
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10 mb-4">
                     {project.metrics.map((metric, i) => (
                       <span key={i} className="px-2 py-1 bg-white/60 text-xs font-medium text-foreground rounded">
                         {metric}
@@ -123,19 +124,14 @@ export default function WorkPage() {
                     ))}
                   </div>
 
-                  {/* Case Study Link */}
-                  {project.id === "electronic-soundbook" && (
-                    <div className="pt-4 mt-4 border-t border-black/10">
-                      <Link
-                        href={`/case-studies/electronic-soundbook`}
-                        className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-xs"
-                      >
-                        Read Full Case Study
-                        <ArrowUpRight size={14} />
-                      </Link>
-                    </div>
-                  )}
-                </div>
+                  {/* Learn More Link */}
+                  <div className="pt-4 border-t border-black/10">
+                    <span className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2 text-sm">
+                      Learn more
+                      <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
+                    </span>
+                  </div>
+                </Link>
               )
             })}
           </div>

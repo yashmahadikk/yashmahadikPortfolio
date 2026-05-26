@@ -1,0 +1,169 @@
+'use client'
+
+import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
+import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
+
+const caseStudiesByCategory = {
+  "product-teardown": [
+    {
+      id: "zepto",
+      title: "Turning Notifications Into Revenue: A Product Teardown of Push Strategy",
+      description: "A deep analysis of how quick commerce platforms can leverage AI-driven personalization and interactive notifications to boost engagement and conversion.",
+      bgColor: "bg-purple-50",
+      link: "/case-studies/zepto"
+    }
+  ],
+  "wireframing": [
+    {
+      id: "amazon-prime",
+      title: "From 15 Minutes to 30 Seconds: Cutting Decision Fatigue in Streaming",
+      description: "Wireframes and user flows for Amazon Prime's content discovery redesign with interactive prototypes.",
+      bgColor: "bg-amber-50",
+      link: "/case-studies/amazon-prime"
+    }
+  ],
+  "prd": [
+    {
+      id: "sprintup",
+      title: "SprintUp: Voice-Activated Project Management for Engineering Teams",
+      description: "Product Requirements Document for SprintUp — an AI-powered platform that eliminates post-meeting admin overhead by automatically converting verbal commitments and blockers into actionable tickets. Achieve 70% reduction in administrative work and reclaim 2+ hours per sprint per developer.",
+      bgColor: "bg-indigo-50",
+      link: "/case-studies/sprintup"
+    }
+  ],
+  "data-analytics": [
+    {
+      id: "the-hindu",
+      title: "Converting 32M Monthly Visitors Into Paying Subscribers",
+      description: "Comprehensive data analytics and growth funnel optimization for The Hindu's subscription model.",
+      bgColor: "bg-red-50",
+      link: "/case-studies/the-hindu"
+    },
+    {
+      id: "swiggy",
+      title: "How to 2X Quality Text Reviews & Unlock $800M in Annual GOV",
+      description: "Analytics-driven case study on Swiggy's review engagement metrics and conversion optimization.",
+      bgColor: "bg-orange-50",
+      link: "/case-studies/swiggy"
+    }
+  ],
+  "market-case-study": [
+    {
+      id: "harley-davidson",
+      title: "Enjoy Till It Lasts: Unlocking $1.5B Before the ICE Era Ends",
+      description: "Market analysis and competitive positioning strategy for Harley-Davidson in the transitioning motorcycle industry.",
+      bgColor: "bg-orange-100",
+      link: "/case-studies/harley-davidson"
+    },
+    {
+      id: "yeezy",
+      title: "The Anti-User Experience: Why Conventional UX Fails (Sometimes)",
+      description: "Market case study on YEEZY's deliberate rejection of UX conventions and its commercial success.",
+      bgColor: "bg-gray-100",
+      link: "/case-studies/yeezy"
+    }
+  ],
+  "new-product-development": [
+    {
+      id: "chase",
+      title: "Increasing Financial Feature Engagement: Unlocking $1.9B in Annual Revenue",
+      description: "New product feature development strategy for Chase Compass — an AI-powered financial navigation platform designed to increase engagement and unlock substantial annual revenue.",
+      bgColor: "bg-blue-100",
+      link: "/case-studies/chase"
+    },
+    {
+      id: "cred",
+      title: "Breaking the Monthly Habit: Transforming a $6.4B App with 3% DAU/MAU",
+      description: "New product feature development strategy for CRED's daily engagement layer and habit formation.",
+      bgColor: "bg-slate-100",
+      link: "/case-studies/cred"
+    }
+  ],
+  "go-to-market": [
+    {
+      id: "jpmc-india",
+      title: "How JPMC Could Make Their Next Billions In India",
+      description: "Go-to-market strategy and market entry execution plan for JPMC's India expansion.",
+      bgColor: "bg-blue-50",
+      link: "/case-studies/jpmc-india"
+    }
+  ]
+}
+
+const categories = [
+  { key: "product-teardown", label: "Product Teardown", icon: "🔍" },
+  { key: "wireframing", label: "Wireframing", icon: "📐" },
+  { key: "prd", label: "PRD", icon: "📋" },
+  { key: "data-analytics", label: "Data Analytics", icon: "📊" },
+  { key: "market-case-study", label: "Market Case Study", icon: "📈" },
+  { key: "new-product-development", label: "New Product Development", icon: "🚀" },
+  { key: "go-to-market", label: "Go to Market", icon: "🎯" }
+]
+
+export default function CaseStudiesPage() {
+  return (
+    <main className="min-h-screen bg-background">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="py-16 md:py-24 px-6 pt-32">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-primary text-sm font-semibold tracking-wider mb-2">CASE STUDIES</p>
+          <h1 className="text-4xl md:text-6xl font-serif italic text-foreground mb-6">
+            Strategic Product Insights
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            Explore case studies organized by methodology—from product teardowns to go-to-market strategies. Each case study showcases strategic thinking across different product disciplines.
+          </p>
+        </div>
+      </section>
+
+      {/* Categories Section */}
+      <section className="py-20 px-6 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="space-y-16">
+            {categories.map((category) => (
+              <div key={category.key}>
+                <div className="flex items-center gap-3 mb-8">
+                  <span className="text-3xl">{category.icon}</span>
+                  <h2 className="text-2xl md:text-3xl font-serif text-foreground">
+                    {category.label}
+                  </h2>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  {caseStudiesByCategory[category.key]?.map((study) => (
+                    <Link
+                      key={study.id}
+                      href={study.link}
+                      className="group"
+                    >
+                      <div className={`${study.bgColor} p-8 rounded-lg h-full flex flex-col justify-between transition-transform hover:scale-105`}>
+                        <div>
+                          <h3 className="text-xl font-serif text-foreground mb-3 group-hover:text-primary transition-colors">
+                            {study.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground mb-4">
+                            {study.description}
+                          </p>
+                        </div>
+                        <div className="flex items-center text-primary font-medium text-sm">
+                          Read Case Study
+                          <ArrowUpRight size={16} className="ml-2" />
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  )
+}

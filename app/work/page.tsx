@@ -78,7 +78,7 @@ export default function WorkPage() {
         <div className="max-w-6xl mx-auto">
           <p className="text-primary text-sm font-semibold tracking-wider mb-2">WORK</p>
           <h1 className="text-4xl md:text-6xl font-serif italic text-foreground mb-6">
-            Strategic Initiatives & Innovation
+            Products I have Built
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             A portfolio of transformative projects spanning AI, automation, and organizational transformation. Each project demonstrates strategic vision and execution excellence.

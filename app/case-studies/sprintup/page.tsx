@@ -30,6 +30,17 @@ export default function SprintUpPage() {
               <span className="text-sm font-medium">Agile Software Development Teams</span>
             </div>
           </div>
+          <div className="pt-4">
+            <a
+              href="https://docs.google.com/document/d/1FiJ5XTT9VRfQ_OwUkULP6cbIpZL1zYyEOLrXMsoo36Q/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Read Full In-Depth PRD
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
         </div>
       </section>
 

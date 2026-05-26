@@ -89,6 +89,15 @@ const caseStudiesByCategory = {
       bgColor: "bg-blue-50",
       link: "/case-studies/jpmc-india"
     }
+  ],
+  "product-development-journey": [
+    {
+      id: "electronic-soundbook",
+      title: "Electronic Soundbook: From Brief to Shelf",
+      description: "A product development journey — Building a screen-free alternative to smartphones for toddlers across five global markets with zero redesigns post-DVT. Covers research, engineering, compliance architecture, prototyping, and go-to-market strategy.",
+      bgColor: "bg-teal-50",
+      link: "/case-studies/electronic-soundbook"
+    }
   ]
 }
 
@@ -98,6 +107,9 @@ const categories = [
   { key: "prd", label: "PRD", icon: "📋" },
   { key: "data-analytics", label: "Data Analytics", icon: "📊" },
   { key: "market-case-study", label: "Market Case Study", icon: "📈" },
+  { key: "new-product-development", label: "New Product Development", icon: "🚀" },
+  { key: "go-to-market", label: "Go to Market", icon: "🎯" },
+  { key: "product-development-journey", label: "Product Development Journey", icon: "🛣️" }
   { key: "new-product-development", label: "New Product Development", icon: "🚀" },
   { key: "go-to-market", label: "Go to Market", icon: "🎯" }
 ]

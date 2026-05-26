@@ -26,18 +26,11 @@ const caseStudiesByCategory = {
   ],
   "prd": [
     {
-      id: "jpmc-india",
-      title: "How JPMC Could Make Their Next Billions In India (If They Were Allowed To Enter)",
-      description: "Comprehensive PRD for JPMC's dual-brand market entry strategy into India with full product specifications.",
-      bgColor: "bg-blue-50",
-      link: "/case-studies/jpmc-india"
-    },
-    {
-      id: "chase",
-      title: "Increasing Financial Feature Engagement: Unlocking $1.9B in Annual Revenue",
-      description: "Product requirements document for Chase Compass AI-powered financial navigation platform.",
-      bgColor: "bg-blue-100",
-      link: "/case-studies/chase"
+      id: "sprintup",
+      title: "SprintUp: Voice-Activated Project Management for Engineering Teams",
+      description: "Product Requirements Document for SprintUp — an AI-powered platform that eliminates post-meeting admin overhead by automatically converting verbal commitments and blockers into actionable tickets. Achieve 70% reduction in administrative work and reclaim 2+ hours per sprint per developer.",
+      bgColor: "bg-indigo-50",
+      link: "/case-studies/sprintup"
     }
   ],
   "data-analytics": [
@@ -73,6 +66,13 @@ const caseStudiesByCategory = {
     }
   ],
   "new-product-development": [
+    {
+      id: "chase",
+      title: "Increasing Financial Feature Engagement: Unlocking $1.9B in Annual Revenue",
+      description: "New product feature development strategy for Chase Compass — an AI-powered financial navigation platform designed to increase engagement and unlock substantial annual revenue.",
+      bgColor: "bg-blue-100",
+      link: "/case-studies/chase"
+    },
     {
       id: "cred",
       title: "Breaking the Monthly Habit: Transforming a $6.4B App with 3% DAU/MAU",

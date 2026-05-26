@@ -110,8 +110,6 @@ const categories = [
   { key: "new-product-development", label: "New Product Development", icon: "🚀" },
   { key: "go-to-market", label: "Go to Market", icon: "🎯" },
   { key: "product-development-journey", label: "Product Development Journey", icon: "🛣️" }
-  { key: "new-product-development", label: "New Product Development", icon: "🚀" },
-  { key: "go-to-market", label: "Go to Market", icon: "🎯" }
 ]
 
 export default function CaseStudiesPage() {

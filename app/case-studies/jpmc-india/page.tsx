@@ -459,6 +459,29 @@ const ProjectUdayCaseStudy: React.FC = () => {
           </div>
         </div>
 
+        {/* ── VIDEO SECTION ── */}
+        <section style={{ padding: '40px 0', borderBottom: '1px solid rgba(0,0,0,.08)' }}>
+          <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+            <h3 style={{ fontSize: '24px', fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', color: 'var(--text)', marginBottom: '8px' }}>
+              Watch the Full Case Study
+            </h3>
+            <p style={{ fontSize: '13px', color: 'var(--muted)' }}>
+              Deep dive into Project Uday's strategic framework and implementation roadmap.
+            </p>
+          </div>
+          <div style={{ aspectRatio: '16/9', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(0,0,0,.08)' }}>
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/M0GaCSBFvS4" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen 
+              style={{ display: 'block' }}
+            ></iframe>
+          </div>
+        </section>
+
         {/* ── SECTION 1: BUSINESS & PRODUCT OUTCOME ── */}
         <section id="s1">
           <div className="s-header">

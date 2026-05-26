@@ -141,6 +141,31 @@ export default function HarleyDavidsonCaseStudy() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-background border-b border-border">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-6 md:mb-8 text-center">
+            <h3 className="text-xl md:text-2xl font-serif italic text-foreground mb-2">
+              Watch the Full Case Study
+            </h3>
+            <p className="text-xs md:text-sm text-muted-foreground">
+              Deep dive into the Harley-Davidson brand strategy and market opportunity before the ICE era ends.
+            </p>
+          </div>
+          <div className="aspect-video w-full rounded-lg overflow-hidden border border-border shadow-sm">
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/OkSw5nBnpck" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen 
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       {/* The Problem */}
       <section className="py-16 px-6 bg-red-50/50">
         <div className="max-w-6xl mx-auto">

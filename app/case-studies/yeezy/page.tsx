@@ -297,6 +297,29 @@ export default function YeezyNEECaseStudy() {
             </p>
           </div>
 
+          {/* Video Section */}
+          <div className="my-12 md:my-16">
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl md:text-3xl font-serif italic text-foreground mb-3">
+                Watch the Full Case Study
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+                Explore the anti-UX strategy behind YEEZY Seasons and how intentional friction creates cultural resonance and commercial success.
+              </p>
+            </div>
+            <div className="aspect-video w-full rounded-lg overflow-hidden border border-border shadow-sm bg-black/5">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/Drm2SC5aMQw" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen 
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+
           {/* CTA */}
           <div className="text-center pt-8 md:pt-12 border-t border-border">
             <h2 className="text-xl md:text-3xl font-serif italic text-foreground mb-6">

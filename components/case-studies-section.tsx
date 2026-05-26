@@ -175,6 +175,17 @@ export function CaseStudiesSection() {
                     Read Case Study
                     <ArrowUpRight size={18} />
                   </Link>
+                  {study.videoUrl && (
+                    <a
+                      href={study.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                    >
+                      Watch Video
+                      <ArrowUpRight size={18} />
+                    </a>
+                  )}
                   {study.link && (
                     <a
                       href={study.link}

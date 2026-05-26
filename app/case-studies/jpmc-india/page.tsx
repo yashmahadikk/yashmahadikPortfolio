@@ -1268,6 +1268,13 @@ const ProjectUdayCaseStudy: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* Go Back Button */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px', paddingTop: '32px', borderTop: '1px solid rgba(0,0,0,.08)' }}>
+            <a href="/#case-studies" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', backgroundColor: 'var(--jpmorgan)', color: '#fff', textDecoration: 'none', borderRadius: '6px', fontWeight: 500, fontSize: '14px', transition: 'opacity 0.2s', cursor: 'pointer' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'} onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>
+              ← Explore Other Case Studies
+            </a>
+          </div>
         </section>
 
       </main>

@@ -11,6 +11,7 @@ const projects = [
     icon: Film,
     metrics: ["Generative AI", "Content Creation", "Visual Storytelling"],
     bgColor: "bg-cyan-100",
+    pptLink: "https://canva.link/rwk5uu8nrkfhuu1",
   },
   {
     id: "sprintup",
@@ -61,6 +62,7 @@ const projects = [
     icon: Package,
     metrics: ["$7 COGS", "5 Markets", "85% PSR"],
     bgColor: "bg-teal-100",
+    pptLink: "https://canva.link/5pkm57zpt9t04qt",
   },
 ]
 
@@ -121,6 +123,19 @@ export function PortfolioSection() {
                     <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
                   </span>
                 </div>
+                {project.pptLink && (
+                  <div className="pt-3">
+                    <a
+                      href={project.pptLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-primary font-medium hover:underline underline-offset-2 text-sm"
+                    >
+                      View the deck
+                      <span className="ml-2">&gt;</span>
+                    </a>
+                  </div>
+                )}
               </Link>
             )
           })}

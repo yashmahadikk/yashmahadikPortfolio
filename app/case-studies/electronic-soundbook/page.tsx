@@ -30,6 +30,31 @@ export default function ElectronicSoundbookPage() {
               <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--text)' }}>$7 COGS | $25 Retail | 85% PSR | 5 Markets (US, EU, UK, GCC, India)</span>
             </div>
           </div>
+          <div style={{ marginTop: '24px' }}>
+            <a
+              href="https://canva.link/5pkm57zpt9t04qt"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 24px',
+                backgroundColor: 'var(--primary)',
+                color: 'var(--primary-foreground)',
+                fontWeight: 600,
+                borderRadius: '6px',
+                textDecoration: 'none',
+                cursor: 'pointer',
+                transition: 'background-color 0.3s'
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--primary-hover)'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--primary)'}
+            >
+              View the deck
+              <span style={{ fontSize: '20px' }}>→</span>
+            </a>
+          </div>
         </div>
       </section>
 

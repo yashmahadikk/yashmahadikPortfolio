@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowLeft, Film, Sparkles, Zap, Play } from "lucide-react"
+import { ArrowLeft, Film, Sparkles, Zap, Play, ArrowUpRight } from "lucide-react"
 
 export default function AgarProject() {
   return (
@@ -28,6 +28,15 @@ export default function AgarProject() {
           <p className="text-xl text-muted-foreground leading-relaxed mb-8">
             Revolutionary AI-powered platform for creating immersive movies and web series. Leveraging generative AI to transform storytelling, enabling creators to produce high-quality visual content at unprecedented speed and scale.
           </p>
+          <a
+            href="https://canva.link/rwk5uu8nrkfhuu1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors rounded-md"
+          >
+            View the deck
+            <ArrowUpRight size={20} />
+          </a>
         </div>
       </section>
 

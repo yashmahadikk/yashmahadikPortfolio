@@ -74,7 +74,8 @@ const caseStudiesByCategory = {
       title: "Breaking the Monthly Habit: Transforming a $6.4B App with 3% DAU/MAU",
       description: "New product feature development strategy for CRED's daily engagement layer and habit formation.",
       bgColor: "bg-slate-100",
-      link: "/case-studies/cred"
+      link: "/case-studies/cred",
+      pptLink: "https://canva.link/credcasestudybyyash"
     }
   ],
   "go-to-market": [
@@ -149,9 +150,23 @@ export function CaseStudiesSection() {
                           {study.description}
                         </p>
                       </div>
-                      <div className="flex items-center text-primary font-medium text-sm">
-                        Read Case Study
-                        <ArrowUpRight size={16} className="ml-2" />
+                      <div className="space-y-2">
+                        <div className="flex items-center text-primary font-medium text-sm">
+                          Read Case Study
+                          <ArrowUpRight size={16} className="ml-2" />
+                        </div>
+                        {study.pptLink && (
+                          <a
+                            href={study.pptLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="inline-flex items-center text-primary font-medium text-sm hover:underline underline-offset-2"
+                          >
+                            View the deck
+                            <span className="ml-2">&gt;</span>
+                          </a>
+                        )}
                       </div>
                     </div>
                   </Link>

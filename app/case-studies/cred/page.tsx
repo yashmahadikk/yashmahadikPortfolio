@@ -36,7 +36,7 @@ export default function CredCaseStudy() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-primary text-primary-foreground font-semibold text-sm md:text-base hover:bg-primary/90 transition-colors rounded-md"
             >
-              View Full Case Study
+              View the deck
               <ArrowUpRight size={16} className="md:w-[18px] md:h-[18px]" />
             </a>
           </div>

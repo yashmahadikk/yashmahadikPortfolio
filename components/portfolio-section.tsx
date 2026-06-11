@@ -66,55 +66,62 @@ const projects = [
 
 export function PortfolioSection() {
   return (
-    <section id="work" className="py-24 px-6">
+    <section id="work" className="py-24 px-6 bg-muted/30">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-16">
+        <div className="mb-12">
           <p className="text-primary text-sm font-semibold tracking-wider mb-2">WORK</p>
-          <h2 className="text-4xl md:text-5xl font-serif italic text-foreground">
-            Products I&apos;ve Built
+          <h2 className="text-4xl md:text-6xl font-serif italic text-foreground mb-6">
+            Products I have Built
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            A portfolio of transformative projects spanning AI, automation, and organizational transformation. Each project demonstrates strategic vision and execution excellence.
+          </p>
         </div>
-        <div className="space-y-24">
-          {projects.map((project, index) => {
-            const Icon = project.icon
-            const isEven = index % 2 === 0
 
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => {
+            const Icon = project.icon
             return (
-              <article
+              <Link
                 key={project.id}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center`}
+                href={project.id === "electronic-soundbook" ? `/case-studies/electronic-soundbook` : `/work/${project.id}`}
+                className={`${project.bgColor} p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
               >
-                {/* Project Visual */}
-                <div className={`${!isEven ? "lg:order-2" : ""}`}>
-                  <div className={`aspect-[4/3] ${project.bgColor} relative overflow-hidden group rounded-lg`}>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center p-8">
-                        <Icon size={64} className="text-foreground/70 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                        <span className="text-3xl md:text-4xl font-bold text-foreground/30">
-                          {project.title}
-                        </span>
-                      </div>
+                {/* Header */}
+                <div className="mb-4">
+                  <div className="flex items-start gap-3 mb-4">
+                    <Icon size={28} className="text-foreground flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                    <div>
+                      <p className="text-primary text-xs font-semibold tracking-wider mb-1">
+                        {project.category}
+                      </p>
+                      <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
+                      <p className="text-xs text-muted-foreground mt-1">{project.subtitle}</p>
                     </div>
                   </div>
-                </div>
-
-                {/* Project Info */}
-                <div className={`${!isEven ? "lg:order-1" : ""}`}>
-                  <span className="text-xs font-bold text-primary tracking-wide mb-2 block">
-                    {project.category}
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                    {project.subtitle}
-                  </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
-                  <Link href={project.id === "electronic-soundbook" ? `/case-studies/electronic-soundbook` : `/work/${project.id}`} className="inline-flex items-center text-primary font-medium hover:underline underline-offset-4 group">
+                </div>
+
+                {/* Metrics */}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10 mb-4">
+                  {project.metrics.map((metric, i) => (
+                    <span key={i} className="px-2 py-1 bg-white/60 text-xs font-medium text-foreground rounded">
+                      {metric}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Learn More Link */}
+                <div className="pt-4 border-t border-black/10">
+                  <span className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2 text-sm">
                     Learn more
                     <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
-                  </Link>
+                  </span>
                 </div>
-              </article>
+              </Link>
             )
           })}
         </div>

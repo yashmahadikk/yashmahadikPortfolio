@@ -160,7 +160,6 @@ export function CaseStudiesSection() {
                             href={study.pptLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
                             className="inline-flex items-center text-primary font-medium text-sm hover:underline underline-offset-2"
                           >
                             View the deck

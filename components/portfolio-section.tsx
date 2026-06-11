@@ -129,7 +129,6 @@ export function PortfolioSection() {
                       href={project.pptLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center text-primary font-medium hover:underline underline-offset-2 text-sm"
                     >
                       View the deck

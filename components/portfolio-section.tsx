@@ -125,15 +125,16 @@ export function PortfolioSection() {
                 </div>
                 {project.pptLink && (
                   <div className="pt-3">
-                    <a
-                      href={project.pptLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-primary font-medium hover:underline underline-offset-2 text-sm"
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault()
+                        window.open(project.pptLink, '_blank')
+                      }}
+                      className="inline-flex items-center text-primary font-medium hover:underline underline-offset-2 text-sm bg-transparent border-0 cursor-pointer p-0 appearance-none"
                     >
                       View the deck
                       <span className="ml-2">&gt;</span>
-                    </a>
+                    </button>
                   </div>
                 )}
               </Link>

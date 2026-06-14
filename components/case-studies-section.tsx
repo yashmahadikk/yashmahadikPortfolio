@@ -177,15 +177,16 @@ export function CaseStudiesSection() {
                           <ArrowUpRight size={16} className="ml-2" />
                         </div>
                         {study.pptLink && (
-                          <a
-                            href={study.pptLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-primary font-medium text-sm hover:underline underline-offset-2"
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault()
+                              window.open(study.pptLink, '_blank')
+                            }}
+                            className="inline-flex items-center text-primary font-medium text-sm hover:underline underline-offset-2 bg-transparent border-0 cursor-pointer p-0 appearance-none"
                           >
                             View the deck
                             <span className="ml-2">&gt;</span>
-                          </a>
+                          </button>
                         )}
                       </div>
                     </div>

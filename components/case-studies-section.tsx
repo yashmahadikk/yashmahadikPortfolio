@@ -43,6 +43,13 @@ const caseStudiesByCategory = {
       description: "Analytics-driven case study on Swiggy's review engagement metrics and conversion optimization.",
       bgColor: "bg-orange-50",
       link: "/case-studies/swiggy"
+    },
+    {
+      id: "netflix",
+      title: "Predicting What You Want to Watch: Netflix's Recommendation Engine Optimization",
+      description: "Deep dive into Netflix's data analytics framework for personalized recommendations. How machine learning models increased viewing time by 20% and reduced churn through predictive analytics.",
+      bgColor: "bg-red-100",
+      link: "/case-studies/netflix"
     }
   ],
   "market-case-study": [
@@ -59,6 +66,13 @@ const caseStudiesByCategory = {
       description: "Market case study on YEEZY's deliberate rejection of UX conventions and its commercial success.",
       bgColor: "bg-gray-100",
       link: "/case-studies/yeezy"
+    },
+    {
+      id: "figma",
+      title: "From Free Tools to Enterprise: How Figma Captured the Design Market",
+      description: "Strategic market analysis of Figma's competitive positioning, pricing strategy, and network effects that transformed the $50B+ design tools landscape.",
+      bgColor: "bg-pink-100",
+      link: "/case-studies/figma"
     }
   ],
   "new-product-development": [
@@ -76,6 +90,13 @@ const caseStudiesByCategory = {
       bgColor: "bg-slate-100",
       link: "/case-studies/cred",
       pptLink: "https://canva.link/credcasestudybyyash"
+    },
+    {
+      id: "notion",
+      title: "From Document Editor to AI-Powered Workspace: Notion's Feature Roadmap",
+      description: "New product feature strategy for Notion AI — seamless AI integration into workflows. How Notion expanded from a document tool into a $10B+ AI-first workspace platform through strategic feature development.",
+      bgColor: "bg-gray-50",
+      link: "/case-studies/notion"
     }
   ],
   "go-to-market": [

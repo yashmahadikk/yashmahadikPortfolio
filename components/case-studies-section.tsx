@@ -135,7 +135,7 @@ const categories = [
 export function CaseStudiesSection() {
   return (
     <section id="case-studies" className="py-24 px-6 bg-muted/30 relative overflow-hidden">
-      <div className="absolute bottom-0 left-10 w-80 h-80 opacity-5 pointer-events-none hidden md:block">
+      <div className="absolute bottom-0 left-10 w-80 h-80 opacity-5 dark:opacity-3 pointer-events-none hidden md:block">
         <img 
           src="/illustrations/analytics.png" 
           alt="" 

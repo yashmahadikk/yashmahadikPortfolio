@@ -71,7 +71,7 @@ const projects = [
 export function PortfolioSection() {
   return (
     <section id="work" className="py-24 px-6 bg-muted/30 relative overflow-hidden">
-      <div className="absolute top-0 right-10 w-64 h-64 opacity-5 pointer-events-none hidden md:block">
+      <div className="absolute top-0 right-10 w-64 h-64 opacity-5 dark:opacity-3 pointer-events-none hidden md:block">
         <img 
           src="/illustrations/growth-abstract.png" 
           alt="" 
@@ -118,16 +118,16 @@ export function PortfolioSection() {
                 </div>
 
                 {/* Metrics */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10 mb-4">
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10 dark:border-white/10 mb-4">
                   {project.metrics.map((metric, i) => (
-                    <span key={i} className="px-2 py-1 bg-white/60 text-xs font-medium text-foreground rounded">
+                    <span key={i} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">
                       {metric}
                     </span>
                   ))}
                 </div>
 
                 {/* Learn More Link */}
-                <div className="pt-4 border-t border-black/10">
+                <div className="pt-4 border-t border-black/10 dark:border-white/10">
                   <span className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2 text-sm">
                     Learn more
                     <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>

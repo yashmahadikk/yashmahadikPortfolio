@@ -33,29 +33,29 @@ export default function SwigyCaseStudyPage() {
             <div className="bg-primary/10 px-4 py-2 rounded-md">
               <span className="text-primary font-semibold">Potential Impact: $800M GOV</span>
             </div>
-            <div className="bg-emerald-100 px-4 py-2 rounded-md">
-              <span className="text-emerald-700 font-semibold">Target: 2.2M Active Users</span>
+            <div className="bg-emerald-100 dark:bg-emerald-900/40 px-4 py-2 rounded-md">
+              <span className="text-emerald-700 dark:text-emerald-300 font-semibold">Target: 2.2M Active Users</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Overview */}
-      <section className="py-16 px-6 bg-orange-50">
+      <section className="py-16 px-6 bg-orange-50 dark:bg-orange-900/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-serif text-foreground mb-8">Business Context</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white dark:bg-card p-6 rounded-lg shadow-sm">
               <Target className="text-primary mb-4" size={32} />
               <h3 className="font-semibold text-foreground mb-2">The Goal</h3>
               <p className="text-muted-foreground text-sm">Increase quality text reviews on Swiggy&apos;s food delivery vertical to drive menu page conversion and user trust.</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white dark:bg-card p-6 rounded-lg shadow-sm">
               <Users className="text-primary mb-4" size={32} />
               <h3 className="font-semibold text-foreground mb-2">Target Segment</h3>
               <p className="text-muted-foreground text-sm">~2.2M highly active users (4+ orders/month) who value reviews but only leave ratings due to friction.</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white dark:bg-card p-6 rounded-lg shadow-sm">
               <TrendingUp className="text-primary mb-4" size={32} />
               <h3 className="font-semibold text-foreground mb-2">Revenue Impact</h3>
               <p className="text-muted-foreground text-sm">From $3.6B to $4.4B annual GOV through improved menu page conversion rates.</p>
@@ -68,10 +68,10 @@ export default function SwigyCaseStudyPage() {
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-serif text-foreground mb-8">Why Text Reviews Matter for Swiggy</h2>
-          <div className="bg-slate-50 p-8 rounded-lg mb-8">
+          <div className="bg-slate-50 dark:bg-slate-900/20 p-8 rounded-lg mb-8">
             <h3 className="font-semibold text-foreground mb-4">The Growth Loop</h3>
             <div className="grid md:grid-cols-6 gap-4 text-center text-sm">
-              <div className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="bg-white dark:bg-card p-4 rounded-lg shadow-sm">
                 <p className="font-medium">User Visits Swiggy</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">

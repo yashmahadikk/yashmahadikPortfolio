@@ -60,7 +60,7 @@ export default function HarleyDavidsonCaseStudy() {
       </section>
 
       {/* Key Stats */}
-      <section className="py-8 md:py-12 px-4 md:px-6 bg-muted/30">
+      <section className="py-8 md:py-12 px-4 md:px-6 bg-muted/30 dark:bg-muted/20">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[

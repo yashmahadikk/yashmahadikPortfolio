@@ -68,7 +68,7 @@ export default function ChaseCaseStudyPage() {
       </section>
 
       {/* Section 1: Business & Product Outcome */}
-      <section className="py-12 md:py-16 px-4 md:px-6 bg-white">
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-white dark:bg-card">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-2 text-primary text-xs md:text-sm font-semibold mb-2">
             <span className="bg-[#002D6A] text-white px-2 py-0.5 rounded text-xs">01</span>
@@ -434,7 +434,7 @@ export default function ChaseCaseStudyPage() {
               <p className="text-sm text-muted-foreground"><strong className="text-green-700">Why CompassGuide wins:</strong> Solves both root causes simultaneously - personalized navigation AND a financial progress identity. High confidence grounded in 3 validated hypotheses and 12 qualitative interviews.</p>
             </div>
             <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-              <p className="text-sm text-muted-foreground"><strong className="text-red-700">Why SmartNav falls short:</strong> Purely structural change - reduces friction but doesn&apos;t motivate action. A user who doesn&apos;t know why to use budgeting tools will ignore them regardless of how easy they are to find.</p>
+              <p className="text-sm text-muted-foreground"><strong className="text-red-700 dark:text-red-300">Why SmartNav falls short:</strong> Purely structural change - reduces friction but doesn&apos;t motivate action. A user who doesn&apos;t know why to use budgeting tools will ignore them regardless of how easy they are to find.</p>
             </div>
           </div>
         </div>

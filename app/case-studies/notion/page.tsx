@@ -30,26 +30,26 @@ export default function NotionCaseStudyPage() {
             New product feature strategy for Notion AI—seamless AI integration into workflows. How Notion expanded from a document tool into a $10B+ AI-first workspace platform through strategic feature development.
           </p>
           <div className="flex flex-wrap gap-4">
-            <div className="bg-gray-100 px-4 py-2 rounded-md">
-              <span className="text-gray-700 font-semibold">$10B Valuation</span>
+            <div className="bg-gray-100 dark:bg-gray-900/40 px-4 py-2 rounded-md">
+              <span className="text-gray-700 dark:text-gray-300 font-semibold">$10B Valuation</span>
             </div>
-            <div className="bg-purple-100 px-4 py-2 rounded-md">
-              <span className="text-purple-700 font-semibold">8M+ Users</span>
+            <div className="bg-purple-100 dark:bg-purple-900/40 px-4 py-2 rounded-md">
+              <span className="text-purple-700 dark:text-purple-300 font-semibold">8M+ Users</span>
             </div>
-            <div className="bg-blue-100 px-4 py-2 rounded-md">
-              <span className="text-blue-700 font-semibold">AI Feature Launch 2023</span>
+            <div className="bg-blue-100 dark:bg-blue-900/40 px-4 py-2 rounded-md">
+              <span className="text-blue-700 dark:text-blue-300 font-semibold">AI Feature Launch 2023</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Challenge */}
-      <section className="py-16 px-6 bg-gray-50">
+      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-900/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-serif text-foreground mb-8">The Challenge</h2>
           
           <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white dark:bg-card p-6 rounded-lg shadow-sm">
               <h3 className="font-semibold text-foreground mb-4">Notion's Strength</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -66,7 +66,7 @@ export default function NotionCaseStudyPage() {
                 </li>
               </ul>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white dark:bg-card p-6 rounded-lg shadow-sm">
               <h3 className="font-semibold text-foreground mb-4">The Problem to Solve</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">

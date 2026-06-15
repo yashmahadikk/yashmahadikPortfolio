@@ -89,7 +89,7 @@ export default function MeasureAIProject() {
       </section>
 
       {/* Role */}
-      <section className="py-16 px-6 bg-slate-50">
+      <section className="py-16 px-6 bg-slate-50 dark:bg-slate-900/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-foreground mb-8">My Role</h2>
           <div className="prose prose-lg text-muted-foreground">

@@ -43,17 +43,17 @@ export default function AgarProject() {
       {/* Visual */}
       <section className="px-6 pb-16">
         <div className="max-w-4xl mx-auto">
-          <div className="aspect-video bg-cyan-100 rounded-lg flex items-center justify-center">
+          <div className="aspect-video bg-cyan-100 dark:bg-cyan-900/40 rounded-lg flex items-center justify-center">
             <div className="text-center">
-              <Film size={80} className="text-cyan-600 mx-auto mb-4" />
-              <span className="text-4xl font-bold text-cyan-600/50">Agar</span>
+              <Film size={80} className="text-cyan-600 dark:text-cyan-400 mx-auto mb-4" />
+              <span className="text-4xl font-bold text-cyan-600/50 dark:text-cyan-500/50">Agar</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="py-16 px-6 bg-cyan-50">
+      <section className="py-16 px-6 bg-cyan-50 dark:bg-cyan-900/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-foreground mb-8">Key Features</h2>
           <div className="grid md:grid-cols-3 gap-8">

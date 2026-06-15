@@ -93,7 +93,7 @@ export default function ContactPage() {
               <Linkedin size={24} />
             </a>
             <a
-              href="https://instagram.com/yashmahadik"
+              href="https://instagram.com/yashmahadikofficial"
               target="_blank"
               rel="noopener noreferrer"
               className="w-14 h-14 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors hover:bg-primary/5"

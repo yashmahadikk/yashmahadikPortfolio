@@ -202,7 +202,7 @@ export default function FigmaCaseStudyPage() {
               <p className="text-muted-foreground text-sm">By winning designers first, Figma created organic demand. Enterprises adopted it because teams were already using it, not because of sales pitches.</p>
             </div>
             <div className="bg-pink-50 p-6 rounded-lg border border-pink-200">
-              <p className="font-semibold text-foreground mb-2">Platform > Point Solution</p>
+              <p className="font-semibold text-foreground mb-2">Platform &gt; Point Solution</p>
               <p className="text-muted-foreground text-sm">Figma's investment in APIs, plugins, and integrations turned it from a design tool into an essential part of product development infrastructure.</p>
             </div>
             <div className="bg-pink-50 p-6 rounded-lg border border-pink-200">

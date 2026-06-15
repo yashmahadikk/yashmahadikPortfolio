@@ -2,8 +2,16 @@ import { Mail, Linkedin, Instagram, ArrowUpRight, Phone } from "lucide-react"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="contact" className="py-20 px-6 relative overflow-hidden">
+      <div className="absolute top-10 right-10 w-72 h-72 opacity-5 pointer-events-none hidden lg:block">
+        <img 
+          src="/illustrations/collaboration.png" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      <div className="max-w-4xl mx-auto text-center relative z-10">
         <p className="text-primary text-sm font-semibold tracking-wider mb-2">CONTACT</p>
         <h2 className="text-4xl md:text-5xl font-serif italic text-foreground mb-6">
           Let&apos;s Connect

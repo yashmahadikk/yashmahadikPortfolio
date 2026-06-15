@@ -70,8 +70,16 @@ const projects = [
 
 export function PortfolioSection() {
   return (
-    <section id="work" className="py-24 px-6 bg-muted/30">
-      <div className="max-w-6xl mx-auto">
+    <section id="work" className="py-24 px-6 bg-muted/30 relative overflow-hidden">
+      <div className="absolute top-0 right-10 w-64 h-64 opacity-5 pointer-events-none hidden md:block">
+        <img 
+          src="/illustrations/growth-abstract.png" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-12">
           <p className="text-primary text-sm font-semibold tracking-wider mb-2">WORK</p>
           <h2 className="text-4xl md:text-6xl font-serif italic text-foreground mb-6">

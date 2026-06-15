@@ -1,3 +1,5 @@
+"use client"
+
 import { Film, Kanban, Scan, Workflow, Bot, Package } from "lucide-react"
 import Link from "next/link"
 

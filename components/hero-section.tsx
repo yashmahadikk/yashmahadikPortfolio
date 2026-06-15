@@ -11,7 +11,7 @@ export function HeroSection() {
         
         <div className="max-w-3xl">
           <p className="text-lg md:text-xl text-muted-foreground mb-4 leading-relaxed">
-            Hi, I&apos;m Yash. I have 5 years of experience in project management and operations, and 4 years in product management, leading diverse, cross-functional teams to build digital products that people love and drive business results.
+            Hi, I&apos;m Yash. I have 4 years of experience in Product Management and operations, and 5 years in product management, leading diverse, cross-functional teams to build digital products that people love and drive business results.
           </p>
           <p className="text-lg md:text-xl text-muted-foreground mb-4 leading-relaxed">
             This includes as a Product Manager and as an operations strategy partner for{" "}

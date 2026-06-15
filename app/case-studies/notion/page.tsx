@@ -231,7 +231,7 @@ export default function NotionCaseStudyPage() {
               <p className="text-muted-foreground text-sm">By creating a clear credit system rather than hidden AI costs, Notion maintained user trust during a sensitive feature rollout.</p>
             </div>
             <div className="bg-white p-6 rounded-lg border border-border">
-              <p className="font-semibold text-foreground mb-2">Iteration > Big Bang Launch</p>
+              <p className="font-semibold text-foreground mb-2">Iteration &gt; Big Bang Launch</p>
               <p className="text-muted-foreground text-sm">Rolling out features incrementally allowed Notion to gather feedback and avoid building expensive features users didn't want.</p>
             </div>
             <div className="bg-white p-6 rounded-lg border border-border">

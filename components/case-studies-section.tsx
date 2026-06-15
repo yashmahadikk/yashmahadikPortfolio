@@ -134,8 +134,16 @@ const categories = [
 
 export function CaseStudiesSection() {
   return (
-    <section id="case-studies" className="py-24 px-6 bg-muted/30">
-      <div className="max-w-6xl mx-auto">
+    <section id="case-studies" className="py-24 px-6 bg-muted/30 relative overflow-hidden">
+      <div className="absolute bottom-0 left-10 w-80 h-80 opacity-5 dark:opacity-3 pointer-events-none hidden md:block">
+        <img 
+          src="/illustrations/analytics.png" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-12">
           <p className="text-primary text-sm font-semibold tracking-wider mb-2">CASE STUDIES</p>
           <h2 className="text-4xl md:text-6xl font-serif italic text-foreground mb-6">

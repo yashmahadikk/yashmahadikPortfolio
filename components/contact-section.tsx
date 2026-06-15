@@ -2,8 +2,16 @@ import { Mail, Linkedin, Instagram, ArrowUpRight, Phone } from "lucide-react"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="contact" className="py-20 px-6 relative overflow-hidden">
+      <div className="absolute top-10 right-10 w-72 h-72 opacity-5 dark:opacity-3 pointer-events-none hidden lg:block">
+        <img 
+          src="/illustrations/collaboration.png" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      <div className="max-w-4xl mx-auto text-center relative z-10">
         <p className="text-primary text-sm font-semibold tracking-wider mb-2">CONTACT</p>
         <h2 className="text-4xl md:text-5xl font-serif italic text-foreground mb-6">
           Let&apos;s Connect
@@ -47,7 +55,7 @@ export function ContactSection() {
             href="https://linkedin.com/in/yashmahadik2"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors"
+            className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
             aria-label="LinkedIn"
           >
             <Linkedin size={20} />
@@ -56,7 +64,7 @@ export function ContactSection() {
             href="https://instagram.com/yashmahadikofficial"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors"
+            className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
             aria-label="Instagram"
           >
             <Instagram size={20} />

@@ -3,8 +3,17 @@ import { ArrowDown } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 pt-20 pb-12">
-      <div className="max-w-5xl mx-auto w-full">
+    <section className="min-h-screen flex flex-col justify-center px-6 pt-20 pb-12 relative overflow-hidden">
+      {/* Decorative illustration background - right side */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 opacity-10 dark:opacity-5 pointer-events-none hidden lg:block">
+        <img 
+          src="/illustrations/hero-work.png" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      <div className="max-w-5xl mx-auto w-full relative z-10">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-primary mb-8 italic text-balance">
           Build products and teams people love
         </h1>

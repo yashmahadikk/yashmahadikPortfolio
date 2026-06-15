@@ -30,26 +30,26 @@ export default function FigmaCaseStudyPage() {
             Strategic market analysis of Figma's competitive positioning, pricing strategy, and network effects that transformed the $50B+ design tools landscape.
           </p>
           <div className="flex flex-wrap gap-4">
-            <div className="bg-pink-100 px-4 py-2 rounded-md">
-              <span className="text-pink-700 font-semibold">$10B Valuation</span>
+            <div className="bg-pink-100 dark:bg-pink-900/40 px-4 py-2 rounded-md">
+              <span className="text-pink-700 dark:text-pink-300 font-semibold">$10B Valuation</span>
             </div>
-            <div className="bg-purple-100 px-4 py-2 rounded-md">
-              <span className="text-purple-700 font-semibold">4M+ Users</span>
+            <div className="bg-purple-100 dark:bg-purple-900/40 px-4 py-2 rounded-md">
+              <span className="text-purple-700 dark:text-purple-300 font-semibold">4M+ Users</span>
             </div>
-            <div className="bg-blue-100 px-4 py-2 rounded-md">
-              <span className="text-blue-700 font-semibold">$200M+ ARR</span>
+            <div className="bg-blue-100 dark:bg-blue-900/40 px-4 py-2 rounded-md">
+              <span className="text-blue-700 dark:text-blue-300 font-semibold">$200M+ ARR</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Context */}
-      <section className="py-16 px-6 bg-pink-50">
+      <section className="py-16 px-6 bg-pink-50 dark:bg-pink-950/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-serif text-foreground mb-8">Market Context</h2>
           
           <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white dark:bg-card p-6 rounded-lg shadow-sm">
               <h3 className="font-semibold text-foreground mb-4">The Problem Figma Solved</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">

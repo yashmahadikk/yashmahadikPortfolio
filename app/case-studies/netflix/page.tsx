@@ -30,21 +30,21 @@ export default function NetflixCaseStudyPage() {
             Deep dive into Netflix's data analytics framework for personalized recommendations. How machine learning models increased viewing time by 20% and reduced churn through predictive analytics.
           </p>
           <div className="flex flex-wrap gap-4">
-            <div className="bg-red-100 px-4 py-2 rounded-md">
-              <span className="text-red-700 font-semibold">$30B+ Revenue</span>
+            <div className="bg-red-100 dark:bg-red-900/40 px-4 py-2 rounded-md">
+              <span className="text-red-700 dark:text-red-300 font-semibold">$30B+ Revenue</span>
             </div>
-            <div className="bg-purple-100 px-4 py-2 rounded-md">
-              <span className="text-purple-700 font-semibold">250M+ Subscribers</span>
+            <div className="bg-purple-100 dark:bg-purple-900/40 px-4 py-2 rounded-md">
+              <span className="text-purple-700 dark:text-purple-300 font-semibold">250M+ Subscribers</span>
             </div>
-            <div className="bg-blue-100 px-4 py-2 rounded-md">
-              <span className="text-blue-700 font-semibold">80% Content Discovery via Recommendations</span>
+            <div className="bg-blue-100 dark:bg-blue-900/40 px-4 py-2 rounded-md">
+              <span className="text-blue-700 dark:text-blue-300 font-semibold">80% Content Discovery via Recommendations</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Problem Statement */}
-      <section className="py-16 px-6 bg-red-50">
+      <section className="py-16 px-6 bg-red-50 dark:bg-red-900/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-serif text-foreground mb-8">The Core Problem</h2>
           
@@ -54,7 +54,7 @@ export default function NetflixCaseStudyPage() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white dark:bg-card p-6 rounded-lg shadow-sm">
                 <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
                   <Eye size={20} className="text-primary" />
                   The Discovery Problem
@@ -66,7 +66,7 @@ export default function NetflixCaseStudyPage() {
                   <li>• Wrong recommendations hurt retention</li>
                 </ul>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white dark:bg-card p-6 rounded-lg shadow-sm">
                 <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
                   <TrendingUp size={20} className="text-primary" />
                   Business Impact

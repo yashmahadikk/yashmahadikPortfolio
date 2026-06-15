@@ -44,7 +44,7 @@ export default function AmazonPrimeCaseStudy() {
       </section>
 
       {/* Problem Statement */}
-      <section className="py-12 md:py-16 px-4 md:px-6 bg-amber-50">
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-amber-50 dark:bg-amber-900/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6 md:mb-8">The Problem</h2>
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -107,15 +107,15 @@ export default function AmazonPrimeCaseStudy() {
       </section>
 
       {/* Key Results */}
-      <section className="py-16 px-6 bg-slate-50">
+      <section className="py-16 px-6 bg-slate-50 dark:bg-slate-900/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-foreground mb-8">Projected Impact</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-sm">
+            <div className="bg-white dark:bg-card p-8 rounded-lg shadow-sm">
               <p className="text-5xl font-bold text-primary mb-2">97%</p>
               <p className="text-muted-foreground">Reduction in decision time (15 min to 30 sec)</p>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm">
+            <div className="bg-white dark:bg-card p-8 rounded-lg shadow-sm">
               <p className="text-5xl font-bold text-primary mb-2">40%</p>
               <p className="text-muted-foreground">Increase in content engagement projected</p>
             </div>

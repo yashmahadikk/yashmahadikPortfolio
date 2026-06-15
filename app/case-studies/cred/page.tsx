@@ -44,7 +44,7 @@ export default function CredCaseStudy() {
       </section>
 
       {/* Problem Statement */}
-      <section className="py-12 md:py-16 px-4 md:px-6 bg-slate-100">
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-slate-100 dark:bg-slate-900/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6 md:mb-8">The Problem</h2>
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">

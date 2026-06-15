@@ -46,10 +46,16 @@ export default function ElectronicSoundbookPage() {
                 borderRadius: '6px',
                 textDecoration: 'none',
                 cursor: 'pointer',
-                transition: 'background-color 0.3s'
+                transition: 'all 0.3s'
               }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--primary-hover)'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--primary)'}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = '#1a1a1a'
+                e.target.style.color = '#ffffff'
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = 'var(--primary)'
+                e.target.style.color = 'var(--primary-foreground)'
+              }}
             >
               View the deck
               <span style={{ fontSize: '20px' }}>→</span>
@@ -60,16 +66,16 @@ export default function ElectronicSoundbookPage() {
 
       {/* Case Study Content */}
       <section style={{ padding: '60px 24px', background: 'var(--cream)' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', fontSize: '16px', lineHeight: 1.7, color: 'var(--text)' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto', fontSize: '16px', lineHeight: 1.7, color: '#1a1a1a' }}>
           
-          <h2 style={{ fontSize: '28px', fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', marginTop: '40px', marginBottom: '20px', color: 'var(--text)' }}>The Starting Point</h2>
+          <h2 style={{ fontSize: '28px', fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', marginTop: '40px', marginBottom: '20px', color: '#1a1a1a' }}>The Starting Point</h2>
           <p style={{ marginBottom: '20px' }}>It started with a scene that has become so common it barely registers anymore. A toddler, somewhere between eighteen months and two years old, sitting quietly — not because they were engaged with a toy, a book, or anything designed for them, but because a phone had been placed in their hands. The parents were not careless. They were exhausted, stretched between work and meals and the hundred small demands of keeping a household running. The phone was the only thing that reliably worked.</p>
           
           <p style={{ marginBottom: '20px' }}>That moment — repeated across virtually every home I observed — became the brief. Not "build a cheaper toy." Build something that actually competes with the phone. Something a child would choose on their own, something that holds attention the way a screen does, but gives back development instead of consuming it.</p>
           
           <p style={{ marginBottom: '40px' }}>The problem was not that parents wanted their children on screens. Every parent I spoke to wanted the opposite. The problem was that nothing affordable enough to actually buy, and durable enough to actually survive a toddler, was compelling enough to make the phone irrelevant. The screen won by default, not by choice. That was the gap this product was built to close.</p>
 
-          <h2 style={{ fontSize: '28px', fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', marginTop: '40px', marginBottom: '20px', color: 'var(--text)' }}>Understanding the Problem Before Building the Product</h2>
+          <h2 style={{ fontSize: '28px', fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', marginTop: '40px', marginBottom: '20px', color: '#1a1a1a' }}>Understanding the Problem Before Building the Product</h2>
           <p style={{ marginBottom: '20px' }}>Before a single sketch was made, I spent time understanding the actual landscape — not just buying behavior, but the daily reality of families trying to reduce their child's screen time with the tools currently available to them.</p>
           
           <p style={{ marginBottom: '20px' }}>I conducted structured conversations with parents in the 28–35 age group across mid-sized households. What emerged was not primarily a complaint about price, though price was real. The deeper frustration was a specific, recurring moment of defeat: the moment a parent handed their child a phone — not because they wanted to, but because nothing else worked. The child would reject a cheap plastic toy within minutes and return to reaching for the screen. The phone had set a bar for engagement that the physical toy market, at an accessible price point, had completely failed to meet.</p>

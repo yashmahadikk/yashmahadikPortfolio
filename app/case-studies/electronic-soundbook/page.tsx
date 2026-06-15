@@ -13,21 +13,21 @@ export default function ElectronicSoundbookPage() {
       {/* Hero Section */}
       <section style={{ background: 'var(--cream)', padding: '60px 24px', marginTop: '80px', borderBottom: '1px solid rgba(0,0,0,.08)' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <p style={{ color: 'var(--muted)', fontSize: '12px', fontWeight: 600, letterSpacing: '1px', marginBottom: '12px', textTransform: 'uppercase' }}>PRODUCT DEVELOPMENT JOURNEY</p>
-          <h1 style={{ fontSize: '48px', fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', color: 'var(--text)', lineHeight: 1.2, marginBottom: '20px' }}>
+          <p style={{ color: '#666666', fontSize: '12px', fontWeight: 600, letterSpacing: '1px', marginBottom: '12px', textTransform: 'uppercase' }}>PRODUCT DEVELOPMENT JOURNEY</p>
+          <h1 style={{ fontSize: '48px', fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', color: '#1a1a1a', lineHeight: 1.2, marginBottom: '20px' }}>
             Electronic Soundbook: From Brief to Shelf
           </h1>
-          <p style={{ fontSize: '16px', color: 'var(--muted)', marginBottom: '20px', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '16px', color: '#666666', marginBottom: '20px', lineHeight: 1.6 }}>
             A Product Development Case Study — Building a screen-free alternative to smartphones for toddlers across five global markets with zero redesigns post-DVT.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <div>
-              <span style={{ fontSize: '11px', color: 'var(--muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: '4px' }}>Role</span>
-              <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--text)' }}>Product Lead | Physical Product | EdTech | B2C | Early Childhood Learning</span>
+              <span style={{ fontSize: '11px', color: '#666666', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: '4px' }}>Role</span>
+              <span style={{ fontSize: '14px', fontWeight: 500, color: '#1a1a1a' }}>Product Lead | Physical Product | EdTech | B2C | Early Childhood Learning</span>
             </div>
             <div>
-              <span style={{ fontSize: '11px', color: 'var(--muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: '4px' }}>Key Metrics</span>
-              <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--text)' }}>$7 COGS | $25 Retail | 85% PSR | 5 Markets (US, EU, UK, GCC, India)</span>
+              <span style={{ fontSize: '11px', color: '#666666', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: '4px' }}>Key Metrics</span>
+              <span style={{ fontSize: '14px', fontWeight: 500, color: '#1a1a1a' }}>$7 COGS | $25 Retail | 85% PSR | 5 Markets (US, EU, UK, GCC, India)</span>
             </div>
           </div>
           <div style={{ marginTop: '24px' }}>

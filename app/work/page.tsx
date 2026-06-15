@@ -96,7 +96,7 @@ export default function WorkPage() {
                 <Link
                   key={project.id}
                   href={project.id === "electronic-soundbook" ? `/case-studies/electronic-soundbook` : `/work/${project.id}`}
-                  className={`${project.bgColor} p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
+                  className={`${project.bgColor} dark:bg-card p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
                 >
                   {/* Header */}
                   <div className="mb-4">
@@ -116,16 +116,16 @@ export default function WorkPage() {
                   </div>
 
                   {/* Metrics */}
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10 mb-4">
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10 dark:border-white/10 mb-4">
                     {project.metrics.map((metric, i) => (
-                      <span key={i} className="px-2 py-1 bg-white/60 text-xs font-medium text-foreground rounded">
+                      <span key={i} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">
                         {metric}
                       </span>
                     ))}
                   </div>
 
                   {/* Learn More Link */}
-                  <div className="pt-4 border-t border-black/10">
+                  <div className="pt-4 border-t border-black/10 dark:border-white/10">
                     <span className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2 text-sm">
                       Learn more
                       <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>

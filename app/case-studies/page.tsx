@@ -171,7 +171,7 @@ export default function CaseStudiesPage() {
                       href={study.link}
                       className="group"
                     >
-                      <div className={`${study.bgColor} p-8 rounded-lg h-full flex flex-col justify-between transition-transform hover:scale-105`}>
+                      <div className={`${study.bgColor} dark:bg-card p-8 rounded-lg h-full flex flex-col justify-between transition-transform hover:scale-105`}>
                         <div>
                           <h3 className="text-xl font-serif text-foreground mb-3 group-hover:text-primary transition-colors">
                             {study.title}

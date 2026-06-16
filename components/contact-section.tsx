@@ -1,6 +1,11 @@
-import { Mail, Linkedin, Instagram, ArrowUpRight, Phone } from "lucide-react"
+'use client'
+
+import { useState } from "react"
+import { Mail, Linkedin, Instagram, ArrowUpRight, Phone, Settings } from "lucide-react"
+import { ColorCustomizer } from "./color-customizer"
 
 export function ContactSection() {
+  const [isColorCustomizerOpen, setIsColorCustomizerOpen] = useState(false)
   return (
     <section id="contact" className="py-20 px-6 relative overflow-hidden">
       <div className="absolute top-10 right-10 w-72 h-72 opacity-5 dark:opacity-3 pointer-events-none hidden lg:block">
@@ -21,14 +26,24 @@ export function ContactSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 text-muted-foreground">
-          <a href="tel:+917977922735" className="flex items-center gap-2 hover:text-primary transition-colors">
-            <Phone size={18} />
-            <span>+91 7977922735</span>
-          </a>
-          <a href="mailto:yashmahaadik@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-            <Mail size={18} />
-            <span>yashmahaadik@gmail.com</span>
-          </a>
+          <div className="flex items-center gap-6">
+            <a href="tel:+917977922735" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <Phone size={18} />
+              <span>+91 7977922735</span>
+            </a>
+            <a href="mailto:yashmahaadik@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <Mail size={18} />
+              <span>yashmahaadik@gmail.com</span>
+            </a>
+          </div>
+          <button
+            onClick={() => setIsColorCustomizerOpen(true)}
+            className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-muted"
+            title="Customize color palette"
+            aria-label="Customize color palette"
+          >
+            <Settings size={18} />
+          </button>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
@@ -70,6 +85,8 @@ export function ContactSection() {
             <Instagram size={20} />
           </a>
         </div>
+
+        <ColorCustomizer isOpen={isColorCustomizerOpen} onClose={() => setIsColorCustomizerOpen(false)} />
       </div>
     </section>
   )

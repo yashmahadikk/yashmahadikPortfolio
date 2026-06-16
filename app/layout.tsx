@@ -35,6 +35,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const saved = localStorage.getItem('customPrimaryColor');
+                if (saved) {
+                  document.documentElement.style.setProperty('--primary', saved);
+                  document.documentElement.style.setProperty('--ring', saved);
+                  document.documentElement.style.setProperty('--chart-1', saved);
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="font-sans antialiased bg-background text-foreground">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}

@@ -13,27 +13,52 @@ export function ColorCustomizer({ isOpen, onClose }: ColorCustomizerProps) {
   const [customHex, setCustomHex] = useState("#d4941e")
   const [showCustom, setShowCustom] = useState(false)
 
-  const applyPalette = (primaryColor: string) => {
-    document.documentElement.style.setProperty("--primary", primaryColor)
-    document.documentElement.style.setProperty("--ring", primaryColor)
-    document.documentElement.style.setProperty("--chart-1", primaryColor)
+  const applyPalette = (palette: typeof colorPalettes[0]) => {
+    // Apply all colors from the palette
+    document.documentElement.style.setProperty("--primary", palette.primary)
+    document.documentElement.style.setProperty("--secondary", palette.secondary)
+    document.documentElement.style.setProperty("--accent", palette.accent)
+    document.documentElement.style.setProperty("--muted", palette.muted)
+    document.documentElement.style.setProperty("--ring", palette.primary)
+    document.documentElement.style.setProperty("--chart-1", palette.primary)
     
-    // Also update dark mode primary
+    // Also update dark mode
     const darkStyle = document.querySelector(".dark") as HTMLElement
     if (darkStyle) {
-      darkStyle.style.setProperty("--primary", primaryColor)
-      darkStyle.style.setProperty("--ring", primaryColor)
+      darkStyle.style.setProperty("--primary", palette.primary)
+      darkStyle.style.setProperty("--secondary", palette.secondary)
+      darkStyle.style.setProperty("--accent", palette.accent)
+      darkStyle.style.setProperty("--ring", palette.primary)
     }
     
     // Save to localStorage
-    localStorage.setItem("customPrimaryColor", primaryColor)
+    localStorage.setItem("customColorPalette", JSON.stringify(palette))
   }
 
   const handleCustomColorApply = () => {
     try {
       const oklchColor = convertHexToOklch(customHex)
-      applyPalette(oklchColor)
+      // Create a palette from custom color with variations
+      const customPalette = {
+        name: "Custom Color",
+        primary: oklchColor,
+        secondary: oklchColor.replace(/(\d+\.?\d*)\)/, (match, lightness) => {
+          const l = Math.max(0, parseFloat(lightness) - 0.1)
+          return `${l.toFixed(4)})`
+        }),
+        accent: oklchColor.replace(/(\d+\.?\d*)\)/, (match, lightness) => {
+          const l = Math.min(1, parseFloat(lightness) + 0.15)
+          return `${l.toFixed(4)})`
+        }),
+        muted: oklchColor.replace(/(\d+\.?\d*)\)/, (match, lightness) => {
+          const l = Math.max(0, parseFloat(lightness) - 0.35)
+          return `${l.toFixed(4)})`
+        }),
+        description: "Custom color theme",
+      }
+      applyPalette(customPalette as any)
       setShowCustom(false)
+      onClose()
     } catch (error) {
       console.error("[v0] Error converting color:", error)
     }
@@ -67,19 +92,31 @@ export function ColorCustomizer({ isOpen, onClose }: ColorCustomizerProps) {
                   <button
                     key={index}
                     onClick={() => {
-                      applyPalette(palette.primary)
+                      applyPalette(palette)
                       onClose()
                     }}
                     className="p-4 rounded-lg border-2 border-border hover:border-primary transition-colors text-left group"
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div
-                        className="w-12 h-12 rounded-lg shadow-md"
-                        style={{
-                          background: `color(display-p3 ${palette.primary})`,
-                          backgroundColor: palette.primary,
-                        }}
-                      />
+                      {/* Color swatches */}
+                      <div className="flex gap-1">
+                        <div
+                          className="w-3 h-12 rounded-sm shadow-md"
+                          style={{ backgroundColor: palette.primary }}
+                        />
+                        <div
+                          className="w-3 h-12 rounded-sm shadow-md"
+                          style={{ backgroundColor: palette.secondary }}
+                        />
+                        <div
+                          className="w-3 h-12 rounded-sm shadow-md"
+                          style={{ backgroundColor: palette.accent }}
+                        />
+                        <div
+                          className="w-3 h-12 rounded-sm shadow-md"
+                          style={{ backgroundColor: palette.muted }}
+                        />
+                      </div>
                       <div>
                         <p className="font-semibold text-foreground">{palette.name}</p>
                         <p className="text-xs text-muted-foreground">{palette.description}</p>

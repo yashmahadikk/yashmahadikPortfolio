@@ -40,11 +40,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                const saved = localStorage.getItem('customPrimaryColor');
+                const saved = localStorage.getItem('customColorPalette');
                 if (saved) {
-                  document.documentElement.style.setProperty('--primary', saved);
-                  document.documentElement.style.setProperty('--ring', saved);
-                  document.documentElement.style.setProperty('--chart-1', saved);
+                  const palette = JSON.parse(saved);
+                  document.documentElement.style.setProperty('--primary', palette.primary);
+                  document.documentElement.style.setProperty('--secondary', palette.secondary);
+                  document.documentElement.style.setProperty('--accent', palette.accent);
+                  document.documentElement.style.setProperty('--muted', palette.muted);
+                  document.documentElement.style.setProperty('--ring', palette.primary);
                 }
               } catch (e) {}
             `,

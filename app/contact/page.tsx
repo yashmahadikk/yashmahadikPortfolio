@@ -1,10 +1,13 @@
 'use client'
 
-import { Mail, Linkedin, Instagram, ArrowUpRight, Phone } from "lucide-react"
+import { useState } from "react"
+import { Mail, Linkedin, Instagram, ArrowUpRight, Phone, Settings } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { ColorCustomizer } from "@/components/color-customizer"
 
 export default function ContactPage() {
+  const [isColorCustomizerOpen, setIsColorCustomizerOpen] = useState(false)
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
@@ -55,7 +58,7 @@ export default function ContactPage() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <a
               href="mailto:yashmahaadik@gmail.com?subject=Let%27s%20Connect%20-%20Product%20Management%20Inquiry&body=Hi%20Yash%2C%0A%0AI%27m%20interested%20in%20discussing%20product%20management%20and%20strategic%20opportunities%20with%20you.%0A%0ALooking%20forward%20to%20connecting%21"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors rounded-md"
@@ -73,41 +76,49 @@ export default function ContactPage() {
               <ArrowUpRight size={20} />
             </a>
           </div>
+
+          {/* Settings Button */}
+          <div className="flex justify-center">
+            <button
+              onClick={() => setIsColorCustomizerOpen(true)}
+              className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-muted"
+              title="Customize color palette"
+              aria-label="Customize color palette"
+            >
+              <Settings size={18} />
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Social Links */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-12">
-            Connect on Social
-          </h2>
-          
+          <p className="text-muted-foreground mb-8">Connect with me on social platforms</p>
           <div className="flex items-center justify-center gap-6">
             <a
               href="https://linkedin.com/in/yashmahadik2"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors hover:bg-primary/5"
+              className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
+              aria-label="LinkedIn"
             >
-              <Linkedin size={24} />
+              <Linkedin size={20} />
             </a>
             <a
               href="https://instagram.com/yashmahadikofficial"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors hover:bg-primary/5"
+              className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
+              aria-label="Instagram"
             >
-              <Instagram size={24} />
+              <Instagram size={20} />
             </a>
           </div>
-
-          <p className="text-muted-foreground text-sm mt-12">
-            Response time: Within 24 hours for email inquiries
-          </p>
         </div>
       </section>
 
+      <ColorCustomizer isOpen={isColorCustomizerOpen} onClose={() => setIsColorCustomizerOpen(false)} />
       <Footer />
     </main>
   )

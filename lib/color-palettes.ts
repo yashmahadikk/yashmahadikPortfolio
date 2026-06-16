@@ -1,54 +1,93 @@
-// Popular color palettes with OKLch format
-export const colorPalettes = [
+// Popular color palettes with multiple colors (OKLch format)
+export interface ColorPalette {
+  name: string
+  primary: string
+  secondary: string
+  accent: string
+  muted: string
+  description: string
+}
+
+export const colorPalettes: ColorPalette[] = [
   {
     name: "Default (Orange)",
     primary: "oklch(0.6300 0.2200 38)",
-    description: "Warm orange - current theme",
+    secondary: "oklch(0.5200 0.1500 35)",
+    accent: "oklch(0.7500 0.1200 50)",
+    muted: "oklch(0.3000 0.0500 40)",
+    description: "Warm orange with gold accents",
   },
   {
     name: "Deep Blue",
     primary: "oklch(0.5500 0.2000 250)",
-    description: "Professional deep blue",
+    secondary: "oklch(0.4800 0.1800 260)",
+    accent: "oklch(0.7000 0.1500 220)",
+    muted: "oklch(0.2500 0.0600 250)",
+    description: "Professional blue palette",
   },
   {
     name: "Vibrant Purple",
     primary: "oklch(0.5800 0.2200 280)",
-    description: "Modern purple accent",
+    secondary: "oklch(0.4900 0.2000 290)",
+    accent: "oklch(0.7200 0.1400 270)",
+    muted: "oklch(0.2800 0.0700 280)",
+    description: "Modern purple aesthetic",
   },
   {
     name: "Emerald Green",
     primary: "oklch(0.5500 0.1800 150)",
-    description: "Fresh emerald green",
+    secondary: "oklch(0.4700 0.1600 155)",
+    accent: "oklch(0.7100 0.1200 140)",
+    muted: "oklch(0.2600 0.0500 150)",
+    description: "Fresh green theme",
   },
   {
     name: "Coral Red",
     primary: "oklch(0.5800 0.2000 27)",
-    description: "Warm coral red",
+    secondary: "oklch(0.5000 0.1800 30)",
+    accent: "oklch(0.7300 0.1300 20)",
+    muted: "oklch(0.2700 0.0600 25)",
+    description: "Warm coral palette",
   },
   {
-    name: "Teal",
+    name: "Teal Ocean",
     primary: "oklch(0.5800 0.1800 200)",
-    description: "Cool teal accent",
+    secondary: "oklch(0.4900 0.1600 210)",
+    accent: "oklch(0.7200 0.1200 190)",
+    muted: "oklch(0.2600 0.0500 200)",
+    description: "Cool teal theme",
   },
   {
     name: "Rose Pink",
     primary: "oklch(0.6000 0.1800 350)",
-    description: "Elegant rose pink",
+    secondary: "oklch(0.5100 0.1600 355)",
+    accent: "oklch(0.7400 0.1200 340)",
+    muted: "oklch(0.2800 0.0600 350)",
+    description: "Elegant rose palette",
   },
   {
     name: "Amber Gold",
     primary: "oklch(0.6200 0.1800 80)",
-    description: "Rich amber gold",
+    secondary: "oklch(0.5300 0.1600 85)",
+    accent: "oklch(0.7500 0.1300 75)",
+    muted: "oklch(0.2900 0.0600 80)",
+    description: "Rich golden theme",
   },
   {
     name: "Slate Blue",
     primary: "oklch(0.5200 0.1500 260)",
-    description: "Sophisticated slate blue",
+    secondary: "oklch(0.4600 0.1300 265)",
+    accent: "oklch(0.6800 0.1100 250)",
+    muted: "oklch(0.2400 0.0500 260)",
+    description: "Sophisticated slate",
   },
   {
     name: "Forest Green",
     primary: "oklch(0.4800 0.1600 140)",
-    description: "Deep forest green",
+    secondary: "oklch(0.4100 0.1400 145)",
+    accent: "oklch(0.6600 0.1200 130)",
+    muted: "oklch(0.2300 0.0500 140)",
+    description: "Deep forest palette",
   },
 ]
 

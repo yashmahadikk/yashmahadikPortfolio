@@ -45,9 +45,7 @@ export function HeroSection() {
             Get In Touch
           </Link>
           <a
-            href="https://drive.google.com/drive/folders/1jll4Xyqc_uIfkDlBFyuh_4Y6SufN_P5D?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:yashmahaadik@gmail.com?subject=Let%27s%20Connect%20-%20Product%20Management%20Inquiry&body=Hi%20Yash%2C%0A%0AI%27m%20interested%20in%20discussing%20product%20management%20and%20strategic%20opportunities%20with%20you.%0A%0ALooking%20forward%20to%20connecting%21"
             className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-foreground font-semibold border border-border hover:border-primary hover:text-primary transition-colors rounded-md"
           >
             View Resume

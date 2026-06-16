@@ -1,12 +1,25 @@
 "use client"
 
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (path: string) => {
+    return pathname.startsWith(path)
+  }
+
+  const getLinkClass = (path: string) => {
+    const baseClass = "text-sm font-medium transition-colors"
+    const activeClass = "text-primary hover:text-primary/80"
+    const inactiveClass = "text-muted-foreground hover:text-foreground"
+    return `${baseClass} ${isActive(path) ? activeClass : inactiveClass}`
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -18,16 +31,16 @@ export function Navigation() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
           <ThemeToggle />
-          <Link href="/work" className="text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+          <Link href="/work" className={getLinkClass("/work")}>
             WORK
           </Link>
-          <Link href="/case-studies" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/case-studies" className={getLinkClass("/case-studies")}>
             CASE STUDIES
           </Link>
-          <Link href="/skills" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/skills" className={getLinkClass("/skills")}>
             SKILLS
           </Link>
-          <Link href="/contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/contact" className={getLinkClass("/contact")}>
             CONTACT
           </Link>
         </div>
@@ -52,28 +65,28 @@ export function Navigation() {
             <Link 
               href="/work" 
               onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-primary"
+              className={getLinkClass("/work")}
             >
               WORK
             </Link>
             <Link 
               href="/case-studies" 
               onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
+              className={getLinkClass("/case-studies")}
             >
               CASE STUDIES
             </Link>
             <Link 
               href="/skills" 
               onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
+              className={getLinkClass("/skills")}
             >
               SKILLS
             </Link>
             <Link 
               href="/contact" 
               onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
+              className={getLinkClass("/contact")}
             >
               CONTACT
             </Link>

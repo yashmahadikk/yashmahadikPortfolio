@@ -1,13 +1,10 @@
 'use client'
 
-import { useState } from "react"
-import { Mail, Linkedin, Instagram, ArrowUpRight, Phone, Settings } from "lucide-react"
+import { Mail, Linkedin, Instagram, ArrowUpRight, Phone } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { ColorCustomizer } from "@/components/color-customizer"
 
 export default function ContactPage() {
-  const [isColorCustomizerOpen, setIsColorCustomizerOpen] = useState(false)
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
@@ -76,18 +73,6 @@ export default function ContactPage() {
               <ArrowUpRight size={20} />
             </a>
           </div>
-
-          {/* Settings Button */}
-          <div className="flex justify-center">
-            <button
-              onClick={() => setIsColorCustomizerOpen(true)}
-              className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-muted"
-              title="Customize color palette"
-              aria-label="Customize color palette"
-            >
-              <Settings size={18} />
-            </button>
-          </div>
         </div>
       </section>
 
@@ -118,7 +103,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <ColorCustomizer isOpen={isColorCustomizerOpen} onClose={() => setIsColorCustomizerOpen(false)} />
       <Footer />
     </main>
   )

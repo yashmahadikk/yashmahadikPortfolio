@@ -1,8 +1,54 @@
 'use client'
 
-import { Target, LineChart, Users, Cog, Lightbulb, Wrench, Blocks } from "lucide-react"
+import { Target, LineChart, Users, Cog, Lightbulb, Wrench, Blocks, Briefcase, Award } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+
+const workExperience = [
+  {
+    company: "Devanagari Ventures",
+    role: "Co-Founder & Product Manager",
+    period: "2024 - Present",
+    description: "Founded and led AI product development with focus on innovation and market strategy.",
+    responsibilities: [
+      "New product development and AI solutions architecture",
+      "Regulatory compliance and market adaptation",
+      "Growth strategy and product retention mechanics",
+      "Complete product lifecycle management",
+      "Go-to-market strategy and sales alignment",
+    ],
+    highlights: "Led development of AGAR, SprintUp, MeasureAI, DataFlow, and AgileShift AI products"
+  },
+  {
+    company: "Funspire.in",
+    role: "Associate Product Manager",
+    period: "May 2023 - May 2024",
+    description: "Managed extensive operations across 300+ retail stores with comprehensive product and go-to-market responsibilities.",
+    responsibilities: [
+      "Managed 300+ stores in Bombay with sales team coordination",
+      "Sales operations and go-to-market execution",
+      "New product development and market expansion",
+      "International compliance (BIS, UKCA, Gulf mark, ASTM, CE mark)",
+      "Supplier sourcing and vendor relationship management",
+      "Legal compliance including intellectual property rights",
+      "International shipping partnerships (DHL, Blue Dart)",
+      "Chinese vendor relations and supply chain optimization",
+    ],
+    highlights: "Handled end-to-end operations for physical product distribution across multiple geographies"
+  },
+  {
+    company: "JSW",
+    role: "Operations Specialist",
+    period: "August 2021 - March 2023",
+    description: "Part-time role focused on operational excellence and process optimization.",
+    responsibilities: [
+      "Operations management and process optimization",
+      "Family business operations support",
+      "Cross-functional coordination",
+    ],
+    highlights: "Contributed to operational efficiency in a family-run business environment"
+  },
+]
 
 const skillCategories = [
   {
@@ -70,6 +116,52 @@ export default function SkillsPage() {
           <p className="text-lg text-muted-foreground max-w-2xl">
             A comprehensive skill set spanning product strategy, execution, design, delivery, and leadership. Built through years of hands-on experience across diverse industries and scales.
           </p>
+        </div>
+      </section>
+
+      {/* Work Experience Section */}
+      <section className="py-20 px-6 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-12">
+            <p className="text-primary text-sm font-semibold tracking-wider mb-2">EXPERIENCE</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground">
+              Professional Journey
+            </h2>
+          </div>
+
+          <div className="space-y-8">
+            {workExperience.map((exp, index) => (
+              <div key={index} className="bg-background rounded-lg p-8 border border-border/50 hover:border-primary/50 transition-colors">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-2xl font-semibold text-foreground">{exp.role}</h3>
+                    <p className="text-primary font-medium text-lg">{exp.company}</p>
+                  </div>
+                  <span className="text-muted-foreground font-medium mt-2 md:mt-0">{exp.period}</span>
+                </div>
+                
+                <p className="text-muted-foreground mb-6">{exp.description}</p>
+                
+                <div className="mb-4">
+                  <p className="text-sm font-semibold text-foreground mb-3">Key Responsibilities:</p>
+                  <ul className="grid md:grid-cols-2 gap-2">
+                    {exp.responsibilities.map((resp, i) => (
+                      <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></span>
+                        <span>{resp}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="pt-4 border-t border-border/50">
+                  <p className="text-sm text-foreground font-medium">
+                    <span className="text-primary">Highlights:</span> {exp.highlights}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

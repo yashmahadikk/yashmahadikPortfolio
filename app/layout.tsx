@@ -35,6 +35,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const saved = localStorage.getItem('customColorPalette');
+                if (saved) {
+                  const palette = JSON.parse(saved);
+                  document.documentElement.style.setProperty('--primary', palette.primary);
+                  document.documentElement.style.setProperty('--secondary', palette.secondary);
+                  document.documentElement.style.setProperty('--accent', palette.accent);
+                  document.documentElement.style.setProperty('--muted', palette.muted);
+                  document.documentElement.style.setProperty('--ring', palette.primary);
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="font-sans antialiased bg-background text-foreground">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}

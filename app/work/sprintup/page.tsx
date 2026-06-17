@@ -26,7 +26,7 @@ export default function SprintUpProject() {
             SprintUp - AI Project Manager
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Intelligent project management system that unifies workflows across teams. AI-driven sprint planning, automated task allocation, and predictive analytics to keep projects on track and teams aligned.
+            An autonomous AI project manager that eliminates the overhead of human-run project management cycles. SprintUp chases task updates, pings team members, creates and updates tasks, sets priorities, documents meetings, generates minutes, assigns tasks to the right person — then repeats the loop automatically. Shut down after ClickUp replicated core features and made them free.
           </p>
         </div>
       </section>

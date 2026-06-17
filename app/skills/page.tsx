@@ -81,7 +81,7 @@ const skillCategories = [
 const tools = [
   {
     category: "Product Planning & Documentation",
-    items: ["Notion", "Confluence", "Google Docs", "Google Slides", "ChatGPT"],
+    items: ["Notion", "Confluence", "Google Docs", "Google Slides", "AI Tools (Claude, ChatGPT)"],
   },
   {
     category: "Designing & Prototyping",

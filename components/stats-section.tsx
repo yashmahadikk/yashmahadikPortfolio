@@ -3,18 +3,22 @@ export function StatsSection() {
     {
       value: "87%",
       label: "efficiency gain: AI measurement tool reducing customer journey from 15 minutes to 30 seconds",
+      product: "MeasureAI",
     },
     {
       value: "60%",
       label: "faster processing: Architected automation platform for large-scale data operations",
+      product: "DataFlow",
     },
     {
       value: "25%",
       label: "productivity boost: Enterprise project management system unifying workflows",
+      product: "SprintUp",
     },
     {
       value: "100%",
       label: "Agile transformation: Successfully transitioned organization reducing time-to-market",
+      product: "AgileShift",
     },
   ]
 
@@ -27,8 +31,11 @@ export function StatsSection() {
               <div className="text-5xl md:text-6xl font-bold text-primary mb-4">
                 {stat.value}
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                 {stat.label}
+              </p>
+              <p className="text-xs text-muted-foreground font-medium">
+                {stat.product}
               </p>
             </div>
           ))}

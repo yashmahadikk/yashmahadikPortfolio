@@ -26,7 +26,7 @@ export default function MeasureAIProject() {
             MeasureAI - AI Dimension Mapper
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Cutting-edge computer vision solution that transforms customer measurement journeys. Reduced process time from 15 minutes to just 30 seconds, achieving 87% efficiency gain through intelligent automation.
+            An AI-powered dimension mapping tool that captures up to 12 measurements in under 10 seconds — reducing a 15-minute manual measurement journey to a single scan. Built for furniture and retail, eliminating sizing errors and reducing return rates at scale.
           </p>
         </div>
       </section>

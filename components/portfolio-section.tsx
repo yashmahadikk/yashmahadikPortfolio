@@ -9,10 +9,11 @@ const projects = [
     category: "AI ENTERTAINMENT",
     title: "Agar",
     subtitle: "AI Movies/Web Series Creation",
-    description: "Revolutionary AI-powered platform for creating immersive movies and web series. Leveraging generative AI to transform storytelling, enabling creators to produce high-quality visual content at unprecedented speed and scale.",
+    description: "AGAR is a personalized cinema platform for the 1.5 billion people who watch Netflix, YouTube, and Amazon Prime. Instead of watching what a studio imagined, you select your vibe, your story direction, your world — and AGAR generates a film made entirely for you. No camera. No crew. No budget. You are the director. Shut down May 2026 after video generation unit economics were validated as non-viable at current infrastructure costs.",
     icon: Film,
     metrics: ["Generative AI", "Content Creation", "Visual Storytelling"],
     bgColor: "bg-cyan-100",
+    company: "Devanagari Ventures",
     pptLink: "https://canva.link/rwk5uu8nrkfhuu1",
   },
   {
@@ -20,20 +21,22 @@ const projects = [
     category: "AI PRODUCTIVITY",
     title: "SprintUp",
     subtitle: "AI Project Manager",
-    description: "Intelligent project management system that unifies workflows across teams. AI-driven sprint planning, automated task allocation, and predictive analytics to keep projects on track and teams aligned.",
+    description: "An autonomous AI project manager that eliminates the overhead of human-run project management cycles. SprintUp chases task updates, pings team members, creates and updates tasks, sets priorities, documents meetings, generates minutes, assigns tasks to the right person — then repeats the loop automatically. Shut down after ClickUp replicated core features and made them free.",
     icon: Kanban,
     metrics: ["25% Productivity Boost", "Workflow Automation", "Sprint Planning"],
     bgColor: "bg-amber-100",
+    company: "Devanagari Ventures",
   },
   {
     id: "measureai",
     category: "COMPUTER VISION",
     title: "MeasureAI",
     subtitle: "AI Dimension Mapper",
-    description: "Cutting-edge computer vision solution that transforms customer measurement journeys. Reduced process time from 15 minutes to just 30 seconds, achieving 87% efficiency gain through intelligent automation.",
+    description: "An AI-powered dimension mapping tool that captures up to 12 measurements in under 10 seconds — reducing a 15-minute manual measurement journey to a single scan. Built for furniture and retail, eliminating sizing errors and reducing return rates at scale.",
     icon: Scan,
     metrics: ["15min to 30sec", "Computer Vision", "87% Efficiency"],
     bgColor: "bg-emerald-100",
+    company: "Devanagari Ventures",
   },
   {
     id: "dataflow",
@@ -54,6 +57,7 @@ const projects = [
     icon: Bot,
     metrics: ["100% Adoption", "Reduced TTM", "Cultural Shift"],
     bgColor: "bg-violet-100",
+    company: "QAI",
   },
   {
     id: "electronic-soundbook",
@@ -64,6 +68,7 @@ const projects = [
     icon: Package,
     metrics: ["$7 COGS", "5 Markets", "85% PSR"],
     bgColor: "bg-teal-100",
+    company: "Funspire",
     pptLink: "https://canva.link/5pkm57zpt9t04qt",
   },
 ]
@@ -104,12 +109,15 @@ export function PortfolioSection() {
                 <div className="mb-4">
                   <div className="flex items-start gap-3 mb-4">
                     <Icon size={28} className="text-foreground flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
-                    <div>
+                    <div className="flex-1">
                       <p className="text-primary text-xs font-semibold tracking-wider mb-1">
                         {project.category}
                       </p>
                       <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
                       <p className="text-xs text-muted-foreground mt-1">{project.subtitle}</p>
+                      {project.company && (
+                        <p className="text-xs text-muted-foreground mt-2 font-medium">{project.company}</p>
+                      )}
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">

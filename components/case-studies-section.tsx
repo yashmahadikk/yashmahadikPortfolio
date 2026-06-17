@@ -16,7 +16,7 @@ const caseStudiesByCategory = {
   "wireframing": [
     {
       id: "amazon-prime",
-      title: "From 15 Minutes to 30 Seconds: Cutting Decision Fatigue in Streaming",
+      title: "Redesigning Discovery: How Amazon Prime Can Reduce Content Abandonment by 40%",
       description: "Wireframes and user flows for Amazon Prime's content discovery redesign with interactive prototypes.",
       bgColor: "bg-amber-50",
       link: "/case-studies/amazon-prime"
@@ -41,14 +41,14 @@ const caseStudiesByCategory = {
     },
     {
       id: "swiggy",
-      title: "How to 2X Quality Text Reviews & Unlock $800M in Annual GOV",
+      title: "Doubling Meaningful Reviews & Unlocking $800M in Annual GOV (projected opportunity)",
       description: "Analytics-driven case study on Swiggy's review engagement metrics and conversion optimization.",
       bgColor: "bg-orange-50",
       link: "/case-studies/swiggy"
     },
     {
       id: "netflix",
-      title: "Predicting What You Want to Watch: Netflix's Recommendation Engine Optimization",
+      title: "Optimising Netflix's Recommendation Engine to Increase Viewing Time by 20%",
       description: "Deep dive into Netflix's data analytics framework for personalized recommendations. How machine learning models increased viewing time by 20% and reduced churn through predictive analytics.",
       bgColor: "bg-red-100",
       link: "/case-studies/netflix"
@@ -57,7 +57,7 @@ const caseStudiesByCategory = {
   "market-case-study": [
     {
       id: "harley-davidson",
-      title: "Enjoy Till It Lasts: Unlocking $1.5B Before the ICE Era Ends",
+      title: "Enjoy Till It Lasts: Unlocking $1.5B Before the ICE Era Ends (projected opportunity)",
       description: "Market analysis and competitive positioning strategy for Harley-Davidson in the transitioning motorcycle industry.",
       bgColor: "bg-orange-100",
       link: "/case-studies/harley-davidson"
@@ -80,7 +80,7 @@ const caseStudiesByCategory = {
   "new-product-development": [
     {
       id: "chase",
-      title: "Increasing Financial Feature Engagement: Unlocking $1.9B in Annual Revenue",
+      title: "Increasing Financial Feature Engagement: Unlocking $1.9B in Annual Revenue (projected opportunity)",
       description: "New product feature development strategy for Chase Compass — an AI-powered financial navigation platform designed to increase engagement and unlock substantial annual revenue.",
       bgColor: "bg-blue-100",
       link: "/case-studies/chase"
@@ -104,7 +104,7 @@ const caseStudiesByCategory = {
   "go-to-market": [
     {
       id: "jpmc-india",
-      title: "How JPMC Could Make Their Next Billions In India",
+      title: "JPMC India Market Entry: GTM Strategy & Revenue Roadmap",
       description: "Go-to-market strategy and market entry execution plan for JPMC's India expansion.",
       bgColor: "bg-blue-50",
       link: "/case-studies/jpmc-india"

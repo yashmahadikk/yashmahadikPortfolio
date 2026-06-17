@@ -26,7 +26,7 @@ export default function AgarProject() {
             Agar - AI Movies/Web Series Creation
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Revolutionary AI-powered platform for creating immersive movies and web series. Leveraging generative AI to transform storytelling, enabling creators to produce high-quality visual content at unprecedented speed and scale.
+            AGAR is a personalized cinema platform for the 1.5 billion people who watch Netflix, YouTube, and Amazon Prime. Instead of watching what a studio imagined, you select your vibe, your story direction, your world — and AGAR generates a film made entirely for you. No camera. No crew. No budget. You are the director. Shut down May 2026 after video generation unit economics were validated as non-viable at current infrastructure costs.
           </p>
           <a
             href="https://canva.link/rwk5uu8nrkfhuu1"

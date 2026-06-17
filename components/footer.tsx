@@ -6,8 +6,7 @@ export function Footer() {
           © {new Date().getFullYear()} Yash Mahadik. All rights reserved.
         </p>
         <p className="text-sm text-muted-foreground">
-          Built with passion for{" "}
-          <span className="text-primary">product excellence</span>.
+          Built by a PM who has shipped, pivoted, and shut down. That&apos;s the job.
         </p>
       </div>
     </footer>

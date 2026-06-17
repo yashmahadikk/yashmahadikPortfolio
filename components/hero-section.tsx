@@ -22,10 +22,6 @@ export function HeroSection() {
           <p className="text-lg md:text-xl text-muted-foreground mb-4 leading-relaxed">
             Hi, I&apos;m Yash. I have 4 years of experience in Product Management and Operations, and 5 years in Project Management, leading diverse, cross-functional teams to build digital products that people love and drive business results.
           </p>
-          <p className="text-lg md:text-xl text-muted-foreground mb-4 leading-relaxed">
-            This includes as a Product Manager and as an operations strategy partner for{" "}
-            <span className="text-primary font-medium">product + design leaders</span>.
-          </p>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Let&apos;s build something great together.
           </p>

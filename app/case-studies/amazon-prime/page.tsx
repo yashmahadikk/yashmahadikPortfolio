@@ -186,7 +186,7 @@ export default function AmazonPrimeCaseStudy() {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Yash Mahadik. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Yash Mahaadik. All rights reserved.</p>
         </div>
       </footer>
     </main>

@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowLeft, ArrowUpRight, Target, Users, TrendingUp, Lightbulb, BarChart3, Shield, Zap } from "lucide-react"
 
 export const metadata = {
-  title: "Chase Compass Case Study | Yash Mahadik",
+  title: "Chase Compass Case Study | Yash Mahaadik",
   description: "Increasing Financial Feature Engagement on Chase Mobile through AI-powered personalization - a comprehensive product case study."
 }
 

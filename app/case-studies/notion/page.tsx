@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowLeft, Sparkles, Zap, Users, Workflow, Brain, TrendingUp, Code } from "lucide-react"
 
 export const metadata = {
-  title: "Notion AI Feature Development | Yash Mahadik",
+  title: "Notion AI Feature Development | Yash Mahaadik",
   description: "New Product Development: How Notion AI Transformed from Document Editor to AI Workspace"
 }
 

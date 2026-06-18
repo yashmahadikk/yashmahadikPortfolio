@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowLeft, Target, TrendingUp, Users, Lock, Zap, Globe, BarChart3 } from "lucide-react"
 
 export const metadata = {
-  title: "Figma Market Analysis | Yash Mahadik",
+  title: "Figma Market Analysis | Yash Mahaadik",
   description: "Market Case Study: How Figma Captured the Design Tools Market - Strategic Analysis"
 }
 

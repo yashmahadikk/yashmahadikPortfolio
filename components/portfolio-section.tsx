@@ -40,7 +40,6 @@ const projects = [
     metrics: ["87% Efficiency Gain", "Computer Vision", "Sub-10 Sec"],
     bgColor: "bg-emerald-100",
     company: "Devanagari Ventures",
-    contextLine: "[Company / Consulting · Year]",
   },
   {
     id: "dataflow",
@@ -51,7 +50,7 @@ const projects = [
     icon: Workflow,
     metrics: ["60% Faster", "Large-Scale Ops", "Pipeline Optimization"],
     bgColor: "bg-rose-100",
-    contextLine: "[Company / Consulting · Year]",
+    company: "Devanagari Ventures",
   },
   {
     id: "agileshift",
@@ -63,7 +62,6 @@ const projects = [
     metrics: ["100% Adoption", "50-Person Org", "15-Week Rollout"],
     bgColor: "bg-violet-100",
     company: "QAI",
-    contextLine: "[Company / Consulting · Year]",
   },
   {
     id: "electronic-soundbook",
@@ -121,11 +119,8 @@ export function PortfolioSection() {
                       </p>
                       <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
                       <p className="text-xs text-muted-foreground mt-1">{project.subtitle}</p>
-                      {project.contextLine && (
-                        <p className="text-xs text-muted-foreground mt-2 italic font-light">{project.contextLine}</p>
-                      )}
                       {project.company && (
-                        <p className="text-xs text-muted-foreground mt-2 font-medium">{project.company}</p>
+                        <p className="text-xs text-muted-foreground mt-2 font-medium">for {project.company}</p>
                       )}
                       {project.status && (
                         <p className="text-xs text-primary mt-2 font-semibold">{project.status}</p>

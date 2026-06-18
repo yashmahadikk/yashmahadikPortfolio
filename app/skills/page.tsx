@@ -37,7 +37,7 @@ const workExperience = [
     highlights: "Handled end-to-end operations for physical product distribution across multiple geographies"
   },
   {
-    company: "JSW",
+    company: "JSK Foods",
     role: "Operations Specialist",
     period: "August 2021 - March 2023",
     description: "Part-time role focused on operational excellence and process optimization.",

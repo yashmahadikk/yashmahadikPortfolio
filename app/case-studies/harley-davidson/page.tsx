@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowLeft, TrendingUp, Users, Target, Zap, Clock, DollarSign, AlertTriangle } from "lucide-react"
 
 export const metadata = {
-  title: "Harley-Davidson Case Study | Yash Mahaadik",
+  title: "Harley-Davidson Case Study | Yash Mahadik",
   description: "Enjoy Till It Lasts - A brand strategy case study on how Harley-Davidson can unlock its next billion in revenue before the ICE era ends.",
 }
 
@@ -45,7 +45,7 @@ export default function HarleyDavidsonCaseStudy() {
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-1">Author</p>
-              <p className="font-medium text-foreground text-sm">Yash Mahaadik</p>
+              <p className="font-medium text-foreground text-sm">Yash Mahadik</p>
             </div>
           </div>
 

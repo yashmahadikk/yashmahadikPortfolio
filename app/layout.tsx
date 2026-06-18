@@ -6,7 +6,7 @@ import './globals.css'
 // Using system fonts to match the original design (Georgia + Helvetica)
 
 export const metadata: Metadata = {
-  title: 'Yash Mahaadik | Product Manager & Founder',
+  title: 'Yash Mahadik | Product Manager & Founder',
   description: 'Product portfolio showcasing AI-powered solutions, enterprise transformation, and digital innovation. 4 years in product management, 5 years in project management.',
   generator: 'Yash',
   icons: {

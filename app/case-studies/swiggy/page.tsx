@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowLeft, Target, Users, TrendingUp, Lightbulb, CheckCircle, AlertTriangle, BarChart3 } from "lucide-react"
 
 export const metadata = {
-  title: "Swiggy Case Study | Yash Mahaadik",
+  title: "Swiggy Case Study | Yash Mahadik",
   description: "Increasing Quality Text Reviews on Swiggy Food Delivery - A comprehensive product case study"
 }
 

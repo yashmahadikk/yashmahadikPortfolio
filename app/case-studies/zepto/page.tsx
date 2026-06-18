@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowLeft, Target, Users, TrendingUp, Lightbulb, CheckCircle, AlertTriangle, BarChart3, Bell, Smartphone, Clock } from "lucide-react"
 
 export const metadata = {
-  title: "Zepto Case Study | Yash Mahaadik",
+  title: "Zepto Case Study | Yash Mahadik",
   description: "Product Teardown: App Notifications Strategy for Quick Commerce - A comprehensive analysis"
 }
 

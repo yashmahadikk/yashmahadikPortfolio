@@ -684,7 +684,7 @@ export default function TheHinduCaseStudy() {
 
           {/* Meta */}
           <div className="text-center pt-8 border-t border-border">
-            <p className="text-muted-foreground text-sm mb-2">Authored by Yash Mahaadik</p>
+            <p className="text-muted-foreground text-sm mb-2">Authored by Yash Mahadik</p>
             <div className="flex items-center justify-center gap-4 text-sm">
               <Link href="https://yashmahadik.vercel.app" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                 Portfolio

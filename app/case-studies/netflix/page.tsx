@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowLeft, Brain, TrendingUp, Users, BarChart3, Target, Zap, Eye } from "lucide-react"
 
 export const metadata = {
-  title: "Netflix Recommendation Engine | Yash Mahaadik",
+  title: "Netflix Recommendation Engine | Yash Mahadik",
   description: "Data Analytics Case Study: How Netflix's Personalization Engine Drives $30B+ Revenue"
 }
 

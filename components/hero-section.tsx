@@ -19,11 +19,8 @@ export function HeroSection() {
         </h1>
         
         <div className="max-w-3xl">
-          <p className="text-lg md:text-xl text-muted-foreground mb-4 leading-relaxed">
-            Hi, I&apos;m Yash. I have 4 years of experience in Product Management and Operations, and 5 years in Project Management, leading diverse, cross-functional teams to build digital products that people love and drive business results.
-          </p>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-            Let&apos;s build something great together.
+            Hi, I&apos;m Yash. I have 5 years of total professional experience across Product Management and Project Management — leading cross-functional teams to build digital products that drive real business outcomes. As founder of Devanagari Ventures, I&apos;ve built, iterated, and shut down AI products across B2B and entertainment, running full product cycles from user research to sunset. Now bringing that operator&apos;s judgment into my current PM role.
           </p>
         </div>
 

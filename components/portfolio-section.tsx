@@ -9,12 +9,14 @@ const projects = [
     category: "AI ENTERTAINMENT",
     title: "Agar",
     subtitle: "AI Movies/Web Series Creation",
-    description: "AGAR is a personalized cinema platform for the 1.5 billion people who watch Netflix, YouTube, and Amazon Prime. Instead of watching what a studio imagined, you select your vibe, your story direction, your world — and AGAR generates a film made entirely for you. No camera. No crew. No budget. You are the director. Shut down May 2026 after video generation unit economics were validated as non-viable at current infrastructure costs.",
+    description: "AGAR converts passive streaming consumers — the 1.5 billion people on Netflix, YouTube, and Amazon Prime — into directors of personalized AI-generated films. You select your vibe, story direction, and world. AGAR generates a film made entirely for you. No camera. No crew. No studio.",
     icon: Film,
     metrics: ["Generative AI", "Content Creation", "Visual Storytelling"],
     bgColor: "bg-cyan-100",
     company: "Devanagari Ventures",
+    status: "MVP in Development",
     pptLink: "https://canva.link/rwk5uu8nrkfhuu1",
+    waitlistLink: "https://forms.gle/YH1cJnupbnoYiS1BA",
   },
   {
     id: "sprintup",
@@ -26,6 +28,7 @@ const projects = [
     metrics: ["25% Productivity Boost", "Workflow Automation", "Sprint Planning"],
     bgColor: "bg-amber-100",
     company: "Devanagari Ventures",
+    statusTag: "Shut down · ClickUp replicated core feature and went free",
   },
   {
     id: "measureai",
@@ -34,9 +37,10 @@ const projects = [
     subtitle: "AI Dimension Mapper",
     description: "An AI-powered dimension mapping tool that captures up to 12 measurements in under 10 seconds — reducing a 15-minute manual measurement journey to a single scan. Built for furniture and retail, eliminating sizing errors and reducing return rates at scale.",
     icon: Scan,
-    metrics: ["15min to 30sec", "Computer Vision", "87% Efficiency"],
+    metrics: ["87% Efficiency Gain", "Computer Vision", "Sub-10 Sec"],
     bgColor: "bg-emerald-100",
     company: "Devanagari Ventures",
+    contextLine: "[Company / Consulting · Year]",
   },
   {
     id: "dataflow",
@@ -47,6 +51,7 @@ const projects = [
     icon: Workflow,
     metrics: ["60% Faster", "Large-Scale Ops", "Pipeline Optimization"],
     bgColor: "bg-rose-100",
+    contextLine: "[Company / Consulting · Year]",
   },
   {
     id: "agileshift",
@@ -58,18 +63,7 @@ const projects = [
     metrics: ["100% Adoption", "50-Person Org", "15-Week Rollout"],
     bgColor: "bg-violet-100",
     company: "QAI",
-  },
-  {
-    id: "electronic-soundbook",
-    category: "PHYSICAL PRODUCT",
-    title: "Electronic Soundbook",
-    subtitle: "Screen-Free Learning for Toddlers",
-    description: "A product development journey building a screen-free alternative to smartphones for toddlers across five global markets. Zero redesigns post-DVT, multi-language support, and compliance across US, EU, UK, GCC, and India markets.",
-    icon: Package,
-    metrics: ["$7 COGS", "5 Markets", "85% Parent Satisfaction Rate"],
-    bgColor: "bg-teal-100",
-    company: "Funspire",
-    pptLink: "https://canva.link/5pkm57zpt9t04qt",
+    contextLine: "[Company / Consulting · Year]",
   },
 ]
 
@@ -115,8 +109,14 @@ export function PortfolioSection() {
                       </p>
                       <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
                       <p className="text-xs text-muted-foreground mt-1">{project.subtitle}</p>
+                      {project.contextLine && (
+                        <p className="text-xs text-muted-foreground mt-2 italic font-light">{project.contextLine}</p>
+                      )}
                       {project.company && (
                         <p className="text-xs text-muted-foreground mt-2 font-medium">{project.company}</p>
+                      )}
+                      {project.status && (
+                        <p className="text-xs text-primary mt-2 font-semibold">{project.status}</p>
                       )}
                     </div>
                   </div>
@@ -132,6 +132,11 @@ export function PortfolioSection() {
                       {metric}
                     </span>
                   ))}
+                  {project.statusTag && (
+                    <span className="px-2 py-1 bg-amber-200/40 dark:bg-amber-900/30 text-xs font-medium text-foreground rounded">
+                      {project.statusTag}
+                    </span>
+                  )}
                 </div>
 
                 {/* Learn More Link */}
@@ -153,6 +158,19 @@ export function PortfolioSection() {
                       View the deck
                       <span className="ml-2">&gt;</span>
                     </button>
+                  </div>
+                )}
+                {project.waitlistLink && (
+                  <div className="pt-3">
+                    <a
+                      href={project.waitlistLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-primary font-medium hover:underline underline-offset-2 text-sm"
+                    >
+                      Join Waitlist
+                      <span className="ml-2">→</span>
+                    </a>
                   </div>
                 )}
               </Link>

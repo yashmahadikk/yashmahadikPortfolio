@@ -25,18 +25,32 @@ export default function AgarProject() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-foreground mb-6 leading-tight">
             Agar - AI Movies/Web Series Creation
           </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            AGAR is a personalized cinema platform for the 1.5 billion people who watch Netflix, YouTube, and Amazon Prime. Instead of watching what a studio imagined, you select your vibe, your story direction, your world — and AGAR generates a film made entirely for you. No camera. No crew. No budget. You are the director. Shut down May 2026 after video generation unit economics were validated as non-viable at current infrastructure costs.
+          <p className="text-xl text-muted-foreground leading-relaxed mb-4">
+            AGAR is a personalized cinema platform for the 1.5 billion people who watch Netflix, YouTube, and Amazon Prime. Instead of watching what a studio imagined, you select your vibe, your story direction, your world — and AGAR generates a film made entirely for you. No camera. No crew. No budget. You are the director.
           </p>
-          <a
-            href="https://canva.link/rwk5uu8nrkfhuu1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors rounded-md"
-          >
-            View the deck
-            <ArrowUpRight size={20} />
-          </a>
+          <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+            Currently building the MVP — optimizing video generation unit economics and time-to-generate to reach production viability.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://canva.link/rwk5uu8nrkfhuu1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors rounded-md"
+            >
+              View the deck
+              <ArrowUpRight size={20} />
+            </a>
+            <a
+              href="https://forms.gle/YH1cJnupbnoYiS1BA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-transparent text-foreground font-semibold border border-border hover:border-primary hover:text-primary transition-colors rounded-md"
+            >
+              Join the Waitlist
+              <span>→</span>
+            </a>
+          </div>
         </div>
       </section>
 

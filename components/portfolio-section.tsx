@@ -65,6 +65,18 @@ const projects = [
     company: "QAI",
     contextLine: "[Company / Consulting · Year]",
   },
+  {
+    id: "electronic-soundbook",
+    category: "PHYSICAL PRODUCT",
+    title: "Electronic Soundbook",
+    subtitle: "Screen-Free Learning for Toddlers",
+    description: "A product development journey building a screen-free alternative to smartphones for toddlers across five global markets. Zero redesigns post-DVT, multi-language support, and compliance across US, EU, UK, GCC, and India markets.",
+    icon: Package,
+    metrics: ["$7 COGS", "5 Markets", "85% Parent Satisfaction Rate"],
+    bgColor: "bg-teal-100",
+    company: "Funspire",
+    pptLink: "https://canva.link/5pkm57zpt9t04qt",
+  },
 ]
 
 export function PortfolioSection() {

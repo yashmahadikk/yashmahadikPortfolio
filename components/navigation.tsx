@@ -37,6 +37,12 @@ export function Navigation() {
           <Link href="/case-studies" className={getLinkClass("/case-studies")}>
             CASE STUDIES
           </Link>
+          <Link href="/blog" className={getLinkClass("/blog")}>
+            BLOG
+          </Link>
+          <Link href="/books" className={getLinkClass("/books")}>
+            BOOKS
+          </Link>
           <Link href="/skills" className={getLinkClass("/skills")}>
             SKILLS
           </Link>
@@ -75,6 +81,20 @@ export function Navigation() {
               className={getLinkClass("/case-studies")}
             >
               CASE STUDIES
+            </Link>
+            <Link 
+              href="/blog" 
+              onClick={() => setIsOpen(false)}
+              className={getLinkClass("/blog")}
+            >
+              BLOG
+            </Link>
+            <Link 
+              href="/books" 
+              onClick={() => setIsOpen(false)}
+              className={getLinkClass("/books")}
+            >
+              BOOKS
             </Link>
             <Link 
               href="/skills" 

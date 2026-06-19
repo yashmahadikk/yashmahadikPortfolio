@@ -1,4 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
   title: "Books | Yash Mahadik",
@@ -26,6 +28,10 @@ export default async function BooksPage() {
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 max-w-6xl mx-auto">
+        <Link href="/" className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-8">
+          <ArrowLeft size={18} className="mr-2" />
+          Back
+        </Link>
         <div className="mb-16">
           <h1 className="text-4xl md:text-5xl font-serif italic text-foreground mb-4">
             Books

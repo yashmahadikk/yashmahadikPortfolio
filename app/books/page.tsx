@@ -115,35 +115,53 @@ function BookCard({ book }: { book: any }) {
   };
 
   return (
-    <div className="group border border-border rounded-lg overflow-hidden hover:border-primary transition-colors h-full flex flex-col">
-      {/* Book Cover or Placeholder */}
-      <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden">
+    <div className="group flex flex-col h-full">
+      {/* Book Cover - Full Display with proper aspect ratio */}
+      <div className="w-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden rounded-lg mb-4 aspect-[9/13]">
         {book.cover_url ? (
           <img
             src={book.cover_url}
             alt={book.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+            className="w-full h-full object-contain group-hover:scale-105 transition-transform"
           />
         ) : (
-          <div className="text-center">
+          <div className="text-center p-4">
             <p className="text-muted-foreground text-sm">No cover</p>
           </div>
         )}
       </div>
 
       {/* Book Info */}
-      <div className="p-4 flex flex-col flex-1">
-        <p className="text-xs text-muted-foreground mb-2">
-          {new Date(book.date_added).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-          })}
-        </p>
+      <div className="flex flex-col flex-1">
         <h3 className="font-serif text-lg text-foreground group-hover:text-primary transition-colors mb-1 line-clamp-2">
           {book.title}
         </h3>
-        <p className="text-sm text-muted-foreground mb-3 flex-1">{book.author}</p>
-        <div className="flex justify-between items-center pt-3 border-t border-border">
+        <p className="text-sm text-muted-foreground mb-2">{book.author}</p>
+        
+        {/* Book Type/Tags */}
+        {book.book_type && (
+          <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-2">
+            {book.book_type}
+          </p>
+        )}
+
+        {/* Rating */}
+        {book.rating && (
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-sm text-foreground">Rating:</span>
+            <span className="text-sm font-semibold text-primary">{book.rating}/5 ⭐</span>
+          </div>
+        )}
+
+        {/* My Review */}
+        {book.my_review && (
+          <p className="text-sm text-muted-foreground italic mb-3 line-clamp-3">
+            "{book.my_review}"
+          </p>
+        )}
+
+        {/* Status Badge */}
+        <div className="pt-3 border-t border-border mt-auto">
           {getStatusBadge(book.status)}
         </div>
       </div>

@@ -104,83 +104,85 @@ export function PortfolioSection() {
           {projects.map((project) => {
             const Icon = project.icon
             return (
-              <Link
+              <div
                 key={project.id}
-                href={project.id === "electronic-soundbook" ? `/case-studies/electronic-soundbook` : `/work/${project.id}`}
-                className={`${project.bgColor} dark:bg-card p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
+                className={`${project.bgColor} dark:bg-card p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg transition-all duration-300 group`}
               >
-                {/* Header */}
-                <div className="mb-4">
-                  <div className="flex items-start gap-3 mb-4">
-                    <Icon size={28} className="text-foreground flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
-                    <div className="flex-1">
-                      <p className="text-primary text-xs font-semibold tracking-wider mb-1">
-                        {project.category}
-                      </p>
-                      <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
-                      <p className="text-xs text-muted-foreground mt-1">{project.subtitle}</p>
-                      {project.company && (
-                        <p className="text-xs text-muted-foreground mt-2 font-medium">for {project.company}</p>
-                      )}
-                      {project.status && (
-                        <p className="text-xs text-primary mt-2 font-semibold">{project.status}</p>
-                      )}
+                <Link
+                  href={project.id === "electronic-soundbook" ? `/case-studies/electronic-soundbook` : `/work/${project.id}`}
+                  className="no-underline flex flex-col flex-1 hover:scale-105 transition-transform"
+                >
+                  {/* Header */}
+                  <div className="mb-4">
+                    <div className="flex items-start gap-3 mb-4">
+                      <Icon size={28} className="text-foreground flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                      <div className="flex-1">
+                        <p className="text-primary text-xs font-semibold tracking-wider mb-1">
+                          {project.category}
+                        </p>
+                        <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
+                        <p className="text-xs text-muted-foreground mt-1">{project.subtitle}</p>
+                        {project.company && (
+                          <p className="text-xs text-muted-foreground mt-2 font-medium">for {project.company}</p>
+                        )}
+                        {project.status && (
+                          <p className="text-xs text-primary mt-2 font-semibold">{project.status}</p>
+                        )}
+                      </div>
                     </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                      {project.description}
+                    </p>
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
-                </div>
 
-                {/* Metrics */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10 dark:border-white/10 mb-4">
-                  {project.metrics.map((metric, i) => (
-                    <span key={i} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">
-                      {metric}
-                    </span>
-                  ))}
-                  {project.statusTag && (
-                    <span className="px-2 py-1 bg-amber-200/40 dark:bg-amber-900/30 text-xs font-medium text-foreground rounded">
-                      {project.statusTag}
-                    </span>
-                  )}
-                </div>
+                  {/* Metrics */}
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10 dark:border-white/10 mb-4">
+                    {project.metrics.map((metric, i) => (
+                      <span key={i} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">
+                        {metric}
+                      </span>
+                    ))}
+                    {project.statusTag && (
+                      <span className="px-2 py-1 bg-amber-200/40 dark:bg-amber-900/30 text-xs font-medium text-foreground rounded">
+                        {project.statusTag}
+                      </span>
+                    )}
+                  </div>
 
-                {/* Learn More Link */}
-                <div className="pt-4 border-t border-black/10 dark:border-white/10">
-                  <span className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2 text-sm">
-                    Learn more
-                    <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
-                  </span>
-                </div>
-                {project.pptLink && (
-                  <div className="pt-3">
+                  {/* Learn More Link */}
+                  <div className="pt-4 border-t border-black/10 dark:border-white/10">
+                    <span className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2 text-sm">
+                      Learn more
+                      <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
+                    </span>
+                  </div>
+                </Link>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col gap-1 mt-3">
+                  {project.pptLink && (
                     <button
-                      onClick={(e) => {
-                        e.preventDefault()
-                        window.open(project.pptLink, '_blank')
-                      }}
-                      className="inline-flex items-center text-primary font-medium hover:underline underline-offset-2 text-sm bg-transparent border-0 cursor-pointer p-0 appearance-none"
+                      onClick={() => window.open(project.pptLink, '_blank')}
+                      className="inline-flex items-center text-primary font-medium hover:underline underline-offset-2 text-sm bg-transparent border-0 cursor-pointer p-0 appearance-none text-left"
                     >
                       View the deck
                       <span className="ml-2">&gt;</span>
                     </button>
-                  </div>
-                )}
-                {project.waitlistLink && (
-                  <div className="pt-3">
+                  )}
+                  {project.waitlistLink && (
                     <a
                       href={project.waitlistLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center text-primary font-medium hover:underline underline-offset-2 text-sm"
                     >
                       Join Waitlist
                       <span className="ml-2">→</span>
                     </a>
-                  </div>
-                )}
-              </Link>
+                  )}
+                </div>
+              </div>
             )
           })}
         </div>

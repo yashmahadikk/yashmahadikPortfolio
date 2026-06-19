@@ -19,22 +19,58 @@ const iconMap: any = {
 
 const defaultProjects = [
   {
-    id: "agar",
+    project_id: "agar",
     category: "AI ENTERTAINMENT",
     title: "Agar",
     subtitle: "AI Movies/Web Series Creation",
-    description: "Revolutionary AI-powered platform for creating immersive movies and web series.",
+    description: "AGAR converts passive streaming consumers — the 1.5 billion people on Netflix, YouTube, and Amazon Prime — into directors of personalized AI-generated films. You select your vibe, story direction, and world. AGAR generates a film made entirely for you. No camera. No crew. No studio.",
     metrics: ["Generative AI", "Content Creation", "Visual Storytelling"],
-    bg_color: "bg-cyan-100",
+    bg_color: "bg-cyan-50",
   },
   {
-    id: "sprintup",
+    project_id: "sprintup",
     category: "AI PRODUCTIVITY",
     title: "SprintUp",
     subtitle: "AI Project Manager",
-    description: "Intelligent project management system that unifies workflows across teams.",
+    description: "An autonomous AI project manager that eliminates the overhead of human-run project management cycles. SprintUp chases task updates, pings team members, creates and updates tasks, sets priorities, documents meetings, generates minutes, assigns tasks to the right person — then repeats the loop automatically.",
     metrics: ["25% Productivity Boost", "Workflow Automation", "Sprint Planning"],
-    bg_color: "bg-amber-100",
+    bg_color: "bg-amber-50",
+  },
+  {
+    project_id: "measureai",
+    category: "COMPUTER VISION",
+    title: "MeasureAI",
+    subtitle: "AI Dimension Mapper",
+    description: "An AI-powered dimension mapping tool that captures up to 12 measurements in under 10 seconds — reducing a 15-minute manual measurement journey to a single scan. Built for furniture and retail, eliminating sizing errors and reducing return rates at scale.",
+    metrics: ["87% Efficiency Gain", "Computer Vision", "Sub-10 Sec"],
+    bg_color: "bg-emerald-50",
+  },
+  {
+    project_id: "dataflow",
+    category: "DATA AUTOMATION",
+    title: "DataFlow",
+    subtitle: "Enterprise Automation Platform",
+    description: "High-performance automation platform built for large-scale data operations in the IT & finance sector. Achieved 60% faster processing through intelligent pipeline optimisation and parallel processing architecture.",
+    metrics: ["60% Faster", "Large-Scale Ops", "Pipeline Optimization"],
+    bg_color: "bg-rose-50",
+  },
+  {
+    project_id: "agileshift",
+    category: "TRANSFORMATION",
+    title: "AgileShift",
+    subtitle: "Organization Transformation Framework",
+    description: "Comprehensive Agile transformation framework that successfully transitioned entire organizations. Achieved 100% adoption rate while significantly reducing time-to-market for product releases.",
+    metrics: ["100% Adoption", "50-Person Org", "15-Week Rollout"],
+    bg_color: "bg-violet-50",
+  },
+  {
+    project_id: "electronic-soundbook",
+    category: "PHYSICAL PRODUCT",
+    title: "Electronic Soundbook",
+    subtitle: "Screen-Free Learning for Toddlers",
+    description: "A product development journey building a screen-free alternative to smartphones for toddlers across five global markets. Zero redesigns post-DVT, multi-language support, and compliance across US, EU, UK, GCC, and India markets.",
+    metrics: ["$7 COGS", "5 Markets", "85% Parent Satisfaction Rate"],
+    bg_color: "bg-teal-50",
   },
 ]
 
@@ -46,10 +82,13 @@ export default function WorkPage() {
     const fetchProjects = async () => {
       try {
         const supabase = createClient()
+        const projectIds = ['agar', 'sprintup', 'measureai', 'dataflow', 'agileshift', 'electronic-soundbook']
+        
         const { data, error } = await supabase
           .from('work_projects')
           .select('*')
-          .order('created_at', { ascending: false })
+          .in('project_id', projectIds)
+          .order('created_at', { ascending: true })
 
         if (error) {
           console.error('Error fetching work projects:', error)

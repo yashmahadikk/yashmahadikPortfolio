@@ -1,74 +1,114 @@
 'use client'
 
-import { Film, Kanban, Scan, Workflow, Bot, Package, ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { useEffect, useState } from "react"
+import { createClient } from "@/lib/supabase/client"
 
-const projects = [
+// Icon mapping
+const iconMap: any = {
+  Film: () => <span>🎬</span>,
+  Kanban: () => <span>📊</span>,
+  Scan: () => <span>📏</span>,
+  Workflow: () => <span>⚙️</span>,
+  Bot: () => <span>🤖</span>,
+  Package: () => <span>📦</span>,
+}
+
+const defaultProjects = [
   {
-    id: "agar",
+    project_id: "agar",
     category: "AI ENTERTAINMENT",
     title: "Agar",
     subtitle: "AI Movies/Web Series Creation",
-    description: "Revolutionary AI-powered platform for creating immersive movies and web series. Leveraging generative AI to transform storytelling, enabling creators to produce high-quality visual content at unprecedented speed and scale.",
-    icon: Film,
+    description: "AGAR converts passive streaming consumers — the 1.5 billion people on Netflix, YouTube, and Amazon Prime — into directors of personalized AI-generated films. You select your vibe, story direction, and world. AGAR generates a film made entirely for you. No camera. No crew. No studio.",
     metrics: ["Generative AI", "Content Creation", "Visual Storytelling"],
-    bgColor: "bg-cyan-100",
+    bg_color: "bg-cyan-50",
   },
   {
-    id: "sprintup",
+    project_id: "sprintup",
     category: "AI PRODUCTIVITY",
     title: "SprintUp",
     subtitle: "AI Project Manager",
-    description: "Intelligent project management system that unifies workflows across teams. AI-driven sprint planning, automated task allocation, and predictive analytics to keep projects on track and teams aligned.",
-    icon: Kanban,
+    description: "An autonomous AI project manager that eliminates the overhead of human-run project management cycles. SprintUp chases task updates, pings team members, creates and updates tasks, sets priorities, documents meetings, generates minutes, assigns tasks to the right person — then repeats the loop automatically.",
     metrics: ["25% Productivity Boost", "Workflow Automation", "Sprint Planning"],
-    bgColor: "bg-amber-100",
+    bg_color: "bg-amber-50",
   },
   {
-    id: "measureai",
+    project_id: "measureai",
     category: "COMPUTER VISION",
     title: "MeasureAI",
     subtitle: "AI Dimension Mapper",
-    description: "Cutting-edge computer vision solution that transforms customer measurement journeys. Reduced process time from 15 minutes to just 30 seconds, achieving 87% efficiency gain through intelligent automation.",
-    icon: Scan,
-    metrics: ["15min to 30sec", "Computer Vision", "87% Efficiency"],
-    bgColor: "bg-emerald-100",
+    description: "An AI-powered dimension mapping tool that captures up to 12 measurements in under 10 seconds — reducing a 15-minute manual measurement journey to a single scan. Built for furniture and retail, eliminating sizing errors and reducing return rates at scale.",
+    metrics: ["87% Efficiency Gain", "Computer Vision", "Sub-10 Sec"],
+    bg_color: "bg-emerald-50",
   },
   {
-    id: "dataflow",
+    project_id: "dataflow",
     category: "DATA AUTOMATION",
     title: "DataFlow",
     subtitle: "Enterprise Automation Platform",
-    description: "High-performance automation platform architected for large-scale data operations. Achieved 60% faster processing through intelligent pipeline optimization and parallel processing capabilities.",
-    icon: Workflow,
+    description: "High-performance automation platform built for large-scale data operations in the IT & finance sector. Achieved 60% faster processing through intelligent pipeline optimisation and parallel processing architecture.",
     metrics: ["60% Faster", "Large-Scale Ops", "Pipeline Optimization"],
-    bgColor: "bg-rose-100",
+    bg_color: "bg-rose-50",
   },
   {
-    id: "agileshift",
+    project_id: "agileshift",
     category: "TRANSFORMATION",
     title: "AgileShift",
     subtitle: "Organization Transformation Framework",
     description: "Comprehensive Agile transformation framework that successfully transitioned entire organizations. Achieved 100% adoption rate while significantly reducing time-to-market for product releases.",
-    icon: Bot,
-    metrics: ["100% Adoption", "Agile Transition", "Time-to-Market"],
-    bgColor: "bg-violet-100",
+    metrics: ["100% Adoption", "50-Person Org", "15-Week Rollout"],
+    bg_color: "bg-violet-50",
   },
   {
-    id: "electronic-soundbook",
+    project_id: "electronic-soundbook",
     category: "PHYSICAL PRODUCT",
     title: "Electronic Soundbook",
     subtitle: "Screen-Free Learning for Toddlers",
     description: "A product development journey building a screen-free alternative to smartphones for toddlers across five global markets. Zero redesigns post-DVT, multi-language support, and compliance across US, EU, UK, GCC, and India markets.",
-    icon: Package,
-    metrics: ["$7 COGS", "5 Markets", "85% PSR", "Zero Redesigns"],
-    bgColor: "bg-teal-100",
-  }
+    metrics: ["$7 COGS", "5 Markets", "85% Parent Satisfaction Rate"],
+    bg_color: "bg-teal-50",
+  },
 ]
 
 export default function WorkPage() {
+  const [projects, setProjects] = useState(defaultProjects)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const supabase = createClient()
+        const projectIds = ['agar', 'sprintup', 'measureai', 'dataflow', 'agileshift', 'electronic-soundbook']
+        
+        const { data, error } = await supabase
+          .from('work_projects')
+          .select('*')
+          .in('project_id', projectIds)
+          .order('created_at', { ascending: true })
+
+        if (error) {
+          console.error('Error fetching work projects:', error)
+          setProjects(defaultProjects)
+        } else if (data && data.length > 0) {
+          setProjects(data)
+        } else {
+          setProjects(defaultProjects)
+        }
+      } catch (error) {
+        console.error('Error:', error)
+        setProjects(defaultProjects)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchProjects()
+  }, [])
+
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
@@ -76,66 +116,71 @@ export default function WorkPage() {
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-6 pt-32">
         <div className="max-w-6xl mx-auto">
+          <Link href="/" className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-8">
+            <ArrowLeft size={18} className="mr-2" />
+            Back
+          </Link>
           <p className="text-primary text-sm font-semibold tracking-wider mb-2">WORK</p>
           <h1 className="text-4xl md:text-6xl font-serif italic text-foreground mb-6">
-            Products I have Built
+            Selected Work
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            A portfolio of transformative projects spanning AI, automation, and organizational transformation. Each project demonstrates strategic vision and execution excellence.
+          <p className="text-lg text-muted-foreground max-w-3xl">
+            A showcase of projects I've built and led. From product strategy to execution, focusing on impact and innovation.
           </p>
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-20 px-6 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => {
-              const IconComponent = project.icon
-              return (
-                <Link
-                  key={project.id}
-                  href={project.id === "electronic-soundbook" ? `/case-studies/electronic-soundbook` : `/work/${project.id}`}
-                  className={`${project.bgColor} dark:bg-card p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
-                >
-                  {/* Header */}
-                  <div className="mb-4">
-                    <div className="flex items-start gap-3 mb-4">
-                      <IconComponent size={28} className="text-foreground flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
-                      <div>
-                        <p className="text-primary text-xs font-semibold tracking-wider mb-1">
-                          {project.category}
-                        </p>
-                        <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
-                        <p className="text-xs text-muted-foreground mt-1">{project.subtitle}</p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  {/* Metrics */}
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-black/10 dark:border-white/10 mb-4">
-                    {project.metrics.map((metric, i) => (
-                      <span key={i} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">
-                        {metric}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Learn More Link */}
-                  <div className="pt-4 border-t border-black/10 dark:border-white/10">
-                    <span className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2 text-sm">
-                      Learn more
-                      <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
-                    </span>
-                  </div>
-                </Link>
-              )
-            })}
+      {/* Work Grid */}
+      <section className="py-16 px-6 max-w-6xl mx-auto">
+        {loading ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">Loading projects...</p>
           </div>
-        </div>
+        ) : projects.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">No projects yet.</p>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project: any) => (
+              <Link
+                key={project.project_id || project.id}
+                href={`/work/${project.project_id || project.id}`}
+                className={`${project.bg_color} dark:bg-card p-8 rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
+              >
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="text-3xl flex-shrink-0">{iconMap[project.category]?.() || '📌'}</span>
+                  <div className="flex-1">
+                    <p className="text-primary text-xs font-semibold tracking-wider mb-1">
+                      {project.category}
+                    </p>
+                    <h3 className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">{project.subtitle}</p>
+                  </div>
+                </div>
+
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.metrics?.map((metric: string, i: number) => (
+                    <span key={i} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">
+                      {metric}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2">
+                  View Project
+                  <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
 
       <Footer />

@@ -1,4 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 
 export const metadata = {
   title: "Books | Yash Mahadik",
@@ -23,9 +27,16 @@ export default async function BooksPage() {
   const wantToRead = books?.filter((b) => b.status === "want-to-read") || [];
 
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
+      <Navigation />
+      <main className="flex-1">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 max-w-6xl mx-auto">
+      <section className="py-16 md:py-24 px-6 pt-32">
+        <div className="max-w-6xl mx-auto">
+        <Link href="/" className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-8">
+          <ArrowLeft size={18} className="mr-2" />
+          Back
+        </Link>
         <div className="mb-16">
           <h1 className="text-4xl md:text-5xl font-serif italic text-foreground mb-4">
             Books
@@ -72,13 +83,16 @@ export default async function BooksPage() {
         )}
 
         {/* No Books */}
-        {!books || books.length === 0 && (
+        {reading.length === 0 && completed.length === 0 && wantToRead.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">No books added yet.</p>
+            <p className="text-muted-foreground">No books yet.</p>
           </div>
         )}
+        </div>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
@@ -109,35 +123,53 @@ function BookCard({ book }: { book: any }) {
   };
 
   return (
-    <div className="group border border-border rounded-lg overflow-hidden hover:border-primary transition-colors h-full flex flex-col">
-      {/* Book Cover or Placeholder */}
-      <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden">
+    <div className="group flex flex-col h-full">
+      {/* Book Cover - Full Display with proper aspect ratio */}
+      <div className="w-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden rounded-lg mb-4 aspect-[9/13]">
         {book.cover_url ? (
           <img
             src={book.cover_url}
             alt={book.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+            className="w-full h-full object-contain group-hover:scale-105 transition-transform"
           />
         ) : (
-          <div className="text-center">
+          <div className="text-center p-4">
             <p className="text-muted-foreground text-sm">No cover</p>
           </div>
         )}
       </div>
 
       {/* Book Info */}
-      <div className="p-4 flex flex-col flex-1">
-        <p className="text-xs text-muted-foreground mb-2">
-          {new Date(book.date_added).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-          })}
-        </p>
+      <div className="flex flex-col flex-1">
         <h3 className="font-serif text-lg text-foreground group-hover:text-primary transition-colors mb-1 line-clamp-2">
           {book.title}
         </h3>
-        <p className="text-sm text-muted-foreground mb-3 flex-1">{book.author}</p>
-        <div className="flex justify-between items-center pt-3 border-t border-border">
+        <p className="text-sm text-muted-foreground mb-2">{book.author}</p>
+        
+        {/* Book Type/Tags */}
+        {book.book_type && (
+          <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-2">
+            {book.book_type}
+          </p>
+        )}
+
+        {/* Rating */}
+        {book.rating && (
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-sm text-foreground">Rating:</span>
+            <span className="text-sm font-semibold text-primary">{book.rating}/5 ⭐</span>
+          </div>
+        )}
+
+        {/* My Review */}
+        {book.my_review && (
+          <p className="text-sm text-muted-foreground italic mb-3 line-clamp-3">
+            "{book.my_review}"
+          </p>
+        )}
+
+        {/* Status Badge */}
+        <div className="pt-3 border-t border-border mt-auto">
           {getStatusBadge(book.status)}
         </div>
       </div>

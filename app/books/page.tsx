@@ -1,6 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 
 export const metadata = {
   title: "Books | Yash Mahadik",
@@ -25,9 +27,12 @@ export default async function BooksPage() {
   const wantToRead = books?.filter((b) => b.status === "want-to-read") || [];
 
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
+      <Navigation />
+      <main className="flex-1">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 max-w-6xl mx-auto">
+      <section className="py-16 md:py-24 px-6 pt-32">
+        <div className="max-w-6xl mx-auto">
         <Link href="/" className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-8">
           <ArrowLeft size={18} className="mr-2" />
           Back
@@ -78,13 +83,16 @@ export default async function BooksPage() {
         )}
 
         {/* No Books */}
-        {!books || books.length === 0 && (
+        {reading.length === 0 && completed.length === 0 && wantToRead.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">No books added yet.</p>
+            <p className="text-muted-foreground">No books yet.</p>
           </div>
         )}
+        </div>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }
 

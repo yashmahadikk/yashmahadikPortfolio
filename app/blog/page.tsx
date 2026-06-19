@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 
 export const metadata = {
   title: "Blog | Yash Mahadik",
@@ -20,10 +22,17 @@ export default async function BlogPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
+      <Navigation />
+      <main className="flex-1">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 max-w-4xl mx-auto">
-        <div className="mb-12">
+      <section className="py-16 md:py-24 px-6 pt-32">
+        <div className="max-w-4xl mx-auto">
+          <Link href="/" className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-8">
+            <ArrowLeft size={18} className="mr-2" />
+            Back
+          </Link>
+          <div className="mb-12">
           <h1 className="text-4xl md:text-5xl font-serif italic text-foreground mb-4">
             Blog
           </h1>
@@ -70,7 +79,10 @@ export default async function BlogPage() {
             <p className="text-muted-foreground">No blog posts yet.</p>
           </div>
         )}
+        </div>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }

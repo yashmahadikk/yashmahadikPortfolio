@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Mail, Linkedin, Twitter, Github, FileText, Spotify } from 'lucide-react';
+import { Mail, Linkedin, Twitter, Github, FileText, Music } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -31,7 +31,7 @@ export function Footer() {
                 <Github size={20} />
               </a>
               <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                <Spotify size={20} />
+                <Music size={20} />
               </a>
             </div>
 

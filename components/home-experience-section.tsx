@@ -4,20 +4,44 @@ import { ArrowRight } from "lucide-react"
 export function HomeExperienceSection() {
   const experiences = [
     {
-      company: "Funspire",
-      role: "Product Lead",
-      period: "Present",
+      company: "Devanagari Ventures",
+      role: "PM & Co Founder",
+      period: "May 2024 - May 2026",
       location: "Remote",
       status: "Active",
+      logo: "🚀"
+    },
+    {
+      company: "Funspire.in",
+      role: "Product Manager",
+      period: "May 2023 - May 2024",
+      location: "Remote",
+      status: "Completed",
       logo: "🎯"
     },
     {
-      company: "Viviga Ecom Pvt Ltd",
-      role: "Product Manager",
-      period: "2024 - 2025",
+      company: "JSK Foods",
+      role: "Part-time",
+      period: "Aug 2021 - Apr 2023",
       location: "India",
-      status: "Active",
-      logo: "🛍️"
+      status: "Completed",
+      logo: "🍛"
+    },
+    {
+      company: "Group Bayport",
+      role: "Associate",
+      period: "June 2025 - Aug 2025",
+      location: "Remote",
+      status: "Completed",
+      logo: "💼"
+    },
+    {
+      company: "QAI",
+      role: "Project Manager",
+      period: "Aug 2025 - Dec 2025",
+      location: "Remote",
+      status: "Completed",
+      logo: "⚙️"
     }
   ]
 

@@ -19,7 +19,7 @@ export function Footer() {
               <a href="mailto:contact@yashmahadik.com" className="text-muted-foreground hover:text-primary transition-colors">
                 <Mail size={20} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://linkedin.com/in/yashmahadik" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Product and strategy insights">
                 <Linkedin size={20} />
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
@@ -94,7 +94,7 @@ export function Footer() {
               <a href="mailto:contact@yashmahadik.com" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Email
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+              <a href="https://linkedin.com/in/yashmahadik" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 LinkedIn
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">

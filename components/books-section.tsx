@@ -167,12 +167,12 @@ export function BooksSection() {
               <div key={book.id} className="group flex gap-6 p-6 border border-border rounded-lg hover:border-primary/50 transition-colors">
                 {/* Book Cover - Left Side */}
                 <div className="flex-shrink-0">
-                  <div className="w-24 h-32 bg-gradient-to-br from-primary/20 to-primary/5 rounded-md flex items-center justify-center overflow-hidden">
+                  <div className="w-28 h-auto bg-gradient-to-br from-primary/20 to-primary/5 rounded-[12px] flex items-center justify-center overflow-hidden">
                     {book.cover_url ? (
                       <img
                         src={book.cover_url}
                         alt={book.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        className="w-full h-auto object-contain"
                       />
                     ) : (
                       <span className="text-3xl">📖</span>

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { BookOpen, Award, Users, Zap, CheckSquare, Globe, Briefcase, Code } from "lucide-react"
+import { BookOpen, Zap, CheckSquare, Globe, Briefcase, Code } from "lucide-react"
 
 export function HomeExploreSection() {
   const items = [
@@ -9,18 +9,7 @@ export function HomeExploreSection() {
       description: "Overview of my learning and career journey.",
       href: "/journey"
     },
-    {
-      icon: Award,
-      title: "Certificates & Achievements",
-      description: "A curated list of certificates and achievements.",
-      href: "/certificates"
-    },
-    {
-      icon: Users,
-      title: "Mentors & People",
-      description: "The people who shaped my journey.",
-      href: "/mentors"
-    },
+
     {
       icon: Zap,
       title: "Tools & Software",

@@ -19,10 +19,10 @@ export function Footer() {
               <a href="mailto:yashmahaadik@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                 <Mail size={20} />
               </a>
-              <a href="https://linkedin.com/in/yashmahadik" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Product and strategy insights">
+              <a href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Product and strategy insights">
                 <Linkedin size={20} />
               </a>
-              <a href="https://twitter.com/yash_mahadik" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://x.com/yash_mahadik" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Twitter size={20} />
               </a>
               <a href="https://github.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
@@ -97,13 +97,13 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">Connect</h4>
             <nav className="space-y-3">
-              <a href="mailto:contact@yashmahadik.com" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+              <a href="mailto:yashmahaadik@gmail.com" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Email
               </a>
-              <a href="https://linkedin.com/in/yashmahadik" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+              <a href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 LinkedIn
               </a>
-              <a href="https://twitter.com/yash_mahadik" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+              <a href="https://x.com/yash_mahadik" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Twitter / X
               </a>
               <a href="https://github.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">

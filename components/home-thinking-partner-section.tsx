@@ -32,18 +32,18 @@ export function HomeThinkingPartnerSection() {
           <div>
             <h3 className="text-xl font-semibold text-foreground mb-3">Product & Strategy Insights</h3>
             <p className="text-sm text-muted-foreground mb-6">
-              Twitter · 2-3 posts a week
+              LinkedIn · 2-3 posts a week
             </p>
             <p className="text-base text-muted-foreground mb-8 leading-relaxed">
               Deep dives into product strategy, market analysis, and frameworks for building products. I share breakdowns of how top companies win in their markets, monetization strategies, and lessons from building AI products.
             </p>
             <a
-              href="https://twitter.com/yashmahadikk"
+              href="https://linkedin.com/in/yashmahadik2"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 border border-border text-foreground font-medium hover:border-foreground transition-colors rounded"
             >
-              Follow @yashmahadikk
+              Follow on LinkedIn
               <ArrowRight size={16} className="ml-2" />
             </a>
           </div>

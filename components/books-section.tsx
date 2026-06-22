@@ -47,20 +47,28 @@ export function BooksSection() {
     fetchBooks()
   }, [])
 
+  // Normalize books status to ensure consistent casing
+  const normalizedBooks = useMemo(() => {
+    return books.map(book => ({
+      ...book,
+      status: book.status ? (book.status.charAt(0).toUpperCase() + book.status.slice(1)) as 'Backlog' | 'In Progress' | 'Done' : 'Backlog',
+    }))
+  }, [books])
+
   // Extract all genres from books
   const allGenres = useMemo(() => {
     const genreSet = new Set<string>()
-    books.forEach(book => {
+    normalizedBooks.forEach(book => {
       if (book.genre && Array.isArray(book.genre)) {
         book.genre.forEach(g => genreSet.add(g))
       }
     })
     return Array.from(genreSet)
-  }, [books])
+  }, [normalizedBooks])
 
   // Filter books based on search and selected filters
   const filteredBooks = useMemo(() => {
-    return books.filter(book => {
+    return normalizedBooks.filter(book => {
       const matchesSearch = 
         book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -71,7 +79,7 @@ export function BooksSection() {
       
       return matchesSearch && matchesStatus && matchesGenre
     })
-  }, [books, searchTerm, selectedStatus, selectedGenre])
+  }, [normalizedBooks, searchTerm, selectedStatus, selectedGenre])
 
   // Group books by status
   const booksByStatus = {
@@ -81,9 +89,9 @@ export function BooksSection() {
   }
 
   const statusCounts = {
-    Backlog: books.filter(b => !b.status || b.status === 'Backlog').length,
-    'In Progress': books.filter(b => b.status === 'In Progress').length,
-    Done: books.filter(b => b.status === 'Done').length,
+    Backlog: normalizedBooks.filter(b => b.status === 'Backlog').length,
+    'In Progress': normalizedBooks.filter(b => b.status === 'In Progress').length,
+    Done: normalizedBooks.filter(b => b.status === 'Done').length,
   }
 
   return (

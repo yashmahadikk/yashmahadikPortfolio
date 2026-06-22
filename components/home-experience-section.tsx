@@ -7,7 +7,7 @@ export function HomeExperienceSection() {
       company: "Devanagari Ventures",
       role: "PM & Co Founder",
       period: "May 2024 - May 2026",
-      location: "Remote",
+      location: "Mumbai",
       status: "Active",
       logo: "🚀"
     },
@@ -15,33 +15,17 @@ export function HomeExperienceSection() {
       company: "Funspire.in",
       role: "Product Manager",
       period: "May 2023 - May 2024",
-      location: "Remote",
+      location: "Mumbai",
       status: "Completed",
       logo: "🎯"
     },
     {
       company: "JSK Foods",
-      role: "Part-time",
+      role: "Operations",
       period: "Aug 2021 - Apr 2023",
-      location: "India",
+      location: "Mumbai",
       status: "Completed",
       logo: "🍛"
-    },
-    {
-      company: "Group Bayport",
-      role: "Associate",
-      period: "June 2025 - Aug 2025",
-      location: "Remote",
-      status: "Completed",
-      logo: "💼"
-    },
-    {
-      company: "QAI",
-      role: "Project Manager",
-      period: "Aug 2025 - Dec 2025",
-      location: "Remote",
-      status: "Completed",
-      logo: "⚙️"
     }
   ]
 

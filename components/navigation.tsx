@@ -43,6 +43,9 @@ export function Navigation() {
           <Link href="/books" className={getLinkClass("/books")}>
             BOOKS
           </Link>
+          <Link href="/bucket-list" className={getLinkClass("/bucket-list")}>
+            BUCKET LIST
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -89,6 +92,13 @@ export function Navigation() {
               className={getLinkClass("/books")}
             >
               BOOKS
+            </Link>
+            <Link 
+              href="/bucket-list" 
+              onClick={() => setIsOpen(false)}
+              className={getLinkClass("/bucket-list")}
+            >
+              BUCKET LIST
             </Link>
           </div>
         </div>

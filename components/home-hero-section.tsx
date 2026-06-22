@@ -32,10 +32,10 @@ export function HomeHeroSection() {
 
         {/* Social Icons */}
         <div className="flex gap-4 text-muted-foreground">
-          <a href="https://twitter.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+          <a href="https://x.com/yash_mahadik" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
             <Twitter size={20} />
           </a>
-          <a href="https://linkedin.com/in/yashmahadik" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+          <a href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
             <Linkedin size={20} />
           </a>
           <a href="https://github.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">

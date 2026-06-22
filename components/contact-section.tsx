@@ -61,7 +61,7 @@ export function ContactSection() {
             <Linkedin size={20} />
           </a>
           <a
-            href="https://twitter.com/yash_mahadik"
+            href="https://x.com/yash_mahadik"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"

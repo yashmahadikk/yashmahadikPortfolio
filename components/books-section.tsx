@@ -155,63 +155,60 @@ export function BooksSection() {
           )}
         </div>
 
-        {/* Books Grid */}
+        {/* Books List */}
         {loading ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">Loading books...</p>
           </div>
         ) : filteredBooks.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-4">
             {filteredBooks.map(book => (
-              <div key={book.id} className="group flex flex-col h-full">
-                {/* Book Cover */}
-                <div className="w-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden rounded-lg mb-4 aspect-[9/13]">
-                  {book.cover_url ? (
-                    <img
-                      src={book.cover_url}
-                      alt={book.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center w-full h-full">
-                      <span className="text-4xl">📖</span>
-                    </div>
-                  )}
+              <div key={book.id} className="group flex gap-6 p-6 border border-border rounded-lg hover:border-primary/50 transition-colors">
+                {/* Book Cover - Left Side */}
+                <div className="flex-shrink-0">
+                  <div className="w-24 h-32 bg-gradient-to-br from-primary/20 to-primary/5 rounded-md flex items-center justify-center overflow-hidden">
+                    {book.cover_url ? (
+                      <img
+                        src={book.cover_url}
+                        alt={book.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                      />
+                    ) : (
+                      <span className="text-3xl">📖</span>
+                    )}
+                  </div>
                 </div>
 
-                {/* Book Info */}
-                <div className="flex flex-col flex-1">
-                  {/* Rating */}
-                  {book.rating && (
-                    <div className="flex items-center gap-1 mb-2">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          size={16}
-                          className={i < book.rating! ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground'}
-                        />
-                      ))}
-                      <span className="text-sm text-muted-foreground ml-1">{book.rating}/5</span>
+                {/* Book Info - Right Side */}
+                <div className="flex-1 flex flex-col">
+                  {/* Title and Rating */}
+                  <div className="flex items-start justify-between gap-4 mb-2">
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {book.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">{book.author}</p>
                     </div>
-                  )}
-
-                  <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors mb-1">
-                    {book.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-3">{book.author}</p>
+                    {book.rating && (
+                      <div className="flex items-center gap-1 flex-shrink-0 bg-primary/10 px-3 py-1 rounded-full">
+                        <span className="text-sm font-medium text-primary">{book.rating}</span>
+                        <span className="text-sm text-primary">/5</span>
+                      </div>
+                    )}
+                  </div>
 
                   {/* Description */}
                   {book.description && (
-                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                    <p className="text-sm text-muted-foreground mb-3">
                       {book.description}
                     </p>
                   )}
 
                   {/* Genres */}
                   {book.genre && book.genre.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-3">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {book.genre.map(g => (
-                        <span key={g} className="text-xs px-2 py-1 bg-muted text-muted-foreground rounded">
+                        <span key={g} className="text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-full hover:bg-muted/80 transition-colors cursor-pointer">
                           {g}
                         </span>
                       ))}
@@ -219,7 +216,7 @@ export function BooksSection() {
                   )}
 
                   {/* Status Badge */}
-                  <div className="pt-3 border-t border-border mt-auto">
+                  <div className="mt-auto">
                     <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
                       book.status === 'Done'
                         ? 'bg-green-500/20 text-green-300'

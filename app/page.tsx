@@ -5,7 +5,7 @@ import { HomeExperienceSection } from "@/components/home-experience-section"
 import { HomeBlogSection } from "@/components/home-blog-section"
 import { HomeExploreSection } from "@/components/home-explore-section"
 import { HomeThinkingPartnerSection } from "@/components/home-thinking-partner-section"
-import { HomeQuoteSection } from "@/components/home-quote-section"
+import { AnimatedQuoteSection } from "@/components/animated-quote-section"
 
 export default async function Home() {
   return (
@@ -16,7 +16,7 @@ export default async function Home() {
       <HomeBlogSection />
       <HomeExploreSection />
       <HomeThinkingPartnerSection />
-      <HomeQuoteSection />
+      <AnimatedQuoteSection />
       <Footer />
     </main>
   )

@@ -78,6 +78,9 @@ export function Footer() {
               <Link href="/movies" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Movies
               </Link>
+              <Link href="/games" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+                Games
+              </Link>
               <Link href="/certificates" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Certificates
               </Link>

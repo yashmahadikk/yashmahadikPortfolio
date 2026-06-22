@@ -6,6 +6,8 @@ import { HomeBlogSection } from "@/components/home-blog-section"
 import { HomeExploreSection } from "@/components/home-explore-section"
 import { HomeThinkingPartnerSection } from "@/components/home-thinking-partner-section"
 import { HomeQuoteSection } from "@/components/home-quote-section"
+import { HomeMoviesSection } from "@/components/home-movies-section"
+import { HomeGamesSection } from "@/components/home-games-section"
 
 export default async function Home() {
   return (
@@ -17,6 +19,8 @@ export default async function Home() {
       <HomeExploreSection />
       <HomeThinkingPartnerSection />
       <HomeQuoteSection />
+      <HomeMoviesSection />
+      <HomeGamesSection />
       <Footer />
     </main>
   )

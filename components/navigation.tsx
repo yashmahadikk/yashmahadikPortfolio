@@ -29,7 +29,7 @@ export function Navigation() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-8">
           <ThemeToggle />
           <Link href="/work" className={getLinkClass("/work")}>
             WORK
@@ -42,12 +42,6 @@ export function Navigation() {
           </Link>
           <Link href="/books" className={getLinkClass("/books")}>
             BOOKS
-          </Link>
-          <Link href="/skills" className={getLinkClass("/skills")}>
-            SKILLS
-          </Link>
-          <Link href="/contact" className={getLinkClass("/contact")}>
-            CONTACT
           </Link>
         </div>
 
@@ -95,20 +89,6 @@ export function Navigation() {
               className={getLinkClass("/books")}
             >
               BOOKS
-            </Link>
-            <Link 
-              href="/skills" 
-              onClick={() => setIsOpen(false)}
-              className={getLinkClass("/skills")}
-            >
-              SKILLS
-            </Link>
-            <Link 
-              href="/contact" 
-              onClick={() => setIsOpen(false)}
-              className={getLinkClass("/contact")}
-            >
-              CONTACT
             </Link>
           </div>
         </div>

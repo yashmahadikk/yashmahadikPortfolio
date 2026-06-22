@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, BookOpen, Briefcase, Award, Users, Zap, CheckSquare, Globe } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 
@@ -12,75 +12,175 @@ export const metadata = {
 export default async function BlogPage() {
   const supabase = await createClient();
   
-  const { data: posts, error } = await supabase
+  const { data: posts } = await supabase
     .from("blog_posts")
     .select("*")
     .order("published_date", { ascending: false });
 
-  if (error) {
-    console.error("Error fetching blog posts:", error);
-  }
+  const { data: caseStudies } = await supabase
+    .from("case_studies")
+    .select("*")
+    .limit(6);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navigation />
       <main className="flex-1">
-      {/* Hero Section */}
-      <section className="py-16 md:py-24 px-6 pt-32">
-        <div className="max-w-4xl mx-auto">
-          <Link href="/" className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-8">
-            <ArrowLeft size={18} className="mr-2" />
-            Back
-          </Link>
-          <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-serif italic text-foreground mb-4">
-            Blog
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Thoughts on product management, technology, and building things that matter.
-          </p>
-        </div>
+        {/* Hero Section */}
+        <section className="py-20 md:py-32 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-20">
+              <h1 className="text-5xl md:text-6xl font-serif text-foreground mb-6">
+                Blog & Insights
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-2xl">
+                Deep dives on product strategy, market analysis, and building things that matter.
+              </p>
+            </div>
 
-        {/* Blog Posts Grid */}
-        {posts && posts.length > 0 ? (
-          <div className="grid gap-8">
-            {posts.map((post) => (
-              <Link
-                key={post.id}
-                href={`/blog/${post.slug}`}
-                className="group block"
-              >
-                <article className="border border-border rounded-lg p-6 hover:border-primary transition-colors hover:bg-card/50">
-                  <div className="flex flex-col gap-3">
-                    <p className="text-xs text-muted-foreground">
-                      {new Date(post.published_date).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
+            {/* Explore Section */}
+            <div className="mb-24">
+              <h2 className="text-3xl font-semibold text-foreground mb-12">Explore</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Case Studies */}
+                <Link href="/case-studies" className="group">
+                  <div className="p-8 rounded-lg border border-border hover:border-primary transition-all hover:bg-card/50 h-full bg-card/30">
+                    <Briefcase size={28} className="text-primary mb-4" />
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                      Case Studies
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      In-depth analysis of products, markets, and strategies I&apos;ve studied.
                     </p>
-                    <h2 className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors">
-                      {post.title}
-                    </h2>
-                    <p className="text-muted-foreground line-clamp-2">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center text-primary font-medium text-sm pt-2">
-                      Read more
-                      <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </div>
                   </div>
-                </article>
-              </Link>
-            ))}
+                </Link>
+
+                {/* Mentors */}
+                <Link href="/mentors" className="group">
+                  <div className="p-8 rounded-lg border border-border hover:border-primary transition-all hover:bg-card/50 h-full bg-card/30">
+                    <Users size={28} className="text-primary mb-4" />
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                      Mentors & People
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      The people who shaped my journey and continue to inspire me.
+                    </p>
+                  </div>
+                </Link>
+
+                {/* Certificates */}
+                <Link href="/certificates" className="group">
+                  <div className="p-8 rounded-lg border border-border hover:border-primary transition-all hover:bg-card/50 h-full bg-card/30">
+                    <Award size={28} className="text-primary mb-4" />
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                      Certificates & Achievements
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      A curated list of certificates and achievements.
+                    </p>
+                  </div>
+                </Link>
+
+                {/* Journey */}
+                <Link href="/journey" className="group">
+                  <div className="p-8 rounded-lg border border-border hover:border-primary transition-all hover:bg-card/50 h-full bg-card/30">
+                    <BookOpen size={28} className="text-primary mb-4" />
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                      My Journey
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      Overview of my learning and career journey.
+                    </p>
+                  </div>
+                </Link>
+
+                {/* Tools */}
+                <Link href="/tools" className="group">
+                  <div className="p-8 rounded-lg border border-border hover:border-primary transition-all hover:bg-card/50 h-full bg-card/30">
+                    <Zap size={28} className="text-primary mb-4" />
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                      Tools & Software
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      Tools and software I use daily.
+                    </p>
+                  </div>
+                </Link>
+
+                {/* Bucket List */}
+                <Link href="/bucket-list" className="group">
+                  <div className="p-8 rounded-lg border border-border hover:border-primary transition-all hover:bg-card/50 h-full bg-card/30">
+                    <CheckSquare size={28} className="text-primary mb-4" />
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                      Bucket List
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      Things I want to do, become, and build.
+                    </p>
+                  </div>
+                </Link>
+
+                {/* Curated Links */}
+                <Link href="/curated-links" className="group">
+                  <div className="p-8 rounded-lg border border-border hover:border-primary transition-all hover:bg-card/50 h-full bg-card/30">
+                    <Globe size={28} className="text-primary mb-4" />
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                      Curated Links
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      Interesting resources and things I find valuable.
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+            {/* Latest from Blog */}
+            <div className="border-t border-border pt-20">
+              <h2 className="text-3xl font-semibold text-foreground mb-12">Latest from Blog</h2>
+              {posts && posts.length > 0 ? (
+                <div className="space-y-12">
+                  {posts.slice(0, 5).map((post) => (
+                    <Link
+                      key={post.id}
+                      href={`/blog/${post.slug}`}
+                      className="group block"
+                    >
+                      <article>
+                        <p className="text-sm text-muted-foreground mb-2">
+                          {new Date(post.published_date).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "short",
+                          })}
+                        </p>
+                        <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                          {post.title}
+                        </h3>
+                        <p className="text-base text-muted-foreground line-clamp-2 mb-4">
+                          {post.excerpt}
+                        </p>
+                        <div className="flex items-center text-primary font-medium text-sm">
+                          Read more
+                          <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </article>
+                    </Link>
+                  ))}
+                  <div className="pt-8 border-t border-border">
+                    <Link href="/blog" className="text-primary hover:text-primary/80 font-medium inline-flex items-center gap-2">
+                      Read more posts
+                      <ArrowUpRight size={16} />
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground">No blog posts yet.</p>
+                </div>
+              )}
+            </div>
           </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">No blog posts yet.</p>
-          </div>
-        )}
-        </div>
-      </section>
+        </section>
       </main>
       <Footer />
     </div>

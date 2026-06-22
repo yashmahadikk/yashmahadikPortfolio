@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
+import { Figtree } from 'next/font/google'
 
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
-// Using system fonts to match the original design (Georgia + Helvetica)
+
+const figtree = Figtree({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Yash Mahadik | Product Manager & Founder',
@@ -54,7 +56,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased bg-background text-foreground">
+      <body className={`${figtree.className} font-sans antialiased bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
           {process.env.NODE_ENV === 'production' && <Analytics />}

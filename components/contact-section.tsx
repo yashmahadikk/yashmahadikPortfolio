@@ -1,5 +1,3 @@
-'use client'
-
 import { Mail, Linkedin, Instagram, ArrowUpRight, Phone } from "lucide-react"
 
 export function ContactSection() {

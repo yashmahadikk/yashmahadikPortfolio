@@ -16,7 +16,7 @@ export function Footer() {
             
             {/* Social Icons */}
             <div className="flex gap-4 mb-6">
-              <a href="mailto:contact@yashmahadik.com" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:yashmahaadik@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                 <Mail size={20} />
               </a>
               <a href="https://linkedin.com/in/yashmahadik" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Product and strategy insights">

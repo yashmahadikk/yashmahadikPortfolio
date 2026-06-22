@@ -1,8 +1,5 @@
-'use client'
-
-import { useEffect, useState } from "react"
 import Link from "next/link"
-import { createClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/server"
 import { ArrowUpRight } from "lucide-react"
 
 interface BlogPost {
@@ -13,41 +10,30 @@ interface BlogPost {
   published_date: string
 }
 
-export function HomeBlogSection() {
-  const [posts, setPosts] = useState<BlogPost[]>([])
-  const [loading, setLoading] = useState(true)
+export async function HomeBlogSection() {
+  let posts: BlogPost[] = []
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const supabase = createClient()
-        const { data } = await supabase
-          .from("blog_posts")
-          .select("*")
-          .order("published_date", { ascending: false })
-          .limit(3)
+  try {
+    const supabase = await createClient()
+    const { data } = await supabase
+      .from("blog_posts")
+      .select("*")
+      .order("published_date", { ascending: false })
+      .limit(3)
 
-        if (data) {
-          setPosts(data)
-        }
-      } catch (error) {
-        console.error("Error fetching blog posts:", error)
-      } finally {
-        setLoading(false)
-      }
+    if (data) {
+      posts = data as BlogPost[]
     }
-
-    fetchPosts()
-  }, [])
+  } catch (error) {
+    console.error("Error fetching blog posts:", error)
+  }
 
   return (
     <section className="py-24 md:py-32 px-6 border-b border-border">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-12">Latest from Blog</h2>
         
-        {loading ? (
-          <div className="text-muted-foreground">Loading posts...</div>
-        ) : posts.length > 0 ? (
+        {posts.length > 0 ? (
           <div className="space-y-12">
             {posts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`} className="group block">

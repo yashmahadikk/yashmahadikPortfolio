@@ -93,9 +93,8 @@ export default async function MoviesPage() {
                         </h3>
                       </div>
                       {movie.rating && (
-                        <div className="flex items-center gap-1 flex-shrink-0 bg-primary/10 px-3 py-1 rounded-full">
+                        <div className="flex-shrink-0 bg-primary/10 px-3 py-1 rounded-full">
                           <span className="text-sm font-medium text-primary">{movie.rating}</span>
-                          <span className="text-sm text-primary">/5</span>
                         </div>
                       )}
                     </div>

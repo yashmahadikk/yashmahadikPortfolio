@@ -8,7 +8,7 @@ interface Movie {
   id: string
   title: string
   url: string
-  rating: number
+  rating: string
   genre: string[]
   photo_url: string
   my_thoughts: string
@@ -29,7 +29,7 @@ export default function MoviesAdminPage() {
   const [formData, setFormData] = useState({
     title: '',
     url: '',
-    rating: 5,
+    rating: 'Go for it',
     genre: [] as string[],
     photo_url: '',
     my_thoughts: '',
@@ -80,7 +80,7 @@ export default function MoviesAdminPage() {
       setFormData({
         title: '',
         url: '',
-        rating: 5,
+        rating: 'Go for it',
         genre: [],
         photo_url: '',
         my_thoughts: '',
@@ -139,7 +139,7 @@ export default function MoviesAdminPage() {
                 setFormData({
                   title: '',
                   url: '',
-                  rating: 5,
+                  rating: 'Go for it',
                   genre: [],
                   photo_url: '',
                   my_thoughts: '',
@@ -180,16 +180,23 @@ export default function MoviesAdminPage() {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Rating (1-5)</label>
-                <input
-                  type="number"
-                  min="1"
-                  max="5"
-                  value={formData.rating}
-                  onChange={(e) => setFormData({ ...formData, rating: parseInt(e.target.value) })}
-                  className="w-full px-3 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                />
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-foreground mb-3">Rating</label>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {['Skip', 'Timepass', 'Go for it', 'Perfection'].map(option => (
+                    <label key={option} className="flex items-center gap-2 p-3 border border-border rounded-lg cursor-pointer hover:bg-muted/50 transition-colors" style={{borderColor: formData.rating === option ? 'var(--primary)' : undefined}}>
+                      <input
+                        type="radio"
+                        name="rating"
+                        value={option}
+                        checked={formData.rating === option}
+                        onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
+                        className="w-4 h-4"
+                      />
+                      <span className="text-sm font-medium text-foreground">{option}</span>
+                    </label>
+                  ))}
+                </div>
               </div>
 
               <div>
@@ -260,7 +267,7 @@ export default function MoviesAdminPage() {
                   setFormData({
                     title: '',
                     url: '',
-                    rating: 5,
+                    rating: 'Go for it',
                     genre: [],
                     photo_url: '',
                     my_thoughts: '',
@@ -296,7 +303,7 @@ export default function MoviesAdminPage() {
                 {movies.map(movie => (
                   <tr key={movie.id} className="hover:bg-muted/50 transition-colors">
                     <td className="px-6 py-4 text-sm text-foreground">{movie.title}</td>
-                    <td className="px-6 py-4 text-sm text-foreground">{movie.rating}/5</td>
+                    <td className="px-6 py-4 text-sm text-foreground">{movie.rating || '-'}</td>
                     <td className="px-6 py-4 text-sm">
                       <span className={`inline-block px-2 py-1 rounded text-xs font-medium ${
                         movie.status === 'Done'

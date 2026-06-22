@@ -42,7 +42,7 @@ export default function MoviesAdminPage() {
 
   const fetchMovies = async () => {
     try {
-      const supabase = await createClient()
+      const supabase = createClient()
       const { data, error } = await supabase
         .from('movies')
         .select('*')
@@ -60,7 +60,7 @@ export default function MoviesAdminPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const supabase = await createClient()
+      const supabase = createClient()
 
       if (editingId) {
         const { error } = await supabase
@@ -104,7 +104,7 @@ export default function MoviesAdminPage() {
     if (!confirm('Are you sure you want to delete this movie?')) return
 
     try {
-      const supabase = await createClient()
+      const supabase = createClient()
       const { error } = await supabase
         .from('movies')
         .delete()

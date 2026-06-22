@@ -29,7 +29,7 @@ export function Navigation() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-8">
           <ThemeToggle />
           <Link href="/work" className={getLinkClass("/work")}>
             WORK
@@ -43,11 +43,14 @@ export function Navigation() {
           <Link href="/books" className={getLinkClass("/books")}>
             BOOKS
           </Link>
-          <Link href="/skills" className={getLinkClass("/skills")}>
-            SKILLS
+          <Link href="/journey" className={getLinkClass("/journey")}>
+            JOURNEY
           </Link>
-          <Link href="/contact" className={getLinkClass("/contact")}>
-            CONTACT
+          <Link href="/mentors" className={getLinkClass("/mentors")}>
+            MENTORS
+          </Link>
+          <Link href="/certificates" className={getLinkClass("/certificates")}>
+            CERTIFICATES
           </Link>
         </div>
 
@@ -97,18 +100,25 @@ export function Navigation() {
               BOOKS
             </Link>
             <Link 
-              href="/skills" 
+              href="/journey" 
               onClick={() => setIsOpen(false)}
-              className={getLinkClass("/skills")}
+              className={getLinkClass("/journey")}
             >
-              SKILLS
+              JOURNEY
             </Link>
             <Link 
-              href="/contact" 
+              href="/mentors" 
               onClick={() => setIsOpen(false)}
-              className={getLinkClass("/contact")}
+              className={getLinkClass("/mentors")}
             >
-              CONTACT
+              MENTORS
+            </Link>
+            <Link 
+              href="/certificates" 
+              onClick={() => setIsOpen(false)}
+              className={getLinkClass("/certificates")}
+            >
+              CERTIFICATES
             </Link>
           </div>
         </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ExternalLink, Plus } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
 interface BucketListItem {
@@ -17,13 +17,6 @@ interface BucketListItem {
 export function BucketListSection() {
   const [items, setItems] = useState<BucketListItem[]>([])
   const [loading, setLoading] = useState(true)
-  const [showForm, setShowForm] = useState(false)
-  const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    link: '',
-    category: '',
-  })
 
   // Fetch items on mount
   useState(() => {
@@ -48,26 +41,6 @@ export function BucketListSection() {
     fetchItems()
   })
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    try {
-      const supabase = createClient()
-      const { data: newItem } = await supabase
-        .from('bucket_list')
-        .insert([formData])
-        .select()
-        .single()
-
-      if (newItem) {
-        setItems([newItem as BucketListItem, ...items])
-        setFormData({ title: '', description: '', link: '', category: '' })
-        setShowForm(false)
-      }
-    } catch (error) {
-      console.error('Error adding item:', error)
-    }
-  }
-
   const toggleComplete = async (id: string, completed: boolean) => {
     try {
       const supabase = createClient()
@@ -84,20 +57,6 @@ export function BucketListSection() {
     }
   }
 
-  const deleteItem = async (id: string) => {
-    try {
-      const supabase = createClient()
-      await supabase
-        .from('bucket_list')
-        .delete()
-        .eq('id', id)
-
-      setItems(items.filter(item => item.id !== id))
-    } catch (error) {
-      console.error('Error deleting item:', error)
-    }
-  }
-
   // Group by category
   const categories = Array.from(new Set(items.map(item => item.category || 'General')))
 
@@ -106,89 +65,14 @@ export function BucketListSection() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">✨</span>
-              <h1 className="text-4xl md:text-5xl font-sans font-semibold text-foreground">Bucket List</h1>
-            </div>
-            <button
-              onClick={() => setShowForm(!showForm)}
-              className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              <Plus size={18} />
-              Add Link
-            </button>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-3xl">✨</span>
+            <h1 className="text-4xl md:text-5xl font-sans font-semibold text-foreground">Bucket List</h1>
           </div>
           <p className="text-lg text-muted-foreground">
             Curated links and things I want to explore, experience, and build.
           </p>
         </div>
-
-        {/* Add Form */}
-        {showForm && (
-          <form onSubmit={handleSubmit} className="mb-12 p-6 border border-border rounded-lg bg-card">
-            <div className="grid gap-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Title</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  placeholder="What do you want to do?"
-                  className="w-full px-3 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Description</label>
-                <textarea
-                  value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  placeholder="Tell me more about it..."
-                  className="w-full px-3 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-none"
-                  rows={3}
-                />
-              </div>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Link (optional)</label>
-                  <input
-                    type="url"
-                    value={formData.link}
-                    onChange={(e) => setFormData({ ...formData, link: e.target.value })}
-                    placeholder="https://..."
-                    className="w-full px-3 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Category</label>
-                  <input
-                    type="text"
-                    value={formData.category}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    placeholder="e.g., Travel, Learning"
-                    className="w-full px-3 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                  />
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                >
-                  Add to List
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShowForm(false)}
-                  className="px-4 py-2 bg-muted text-muted-foreground rounded-lg hover:bg-muted/80 transition-colors"
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </form>
-        )}
 
         {/* Items by Category */}
         {loading ? (
@@ -247,12 +131,6 @@ export function BucketListSection() {
                               </a>
                             )}
                           </div>
-                          <button
-                            onClick={() => deleteItem(item.id)}
-                            className="px-3 py-1 text-xs text-red-300 hover:bg-red-500/20 rounded transition-colors"
-                          >
-                            Delete
-                          </button>
                         </div>
                       </div>
                     ))}

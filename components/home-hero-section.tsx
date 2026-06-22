@@ -5,7 +5,7 @@ export function HomeHeroSection() {
   return (
     <section className="py-24 md:py-32 px-6 border-b border-border">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-serif text-foreground mb-8 leading-tight">
+        <h1 className="text-5xl md:text-6xl font-sans font-semibold text-foreground mb-8 leading-tight">
           yash mahadik
         </h1>
         

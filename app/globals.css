@@ -87,7 +87,7 @@
 }
 
 @theme inline {
-  --font-sans: Helvetica, Arial, 'Helvetica Neue', system-ui, sans-serif;
+  --font-sans: 'Figtree', system-ui, -apple-system, sans-serif;
   --font-mono: 'SF Mono', Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   --font-serif: Georgia, 'Times New Roman', Times, serif;
   --color-background: var(--background);

@@ -109,7 +109,7 @@ export function Footer() {
               <a href="https://github.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 GitHub
               </a>
-              <a href="https://resume.yashmahadik.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block flex items-center gap-2">
+              <a href="https://drive.google.com/drive/folders/1jll4Xyqc_uIfkDlBFyuh_4Y6SufN_P5D?usp=drive_link" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block flex items-center gap-2">
                 <FileText size={14} /> Resume
               </a>
             </nav>

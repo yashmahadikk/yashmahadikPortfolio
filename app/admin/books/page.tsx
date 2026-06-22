@@ -13,6 +13,7 @@ interface Book {
   genre: string[]
   status: 'Backlog' | 'In Progress' | 'Done'
   rating: number | null
+  my_thoughts: string
   created_at: string
 }
 
@@ -47,6 +48,7 @@ export default function BooksAdminPage() {
     genre: [] as string[],
     status: 'Backlog' as const,
     rating: null as number | null,
+    my_thoughts: '',
   })
 
   // Fetch books on mount
@@ -112,6 +114,7 @@ export default function BooksAdminPage() {
         genre: [],
         status: 'Backlog',
         rating: null,
+        my_thoughts: '',
       })
       setShowForm(false)
     } catch (error) {
@@ -128,6 +131,7 @@ export default function BooksAdminPage() {
       genre: book.genre || [],
       status: book.status,
       rating: book.rating,
+      my_thoughts: book.my_thoughts || '',
     })
     setEditingId(book.id)
     setShowForm(true)
@@ -168,6 +172,7 @@ export default function BooksAdminPage() {
                 genre: [],
                 status: 'Backlog',
                 rating: null,
+                my_thoughts: '',
               })
               setShowForm(!showForm)
             }}
@@ -210,6 +215,17 @@ export default function BooksAdminPage() {
                 <textarea
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-none"
+                  rows={3}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">My Thoughts</label>
+                <textarea
+                  value={formData.my_thoughts}
+                  onChange={(e) => setFormData({ ...formData, my_thoughts: e.target.value })}
+                  placeholder="What did you think about this book?"
                   className="w-full px-3 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-none"
                   rows={3}
                 />

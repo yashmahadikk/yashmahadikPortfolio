@@ -75,6 +75,9 @@ export function Footer() {
               <Link href="/books" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Books
               </Link>
+              <Link href="/movies" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+                Movies
+              </Link>
               <Link href="/certificates" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Certificates
               </Link>

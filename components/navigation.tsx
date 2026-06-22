@@ -43,9 +43,6 @@ export function Navigation() {
           <Link href="/books" className={getLinkClass("/books")}>
             BOOKS
           </Link>
-          <Link href="/movies" className={getLinkClass("/movies")}>
-            MOVIES
-          </Link>
           <Link href="/bucket-list" className={getLinkClass("/bucket-list")}>
             BUCKET LIST
           </Link>
@@ -95,13 +92,6 @@ export function Navigation() {
               className={getLinkClass("/books")}
             >
               BOOKS
-            </Link>
-            <Link 
-              href="/movies" 
-              onClick={() => setIsOpen(false)}
-              className={getLinkClass("/movies")}
-            >
-              MOVIES
             </Link>
             <Link 
               href="/bucket-list" 

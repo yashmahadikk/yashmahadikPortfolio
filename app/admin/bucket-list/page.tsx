@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Plus, Trash2, Edit2, ExternalLink } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
@@ -28,7 +28,7 @@ export default function BucketListAdminPage() {
   })
 
   // Fetch items on mount
-  useState(() => {
+  useEffect(() => {
     const fetchItems = async () => {
       try {
         const supabase = createClient()
@@ -48,7 +48,7 @@ export default function BucketListAdminPage() {
     }
 
     fetchItems()
-  })
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

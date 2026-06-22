@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Search, Star, Sliders } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
@@ -13,6 +13,7 @@ interface Book {
   genre: string[]
   status: 'Backlog' | 'In Progress' | 'Done'
   rating: number | null
+  my_thoughts: string
   created_at: string
 }
 
@@ -24,7 +25,7 @@ export function BooksSection() {
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null)
 
   // Fetch books on mount
-  useState(() => {
+  useEffect(() => {
     const fetchBooks = async () => {
       try {
         const supabase = createClient()
@@ -44,7 +45,7 @@ export function BooksSection() {
     }
 
     fetchBooks()
-  })
+  }, [])
 
   // Extract all genres from books
   const allGenres = useMemo(() => {
@@ -190,9 +191,9 @@ export function BooksSection() {
                       <p className="text-sm text-muted-foreground">{book.author}</p>
                     </div>
                     {book.rating && (
-                      <div className="flex items-center gap-1 flex-shrink-0 bg-primary/10 px-3 py-1 rounded-full">
-                        <span className="text-sm font-medium text-primary">{book.rating}</span>
-                        <span className="text-sm text-primary">/5</span>
+                      <div className="flex items-center gap-1 flex-shrink-0 bg-primary px-3 py-1.5 rounded-full">
+                        <Star size={16} className="text-primary-foreground" fill="currentColor" />
+                        <span className="text-sm font-bold text-primary-foreground">{book.rating}/5</span>
                       </div>
                     )}
                   </div>
@@ -202,6 +203,16 @@ export function BooksSection() {
                     <p className="text-sm text-muted-foreground mb-3">
                       {book.description}
                     </p>
+                  )}
+
+                  {/* My Thoughts - Highlighted */}
+                  {book.my_thoughts && (
+                    <div className="mb-4 p-3 bg-primary/10 border border-primary/30 rounded-lg">
+                      <p className="text-sm font-semibold text-primary mb-1">My Thoughts</p>
+                      <p className="text-sm text-foreground font-medium">
+                        {book.my_thoughts}
+                      </p>
+                    </div>
                   )}
 
                   {/* Genres */}
@@ -217,12 +228,12 @@ export function BooksSection() {
 
                   {/* Status Badge */}
                   <div className="mt-auto">
-                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
+                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
                       book.status === 'Done'
-                        ? 'bg-green-500/20 text-green-300'
+                        ? 'bg-green-500/20 text-green-400'
                         : book.status === 'In Progress'
-                        ? 'bg-blue-500/20 text-blue-300'
-                        : 'bg-gray-500/20 text-gray-300'
+                        ? 'bg-blue-500/20 text-blue-400'
+                        : 'bg-gray-500/20 text-gray-400'
                     }`}>
                       {book.status}
                     </span>

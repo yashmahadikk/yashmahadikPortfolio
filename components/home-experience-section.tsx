@@ -4,28 +4,20 @@ import { ArrowRight } from "lucide-react"
 export function HomeExperienceSection() {
   const experiences = [
     {
-      company: "Devanagari Ventures",
-      role: "Founder",
-      period: "2024 - Present",
+      company: "Funspire",
+      role: "Product Lead",
+      period: "Present",
       location: "Remote",
       status: "Active",
-      logo: "🚀"
+      logo: "🎯"
     },
     {
-      company: "Aqua-Alert",
-      role: "Co-founder & CEO",
-      period: "Dec 2023 - Feb 2025",
-      location: "Noida, India",
-      status: "Shut Down",
-      logo: "💧"
-    },
-    {
-      company: "NSRCEL - IIM Bangalore",
-      role: "Campus Founder",
-      period: "July 2025 - Nov 2025",
-      location: "Bangalore, India",
+      company: "Viviga Ecom Pvt Ltd",
+      role: "Product Manager",
+      period: "2024 - 2025",
+      location: "India",
       status: "Active",
-      logo: "🎓"
+      logo: "🛍️"
     }
   ]
 

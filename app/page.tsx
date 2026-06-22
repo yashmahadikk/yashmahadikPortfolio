@@ -7,7 +7,7 @@ import { HomeExploreSection } from "@/components/home-explore-section"
 import { HomeThinkingPartnerSection } from "@/components/home-thinking-partner-section"
 import { HomeQuoteSection } from "@/components/home-quote-section"
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Navigation />

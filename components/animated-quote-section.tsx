@@ -61,13 +61,19 @@ const quotes: Quote[] = [
 export function AnimatedQuoteSection() {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
   const [progress, setProgress] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
   const CYCLE_DURATION = 6000 // 6 seconds in milliseconds
 
   useEffect(() => {
     const quoteInterval = setInterval(() => {
-      setCurrentQuoteIndex((prev) => (prev + 1) % quotes.length)
-      setProgress(0)
+      setIsTransitioning(true)
+      
+      setTimeout(() => {
+        setCurrentQuoteIndex((prev) => (prev + 1) % quotes.length)
+        setProgress(0)
+        setIsTransitioning(false)
+      }, 300) // Wait for fade out before changing quote
     }, CYCLE_DURATION)
 
     return () => clearInterval(quoteInterval)
@@ -92,13 +98,21 @@ export function AnimatedQuoteSection() {
         <div className="text-center">
           {/* Animated Quote Text */}
           <div className="mb-8 min-h-24 flex flex-col items-center justify-center">
-            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground leading-relaxed text-balance transition-all duration-500">
+            <p 
+              className={`text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground leading-relaxed text-balance transition-opacity duration-300 ${
+                isTransitioning ? 'opacity-0' : 'opacity-100'
+              }`}
+            >
               "{currentQuote.text}"
             </p>
           </div>
 
           {/* Author Attribution */}
-          <p className="text-sm md:text-base text-muted-foreground mb-8 transition-all duration-500">
+          <p 
+            className={`text-sm md:text-base text-muted-foreground mb-8 transition-opacity duration-300 ${
+              isTransitioning ? 'opacity-0' : 'opacity-100'
+            }`}
+          >
             —— {currentQuote.author}
           </p>
 
@@ -112,11 +126,6 @@ export function AnimatedQuoteSection() {
               }}
             />
           </div>
-
-          {/* Quote Counter */}
-          <p className="text-xs text-muted-foreground mt-4">
-            {currentQuoteIndex + 1} / {quotes.length}
-          </p>
         </div>
       </div>
     </section>

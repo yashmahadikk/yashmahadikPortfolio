@@ -33,7 +33,7 @@ export function HomeMoviesSection() {
 
   const fetchMovies = async () => {
     try {
-      const supabase = await createClient()
+      const supabase = createClient()
       const { data, error } = await supabase
         .from('movies')
         .select('*')
@@ -69,6 +69,7 @@ export function HomeMoviesSection() {
     Done: movies.filter(m => m.status === 'Done').length,
     'In Progress': movies.filter(m => m.status === 'In Progress').length,
     Backlog: movies.filter(m => m.status === 'Backlog').length,
+    Watched: movies.filter(m => m.status === 'Watched').length,
   }
 
   return (
@@ -101,7 +102,7 @@ export function HomeMoviesSection() {
             {/* Status Filter Info */}
             <div className="flex items-center gap-4">
               <div className="flex gap-2">
-                {(['Done', 'In Progress', 'Backlog'] as const).map(status => (
+                {(['Done', 'In Progress', 'Backlog', 'Watched'] as const).map(status => (
                   <button
                     key={status}
                     onClick={() => setSelectedStatus(selectedStatus === status ? '' : status)}
@@ -186,7 +187,7 @@ export function HomeMoviesSection() {
                   {/* Status and Watch Link */}
                   <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
                     <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                      movie.status === 'Done'
+                      movie.status === 'Done' || movie.status === 'Watched'
                         ? 'bg-green-500/20 text-green-300'
                         : movie.status === 'In Progress'
                         ? 'bg-blue-500/20 text-blue-300'

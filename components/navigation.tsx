@@ -43,15 +43,6 @@ export function Navigation() {
           <Link href="/books" className={getLinkClass("/books")}>
             BOOKS
           </Link>
-          <Link href="/journey" className={getLinkClass("/journey")}>
-            JOURNEY
-          </Link>
-          <Link href="/mentors" className={getLinkClass("/mentors")}>
-            MENTORS
-          </Link>
-          <Link href="/certificates" className={getLinkClass("/certificates")}>
-            CERTIFICATES
-          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -98,27 +89,6 @@ export function Navigation() {
               className={getLinkClass("/books")}
             >
               BOOKS
-            </Link>
-            <Link 
-              href="/journey" 
-              onClick={() => setIsOpen(false)}
-              className={getLinkClass("/journey")}
-            >
-              JOURNEY
-            </Link>
-            <Link 
-              href="/mentors" 
-              onClick={() => setIsOpen(false)}
-              className={getLinkClass("/mentors")}
-            >
-              MENTORS
-            </Link>
-            <Link 
-              href="/certificates" 
-              onClick={() => setIsOpen(false)}
-              className={getLinkClass("/certificates")}
-            >
-              CERTIFICATES
             </Link>
           </div>
         </div>

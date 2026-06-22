@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Plus, Trash2, Edit2 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
@@ -50,7 +50,7 @@ export default function BooksAdminPage() {
   })
 
   // Fetch books on mount
-  useState(() => {
+  useEffect(() => {
     const fetchBooks = async () => {
       try {
         const supabase = createClient()
@@ -70,7 +70,7 @@ export default function BooksAdminPage() {
     }
 
     fetchBooks()
-  })
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

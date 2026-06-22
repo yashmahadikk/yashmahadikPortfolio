@@ -73,7 +73,7 @@ export function AnimatedQuoteSection() {
         setCurrentQuoteIndex((prev) => (prev + 1) % quotes.length)
         setProgress(0)
         setIsTransitioning(false)
-      }, 300) // Wait for fade out before changing quote
+      }, 1000) // Wait 1 second for fade out before changing quote
     }, CYCLE_DURATION)
 
     return () => clearInterval(quoteInterval)
@@ -99,7 +99,7 @@ export function AnimatedQuoteSection() {
           {/* Animated Quote Text */}
           <div className="mb-8 min-h-24 flex flex-col items-center justify-center">
             <p 
-              className={`text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground leading-relaxed text-balance transition-opacity duration-300 ${
+              className={`text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground leading-relaxed text-balance transition-opacity duration-1000 ${
                 isTransitioning ? 'opacity-0' : 'opacity-100'
               }`}
             >
@@ -109,7 +109,7 @@ export function AnimatedQuoteSection() {
 
           {/* Author Attribution */}
           <p 
-            className={`text-sm md:text-base text-muted-foreground mb-8 transition-opacity duration-300 ${
+            className={`text-sm md:text-base text-muted-foreground mb-8 transition-opacity duration-1000 ${
               isTransitioning ? 'opacity-0' : 'opacity-100'
             }`}
           >
@@ -117,7 +117,7 @@ export function AnimatedQuoteSection() {
           </p>
 
           {/* Progress Bar */}
-          <div className="w-full h-1 bg-muted rounded-full overflow-hidden">
+          <div className="w-32 h-0.5 bg-muted rounded-full overflow-hidden mx-auto">
             <div
               className="h-full bg-primary transition-all ease-linear"
               style={{

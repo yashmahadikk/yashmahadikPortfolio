@@ -14,8 +14,9 @@ interface Message {
 export function PortfolioChatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
+  const [input, setInput] = useState('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const { messages, input, setInput, sendMessage, isLoading } = useChat({
+  const { messages, sendMessage, isLoading } = useChat({
     transport: new DefaultChatTransport({ api: '/api/chat' }),
   })
 

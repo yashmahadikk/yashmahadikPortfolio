@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { MessageCircle, X, Send } from 'lucide-react'
 import { useChat } from '@ai-sdk/react'
+import { DefaultChatTransport } from 'ai'
 
 interface Message {
   id: string
@@ -15,7 +16,7 @@ export function PortfolioChatbot() {
   const [isMounted, setIsMounted] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
-    api: '/api/chat',
+    transport: new DefaultChatTransport({ api: '/api/chat' }),
   })
 
   useEffect(() => {
@@ -29,21 +30,10 @@ export function PortfolioChatbot() {
   if (!isMounted) return null
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      {/* Floating Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 ${
-          isOpen ? 'hidden' : 'flex items-center justify-center'
-        }`}
-        aria-label="Open chatbot"
-      >
-        <MessageCircle size={24} />
-      </button>
-
+    <div className="fixed bottom-24 right-4 z-50 flex flex-col items-end gap-4">
       {/* Chat Window */}
       {isOpen && (
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-background border border-border rounded-lg shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-200">
+        <div className="w-96 h-96 bg-background border border-border rounded-lg shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-200">
           {/* Header */}
           <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
             <h3 className="font-semibold">Ask me anything</h3>
@@ -99,14 +89,21 @@ export function PortfolioChatbot() {
           </div>
 
           {/* Input Form */}
-          <form onSubmit={handleSubmit} className="border-t border-border p-4 flex gap-2">
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault()
+              handleSubmit(e as any)
+            }} 
+            className="border-t border-border p-4 flex gap-2"
+          >
             <input
               type="text"
               value={input || ''}
-              onChange={handleInputChange}
+              onChange={(e) => handleInputChange(e)}
               placeholder="Ask me something..."
               className="flex-1 px-3 py-2 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary text-sm"
               disabled={isLoading}
+              autoFocus
             />
             <button
               type="submit"
@@ -119,6 +116,15 @@ export function PortfolioChatbot() {
           </form>
         </div>
       )}
+
+      {/* Floating Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+        aria-label="Open chatbot"
+      >
+        <MessageCircle size={24} />
+      </button>
     </div>
   )
 }

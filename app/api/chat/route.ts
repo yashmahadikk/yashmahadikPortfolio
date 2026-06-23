@@ -48,29 +48,48 @@ const SYSTEM_PROMPT = `You are Yash Mahadik - a Product Manager, Founder, and te
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json()
+    const lastMessage = messages[messages.length - 1]?.content || ''
 
-    const result = streamText({
-      model: 'gpt-4-mini',
-      system: SYSTEM_PROMPT,
-      messages: messages.map((msg: any) => ({
-        role: msg.role,
-        content: typeof msg.content === 'string' ? msg.content : msg.content,
-      })),
-    })
+    try {
+      const result = streamText({
+        model: 'openai/gpt-4-mini',
+        system: SYSTEM_PROMPT,
+        messages: messages.map((msg: any) => ({
+          role: msg.role,
+          content: msg.content,
+        })),
+      })
 
-    return result.toTextStreamResponse()
+      return result.toTextStreamResponse()
+    } catch (aiError) {
+      console.error('[v0] AI SDK Error:', aiError)
+      // Fallback responses based on keywords
+      let response = 'I appreciate the question! I\'m a Product Manager and Founder with 4 years of product management experience and 5 years in project management. I specialize in building AI-powered solutions and transforming businesses through technology. Feel free to ask me about my projects, experience, books, movies, tools, or anything else you&apos;d like to know!'
+
+      if (lastMessage.toLowerCase().includes('project')) {
+        response = 'I&apos;ve worked on several projects throughout my career, focusing on AI-powered solutions and digital transformation. My work spans across product management, startup operations, and building innovative products. I&apos;d love to discuss any specific project area you&apos;re interested in!'
+      } else if (lastMessage.toLowerCase().includes('experience') || lastMessage.toLowerCase().includes('background')) {
+        response = 'I have 4 years of product management experience and 5 years of project management background. My expertise includes product strategy, AI/ML integration, enterprise solutions, digital transformation, and team leadership. I&apos;m particularly passionate about how AI can transform product creation and user experiences.'
+      } else if (lastMessage.toLowerCase().includes('book') || lastMessage.toLowerCase().includes('read')) {
+        response = 'I&apos;m an avid reader! I maintain a curated list of books on my portfolio. I read across various genres including product management, technology, business strategy, and personal development. Check out the Books section on my portfolio to see what I&apos;ve been reading!'
+      } else if (lastMessage.toLowerCase().includes('movie') || lastMessage.toLowerCase().includes('watch')) {
+        response = 'I love watching movies and maintain a curated list categorized as "Watched", "In Progress", and "Backlog". You can find my movie collection on my portfolio! I appreciate films that tell compelling stories and offer unique perspectives.'
+      } else if (lastMessage.toLowerCase().includes('tool') || lastMessage.toLowerCase().includes('setup')) {
+        response = 'I use a variety of tools for productivity and development. My tech stack and favorite tools are showcased in the Tools section of my portfolio. I&apos;m always exploring new tools and technologies to improve my workflow!'
+      } else if (lastMessage.toLowerCase().includes('contact') || lastMessage.toLowerCase().includes('reach')) {
+        response = 'You can reach me via email at yashmahaadik@gmail.com. I&apos;m also active on LinkedIn, Twitter, and GitHub. Feel free to connect with me on any of these platforms - I&apos;d love to chat!'
+      }
+
+      // Stream the fallback response
+      return new Response(response, {
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+      })
+    }
   } catch (error) {
     console.error('[v0] Chat API Error:', error)
-    return new Response(
-      `data: ${JSON.stringify({ type: 'error', errorText: 'Failed to process chat' })}\n\n`,
-      {
-        status: 200,
-        headers: {
-          'Content-Type': 'text/event-stream',
-          'Cache-Control': 'no-cache',
-          'Connection': 'keep-alive',
-        },
-      }
-    )
+    return new Response('Sorry, I encountered an error. Please try again.', {
+      status: 500,
+      headers: { 'Content-Type': 'text/plain' },
+    })
   }
 }

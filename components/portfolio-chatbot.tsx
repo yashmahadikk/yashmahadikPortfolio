@@ -15,7 +15,7 @@ export function PortfolioChatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+  const { messages, input, setInput, sendMessage, isLoading } = useChat({
     transport: new DefaultChatTransport({ api: '/api/chat' }),
   })
 
@@ -92,14 +92,17 @@ export function PortfolioChatbot() {
           <form 
             onSubmit={(e) => {
               e.preventDefault()
-              handleSubmit(e as any)
+              if (input && input.trim()) {
+                sendMessage({ text: input })
+                setInput('')
+              }
             }} 
             className="border-t border-border p-4 flex gap-2"
           >
             <input
               type="text"
               value={input || ''}
-              onChange={(e) => handleInputChange(e)}
+              onChange={(e) => setInput(e.target.value)}
               placeholder="Ask me something..."
               className="flex-1 px-3 py-2 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary text-sm"
               disabled={isLoading}

@@ -10,7 +10,7 @@ interface Movie {
   title: string
   url: string
   rating: string
-  genre: string[]
+  genre: string
   photo_url: string
   my_thoughts: string
   status: string

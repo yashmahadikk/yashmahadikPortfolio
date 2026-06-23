@@ -19,6 +19,7 @@ export default async function MoviesPage() {
 
   if (error) {
     console.error('Error fetching movies:', error)
+    throw new Error(`Failed to fetch movies: ${error.message}`)
   }
 
   return (

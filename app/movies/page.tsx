@@ -42,10 +42,10 @@ export default async function MoviesPage() {
           </div>
 
           {/* Status Summary */}
-          <div className="grid grid-cols-3 gap-4 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div className="border border-border rounded-lg p-4 text-center">
               <div className="text-2xl font-semibold text-foreground">
-                {movies.filter(m => m.status === 'Done').length}
+                {(movies.filter(m => m.status === 'Done').length) + (movies.filter(m => m.status === 'Watched').length)}
               </div>
               <div className="text-sm text-muted-foreground">Watched</div>
             </div>
@@ -60,6 +60,12 @@ export default async function MoviesPage() {
                 {movies.filter(m => m.status === 'Backlog').length}
               </div>
               <div className="text-sm text-muted-foreground">Backlog</div>
+            </div>
+            <div className="border border-border rounded-lg p-4 text-center">
+              <div className="text-2xl font-semibold text-foreground">
+                {movies.length}
+              </div>
+              <div className="text-sm text-muted-foreground">Total</div>
             </div>
           </div>
 
@@ -120,7 +126,7 @@ export default async function MoviesPage() {
                     {/* Status and Watch Link */}
                     <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
                       <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                        movie.status === 'Done'
+                        movie.status === 'Done' || movie.status === 'Watched'
                           ? 'bg-green-500/20 text-green-300'
                           : movie.status === 'In Progress'
                           ? 'bg-blue-500/20 text-blue-300'

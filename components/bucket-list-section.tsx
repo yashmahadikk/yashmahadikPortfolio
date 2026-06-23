@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ExternalLink } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
@@ -19,7 +19,7 @@ export function BucketListSection() {
   const [loading, setLoading] = useState(true)
 
   // Fetch items on mount
-  useState(() => {
+  useEffect(() => {
     const fetchItems = async () => {
       try {
         const supabase = createClient()
@@ -39,23 +39,7 @@ export function BucketListSection() {
     }
 
     fetchItems()
-  })
-
-  const toggleComplete = async (id: string, completed: boolean) => {
-    try {
-      const supabase = createClient()
-      await supabase
-        .from('bucket_list')
-        .update({ completed: !completed })
-        .eq('id', id)
-
-      setItems(items.map(item => 
-        item.id === id ? { ...item, completed: !completed } : item
-      ))
-    } catch (error) {
-      console.error('Error updating item:', error)
-    }
-  }
+  }, [])
 
   // Group by category
   const categories = Array.from(new Set(items.map(item => item.category || 'General')))
@@ -90,33 +74,15 @@ export function BucketListSection() {
                     {categoryItems.map(item => (
                       <div
                         key={item.id}
-                        className={`p-4 border border-border rounded-lg transition-all ${
-                          item.completed
-                            ? 'bg-muted/50 opacity-60'
-                            : 'hover:border-primary hover:bg-card/50'
-                        }`}
+                        className="p-4 border border-border rounded-lg transition-all hover:border-primary hover:bg-card/50"
                       >
                         <div className="flex items-start gap-4">
-                          <input
-                            type="checkbox"
-                            checked={item.completed}
-                            onChange={() => toggleComplete(item.id, item.completed)}
-                            className="mt-1.5 w-5 h-5 cursor-pointer"
-                          />
                           <div className="flex-1">
-                            <h3 className={`text-lg font-semibold ${
-                              item.completed
-                                ? 'line-through text-muted-foreground'
-                                : 'text-foreground'
-                            }`}>
+                            <h3 className="text-lg font-semibold text-foreground">
                               {item.title}
                             </h3>
                             {item.description && (
-                              <p className={`text-sm mt-1 ${
-                                item.completed
-                                  ? 'text-muted-foreground'
-                                  : 'text-muted-foreground'
-                              }`}>
+                              <p className="text-sm mt-1 text-muted-foreground">
                                 {item.description}
                               </p>
                             )}

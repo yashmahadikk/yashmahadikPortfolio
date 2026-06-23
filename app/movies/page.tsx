@@ -19,6 +19,7 @@ export default async function MoviesPage() {
 
   if (error) {
     console.error('Error fetching movies:', error)
+    throw new Error(`Failed to fetch movies: ${error.message}`)
   }
 
   return (
@@ -106,9 +107,9 @@ export default async function MoviesPage() {
                     </div>
 
                     {/* Genres */}
-                    {movie.genre && movie.genre.length > 0 && (
+                    {movie.genre && typeof movie.genre === 'string' && movie.genre.trim() && (
                       <div className="flex flex-wrap gap-2 mb-3">
-                        {movie.genre.map(g => (
+                        {movie.genre.split(',').map(g => g.trim()).filter(Boolean).map(g => (
                           <span key={g} className="text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-full">
                             {g}
                           </span>

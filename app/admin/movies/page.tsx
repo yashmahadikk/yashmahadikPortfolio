@@ -30,10 +30,10 @@ export default function MoviesAdminPage() {
     title: '',
     url: '',
     rating: 'Go for it',
-    genre: [] as string[],
+    genre: '',
     photo_url: '',
     my_thoughts: '',
-    status: 'Backlog',
+    status: 'Watched',
   })
 
   useEffect(() => {
@@ -81,10 +81,10 @@ export default function MoviesAdminPage() {
         title: '',
         url: '',
         rating: 'Go for it',
-        genre: [],
+        genre: '',
         photo_url: '',
         my_thoughts: '',
-        status: 'Backlog',
+        status: 'Watched',
       })
       setShowForm(false)
       setEditingId(null)
@@ -117,14 +117,7 @@ export default function MoviesAdminPage() {
     }
   }
 
-  const toggleGenre = (genre: string) => {
-    setFormData(prev => ({
-      ...prev,
-      genre: prev.genre.includes(genre)
-        ? prev.genre.filter(g => g !== genre)
-        : [...prev.genre, genre]
-    }))
-  }
+
 
   return (
     <div className="min-h-screen bg-background p-6">
@@ -210,17 +203,15 @@ export default function MoviesAdminPage() {
                 />
               </div>
 
-              <div className="md:col-span-2">
+              <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Status</label>
-                <select
+                <input
+                  type="text"
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                  placeholder="e.g., Watched, Perfection, Dropped"
                   className="w-full px-3 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                >
-                  <option value="Backlog">Backlog</option>
-                  <option value="In Progress">In Progress</option>
-                  <option value="Done">Done</option>
-                </select>
+                />
               </div>
 
               <div className="md:col-span-2">
@@ -236,19 +227,13 @@ export default function MoviesAdminPage() {
 
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-foreground mb-2">Genres</label>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                  {MOVIE_GENRES.map(genre => (
-                    <label key={genre} className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        checked={formData.genre.includes(genre)}
-                        onChange={() => toggleGenre(genre)}
-                        className="w-4 h-4 rounded border-border bg-background text-primary"
-                      />
-                      <span className="text-sm text-foreground">{genre}</span>
-                    </label>
-                  ))}
-                </div>
+                <input
+                  type="text"
+                  value={Array.isArray(formData.genre) ? formData.genre.join(', ') : formData.genre}
+                  onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
+                  placeholder="e.g., Thriller, Drama, Comedy (comma-separated)"
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                />
               </div>
             </div>
 
@@ -268,10 +253,10 @@ export default function MoviesAdminPage() {
                     title: '',
                     url: '',
                     rating: 'Go for it',
-                    genre: [],
+                    genre: '',
                     photo_url: '',
                     my_thoughts: '',
-                    status: 'Backlog',
+                    status: 'Watched',
                   })
                 }}
                 className="px-4 py-2 bg-muted text-muted-foreground rounded-lg hover:bg-muted/80 transition-colors"

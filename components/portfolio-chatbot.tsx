@@ -57,22 +57,35 @@ export function PortfolioChatbot() {
               </div>
             )}
 
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
+            {messages.map((message) => {
+              // Extract text content from message
+              let textContent = ''
+              if (typeof message.content === 'string') {
+                textContent = message.content
+              } else if (Array.isArray((message as any).parts)) {
+                textContent = (message as any).parts
+                  .filter((p: any) => p.type === 'text')
+                  .map((p: any) => p.text)
+                  .join('')
+              }
+
+              return (
                 <div
-                  className={`max-w-xs px-4 py-2 rounded-lg ${
-                    message.role === 'user'
-                      ? 'bg-primary text-primary-foreground rounded-br-none'
-                      : 'bg-muted text-muted-foreground rounded-bl-none'
-                  }`}
+                  key={message.id}
+                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  <p className="text-sm">{message.content}</p>
+                  <div
+                    className={`max-w-xs px-4 py-2 rounded-lg ${
+                      message.role === 'user'
+                        ? 'bg-primary text-primary-foreground rounded-br-none'
+                        : 'bg-muted text-muted-foreground rounded-bl-none'
+                    }`}
+                  >
+                    <p className="text-sm">{textContent}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
 
             {isLoading && (
               <div className="flex justify-start">

@@ -46,13 +46,31 @@ const SYSTEM_PROMPT = `You are Yash Mahadik - a Product Manager, Founder, and te
 7. You're open to discussing your approach to product management, technology, and personal development`
 
 export async function POST(req: Request) {
-  const { messages } = await req.json()
+  try {
+    const { messages } = await req.json()
 
-  const result = streamText({
-    model: 'openai/gpt-4-mini',
-    system: SYSTEM_PROMPT,
-    messages,
-  })
+    const result = streamText({
+      model: 'gpt-4-mini',
+      system: SYSTEM_PROMPT,
+      messages: messages.map((msg: any) => ({
+        role: msg.role,
+        content: typeof msg.content === 'string' ? msg.content : msg.content,
+      })),
+    })
 
-  return result.toTextStreamResponse()
+    return result.toTextStreamResponse()
+  } catch (error) {
+    console.error('[v0] Chat API Error:', error)
+    return new Response(
+      `data: ${JSON.stringify({ type: 'error', errorText: 'Failed to process chat' })}\n\n`,
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'text/event-stream',
+          'Cache-Control': 'no-cache',
+          'Connection': 'keep-alive',
+        },
+      }
+    )
+  }
 }

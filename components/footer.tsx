@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Linkedin, Twitter, Github, FileText, Music } from 'lucide-react';
+import { Mail, Linkedin, Twitter, Github, FileText } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -28,15 +28,6 @@ export function Footer() {
               <a href="https://github.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Github size={20} />
               </a>
-              <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                <Music size={20} />
-              </a>
-            </div>
-
-            {/* Spotify Status */}
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span>Spotify — Not playing</span>
             </div>
           </div>
 
@@ -70,7 +61,7 @@ export function Footer() {
                 Journey
               </Link>
               <Link href="/tools" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
-                Gears & Setup
+                Tools
               </Link>
               <Link href="/books" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Books

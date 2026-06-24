@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 import { ArrowUpRight, ArrowLeft, BookOpen, Briefcase, Award, Users, Zap, CheckSquare, Globe } from "lucide-react";
 import { Navigation } from "@/components/navigation";
@@ -52,13 +51,14 @@ export default async function BlogPage() {
                     >
                       <article className="border border-border rounded-lg overflow-hidden hover:border-primary transition-all hover:bg-card/30">
                         {/* Large Thumbnail */}
-                        <div className="relative bg-muted h-80 md:h-96 overflow-hidden flex items-center justify-center">
+                        <div className="bg-muted h-80 md:h-96 flex items-center justify-center overflow-hidden">
                           {post.featured_image ? (
                             <img 
-                              src={post.featured_image}
+                              src={post.featured_image} 
                               alt={post.title}
+                              crossOrigin="anonymous"
+                              loading="lazy"
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
                           ) : (
                             <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">

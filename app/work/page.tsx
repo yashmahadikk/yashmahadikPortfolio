@@ -149,7 +149,6 @@ export default function WorkPage() {
                 className={`${project.bg_color} dark:bg-card p-8 rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
               >
                 <div className="flex items-start gap-3 mb-4">
-                  <span className="text-3xl flex-shrink-0">{iconMap[project.category]?.() || '📌'}</span>
                   <div className="flex-1">
                     <p className="text-primary text-xs font-semibold tracking-wider mb-1">
                       {project.category}

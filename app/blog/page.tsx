@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import { ArrowUpRight, ArrowLeft, BookOpen, Briefcase, Award, Users, Zap, CheckSquare, Globe } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, BookOpen, Briefcase, Award, Users, Zap, CheckSquare, Globe, Book, PenTool } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 
@@ -178,6 +178,32 @@ export default async function BlogPage() {
                     </h3>
                     <p className="text-base text-muted-foreground leading-relaxed">
                       Things I want to do, become, and build.
+                    </p>
+                  </div>
+                </Link>
+
+                {/* Books */}
+                <Link href="/books" className="group">
+                  <div className="p-8 rounded-lg border border-border hover:border-primary transition-all hover:bg-card/50 h-full bg-card/30">
+                    <Book size={28} className="text-primary mb-4" />
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                      Books
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      Books I&apos;m reading, have read, and want to read.
+                    </p>
+                  </div>
+                </Link>
+
+                {/* Movies */}
+                <Link href="/movies" className="group">
+                  <div className="p-8 rounded-lg border border-border hover:border-primary transition-all hover:bg-card/50 h-full bg-card/30">
+                    <PenTool size={28} className="text-primary mb-4" />
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                      Movies
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      Movies and shows I love and find inspiring.
                     </p>
                   </div>
                 </Link>

@@ -23,6 +23,8 @@ export function BooksSection() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null)
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null)
+  const [itemsPerPage, setItemsPerPage] = useState(10)
+  const [currentPage, setCurrentPage] = useState(1)
 
   // Fetch books on mount
   useEffect(() => {
@@ -67,7 +69,7 @@ export function BooksSection() {
   }, [normalizedBooks])
 
   // Filter books based on search and selected filters
-  const filteredBooks = useMemo(() => {
+  const allFilteredBooks = useMemo(() => {
     return normalizedBooks.filter(book => {
       const matchesSearch = 
         book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -80,6 +82,13 @@ export function BooksSection() {
       return matchesSearch && matchesStatus && matchesGenre
     })
   }, [normalizedBooks, searchTerm, selectedStatus, selectedGenre])
+
+  // Paginate books
+  const totalPages = Math.ceil(allFilteredBooks.length / itemsPerPage)
+  const filteredBooks = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage
+    return allFilteredBooks.slice(startIndex, startIndex + itemsPerPage)
+  }, [allFilteredBooks, currentPage, itemsPerPage])
 
   // Group books by status
   const booksByStatus = {
@@ -162,6 +171,40 @@ export function BooksSection() {
               ))}
             </div>
           )}
+
+          {/* Items Per Page Selector */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-sm text-muted-foreground">Show:</span>
+            {[10, 50, 100].map(count => (
+              <button
+                key={count}
+                onClick={() => {
+                  setItemsPerPage(count)
+                  setCurrentPage(1)
+                }}
+                className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                  itemsPerPage === count
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-muted text-muted-foreground hover:bg-card'
+                }`}
+              >
+                {count}
+              </button>
+            ))}
+            <button
+              onClick={() => {
+                setItemsPerPage(allFilteredBooks.length)
+                setCurrentPage(1)
+              }}
+              className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                itemsPerPage === allFilteredBooks.length
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted text-muted-foreground hover:bg-card'
+              }`}
+            >
+              All
+            </button>
+          </div>
         </div>
 
         {/* Books List */}
@@ -170,6 +213,7 @@ export function BooksSection() {
             <p className="text-muted-foreground">Loading books...</p>
           </div>
         ) : filteredBooks.length > 0 ? (
+          <>
           <div className="space-y-4">
             {filteredBooks.map(book => (
               <div key={book.id} className="group flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-6 border border-border rounded-lg hover:border-primary/50 transition-colors">
@@ -238,10 +282,10 @@ export function BooksSection() {
                   <div className="mt-auto">
                     <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
                       book.status === 'Done'
-                        ? 'bg-green-500/20 text-green-400'
+                        ? 'bg-green-500/20 text-green-700 dark:text-green-400'
                         : book.status === 'In Progress'
-                        ? 'bg-blue-500/20 text-blue-400'
-                        : 'bg-gray-500/20 text-gray-400'
+                        ? 'bg-blue-500/20 text-blue-700 dark:text-blue-400'
+                        : 'bg-gray-500/20 text-gray-700 dark:text-gray-400'
                     }`}>
                       {book.status}
                     </span>
@@ -250,6 +294,28 @@ export function BooksSection() {
               </div>
             ))}
           </div>
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-2 mt-8">
+              <button
+                onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+                className="px-3 py-1 rounded-lg border border-border text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-card transition-colors"
+                >
+                  Previous
+                </button>
+                <div className="text-sm text-muted-foreground">
+                  Page {currentPage} of {totalPages}
+                </div>
+                <button
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                  disabled={currentPage === totalPages}
+                  className="px-3 py-1 rounded-lg border border-border text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-card transition-colors"
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </>
         ) : (
           <div className="text-center py-12">
             <p className="text-muted-foreground">No books found.</p>

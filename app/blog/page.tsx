@@ -1,26 +1,45 @@
+'use client'
+
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
+import { useState, useEffect, useMemo } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { ArrowUpRight, ArrowLeft, BookOpen, Briefcase, Award, Users, Zap, CheckSquare, Globe, Book, PenTool } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 
-export const metadata = {
-  title: "Blog | Yash Mahadik",
-  description: "Thoughts on product, technology, and building.",
-};
+export default function BlogPage() {
+  const [posts, setPosts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [itemsPerPage, setItemsPerPage] = useState(10)
+  const [currentPage, setCurrentPage] = useState(1)
 
-export default async function BlogPage() {
-  const supabase = await createClient();
-  
-  const { data: posts } = await supabase
-    .from("blog_posts")
-    .select("*")
-    .order("published_date", { ascending: false });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const supabase = createClient()
+        const { data } = await supabase
+          .from("blog_posts")
+          .select("*")
+          .order("published_date", { ascending: false })
+        
+        if (data) {
+          setPosts(data)
+        }
+      } catch (error) {
+        console.error('Error fetching posts:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
 
-  const { data: caseStudies } = await supabase
-    .from("case_studies")
-    .select("*")
-    .limit(6);
+    fetchData()
+  }, [])
+
+  const totalPages = Math.ceil(posts.length / itemsPerPage)
+  const paginatedPosts = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage
+    return posts.slice(startIndex, startIndex + itemsPerPage)
+  }, [posts, currentPage, itemsPerPage])
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -38,12 +57,51 @@ export default async function BlogPage() {
               </p>
             </div>
 
+            {/* Items Per Page Selector */}
+            <div className="mb-8 flex items-center gap-2 flex-wrap">
+              <span className="text-sm text-muted-foreground">Show:</span>
+              {[10, 50, 100].map(count => (
+                <button
+                  key={count}
+                  onClick={() => {
+                    setItemsPerPage(count)
+                    setCurrentPage(1)
+                  }}
+                  className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                    itemsPerPage === count
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-muted-foreground hover:bg-card'
+                  }`}
+                >
+                  {count}
+                </button>
+              ))}
+              <button
+                onClick={() => {
+                  setItemsPerPage(posts.length || 999999)
+                  setCurrentPage(1)
+                }}
+                className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                  posts.length > 0 && itemsPerPage >= posts.length
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-muted text-muted-foreground hover:bg-card'
+                }`}
+              >
+                All
+              </button>
+            </div>
+
             {/* Latest from Blog - Display First with Large Thumbnails */}
             <div className="mb-12 sm:mb-24">
               <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-8 sm:mb-12">Latest from Blog</h2>
-              {posts && posts.length > 0 ? (
+              {loading ? (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground">Loading posts...</p>
+                </div>
+              ) : paginatedPosts && paginatedPosts.length > 0 ? (
+                <>
                 <div className="space-y-6 sm:space-y-8">
-                  {posts.map((post) => (
+                  {paginatedPosts.map((post) => (
                     <Link
                       key={post.id}
                       href={`/blog/${post.slug}`}
@@ -93,6 +151,28 @@ export default async function BlogPage() {
                     </Link>
                   ))}
                 </div>
+                {totalPages > 1 && (
+                  <div className="flex items-center justify-center gap-2 mt-8">
+                    <button
+                      onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                      disabled={currentPage === 1}
+                      className="px-3 py-1 rounded-lg border border-border text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-card transition-colors"
+                    >
+                      Previous
+                    </button>
+                    <div className="text-sm text-muted-foreground">
+                      Page {currentPage} of {totalPages}
+                    </div>
+                    <button
+                      onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                      disabled={currentPage === totalPages}
+                      className="px-3 py-1 rounded-lg border border-border text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-card transition-colors"
+                    >
+                      Next
+                    </button>
+                  </div>
+                )}
+                </>
               ) : (
                 <div className="text-center py-12">
                   <p className="text-muted-foreground">No blog posts yet.</p>

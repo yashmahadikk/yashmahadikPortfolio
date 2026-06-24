@@ -78,6 +78,9 @@ export function Footer() {
               <Link href="/mentors" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Mentors
               </Link>
+              <Link href="/curated-links" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+                Curated Links
+              </Link>
               <Link href="/bucket-list" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Bucket List
               </Link>
@@ -90,6 +93,9 @@ export function Footer() {
             <nav className="space-y-3">
               <a href="mailto:yashmahaadik@gmail.com" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Email
+              </a>
+              <a href="tel:+918451921771" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+                Phone
               </a>
               <a href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 LinkedIn

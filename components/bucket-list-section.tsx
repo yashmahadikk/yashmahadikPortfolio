@@ -54,7 +54,7 @@ export function BucketListSection() {
             <h1 className="text-4xl md:text-5xl font-sans font-semibold text-foreground">Bucket List</h1>
           </div>
           <p className="text-lg text-muted-foreground">
-            Curated links and things I want to explore, experience, and build.
+            Things I want to explore, experience, and build.
           </p>
         </div>
 

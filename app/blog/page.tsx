@@ -43,7 +43,7 @@ export default async function BlogPage() {
               <h2 className="text-3xl font-semibold text-foreground mb-12">Latest from Blog</h2>
               {posts && posts.length > 0 ? (
                 <div className="space-y-8">
-                  {posts.slice(0, 5).map((post) => (
+                  {posts.map((post) => (
                     <Link
                       key={post.id}
                       href={`/blog/${post.slug}`}

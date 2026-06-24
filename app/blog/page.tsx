@@ -52,9 +52,9 @@ export default async function BlogPage() {
                       <article className="border border-border rounded-lg overflow-hidden hover:border-primary transition-all hover:bg-card/30">
                         {/* Large Thumbnail */}
                         <div className="bg-muted h-80 md:h-96 flex items-center justify-center overflow-hidden">
-                          {post.featured_image ? (
+                          {post.thumbnail_url ? (
                             <img 
-                              src={post.featured_image} 
+                              src={post.thumbnail_url} 
                               alt={post.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />

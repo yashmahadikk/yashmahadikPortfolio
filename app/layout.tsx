@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   description: 'Product portfolio showcasing AI-powered solutions, enterprise transformation, and digital innovation. 4 years in product management, 5 years in project management.',
   generator: 'Yash',
   icons: {
-    icon: [
+    icon: '/apple-touch-icon.png',
+    apple: '/apple-touch-icon.png',
+    other: [
       {
         url: '/icon-light-32x32.png',
         media: '(prefers-color-scheme: light)',

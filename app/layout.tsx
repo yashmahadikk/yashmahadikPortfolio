@@ -21,9 +21,21 @@ export const metadata: Metadata = {
         type: 'image/png',
       },
       {
+        url: '/icon-192x192.png',
+        media: '(prefers-color-scheme: light)',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
         url: '/icon-dark-32x32.png',
         media: '(prefers-color-scheme: dark)',
         sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: '/icon-512x512.png',
+        media: '(prefers-color-scheme: dark)',
+        sizes: '512x512',
         type: 'image/png',
       },
       {
@@ -43,25 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background scroll-smooth" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const saved = localStorage.getItem('customColorPalette');
-                if (saved) {
-                  const palette = JSON.parse(saved);
-                  document.documentElement.style.setProperty('--primary', palette.primary);
-                  document.documentElement.style.setProperty('--secondary', palette.secondary);
-                  document.documentElement.style.setProperty('--accent', palette.accent);
-                  document.documentElement.style.setProperty('--muted', palette.muted);
-                  document.documentElement.style.setProperty('--ring', palette.primary);
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
-      </head>
+      <head />
       <body className={`${figtree.className} font-sans antialiased bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}

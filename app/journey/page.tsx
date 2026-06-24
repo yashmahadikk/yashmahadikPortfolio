@@ -29,7 +29,7 @@ export default async function JourneyPage() {
             </Link>
 
             <div className="mb-12">
-              <h1 className="text-4xl md:text-5xl font-serif italic text-foreground mb-4">
+              <h1 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
                 My Journey
               </h1>
               <p className="text-lg text-muted-foreground">

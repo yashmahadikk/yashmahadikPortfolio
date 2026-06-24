@@ -38,8 +38,70 @@ export default async function BlogPage() {
               </p>
             </div>
 
-            {/* Explore Section */}
+            {/* Latest from Blog - Display First with Large Thumbnails */}
             <div className="mb-24">
+              <h2 className="text-3xl font-semibold text-foreground mb-12">Latest from Blog</h2>
+              {posts && posts.length > 0 ? (
+                <div className="space-y-8">
+                  {posts.slice(0, 5).map((post) => (
+                    <Link
+                      key={post.id}
+                      href={`/blog/${post.slug}`}
+                      className="group block"
+                    >
+                      <article className="border border-border rounded-lg overflow-hidden hover:border-primary transition-all hover:bg-card/30">
+                        {/* Large Thumbnail */}
+                        <div className="bg-muted h-80 md:h-96 flex items-center justify-center overflow-hidden">
+                          {post.featured_image ? (
+                            <img 
+                              src={post.featured_image} 
+                              alt={post.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                              <span className="text-muted-foreground text-lg font-medium">{post.title.charAt(0)}</span>
+                            </div>
+                          )}
+                        </div>
+                        {/* Content */}
+                        <div className="p-8">
+                          <p className="text-sm text-muted-foreground mb-3">
+                            {new Date(post.published_date).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
+                          </p>
+                          <h3 className="text-2xl md:text-3xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                            {post.title}
+                          </h3>
+                          <p className="text-base text-muted-foreground line-clamp-3 mb-4">
+                            {post.excerpt}
+                          </p>
+                          {post.category && (
+                            <span className="inline-block px-3 py-1 text-xs font-semibold text-primary bg-primary/10 rounded-full mb-4">
+                              {post.category}
+                            </span>
+                          )}
+                          <div className="flex items-center text-primary font-medium text-sm">
+                            Read more
+                            <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </div>
+                      </article>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground">No blog posts yet.</p>
+                </div>
+              )}
+            </div>
+
+            {/* Explore Section */}
+            <div>
               <h2 className="text-3xl font-semibold text-foreground mb-12">Explore</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Case Studies */}
@@ -133,51 +195,6 @@ export default async function BlogPage() {
                   </div>
                 </Link>
               </div>
-            </div>
-
-            {/* Latest from Blog */}
-            <div className="border-t border-border pt-20">
-              <h2 className="text-3xl font-semibold text-foreground mb-12">Latest from Blog</h2>
-              {posts && posts.length > 0 ? (
-                <div className="space-y-12">
-                  {posts.slice(0, 5).map((post) => (
-                    <Link
-                      key={post.id}
-                      href={`/blog/${post.slug}`}
-                      className="group block"
-                    >
-                      <article>
-                        <p className="text-sm text-muted-foreground mb-2">
-                          {new Date(post.published_date).toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "short",
-                          })}
-                        </p>
-                        <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
-                          {post.title}
-                        </h3>
-                        <p className="text-base text-muted-foreground line-clamp-2 mb-4">
-                          {post.excerpt}
-                        </p>
-                        <div className="flex items-center text-primary font-medium text-sm">
-                          Read more
-                          <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </article>
-                    </Link>
-                  ))}
-                  <div className="pt-8 border-t border-border">
-                    <Link href="/blog" className="text-primary hover:text-primary/80 font-medium inline-flex items-center gap-2">
-                      Read more posts
-                      <ArrowUpRight size={16} />
-                    </Link>
-                  </div>
-                </div>
-              ) : (
-                <div className="text-center py-12">
-                  <p className="text-muted-foreground">No blog posts yet.</p>
-                </div>
-              )}
             </div>
           </div>
         </section>

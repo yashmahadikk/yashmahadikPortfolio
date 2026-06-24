@@ -29,7 +29,7 @@ export default async function CertificatesPage() {
             </Link>
 
             <div className="mb-12">
-              <h1 className="text-4xl md:text-5xl font-serif italic text-foreground mb-4">
+              <h1 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
                 Certificates & Achievements
               </h1>
               <p className="text-lg text-muted-foreground">

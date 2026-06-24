@@ -49,10 +49,19 @@ export function BooksSection() {
 
   // Normalize books status to ensure consistent casing
   const normalizedBooks = useMemo(() => {
-    return books.map(book => ({
-      ...book,
-      status: book.status ? (book.status.charAt(0).toUpperCase() + book.status.slice(1)) as 'Backlog' | 'In Progress' | 'Done' : 'Backlog',
-    }))
+    return books.map(book => {
+      let normalizedStatus: 'Backlog' | 'In Progress' | 'Done' = 'Backlog'
+      if (book.status) {
+        const lowerStatus = book.status.toLowerCase()
+        if (lowerStatus === 'done') normalizedStatus = 'Done'
+        else if (lowerStatus === 'in progress') normalizedStatus = 'In Progress'
+        else normalizedStatus = 'Backlog'
+      }
+      return {
+        ...book,
+        status: normalizedStatus,
+      }
+    })
   }, [books])
 
   // Extract all genres from books

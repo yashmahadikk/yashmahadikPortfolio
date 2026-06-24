@@ -172,10 +172,10 @@ export function BooksSection() {
         ) : filteredBooks.length > 0 ? (
           <div className="space-y-4">
             {filteredBooks.map(book => (
-              <div key={book.id} className="group flex gap-6 p-6 border border-border rounded-lg hover:border-primary/50 transition-colors">
+              <div key={book.id} className="group flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-6 border border-border rounded-lg hover:border-primary/50 transition-colors">
                 {/* Book Cover - Left Side */}
-                <div className="flex-shrink-0">
-                  <div className="w-28 h-auto bg-gradient-to-br from-primary/20 to-primary/5 rounded-[12px] flex items-center justify-center overflow-hidden">
+                <div className="flex-shrink-0 self-start">
+                  <div className="w-24 sm:w-28 h-auto bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg flex items-center justify-center overflow-hidden">
                     {book.cover_url ? (
                       <img
                         src={book.cover_url}
@@ -191,24 +191,24 @@ export function BooksSection() {
                 {/* Book Info - Right Side */}
                 <div className="flex-1 flex flex-col">
                   {/* Title and Rating */}
-                  <div className="flex items-start justify-between gap-4 mb-2">
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-2">
+                    <div className="flex-1">
+                      <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                         {book.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground">{book.author}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{book.author}</p>
                     </div>
                     {book.rating && (
-                      <div className="flex items-center gap-1 flex-shrink-0 bg-primary px-3 py-1.5 rounded-full">
-                        <Star size={16} className="text-primary-foreground" fill="currentColor" />
-                        <span className="text-sm font-bold text-primary-foreground">{book.rating}/5</span>
+                      <div className="flex items-center gap-1 flex-shrink-0 bg-primary px-3 py-1.5 rounded-full w-fit">
+                        <Star size={14} className="text-primary-foreground" fill="currentColor" />
+                        <span className="text-xs sm:text-sm font-bold text-primary-foreground">{book.rating}/5</span>
                       </div>
                     )}
                   </div>
 
                   {/* Description */}
                   {book.description && (
-                    <p className="text-sm text-muted-foreground mb-3">
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-3 line-clamp-2">
                       {book.description}
                     </p>
                   )}
@@ -216,8 +216,8 @@ export function BooksSection() {
                   {/* My Thoughts - Highlighted */}
                   {book.my_thoughts && (
                     <div className="mb-4 p-3 bg-primary/10 border border-primary/30 rounded-lg">
-                      <p className="text-sm font-semibold text-primary mb-1">My Thoughts</p>
-                      <p className="text-sm text-foreground font-medium">
+                      <p className="text-xs sm:text-sm font-semibold text-primary mb-1">My Thoughts</p>
+                      <p className="text-xs sm:text-sm text-foreground font-medium line-clamp-2">
                         {book.my_thoughts}
                       </p>
                     </div>
@@ -225,9 +225,9 @@ export function BooksSection() {
 
                   {/* Genres */}
                   {book.genre && book.genre.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-4 line-clamp-2">
                       {book.genre.map(g => (
-                        <span key={g} className="text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-full hover:bg-muted/80 transition-colors cursor-pointer">
+                        <span key={g} className="text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-full hover:bg-muted/80 transition-colors cursor-pointer whitespace-nowrap">
                           {g}
                         </span>
                       ))}

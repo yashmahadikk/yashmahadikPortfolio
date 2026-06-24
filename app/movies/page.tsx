@@ -43,41 +43,41 @@ export default async function MoviesPage() {
           </div>
 
           {/* Status Summary */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="border border-border rounded-lg p-4 text-center">
-              <div className="text-2xl font-semibold text-foreground">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8">
+            <div className="border border-border rounded-lg p-3 sm:p-4 text-center">
+              <div className="text-lg sm:text-2xl font-semibold text-foreground">
                 {(movies.filter(m => m.status === 'Done').length) + (movies.filter(m => m.status === 'Watched').length)}
               </div>
-              <div className="text-sm text-muted-foreground">Watched</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Watched</div>
             </div>
-            <div className="border border-border rounded-lg p-4 text-center">
-              <div className="text-2xl font-semibold text-foreground">
+            <div className="border border-border rounded-lg p-3 sm:p-4 text-center">
+              <div className="text-lg sm:text-2xl font-semibold text-foreground">
                 {movies.filter(m => m.status === 'In Progress').length}
               </div>
-              <div className="text-sm text-muted-foreground">Watching</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Watching</div>
             </div>
-            <div className="border border-border rounded-lg p-4 text-center">
-              <div className="text-2xl font-semibold text-foreground">
+            <div className="border border-border rounded-lg p-3 sm:p-4 text-center">
+              <div className="text-lg sm:text-2xl font-semibold text-foreground">
                 {movies.filter(m => m.status === 'Backlog').length}
               </div>
-              <div className="text-sm text-muted-foreground">Backlog</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Backlog</div>
             </div>
-            <div className="border border-border rounded-lg p-4 text-center">
-              <div className="text-2xl font-semibold text-foreground">
+            <div className="border border-border rounded-lg p-3 sm:p-4 text-center">
+              <div className="text-lg sm:text-2xl font-semibold text-foreground">
                 {movies.length}
               </div>
-              <div className="text-sm text-muted-foreground">Total</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Total</div>
             </div>
           </div>
 
           {/* Movies Grid */}
           {movies.length > 0 ? (
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {movies.map(movie => (
-                <div key={movie.id} className="group flex gap-6 p-6 border border-border rounded-lg hover:border-primary/50 transition-colors">
+                <div key={movie.id} className="group flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-6 border border-border rounded-lg hover:border-primary/50 transition-colors">
                   {/* Movie Poster - Left Side */}
-                  <div className="flex-shrink-0">
-                    <div className="w-24 h-32 bg-gradient-to-br from-primary/20 to-primary/5 rounded-md flex items-center justify-center overflow-hidden">
+                  <div className="flex-shrink-0 self-start">
+                    <div className="w-20 h-28 sm:w-24 sm:h-32 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg flex items-center justify-center overflow-hidden">
                       {movie.photo_url ? (
                         <img
                           src={movie.photo_url}
@@ -93,15 +93,15 @@ export default async function MoviesPage() {
                   {/* Movie Info - Right Side */}
                   <div className="flex-1 flex flex-col">
                     {/* Title and Rating */}
-                    <div className="flex items-start justify-between gap-4 mb-2">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-2">
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                        <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                           {movie.title}
                         </h3>
                       </div>
                       {movie.rating && (
-                        <div className="flex-shrink-0 bg-primary/10 px-3 py-1 rounded-full">
-                          <span className="text-sm font-medium text-primary">{movie.rating}</span>
+                        <div className="flex-shrink-0 bg-primary/10 px-3 py-1 rounded-full w-fit">
+                          <span className="text-xs sm:text-sm font-medium text-primary">{movie.rating}</span>
                         </div>
                       )}
                     </div>
@@ -110,7 +110,7 @@ export default async function MoviesPage() {
                     {movie.genre && typeof movie.genre === 'string' && movie.genre.trim() && (
                       <div className="flex flex-wrap gap-2 mb-3">
                         {movie.genre.split(',').map(g => g.trim()).filter(Boolean).map(g => (
-                          <span key={g} className="text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-full">
+                          <span key={g} className="text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-full line-clamp-1">
                             {g}
                           </span>
                         ))}
@@ -119,14 +119,14 @@ export default async function MoviesPage() {
 
                     {/* My Thoughts */}
                     {movie.my_thoughts && (
-                      <p className="text-sm text-muted-foreground mb-3">
+                      <p className="text-xs sm:text-sm text-muted-foreground mb-3 line-clamp-2">
                         {movie.my_thoughts}
                       </p>
                     )}
 
                     {/* Status and Watch Link */}
-                    <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
-                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mt-auto pt-3 border-t border-border">
+                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium w-fit ${
                         movie.status === 'Done' || movie.status === 'Watched'
                           ? 'bg-green-500/20 text-green-300'
                           : movie.status === 'In Progress'
@@ -140,7 +140,7 @@ export default async function MoviesPage() {
                           href={movie.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-primary hover:text-primary/80 transition-colors"
+                          className="text-xs sm:text-sm text-primary hover:text-primary/80 transition-colors"
                         >
                           Watch →
                         </a>

@@ -55,6 +55,10 @@ const quotes: Quote[] = [
   {
     text: "The only thing standing between you and your goal is the story you keep telling yourself.",
     author: "Jordan Belfort"
+  },
+  {
+    text: "It seems impossible until it's done.",
+    author: "Nelson Mandela"
   }
 ]
 

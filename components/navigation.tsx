@@ -61,79 +61,71 @@ export function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile Navigation Overlay */}
+      {/* Mobile Navigation Drawer - Full Screen */}
       {isOpen && (
-        <div 
-          className="sm:hidden fixed inset-0 top-20 bg-black/30 z-40"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* Mobile Navigation Drawer with Animation */}
-      <div className={`sm:hidden fixed top-20 left-0 right-0 z-50 overflow-hidden transition-all duration-300 ease-out ${
-        isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-      }`}>
-        {/* Header */}
-        <div className="bg-foreground text-background px-6 py-6 flex items-center justify-between animate-in fade-in slide-in-from-top-2 duration-300">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight">Menu</h2>
-            <p className="text-sm opacity-80 mt-1">Navigation</p>
+        <div className="sm:hidden fixed inset-0 z-50 bg-background overflow-y-auto animate-in fade-in slide-in-from-top duration-300">
+          {/* Dark Header */}
+          <div className="bg-foreground text-background px-6 py-6 flex items-center justify-between sticky top-0">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight">Menu</h2>
+            </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-background hover:opacity-70 transition-opacity"
+              aria-label="Close menu"
+            >
+              <X size={32} />
+            </button>
           </div>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="text-background hover:opacity-70 transition-opacity"
-            aria-label="Close menu"
-          >
-            <X size={28} />
-          </button>
-        </div>
 
-        {/* Menu Items */}
-        <div className="bg-background px-6 py-8 flex flex-col gap-8 animate-in fade-in slide-in-from-top-3 duration-300 delay-100">
-          <Link 
-            href="/" 
-            onClick={() => setIsOpen(false)}
-            className="text-4xl font-bold text-foreground hover:text-primary transition-colors"
-          >
-            Home
-          </Link>
-          <Link 
-            href="/work" 
-            onClick={() => setIsOpen(false)}
-            className="text-4xl font-bold text-foreground hover:text-primary transition-colors"
-          >
-            Work
-          </Link>
-          <Link 
-            href="/case-studies" 
-            onClick={() => setIsOpen(false)}
-            className="text-4xl font-bold text-foreground hover:text-primary transition-colors"
-          >
-            Case Studies
-          </Link>
-          <Link 
-            href="/blog" 
-            onClick={() => setIsOpen(false)}
-            className="text-4xl font-bold text-foreground hover:text-primary transition-colors"
-          >
-            Blog
-          </Link>
-          <Link 
-            href="/books" 
-            onClick={() => setIsOpen(false)}
-            className="text-4xl font-bold text-foreground hover:text-primary transition-colors"
-          >
-            Books
-          </Link>
-          <Link 
-            href="/bucket-list" 
-            onClick={() => setIsOpen(false)}
-            className="text-4xl font-bold text-foreground hover:text-primary transition-colors"
-          >
-            Bucket List
-          </Link>
+          {/* Menu Items - Scrollable */}
+          <div className="px-6 py-12 flex flex-col gap-12">
+            <Link 
+              href="/" 
+              onClick={() => setIsOpen(false)}
+              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+            >
+              Home
+            </Link>
+            <Link 
+              href="/work" 
+              onClick={() => setIsOpen(false)}
+              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+            >
+              Work
+            </Link>
+            <Link 
+              href="/case-studies" 
+              onClick={() => setIsOpen(false)}
+              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+            >
+              Case Studies
+            </Link>
+            <Link 
+              href="/blog" 
+              onClick={() => setIsOpen(false)}
+              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+            >
+              Blog
+            </Link>
+            <Link 
+              href="/books" 
+              onClick={() => setIsOpen(false)}
+              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+            >
+              Books
+            </Link>
+            <Link 
+              href="/bucket-list" 
+              onClick={() => setIsOpen(false)}
+              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+            >
+              Bucket List
+            </Link>
+            <div className="h-20" />
+          </div>
         </div>
-      </div>
+      )}
     </header>
   )
 }

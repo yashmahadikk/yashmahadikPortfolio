@@ -10,7 +10,7 @@ interface BucketListItem {
   description: string
   link: string
   category: string
-  completed: boolean
+  status: 'To Do' | 'In Progress' | 'Done'
   created_at: string
 }
 
@@ -42,9 +42,9 @@ export function BucketListSection() {
   }, [])
 
   // Group items by status
-  const toDoItems = items.filter(item => !item.completed)
-  const inProgressItems = toDoItems.slice(0, Math.ceil(toDoItems.length / 2))
-  const doneItems = items.filter(item => item.completed)
+  const toDoItems = items.filter(item => item.status === 'To Do')
+  const inProgressItems = items.filter(item => item.status === 'In Progress')
+  const doneItems = items.filter(item => item.status === 'Done')
 
   const KanbanColumn = ({ 
     title, 

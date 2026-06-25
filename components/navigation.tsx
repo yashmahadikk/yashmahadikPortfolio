@@ -29,7 +29,7 @@ export function Navigation() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden sm:flex items-center gap-8">
           <ThemeToggle />
           <Link href="/work" className={getLinkClass("/work")}>
             WORK
@@ -49,7 +49,7 @@ export function Navigation() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="sm:hidden flex items-center gap-2">
           <ThemeToggle />
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -61,10 +61,12 @@ export function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden bg-background border-b border-border">
-          <div className="px-6 py-4 flex flex-col gap-4">
+      {/* Mobile Navigation with Animation */}
+      <div className={`sm:hidden overflow-hidden transition-all duration-300 ease-out ${
+        isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+      }`}>
+        <div className="bg-background border-b border-border">
+          <div className="px-6 py-4 flex flex-col gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
             <Link 
               href="/work" 
               onClick={() => setIsOpen(false)}
@@ -102,7 +104,7 @@ export function Navigation() {
             </Link>
           </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }

@@ -25,7 +25,7 @@ export function Footer() {
               <a href="https://x.com/yash_mahadik" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="https://github.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://github.com/yashmahaadik" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Github size={20} />
               </a>
             </div>
@@ -103,7 +103,7 @@ export function Footer() {
               <a href="https://x.com/yash_mahadik" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Twitter / X
               </a>
-              <a href="https://github.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+              <a href="https://github.com/yashmahaadik" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 GitHub
               </a>
               <a href="https://drive.google.com/drive/folders/1jll4Xyqc_uIfkDlBFyuh_4Y6SufN_P5D?usp=drive_link" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block flex items-center gap-2">

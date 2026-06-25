@@ -79,46 +79,46 @@ export function Navigation() {
           </div>
 
           {/* Menu Items - Scrollable */}
-          <div className="px-6 py-12 flex flex-col gap-12">
+          <div className="px-6 py-12 flex flex-col gap-8 min-h-screen">
             <Link 
               href="/" 
               onClick={() => setIsOpen(false)}
-              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
             >
               Home
             </Link>
             <Link 
               href="/work" 
               onClick={() => setIsOpen(false)}
-              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
             >
               Work
             </Link>
             <Link 
               href="/case-studies" 
               onClick={() => setIsOpen(false)}
-              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
             >
               Case Studies
             </Link>
             <Link 
               href="/blog" 
               onClick={() => setIsOpen(false)}
-              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
             >
               Blog
             </Link>
             <Link 
               href="/books" 
               onClick={() => setIsOpen(false)}
-              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
             >
               Books
             </Link>
             <Link 
               href="/bucket-list" 
               onClick={() => setIsOpen(false)}
-              className="text-5xl font-bold text-foreground hover:text-primary transition-colors"
+              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
             >
               Bucket List
             </Link>

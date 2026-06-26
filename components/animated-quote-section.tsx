@@ -59,6 +59,10 @@ const quotes: Quote[] = [
   {
     text: "It seems impossible until it's done.",
     author: "Nelson Mandela"
+  },
+  {
+    text: "I can see only the eye of the bird.",
+    author: "Arjuna"
   }
 ]
 

@@ -63,15 +63,15 @@ export function Navigation() {
 
       {/* Mobile Navigation Drawer - Full Screen */}
       {isOpen && (
-        <div className="sm:hidden fixed inset-0 z-50 bg-background overflow-y-auto animate-in fade-in slide-in-from-top duration-300">
+        <div className="sm:hidden fixed inset-0 z-50 bg-white dark:bg-black overflow-y-auto">
           {/* Dark Header */}
-          <div className="bg-foreground text-background px-6 py-6 flex items-center justify-between sticky top-0">
+          <div className="bg-black text-white px-6 py-6 flex items-center justify-between sticky top-0 z-10">
             <div>
               <h2 className="text-2xl font-bold tracking-tight">Menu</h2>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-background hover:opacity-70 transition-opacity"
+              className="text-white hover:opacity-70 transition-opacity"
               aria-label="Close menu"
             >
               <X size={32} />
@@ -79,46 +79,46 @@ export function Navigation() {
           </div>
 
           {/* Menu Items - Scrollable */}
-          <div className="px-6 py-12 flex flex-col gap-8 min-h-screen">
+          <div className="px-6 py-12 flex flex-col gap-8">
             <Link 
               href="/" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
+              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
             >
               Home
             </Link>
             <Link 
               href="/work" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
+              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
             >
               Work
             </Link>
             <Link 
               href="/case-studies" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
+              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
             >
               Case Studies
             </Link>
             <Link 
               href="/blog" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
+              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
             >
               Blog
             </Link>
             <Link 
               href="/books" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
+              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
             >
               Books
             </Link>
             <Link 
               href="/bucket-list" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
+              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
             >
               Bucket List
             </Link>

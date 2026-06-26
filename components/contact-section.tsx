@@ -70,7 +70,7 @@ export function ContactSection() {
             <Twitter size={20} />
           </a>
           <a
-            href="https://github.com/yashmahadikk"
+            href="https://github.com/yashmahaadik"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"

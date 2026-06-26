@@ -29,7 +29,7 @@ export function Navigation() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden sm:flex items-center gap-8">
           <ThemeToggle />
           <Link href="/work" className={getLinkClass("/work")}>
             WORK
@@ -49,7 +49,7 @@ export function Navigation() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="sm:hidden flex items-center gap-2">
           <ThemeToggle />
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -63,7 +63,7 @@ export function Navigation() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-background border-b border-border">
+        <div className="sm:hidden bg-background border-b border-border">
           <div className="px-6 py-4 flex flex-col gap-4">
             <Link 
               href="/work" 

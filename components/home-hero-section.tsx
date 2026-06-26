@@ -38,7 +38,7 @@ export function HomeHeroSection() {
           <a href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
             <Linkedin size={20} />
           </a>
-          <a href="https://github.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+          <a href="https://github.com/yashmahaadik" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
             <Github size={20} />
           </a>
           <a href="mailto:yashmahaadik@gmail.com" className="hover:text-foreground transition-colors">

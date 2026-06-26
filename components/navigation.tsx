@@ -61,68 +61,45 @@ export function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile Navigation Drawer - Full Screen */}
+      {/* Mobile Navigation */}
       {isOpen && (
-        <div className="sm:hidden fixed inset-0 z-50 bg-white dark:bg-black overflow-y-auto">
-          {/* Dark Header */}
-          <div className="bg-black text-white px-6 py-6 flex items-center justify-between sticky top-0 z-10">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight">Menu</h2>
-            </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:opacity-70 transition-opacity"
-              aria-label="Close menu"
-            >
-              <X size={32} />
-            </button>
-          </div>
-
-          {/* Menu Items - Scrollable */}
-          <div className="px-6 py-12 flex flex-col gap-8">
-            <Link 
-              href="/" 
-              onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
-            >
-              Home
-            </Link>
+        <div className="sm:hidden bg-background border-b border-border">
+          <div className="px-6 py-4 flex flex-col gap-4">
             <Link 
               href="/work" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
+              className={getLinkClass("/work")}
             >
-              Work
+              WORK
             </Link>
             <Link 
               href="/case-studies" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
+              className={getLinkClass("/case-studies")}
             >
-              Case Studies
+              CASE STUDIES
             </Link>
             <Link 
               href="/blog" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
+              className={getLinkClass("/blog")}
             >
-              Blog
+              BLOG
             </Link>
             <Link 
               href="/books" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
+              className={getLinkClass("/books")}
             >
-              Books
+              BOOKS
             </Link>
             <Link 
               href="/bucket-list" 
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-bold text-black dark:text-white hover:text-primary transition-colors py-2"
+              className={getLinkClass("/bucket-list")}
             >
-              Bucket List
+              BUCKET LIST
             </Link>
-            <div className="h-20" />
           </div>
         </div>
       )}

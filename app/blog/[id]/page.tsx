@@ -3,14 +3,14 @@ import { createClient } from "@/lib/supabase/server";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const supabase = await createClient();
   
   const { data: post } = await supabase
     .from("blog_posts")
     .select("*")
-    .eq("slug", slug)
+    .eq("id", id)
     .single();
 
   if (!post) {
@@ -29,15 +29,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function BlogPostPage({ 
   params 
 }: { 
-  params: Promise<{ slug: string }> 
+  params: Promise<{ id: string }> 
 }) {
-  const { slug } = await params;
+  const { id } = await params;
   const supabase = await createClient();
   
   const { data: post, error } = await supabase
     .from("blog_posts")
     .select("*")
-    .eq("slug", slug)
+    .eq("id", id)
     .single();
 
   if (error || !post) {

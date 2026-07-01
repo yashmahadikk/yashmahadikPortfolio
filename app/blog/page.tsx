@@ -104,7 +104,7 @@ export default function BlogPage() {
                   {paginatedPosts.map((post) => (
                     <Link
                       key={post.id}
-                      href={`/blog/${post.id}`}
+                      href={`/blog/${post.slug}`}
                       className="group block"
                     >
                       <article className="border border-border rounded-lg overflow-hidden hover:border-primary transition-all hover:bg-card/30">

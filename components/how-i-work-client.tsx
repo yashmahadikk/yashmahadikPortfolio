@@ -8,10 +8,12 @@ export function HowIWorkClient() {
   const [isDownloading, setIsDownloading] = useState(false)
   const pdfRef = useRef<HTMLIFrameElement>(null)
 
+  const pdfUrl = 'https://blobs.vusercontent.net/blob/How_I_Leverage_AI_Rapid_Prototyping-ujmzJVeAxBd8Bta1TWeLeXz5R5wVfG.pdf'
+
   const handleDownload = async () => {
     setIsDownloading(true)
     try {
-      const response = await fetch('/how-i-work.pdf')
+      const response = await fetch(pdfUrl)
       const blob = await response.blob()
       const url = window.URL.createObjectURL(blob)
       const a = document.createElement('a')
@@ -82,9 +84,10 @@ export function HowIWorkClient() {
             <div className="h-full min-h-96 md:min-h-screen">
               <iframe
                 ref={pdfRef}
-                src="/how-i-work.pdf"
+                src={pdfUrl}
                 className="w-full h-full"
                 style={{ minHeight: 'calc(100vh - 200px)' }}
+                title="How I Work PDF Document"
               />
             </div>
           </div>

@@ -27,10 +27,16 @@ export function HomeHeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
           <a
+            href="mailto:yashmahaadik@gmail.com"
+            className="inline-flex items-center px-6 py-3 bg-foreground text-background font-medium hover:bg-foreground/90 transition-colors rounded"
+          >
+            Get in touch
+          </a>
+          <a
             href="https://calendar.app.google/egKUNyvZPyCgwNUq7"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-foreground text-background font-medium hover:bg-foreground/90 transition-colors rounded"
+            className="inline-flex items-center px-6 py-3 border border-border text-foreground font-medium hover:border-foreground transition-colors rounded"
           >
             Book a meeting
           </a>

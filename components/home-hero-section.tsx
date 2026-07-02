@@ -33,14 +33,6 @@ export function HomeHeroSection() {
             Get in touch
           </a>
           <a
-            href="https://calendar.app.google/egKUNyvZPyCgwNUq7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 border border-border text-foreground font-medium hover:border-foreground transition-colors rounded"
-          >
-            Book a meeting
-          </a>
-          <a
             href="https://drive.google.com/drive/folders/1jll4Xyqc_uIfkDlBFyuh_4Y6SufN_P5D?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"

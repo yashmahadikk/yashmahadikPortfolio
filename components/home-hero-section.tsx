@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Mail, Linkedin, Github, Twitter, Dribbble } from "lucide-react"
+import { Mail, Linkedin, Github, Twitter, Dribbble, MapPin, Clock } from "lucide-react"
+import { CurrentTime } from "./current-time"
 
 export function HomeHeroSection() {
   return (
@@ -12,6 +13,17 @@ export function HomeHeroSection() {
         <p className="text-lg text-muted-foreground max-w-3xl mb-8 leading-relaxed">
           Product Manager & Builder building AI-powered products. 5 years of experience across product management, project management, and startup operations. Currently exploring how AI can transform product creation and user experiences.
         </p>
+
+        <div className="flex items-center gap-6 mb-8 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <MapPin size={16} />
+            <span>Mumbai, Maharashtra</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Clock size={16} />
+            <CurrentTime />
+          </div>
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
           <a

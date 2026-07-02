@@ -11,7 +11,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <h3 className="text-lg font-semibold text-foreground mb-2">Yash Mahadik</h3>
             <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-              Product Manager building growth systems and honest products.
+              Creating Products People Will Love
             </p>
             
             {/* Social Icons */}

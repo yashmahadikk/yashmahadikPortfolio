@@ -142,6 +142,9 @@ const STAR_POINTS =
 
 function FitStamp({ fit }: { fit: Fit }) {
   const meta = FIT_META[fit];
+  // Temporarily returning null to debug the star issue
+  return null;
+  /* Original code:
   return (
     <div className="ic-stamp" aria-hidden="true">
       <svg viewBox="0 0 100 100" className="ic-stamp-svg">
@@ -150,6 +153,7 @@ function FitStamp({ fit }: { fit: Fit }) {
       <span className="ic-stamp-text">{meta.stamp}</span>
     </div>
   );
+  */
 }
 
 function RegionTag({ region }: { region: Region }) {
@@ -568,6 +572,7 @@ export default function InvestorDatabase() {
         /* ---------- Card ---------- */
         .ic-card {
           position: relative;
+          overflow: hidden;
           background: #fffdf6;
           border: 3px solid var(--ink);
           border-radius: 8px;
@@ -593,12 +598,13 @@ export default function InvestorDatabase() {
 
         .ic-stamp {
           position: absolute;
-          top: -14px;
-          right: -10px;
-          width: 58px;
-          height: 58px;
+          top: 4px;
+          right: 4px;
+          width: 36px;
+          height: 36px;
           transform: rotate(12deg);
           filter: drop-shadow(2px 3px 0 rgba(0, 0, 0, 0.25));
+          z-index: 10;
         }
         .ic-stamp-svg {
           width: 100%;
@@ -612,7 +618,7 @@ export default function InvestorDatabase() {
           align-items: center;
           justify-content: center;
           font-family: "Bangers", cursive;
-          font-size: 0.62rem;
+          font-size: 0.45rem;
           letter-spacing: 0.02em;
           color: #fff;
           text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);

@@ -18,15 +18,15 @@ const iconMap: any = {
 }
 
 const defaultProjects = [
-  {
-    project_id: "investor-database",
-    category: "BONUS PROJECT",
-    title: "Investor Database",
-    subtitle: "Curated Funding Resource",
-    description: "A comprehensive database of 90+ investors across India, International, and Southeast Asia. Created as a shared resource for founders seeking funding. Features searchable data, region filtering, stage preferences, and investment thesis matching.",
-    metrics: ["90+ Investors", "3 Regions", "Open Resource"],
-    bg_color: "bg-indigo-50",
-  },
+  // {
+  //   project_id: "investor-database",
+  //   category: "BONUS PROJECT",
+  //   title: "Investor Database",
+  //   subtitle: "Curated Funding Resource",
+  //   description: "A comprehensive database of 90+ investors across India, International, and Southeast Asia. Created as a shared resource for founders seeking funding. Features searchable data, region filtering, stage preferences, and investment thesis matching.",
+  //   metrics: ["90+ Investors", "3 Regions", "Open Resource"],
+  //   bg_color: "bg-indigo-50",
+  // },
   {
     project_id: "agar",
     category: "AI ENTERTAINMENT",

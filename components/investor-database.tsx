@@ -140,22 +140,6 @@ const STAR_POINTS =
 /*  Small presentational pieces                                        */
 /* ------------------------------------------------------------------ */
 
-function FitStamp({ fit }: { fit: Fit }) {
-  const meta = FIT_META[fit];
-  // Temporarily returning null to debug the star issue
-  return null;
-  /* Original code:
-  return (
-    <div className="ic-stamp" aria-hidden="true">
-      <svg viewBox="0 0 100 100" className="ic-stamp-svg">
-        <polygon points={STAR_POINTS} fill={meta.fill} stroke="#14171A" strokeWidth="4" strokeLinejoin="round" />
-      </svg>
-      <span className="ic-stamp-text">{meta.stamp}</span>
-    </div>
-  );
-  */
-}
-
 function RegionTag({ region }: { region: Region }) {
   const meta = REGION_META[region];
   return (
@@ -303,7 +287,6 @@ export default function InvestorDatabase() {
               <div className="ic-grid">
                 {grouped[fit].map((fund) => (
                   <article className="ic-card" key={fund.name}>
-                    <FitStamp fit={fund.fit} />
                     <div className="ic-card-top">
                       <h3 className="ic-card-name">{fund.name}</h3>
                       <RegionTag region={fund.region} />

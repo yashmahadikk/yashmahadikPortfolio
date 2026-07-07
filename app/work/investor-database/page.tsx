@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { InvestorDatabase } from "@/components/investor-database"
+import InvestorDatabase from "@/components/investor-database"
 
 export const metadata = {
   title: "Investor Database | Yash Mahadik",

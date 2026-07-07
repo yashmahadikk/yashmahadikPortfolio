@@ -115,10 +115,10 @@ const TABS: { id: TabId; label: string }[] = [
   { id: "moderate", label: "Moderate" },
 ];
 
-const FIT_META: Record<Fit, { stamp: string; label: string; fill: string; banner: string }> = {
-  strong: { stamp: "BOOM!", label: "Strong AGAR fit", fill: "#E4572E", banner: "#E4572E" },
-  good: { stamp: "POW!", label: "Good fit", fill: "#2453D6", banner: "#2453D6" },
-  moderate: { stamp: "OK!", label: "Moderate fit", fill: "#6B6560", banner: "#6B6560" },
+const FIT_META: Record<Fit, { label: string }> = {
+  strong: { label: "Strong AGAR fit" },
+  good: { label: "Good fit" },
+  moderate: { label: "Moderate fit" },
 };
 
 const FIT_SECTION_COPY: Record<Fit, string> = {
@@ -127,44 +127,28 @@ const FIT_SECTION_COPY: Record<Fit, string> = {
   moderate: "Moderate fit — broad tech, worth targeting",
 };
 
-const REGION_META: Record<Region, { label: string; fill: string }> = {
-  IN: { label: "India", fill: "#FF7A1A" },
-  INT: { label: "International", fill: "#2453D6" },
-  SEA: { label: "SEA", fill: "#1FA669" },
+const REGION_META: Record<Region, { label: string }> = {
+  IN: { label: "India" },
+  INT: { label: "International" },
+  SEA: { label: "SEA" },
 };
-
-const STAR_POINTS =
-  "50,4 65.3,29 93.7,35.8 74.7,58 77,87.2 50,76 23,87.2 25.3,58 6.3,35.8 34.7,29";
 
 /* ------------------------------------------------------------------ */
 /*  Small presentational pieces                                        */
 /* ------------------------------------------------------------------ */
 
-function FitStamp({ fit }: { fit: Fit }) {
-  const meta = FIT_META[fit];
-  return (
-    <div className="ic-stamp" aria-hidden="true">
-      <svg viewBox="0 0 100 100" className="ic-stamp-svg">
-        <polygon points={STAR_POINTS} fill={meta.fill} stroke="#14171A" strokeWidth="4" strokeLinejoin="round" />
-      </svg>
-      <span className="ic-stamp-text">{meta.stamp}</span>
-    </div>
-  );
+function FitBadge({ fit }: { fit: Fit }) {
+  return <span className={`ic-fitbadge ic-fitbadge--${fit}`}>{FIT_META[fit].label}</span>;
 }
 
 function RegionTag({ region }: { region: Region }) {
-  const meta = REGION_META[region];
-  return (
-    <span className="ic-region" style={{ background: meta.fill }}>
-      {meta.label}
-    </span>
-  );
+  return <span className="ic-region">{REGION_META[region].label}</span>;
 }
 
 function ArrowIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="miter" />
     </svg>
   );
 }
@@ -218,15 +202,11 @@ export default function InvestorDatabase() {
       {/* Hero                                                        */}
       {/* ---------------------------------------------------------- */}
       <header className="ic-hero">
-        <p className="ic-eyebrow">CASE FILE NO. AGAR-01</p>
-        <h1 className="ic-title">
-          THE INVESTOR
-          <br />
-          DOSSIER
-        </h1>
-        <div className="ic-bubble">
-          <p>{FUNDS.length} seed &amp; pre-seed funds, tracked down across India, SEA, and beyond — ranked by fit for AGAR.</p>
-        </div>
+        <p className="ic-eyebrow">Investor Dossier</p>
+        <h1 className="ic-title">The Investor Database</h1>
+        <p className="ic-subtitle">
+          {FUNDS.length} seed and pre-seed funds across India, SEA, and beyond — ranked by fit for AGAR.
+        </p>
       </header>
 
       {/* ---------------------------------------------------------- */}
@@ -249,7 +229,7 @@ export default function InvestorDatabase() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="SEARCH THE FILES…"
+          placeholder="Search by name, thesis, or geography"
           className="ic-search"
           aria-label="Search funds by name, thesis, or geography"
         />
@@ -271,7 +251,7 @@ export default function InvestorDatabase() {
       <div className="ic-legend">
         {order.map((fit) => (
           <div className="ic-legend-item" key={fit}>
-            <span className="ic-legend-dot" style={{ background: FIT_META[fit].fill }} />
+            <span className={`ic-legend-dot ic-legend-dot--${fit}`} />
             {FIT_SECTION_COPY[fit]}
           </div>
         ))}
@@ -286,24 +266,24 @@ export default function InvestorDatabase() {
       {/* ---------------------------------------------------------- */}
       {filtered.length === 0 ? (
         <div className="ic-empty">
-          <span className="ic-empty-stamp">CASE CLOSED</span>
-          <p>No funds match your search. Try another lead.</p>
+          <p className="ic-empty-title">No results</p>
+          <p>No funds match your search. Try another term or filter.</p>
         </div>
       ) : (
         order.map((fit) =>
           grouped[fit].length === 0 ? null : (
             <section key={fit} className="ic-section">
-              <div className="ic-banner" style={{ background: FIT_META[fit].banner }}>
+              <div className="ic-banner">
                 <span>{FIT_SECTION_COPY[fit]}</span>
               </div>
               <div className="ic-grid">
                 {grouped[fit].map((fund) => (
                   <article className="ic-card" key={fund.name}>
-                    <FitStamp fit={fund.fit} />
                     <div className="ic-card-top">
                       <h3 className="ic-card-name">{fund.name}</h3>
                       <RegionTag region={fund.region} />
                     </div>
+                    <FitBadge fit={fund.fit} />
                     <div className="ic-card-meta">
                       <span className="ic-meta-stage">{fund.stage}</span>
                       <span className="ic-meta-check">{fund.check}</span>
@@ -316,7 +296,7 @@ export default function InvestorDatabase() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Apply <ArrowIcon />
+                      Visit site <ArrowIcon />
                     </a>
                   </article>
                 ))}
@@ -330,128 +310,88 @@ export default function InvestorDatabase() {
       {/* Styles                                                      */}
       {/* ---------------------------------------------------------- */}
       <style jsx>{`
-        @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=Space+Mono:wght@400;700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap");
 
         .ic-root {
-          --ink: #14171a;
-          --paper: #f5ecd9;
-          --paper-2: #efe3c9;
-          --strong: #e4572e;
-          --good: #2453d6;
-          --mod: #6b6560;
-          --yellow: #ffd447;
-          font-family: "Comic Neue", "Segoe UI", sans-serif;
+          --ink: #111111;
+          --paper: #ffffff;
+          --line: #111111;
+          --muted: #6b6b6b;
+          --hairline: #dcdcdc;
+          --panel: #fafafa;
+          font-family: "Roboto", "Segoe UI", sans-serif;
           color: var(--ink);
           background-color: var(--paper);
-          background-image: radial-gradient(var(--paper-2) 1.1px, transparent 1.1px);
-          background-size: 14px 14px;
-          padding: 2.5rem 1.25rem 4rem;
+          padding: 3rem 1.5rem 4rem;
           max-width: 1280px;
           margin: 0 auto;
-          border: 5px solid var(--ink);
-          border-radius: 6px;
-          box-shadow: 10px 10px 0 var(--ink);
+          border: 1px solid var(--line);
         }
 
         /* ---------- Hero ---------- */
         .ic-hero {
-          text-align: center;
+          border-bottom: 1px solid var(--line);
+          padding-bottom: 1.75rem;
           margin-bottom: 2rem;
         }
         .ic-eyebrow {
-          font-family: "Space Mono", monospace;
+          font-family: "Roboto Mono", monospace;
           letter-spacing: 0.18em;
+          text-transform: uppercase;
           font-size: 0.7rem;
           font-weight: 700;
-          color: var(--ink);
-          background: var(--yellow);
-          display: inline-block;
-          padding: 3px 10px;
-          border: 2px solid var(--ink);
-          transform: rotate(-2deg);
-          margin-bottom: 0.75rem;
+          color: var(--muted);
+          margin: 0 0 0.9rem;
         }
         .ic-title {
-          font-family: "Bangers", cursive;
-          font-weight: 400;
-          letter-spacing: 0.03em;
-          font-size: clamp(2.75rem, 8vw, 5rem);
-          line-height: 0.95;
-          margin: 0 0 1.1rem;
+          font-weight: 900;
+          letter-spacing: -0.01em;
+          font-size: clamp(2rem, 5vw, 3.25rem);
+          line-height: 1.05;
+          margin: 0 0 0.9rem;
           color: var(--ink);
-          -webkit-text-stroke: 2px var(--ink);
-          text-shadow: 4px 4px 0 var(--strong), 4px 4px 0 1px var(--ink);
         }
-        .ic-bubble {
-          position: relative;
-          display: inline-block;
-          max-width: 560px;
-          background: #fff;
-          border: 3px solid var(--ink);
-          border-radius: 22px;
-          padding: 0.9rem 1.4rem;
+        .ic-subtitle {
+          max-width: 620px;
           font-size: 0.95rem;
-          font-weight: 700;
-        }
-        .ic-bubble::after {
-          content: "";
-          position: absolute;
-          left: 50%;
-          bottom: -16px;
-          transform: translateX(-50%);
-          width: 0;
-          height: 0;
-          border-left: 12px solid transparent;
-          border-right: 12px solid transparent;
-          border-top: 16px solid var(--ink);
-        }
-        .ic-bubble::before {
-          content: "";
-          position: absolute;
-          left: 50%;
-          bottom: -12px;
-          transform: translateX(-50%);
-          width: 0;
-          height: 0;
-          border-left: 9px solid transparent;
-          border-right: 9px solid transparent;
-          border-top: 13px solid #fff;
-          z-index: 1;
-        }
-        .ic-bubble p {
+          font-weight: 400;
+          color: var(--muted);
           margin: 0;
+          line-height: 1.55;
         }
 
         /* ---------- Stats ---------- */
         .ic-stats {
           display: grid;
           grid-template-columns: repeat(5, 1fr);
-          gap: 10px;
-          margin: 2.5rem 0 1.5rem;
+          gap: 0;
+          margin: 0 0 2rem;
+          border: 1px solid var(--line);
         }
         .ic-stat-panel {
-          background: #fff;
-          border: 3px solid var(--ink);
-          border-radius: 8px;
-          box-shadow: 4px 4px 0 var(--ink);
-          padding: 0.7rem 0.5rem;
-          text-align: center;
+          background: var(--paper);
+          padding: 1rem 0.9rem;
+          text-align: left;
           display: flex;
           flex-direction: column;
-          gap: 2px;
+          gap: 3px;
+          border-right: 1px solid var(--line);
+        }
+        .ic-stat-panel:last-child {
+          border-right: none;
         }
         .ic-stat-value {
-          font-family: "Bangers", cursive;
+          font-weight: 900;
           font-size: 1.9rem;
           line-height: 1;
-          color: var(--strong);
+          color: var(--ink);
         }
         .ic-stat-label {
-          font-family: "Space Mono", monospace;
-          font-size: 0.6rem;
+          font-family: "Roboto Mono", monospace;
+          font-size: 0.62rem;
           text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: var(--ink);
+          letter-spacing: 0.06em;
+          color: var(--muted);
         }
 
         /* ---------- Controls ---------- */
@@ -460,26 +400,28 @@ export default function InvestorDatabase() {
           flex-wrap: wrap;
           gap: 10px;
           align-items: center;
-          margin-bottom: 0.9rem;
+          margin-bottom: 1rem;
         }
         .ic-search {
           flex: 1;
-          min-width: 200px;
-          max-width: 320px;
-          font-family: "Comic Neue", sans-serif;
-          font-weight: 700;
+          min-width: 220px;
+          max-width: 340px;
+          font-family: "Roboto", sans-serif;
+          font-weight: 400;
           font-size: 0.85rem;
-          padding: 0.55rem 0.9rem;
-          border: 3px solid var(--ink);
-          border-radius: 10px;
-          background: #fff;
+          padding: 0.6rem 0.9rem;
+          border: 1px solid var(--line);
+          border-radius: 0;
+          background: var(--paper);
           outline: none;
+          color: var(--ink);
         }
         .ic-search::placeholder {
-          color: #8a8378;
+          color: #9a9a9a;
         }
         .ic-search:focus-visible {
-          box-shadow: 3px 3px 0 var(--ink);
+          outline: 2px solid var(--ink);
+          outline-offset: 1px;
         }
         .ic-pills {
           display: flex;
@@ -487,25 +429,27 @@ export default function InvestorDatabase() {
           gap: 6px;
         }
         .ic-pill {
-          font-family: "Comic Neue", sans-serif;
-          font-weight: 700;
-          font-size: 0.72rem;
-          background: #fff;
-          border: 2.5px solid var(--ink);
-          border-radius: 99px;
-          padding: 5px 13px;
+          font-family: "Roboto Mono", monospace;
+          font-weight: 500;
+          font-size: 0.68rem;
+          text-transform: uppercase;
+          letter-spacing: 0.03em;
+          background: var(--paper);
+          border: 1px solid var(--line);
+          border-radius: 0;
+          padding: 6px 12px;
           cursor: pointer;
           color: var(--ink);
         }
         .ic-pill:hover {
-          background: var(--yellow);
+          background: var(--panel);
         }
         .ic-pill.is-active {
           background: var(--ink);
-          color: var(--yellow);
+          color: var(--paper);
         }
         .ic-pill:focus-visible {
-          outline: 2px solid var(--strong);
+          outline: 2px solid var(--ink);
           outline-offset: 2px;
         }
 
@@ -513,110 +457,78 @@ export default function InvestorDatabase() {
         .ic-legend {
           display: flex;
           flex-wrap: wrap;
-          gap: 14px;
+          gap: 18px;
           margin-bottom: 0.6rem;
         }
         .ic-legend-item {
           display: flex;
           align-items: center;
-          gap: 5px;
-          font-size: 0.68rem;
-          font-weight: 700;
+          gap: 6px;
+          font-size: 0.7rem;
+          font-weight: 400;
+          color: var(--muted);
         }
         .ic-legend-dot {
-          width: 9px;
-          height: 9px;
-          border-radius: 50%;
-          border: 1.5px solid var(--ink);
+          width: 8px;
+          height: 8px;
+          border: 1px solid var(--ink);
           flex-shrink: 0;
         }
+        .ic-legend-dot--strong {
+          background: var(--ink);
+        }
+        .ic-legend-dot--good {
+          background: #808080;
+        }
+        .ic-legend-dot--moderate {
+          background: var(--paper);
+        }
         .ic-count {
-          font-family: "Space Mono", monospace;
+          font-family: "Roboto Mono", monospace;
           font-size: 0.7rem;
-          color: #6b6560;
-          margin: 0 0 1.2rem;
+          color: var(--muted);
+          margin: 0 0 1.4rem;
         }
 
         /* ---------- Sections ---------- */
         .ic-section {
-          margin-bottom: 1.8rem;
+          margin-bottom: 2rem;
         }
         .ic-banner {
-          display: inline-block;
-          transform: skew(-6deg);
-          border: 3px solid var(--ink);
-          box-shadow: 4px 4px 0 var(--ink);
-          padding: 0.4rem 1.4rem;
-          margin: 0.5rem 0 1rem;
+          border-top: 1px solid var(--line);
+          border-bottom: 1px solid var(--line);
+          padding: 0.55rem 0;
+          margin: 0 0 1.1rem;
         }
         .ic-banner span {
-          display: inline-block;
-          transform: skew(6deg);
-          font-family: "Bangers", cursive;
-          letter-spacing: 0.03em;
-          font-size: 1.1rem;
-          color: #fff;
-          text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+          font-weight: 700;
+          letter-spacing: 0.01em;
+          font-size: 0.85rem;
+          text-transform: uppercase;
+          color: var(--ink);
         }
 
         .ic-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-          gap: 16px;
+          gap: 1px;
+          background: var(--hairline);
+          border: 1px solid var(--hairline);
         }
 
         /* ---------- Card ---------- */
         .ic-card {
           position: relative;
-          background: #fffdf6;
-          border: 3px solid var(--ink);
-          border-radius: 8px;
-          box-shadow: 6px 6px 0 var(--ink);
-          padding: 1rem 1rem 0.85rem;
+          background: var(--paper);
+          border: none;
+          border-radius: 0;
+          padding: 1.1rem 1.1rem 1rem;
           display: flex;
           flex-direction: column;
-          gap: 6px;
-          transition: transform 0.15s ease, box-shadow 0.15s ease;
+          gap: 7px;
         }
         .ic-card:hover {
-          transform: translate(-3px, -3px);
-          box-shadow: 9px 9px 0 var(--ink);
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .ic-card {
-            transition: none;
-          }
-          .ic-card:hover {
-            transform: none;
-          }
-        }
-
-        .ic-stamp {
-          position: absolute;
-          top: -14px;
-          right: -10px;
-          width: 58px;
-          height: 58px;
-          transform: rotate(12deg);
-          filter: drop-shadow(2px 3px 0 rgba(0, 0, 0, 0.25));
-        }
-        .ic-stamp-svg {
-          width: 100%;
-          height: 100%;
-          display: block;
-        }
-        .ic-stamp-text {
-          position: absolute;
-          inset: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-family: "Bangers", cursive;
-          font-size: 0.62rem;
-          letter-spacing: 0.02em;
-          color: #fff;
-          text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-          transform: rotate(-3deg);
+          background: var(--panel);
         }
 
         .ic-card-top {
@@ -624,58 +536,80 @@ export default function InvestorDatabase() {
           justify-content: space-between;
           align-items: flex-start;
           gap: 8px;
-          padding-right: 30px;
         }
         .ic-card-name {
-          font-family: "Bangers", cursive;
-          font-weight: 400;
-          font-size: 1.15rem;
-          line-height: 1.15;
+          font-weight: 700;
+          font-size: 1rem;
+          line-height: 1.2;
           margin: 0;
-          letter-spacing: 0.01em;
+          letter-spacing: -0.005em;
         }
         .ic-region {
           flex-shrink: 0;
-          font-family: "Space Mono", monospace;
-          font-size: 0.55rem;
-          font-weight: 700;
-          color: #fff;
-          border-radius: 4px;
+          font-family: "Roboto Mono", monospace;
+          font-size: 0.58rem;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          color: var(--muted);
+          border: 1px solid var(--line);
           padding: 2px 7px;
           white-space: nowrap;
-          border: 1.5px solid var(--ink);
+        }
+
+        .ic-fitbadge {
+          align-self: flex-start;
+          font-family: "Roboto Mono", monospace;
+          font-size: 0.58rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          padding: 2px 7px;
+          border: 1px solid var(--ink);
+        }
+        .ic-fitbadge--strong {
+          background: var(--ink);
+          color: var(--paper);
+        }
+        .ic-fitbadge--good {
+          background: #808080;
+          color: var(--paper);
+          border-color: #808080;
+        }
+        .ic-fitbadge--moderate {
+          background: var(--paper);
+          color: var(--ink);
         }
 
         .ic-card-meta {
           display: flex;
-          gap: 6px;
+          gap: 8px;
           flex-wrap: wrap;
+          align-items: baseline;
         }
         .ic-meta-stage {
-          font-size: 0.65rem;
-          font-weight: 700;
-          background: var(--yellow);
-          border: 1.5px solid var(--ink);
-          border-radius: 99px;
-          padding: 2px 8px;
+          font-size: 0.68rem;
+          font-weight: 500;
+          color: var(--ink);
+          border-bottom: 1px solid var(--line);
+          padding-bottom: 1px;
         }
         .ic-meta-check {
-          font-family: "Space Mono", monospace;
-          font-size: 0.65rem;
-          color: var(--ink);
-          padding: 2px 2px;
+          font-family: "Roboto Mono", monospace;
+          font-size: 0.68rem;
+          color: var(--muted);
         }
         .ic-card-geo {
-          font-size: 0.7rem;
-          font-weight: 700;
-          color: #6b6560;
+          font-size: 0.72rem;
+          font-weight: 500;
+          color: var(--muted);
           margin: 0;
         }
         .ic-card-thesis {
-          font-size: 0.78rem;
-          line-height: 1.45;
+          font-size: 0.8rem;
+          line-height: 1.5;
           margin: 0;
-          color: #33302b;
+          color: #333333;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
@@ -688,37 +622,32 @@ export default function InvestorDatabase() {
           display: inline-flex;
           align-items: center;
           gap: 4px;
-          font-family: "Comic Neue", sans-serif;
-          font-weight: 700;
-          font-size: 0.75rem;
-          color: var(--strong);
+          font-family: "Roboto", sans-serif;
+          font-weight: 500;
+          font-size: 0.76rem;
+          color: var(--ink);
           text-decoration: none;
-          border-bottom: 2px solid transparent;
+          border-bottom: 1px solid var(--ink);
         }
         .ic-card-link:hover {
-          border-bottom-color: var(--strong);
+          opacity: 0.6;
         }
 
         /* ---------- Empty state ---------- */
         .ic-empty {
-          text-align: center;
-          padding: 3rem 1rem;
+          text-align: left;
+          padding: 3rem 0;
+          border-top: 1px solid var(--line);
         }
-        .ic-empty-stamp {
-          display: inline-block;
-          font-family: "Bangers", cursive;
-          font-size: 1.6rem;
-          color: #fff;
-          background: var(--strong);
-          border: 3px solid var(--ink);
-          padding: 0.3rem 1.2rem;
-          transform: rotate(-4deg);
-          box-shadow: 4px 4px 0 var(--ink);
-          margin-bottom: 0.8rem;
+        .ic-empty-title {
+          font-weight: 700;
+          font-size: 1.1rem;
+          margin: 0 0 0.4rem;
         }
         .ic-empty p {
-          font-weight: 700;
-          color: #6b6560;
+          font-weight: 400;
+          color: var(--muted);
+          margin: 0;
         }
 
         /* ---------- Responsive ---------- */
@@ -726,8 +655,11 @@ export default function InvestorDatabase() {
           .ic-stats {
             grid-template-columns: repeat(2, 1fr);
           }
+          .ic-stat-panel {
+            border-bottom: 1px solid var(--line);
+          }
           .ic-root {
-            padding: 1.75rem 0.9rem 3rem;
+            padding: 2rem 1rem 3rem;
           }
         }
         @media (max-width: 420px) {

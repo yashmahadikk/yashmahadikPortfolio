@@ -25,15 +25,15 @@ export function ContactSection() {
             <Phone size={18} />
             <span>+91 8451921771</span>
           </a>
-          <a href="mailto:yashmahaadik@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+          <a href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards" className="flex items-center gap-2 hover:text-primary transition-colors">
             <Mail size={18} />
-            <span>yashmahaadik@gmail.com</span>
+            <span>yashmahadik2005@gmail.com</span>
           </a>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
           <a
-            href="mailto:yashmahaadik@gmail.com?subject=Let%27s%20Connect%20-%20Product%20Management%20Inquiry&body=Hi%20Yash%2C%0A%0AI%27m%20interested%20in%20discussing%20product%20management%20and%20strategic%20opportunities%20with%20you.%0A%0ALooking%20forward%20to%20connecting%21"
+            href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors w-full sm:w-auto rounded-md"
           >
             <Mail size={20} />

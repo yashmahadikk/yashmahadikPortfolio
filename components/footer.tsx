@@ -16,7 +16,7 @@ export function Footer() {
             
             {/* Social Icons */}
             <div className="flex gap-4 mb-6">
-              <a href="mailto:yashmahaadik@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards" className="text-muted-foreground hover:text-primary transition-colors">
                 <Mail size={20} />
               </a>
               <a href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Product and strategy insights">
@@ -91,7 +91,7 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">Connect</h4>
             <nav className="space-y-3">
-              <a href="mailto:yashmahaadik@gmail.com" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+              <a href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Email
               </a>
               <a href="tel:+918451921771" className="text-sm text-muted-foreground hover:text-primary transition-colors block">

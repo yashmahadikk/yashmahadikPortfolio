@@ -27,7 +27,7 @@ export function HomeHeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
           <a
-            href="mailto:yashmahaadik@gmail.com"
+            href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards"
             className="inline-flex items-center px-6 py-3 bg-foreground text-background font-medium hover:bg-foreground/90 transition-colors rounded"
           >
             Get in touch
@@ -53,7 +53,7 @@ export function HomeHeroSection() {
           <a href="https://github.com/yashmahaadik" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
             <Github size={20} />
           </a>
-          <a href="mailto:yashmahaadik@gmail.com" className="hover:text-foreground transition-colors">
+          <a href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards" className="hover:text-foreground transition-colors">
             <Mail size={20} />
           </a>
         </div>

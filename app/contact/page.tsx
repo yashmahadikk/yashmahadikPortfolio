@@ -47,8 +47,8 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Email</h3>
               </div>
-              <a href="mailto:yashmahaadik@gmail.com" className="text-muted-foreground hover:text-primary transition-colors text-lg">
-                yashmahaadik@gmail.com
+              <a href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards" className="text-muted-foreground hover:text-primary transition-colors text-lg">
+                yashmahadik2005@gmail.com
               </a>
               <p className="text-sm text-muted-foreground mt-2">Preferred method for detailed inquiries</p>
             </div>
@@ -57,7 +57,7 @@ export default function ContactPage() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <a
-              href="mailto:yashmahaadik@gmail.com?subject=Let%27s%20Connect%20-%20Product%20Management%20Inquiry&body=Hi%20Yash%2C%0A%0AI%27m%20interested%20in%20discussing%20product%20management%20and%20strategic%20opportunities%20with%20you.%0A%0ALooking%20forward%20to%20connecting%21"
+              href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors rounded-md"
             >
               <Mail size={20} />

@@ -18,7 +18,7 @@ export function HomeThinkingPartnerSection() {
               Bring your roadmap, your ideas, or a problem you can't stop thinking about. We'll work through it together — no fluff, no scripts, just thinking. Perfect for exploring new product directions or validating market hypotheses.
             </p>
             <a
-              href="https://calendar.google.com/calendar/u/0/r"
+              href="https://calendar.app.google/7XqQhTTXGzGNLyHp9"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-foreground text-background font-medium hover:bg-foreground/90 transition-colors rounded"

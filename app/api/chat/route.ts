@@ -1,5 +1,3 @@
-import { google } from '@ai-sdk/google'
-import { streamText } from 'ai'
 
 const SYSTEM_PROMPT = `You are Yash's Portfolio Assistant. Represent Yash Mahadik, a Product Manager, Founder, and technology enthusiast with 4 years of product management experience and 5 years across product, project, and operations work. Answer questions about Yash's portfolio accurately and helpfully. Speak in first person only when clearly describing Yash's own work; otherwise identify yourself as Yash's Portfolio Assistant.
 
@@ -53,16 +51,35 @@ export async function POST(req: Request) {
     const lastMessage = messages[messages.length - 1]?.content || ''
 
     try {
-      const result = streamText({
-        model: google('gemini-2.5-flash'),
-        system: SYSTEM_PROMPT,
-        messages: messages.map((msg: any) => ({
-          role: msg.role,
-          content: msg.content,
-        })),
-      })
+      const geminiResponse = await fetch(
+        'https://generativelanguage.googleapis.com/v1/models/gemini-3.6-flash:generateContent?key=' +
+          encodeURIComponent(process.env.GOOGLE_GENERATIVE_AI_API_KEY || ''),
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            contents: messages.map((msg: any) => ({
+              role: msg.role === 'assistant' ? 'model' : 'user',
+              parts: [{ text: String(msg.content) }],
+            })),
+            generationConfig: { maxOutputTokens: 500, temperature: 0.7 },
+          }),
+        }
+      )
 
-      return result.toTextStreamResponse()
+      if (!geminiResponse.ok) {
+        const errorBody = await geminiResponse.text()
+        throw new Error(`Gemini API returned ${geminiResponse.status}: ${errorBody.slice(0, 240)}`)
+      }
+
+      const geminiData = await geminiResponse.json()
+      const responseText = geminiData.candidates?.[0]?.content?.parts?.[0]?.text
+      if (!responseText) throw new Error('Gemini returned no text')
+
+      return new Response(responseText, {
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+      })
     } catch (aiError) {
       console.error('[v0] AI SDK Error:', aiError)
       // Fallback responses based on keywords

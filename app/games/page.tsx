@@ -1,7 +1,6 @@
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
-import InfiniteTicTacToe from '@/components/infinite-tictactoe'
-import Tetris from '@/components/tetris'
+import GamesHub from '@/components/games-hub'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
@@ -31,19 +30,8 @@ export default function GamesPage() {
             </p>
           </div>
 
-          {/* Games Grid */}
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            {/* Infinite Tic Tac Toe */}
-            <div className="flex flex-col items-center">
-              <div className="w-full max-w-md">
-                <InfiniteTicTacToe />
-              </div>
-            </div>
-
-            {/* Tetris */}
-            <div className="flex flex-col items-center">
-              <Tetris />
-            </div>
+          <div className="mb-16">
+            <GamesHub />
           </div>
         </div>
       </section>

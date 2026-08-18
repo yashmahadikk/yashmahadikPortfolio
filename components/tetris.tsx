@@ -35,6 +35,7 @@ export default function Tetris() {
   const [level, setLevel] = useState(1)
   const [isPaused, setIsPaused] = useState(false)
   const [isOver, setIsOver] = useState(false)
+  const [hasStarted, setHasStarted] = useState(false)
 
   const collides = useCallback((candidate: Piece, nextBoard = board) => {
     return candidate.shape.some((row, y) => row.some((value, x) => {
@@ -62,18 +63,18 @@ export default function Tetris() {
   }, [board, collides, level, piece, score])
 
   const move = useCallback((dx: number, dy: number) => {
-    if (isPaused || isOver) return
+    if (!hasStarted || isPaused || isOver) return
     const next = { ...piece, x: piece.x + dx, y: piece.y + dy }
     if (!collides(next)) setPiece(next)
     else if (dy > 0) lockPiece()
-  }, [collides, isOver, isPaused, lockPiece, piece])
+  }, [collides, hasStarted, isOver, isPaused, lockPiece, piece])
 
   const rotatePiece = useCallback((direction: 1 | -1) => {
-    if (isPaused || isOver) return
+    if (!hasStarted || isPaused || isOver) return
     const rotated = direction === 1 ? rotate(piece.shape) : rotate(rotate(rotate(piece.shape)))
     const next = { ...piece, shape: rotated }
     if (!collides(next)) setPiece(next)
-  }, [collides, isOver, isPaused, piece])
+  }, [collides, hasStarted, isOver, isPaused, piece])
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -88,10 +89,10 @@ export default function Tetris() {
   }, [move, rotatePiece])
 
   useEffect(() => {
-    if (isPaused || isOver) return
-    const timer = window.setInterval(() => move(0, 1), Math.max(120, 700 - (level - 1) * 60))
+    if (!hasStarted || isPaused || isOver) return
+    const timer = window.setInterval(() => move(0, 1), Math.max(90, 420 - (level - 1) * 45))
     return () => window.clearInterval(timer)
-  }, [isOver, isPaused, level, move])
+  }, [hasStarted, isOver, isPaused, level, move])
 
   const visibleBoard = useMemo(() => {
     const display = board.map((row) => [...row])
@@ -101,7 +102,8 @@ export default function Tetris() {
     return display
   }, [board, piece])
 
-  const restart = () => { setBoard(createBoard()); setPiece(randomPiece()); setScore(0); setLevel(1); setIsOver(false); setIsPaused(false) }
+  const startGame = () => { setHasStarted(true); setIsPaused(false) }
+  const restart = () => { setBoard(createBoard()); setPiece(randomPiece()); setScore(0); setLevel(1); setIsOver(false); setIsPaused(false); setHasStarted(false) }
 
   return (
     <div className="w-full max-w-md border border-border bg-background p-4 sm:p-6">
@@ -113,12 +115,12 @@ export default function Tetris() {
         <div className="grid h-full grid-cols-10 grid-rows-20 gap-px">
           {visibleBoard.flatMap((row, y) => row.map((cell, x) => <div key={`${x}-${y}`} className={cell ? `${cell} opacity-90` : 'bg-background'} />))}
         </div>
-        {(isPaused || isOver) && <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/90 text-center"><p className="font-semibold text-foreground">{isOver ? 'Game over' : 'Paused'}</p><button onClick={isOver ? restart : () => setIsPaused(false)} className="mt-3 border border-foreground px-4 py-2 text-sm text-foreground hover:bg-foreground hover:text-background">{isOver ? 'Play again' : 'Resume'}</button></div>}
+        {(!hasStarted || isPaused || isOver) && <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/90 px-6 text-center"><p className="font-semibold text-foreground">{!hasStarted ? 'Ready?' : isOver ? 'Game over' : 'Paused'}</p><p className="mt-2 text-sm text-muted-foreground">{!hasStarted ? 'Start when you are ready.' : isOver ? `Final score: ${score}` : 'The board is waiting.'}</p><button onClick={!hasStarted ? startGame : isOver ? restart : () => setIsPaused(false)} className="mt-4 border border-foreground px-4 py-2 text-sm text-foreground hover:bg-foreground hover:text-background">{!hasStarted ? 'Start game' : isOver ? 'Play again' : 'Resume'}</button></div>}
       </div>
       <div className="mt-5 flex flex-wrap justify-center gap-2">
         <button aria-label="Move left" onClick={() => move(-1, 0)} className="border border-border px-4 py-2 text-foreground hover:bg-muted">←</button><button aria-label="Move down" onClick={() => move(0, 1)} className="border border-border px-4 py-2 text-foreground hover:bg-muted">↓</button><button aria-label="Move right" onClick={() => move(1, 0)} className="border border-border px-4 py-2 text-foreground hover:bg-muted">→</button><button aria-label="Rotate piece" onClick={() => rotatePiece(1)} className="border border-border p-2 text-foreground hover:bg-muted"><RotateCw size={18} /></button><button aria-label="Rotate piece counterclockwise" onClick={() => rotatePiece(-1)} className="border border-border p-2 text-foreground hover:bg-muted"><RotateCcw size={18} /></button>
       </div>
-      <div className="mt-3 flex justify-center gap-2"><button onClick={() => setIsPaused((current) => !current)} className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground">{isPaused ? <Play size={14} /> : <Pause size={14} />} {isPaused ? 'Resume' : 'Pause'}</button><button onClick={restart} className="text-xs text-muted-foreground hover:text-foreground">Restart</button></div>
+      <div className="mt-3 flex justify-center gap-2"><button onClick={() => hasStarted && setIsPaused((current) => !current)} disabled={!hasStarted || isOver} className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50">{isPaused ? <Play size={14} /> : <Pause size={14} />} {isPaused ? 'Resume' : 'Pause'}</button><button onClick={restart} className="text-xs text-muted-foreground hover:text-foreground">Restart</button></div>
       <p className="mt-4 text-center font-mono text-[11px] text-muted-foreground">Arrow keys to move · Up to rotate · Space to pause</p>
     </div>
   )

@@ -1,3 +1,4 @@
+import { google } from '@ai-sdk/google'
 import { streamText } from 'ai'
 
 const SYSTEM_PROMPT = `You are Yash's Portfolio Assistant. Represent Yash Mahadik, a Product Manager, Founder, and technology enthusiast with 4 years of product management experience and 5 years across product, project, and operations work. Answer questions about Yash's portfolio accurately and helpfully. Speak in first person only when clearly describing Yash's own work; otherwise identify yourself as Yash's Portfolio Assistant.
@@ -53,7 +54,7 @@ export async function POST(req: Request) {
 
     try {
       const result = streamText({
-        model: 'openai/gpt-4.1-mini',
+        model: google('gemini-2.5-flash'),
         system: SYSTEM_PROMPT,
         messages: messages.map((msg: any) => ({
           role: msg.role,

@@ -100,9 +100,9 @@ export function PortfolioChatbot() {
     <div className="fixed bottom-6 right-4 z-50 flex flex-col items-end gap-3 sm:right-6">
       {isOpen && (
         <div className="flex h-[min(34rem,calc(100vh-7rem))] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <div className="flex items-center justify-between border-b border-border bg-primary p-4 text-primary-foreground">
+          <div className="flex items-center justify-between border-b border-border bg-foreground p-4 text-background">
             <div className="flex items-center gap-3">
-              <div className="flex size-9 items-center justify-center rounded-full bg-primary-foreground/15">
+              <div className="flex size-9 items-center justify-center rounded-full bg-background/15">
                 <Sparkles size={17} aria-hidden="true" />
               </div>
               <div>
@@ -112,7 +112,7 @@ export function PortfolioChatbot() {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="rounded-md p-1.5 transition-colors hover:bg-primary-foreground/15"
+              className="rounded-md p-1.5 transition-colors hover:bg-background/15"
               aria-label="Close Yash's Portfolio Assistant"
             >
               <X size={19} />
@@ -137,7 +137,7 @@ export function PortfolioChatbot() {
                 <div
                   className={`max-w-xs px-4 py-2 rounded-lg ${
                     message.role === 'user'
-                      ? 'bg-primary text-primary-foreground rounded-br-none'
+                      ? 'bg-foreground text-background rounded-br-none'
                       : 'bg-muted text-muted-foreground rounded-bl-none'
                   }`}
                 >
@@ -175,7 +175,7 @@ export function PortfolioChatbot() {
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="p-2 bg-foreground text-background rounded-lg hover:bg-primary/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               aria-label="Send message"
             >
               <Send size={18} />
@@ -186,12 +186,11 @@ export function PortfolioChatbot() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+        className="flex size-12 items-center justify-center rounded-full bg-foreground text-background shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
         aria-label="Open Yash's Portfolio Assistant"
         aria-expanded={isOpen}
       >
         <MessageCircle size={20} aria-hidden="true" />
-        <span className="hidden sm:inline">Ask Yash&apos;s Assistant</span>
       </button>
     </div>
   )

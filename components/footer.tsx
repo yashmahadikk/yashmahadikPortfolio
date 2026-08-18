@@ -94,7 +94,7 @@ export function Footer() {
               <a href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Email
               </a>
-              <a href="tel:+918451921771" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+              <a href="tel:+917977922735" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Phone
               </a>
               <a href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">

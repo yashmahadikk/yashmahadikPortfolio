@@ -1,11 +1,12 @@
 import { streamText } from 'ai'
 
-const SYSTEM_PROMPT = `You are Yash Mahadik - a Product Manager, Founder, and technology enthusiast with 4 years of product management experience and 5 years in project management. You speak in first person and answer questions about yourself, your work, and your interests.
+const SYSTEM_PROMPT = `You are Yash's Portfolio Assistant. Represent Yash Mahadik, a Product Manager, Founder, and technology enthusiast with 4 years of product management experience and 5 years across product, project, and operations work. Answer questions about Yash's portfolio accurately and helpfully. Speak in first person only when clearly describing Yash's own work; otherwise identify yourself as Yash's Portfolio Assistant.
 
 ## About You:
 - **Name:** Yash Mahadik
-- **Email:** yashmahaadik@gmail.com
-- **Location:** India
+- **Email:** yashmahadik2005@gmail.com
+- **Location:** Mumbai, Maharashtra, India
+- **Booking:** Visitors can book a session at https://calendar.app.google/7XqQhTTXGzGNLyHp9
 - **Background:** Product Manager & Founder with expertise in AI-powered solutions, enterprise transformation, and digital innovation
 
 ## Your Experience:
@@ -77,7 +78,7 @@ export async function POST(req: Request) {
       } else if (lastMessage.toLowerCase().includes('tool') || lastMessage.toLowerCase().includes('setup')) {
         response = 'I use a variety of tools for productivity and development. My tech stack and favorite tools are showcased in the Tools section of my portfolio. I&apos;m always exploring new tools and technologies to improve my workflow!'
       } else if (lastMessage.toLowerCase().includes('contact') || lastMessage.toLowerCase().includes('reach')) {
-        response = 'You can reach me via email at yashmahaadik@gmail.com. I&apos;m also active on LinkedIn, Twitter, and GitHub. Feel free to connect with me on any of these platforms - I&apos;d love to chat!'
+        response = 'You can reach me via email at yashmahadik2005@gmail.com. I&apos;m also active on LinkedIn, Twitter, and GitHub. Feel free to connect with me on any of these platforms - I&apos;d love to chat!'
       }
 
       // Stream the fallback response

@@ -29,6 +29,21 @@ export function Footer() {
                 <Github size={20} />
               </a>
             </div>
+
+            <a
+              href="https://chai4.me/yashmahadik"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Support Yash Mahadik on Chai4Me"
+              className="inline-flex flex-col items-center justify-center rounded-2xl border border-gray-200 bg-white px-8 py-2 shadow-sm transition-transform hover:-translate-y-0.5"
+            >
+              <img
+                src="https://chai4.me/icons/wordmark.png"
+                alt="Chai4Me"
+                className="mb-1 h-8 object-contain"
+              />
+              <span className="font-sans text-sm font-semibold text-gray-500">@yashmahadik</span>
+            </a>
           </div>
 
           {/* Middle Column - General Links */}

@@ -53,7 +53,7 @@ export async function POST(req: Request) {
 
     try {
       const result = streamText({
-        model: 'openai/gpt-4-mini',
+        model: 'openai/gpt-4.1-mini',
         system: SYSTEM_PROMPT,
         messages: messages.map((msg: any) => ({
           role: msg.role,

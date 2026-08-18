@@ -1,6 +1,7 @@
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import InfiniteTicTacToe from '@/components/infinite-tictactoe'
+import Tetris from '@/components/tetris'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
@@ -39,15 +40,9 @@ export default function GamesPage() {
               </div>
             </div>
 
-            {/* More Games Coming Soon */}
-            <div className="flex items-center justify-center">
-              <div className="text-center p-8 border border-dashed border-border rounded-lg">
-                <p className="text-4xl mb-4">🎮</p>
-                <p className="text-lg font-semibold text-foreground mb-2">More Games Coming Soon</p>
-                <p className="text-muted-foreground">
-                  More AI-powered games will be added soon. Stay tuned!
-                </p>
-              </div>
+            {/* Tetris */}
+            <div className="flex flex-col items-center">
+              <Tetris />
             </div>
           </div>
         </div>

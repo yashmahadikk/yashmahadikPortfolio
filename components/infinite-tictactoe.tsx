@@ -170,7 +170,7 @@ export default function InfiniteTicTacToe() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto p-6">
+    <div className="w-full max-w-md mx-auto rounded-2xl border border-border bg-background p-6">
       <div className="mb-6">
         <h2 className="text-2xl font-semibold text-foreground mb-2">Infinite Tic Tac Toe</h2>
         <p className="text-sm text-muted-foreground mb-4">
@@ -190,7 +190,7 @@ export default function InfiniteTicTacToe() {
       </div>
 
       {/* Game Board */}
-      <div className="grid grid-cols-3 gap-2 mb-6 bg-border p-2 rounded-lg">
+      <div className="grid grid-cols-3 gap-2 mb-6 rounded-xl bg-border p-2">
         {board.map((cell, index) => (
           <button
             key={index}

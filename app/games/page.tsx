@@ -1,6 +1,6 @@
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
-import InfiniteTicTacToe from '@/components/infinite-tictactoe'
+import GamesHub from '@/components/games-hub'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
@@ -30,25 +30,8 @@ export default function GamesPage() {
             </p>
           </div>
 
-          {/* Games Grid */}
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            {/* Infinite Tic Tac Toe */}
-            <div className="flex flex-col items-center">
-              <div className="w-full max-w-md">
-                <InfiniteTicTacToe />
-              </div>
-            </div>
-
-            {/* More Games Coming Soon */}
-            <div className="flex items-center justify-center">
-              <div className="text-center p-8 border border-dashed border-border rounded-lg">
-                <p className="text-4xl mb-4">🎮</p>
-                <p className="text-lg font-semibold text-foreground mb-2">More Games Coming Soon</p>
-                <p className="text-muted-foreground">
-                  More AI-powered games will be added soon. Stay tuned!
-                </p>
-              </div>
-            </div>
+          <div className="mb-16">
+            <GamesHub />
           </div>
         </div>
       </section>

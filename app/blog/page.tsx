@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { ArrowUpRight, ArrowLeft, BookOpen, Briefcase, Award, Users, Zap, CheckSquare, Globe, Book, PenTool } from "lucide-react";
 import { Navigation } from "@/components/navigation";
@@ -12,6 +12,8 @@ export default function BlogPage() {
   const [loading, setLoading] = useState(true)
   const [itemsPerPage, setItemsPerPage] = useState(10)
   const [currentPage, setCurrentPage] = useState(1)
+  const [searchQuery, setSearchQuery] = useState("")
+  const blogStartRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,11 +37,31 @@ export default function BlogPage() {
     fetchData()
   }, [])
 
-  const totalPages = Math.ceil(posts.length / itemsPerPage)
+  const filteredPosts = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase()
+    if (!query) return posts
+    return posts.filter((post) =>
+      [post.title, post.excerpt, post.category].some((value) =>
+        value?.toLowerCase().includes(query)
+      )
+    )
+  }, [posts, searchQuery])
+
+  const totalPages = Math.ceil(filteredPosts.length / itemsPerPage)
   const paginatedPosts = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage
-    return posts.slice(startIndex, startIndex + itemsPerPage)
-  }, [posts, currentPage, itemsPerPage])
+    return filteredPosts.slice(startIndex, startIndex + itemsPerPage)
+  }, [filteredPosts, currentPage, itemsPerPage])
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [searchQuery, itemsPerPage])
+
+  useEffect(() => {
+    if (currentPage > 1) {
+      blogStartRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }, [currentPage])
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -55,6 +77,19 @@ export default function BlogPage() {
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl">
                 Deep dives on product strategy, market analysis, and building things that matter.
               </p>
+            </div>
+
+            {/* Blog Search */}
+            <div className="mb-8">
+              <label htmlFor="blog-search" className="sr-only">Search blog posts</label>
+              <input
+                id="blog-search"
+                type="search"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Search blog posts..."
+                className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+              />
             </div>
 
             {/* Items Per Page Selector */}
@@ -78,11 +113,11 @@ export default function BlogPage() {
               ))}
               <button
                 onClick={() => {
-                  setItemsPerPage(posts.length || 999999)
+                  setItemsPerPage(filteredPosts.length || 999999)
                   setCurrentPage(1)
                 }}
                 className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
-                  posts.length > 0 && itemsPerPage >= posts.length
+                  filteredPosts.length > 0 && itemsPerPage >= filteredPosts.length
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-muted text-muted-foreground hover:bg-card'
                 }`}
@@ -92,7 +127,7 @@ export default function BlogPage() {
             </div>
 
             {/* Latest from Blog - Display First with Large Thumbnails */}
-            <div className="mb-12 sm:mb-24">
+            <div ref={blogStartRef} className="scroll-mt-8 mb-12 sm:mb-24">
               <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-8 sm:mb-12">Latest from Blog</h2>
               {loading ? (
                 <div className="text-center py-12">

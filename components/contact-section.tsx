@@ -21,9 +21,9 @@ export function ContactSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 text-muted-foreground">
-          <a href="tel:+918451921771" className="flex items-center gap-2 hover:text-primary transition-colors">
+          <a href="tel:+917977922735" className="flex items-center gap-2 hover:text-primary transition-colors">
             <Phone size={18} />
-            <span>+91 8451921771</span>
+            <span>+91 7977922735</span>
           </a>
           <a href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards" className="flex items-center gap-2 hover:text-primary transition-colors">
             <Mail size={18} />

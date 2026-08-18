@@ -29,6 +29,21 @@ export function Footer() {
                 <Github size={20} />
               </a>
             </div>
+
+            <a
+              href="https://chai4.me/yashmahadik"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Support Yash Mahadik on Chai4Me"
+              className="inline-flex flex-col items-center justify-center rounded-2xl border border-gray-200 bg-white px-8 py-2 shadow-sm transition-transform hover:-translate-y-0.5"
+            >
+              <img
+                src="https://chai4.me/icons/wordmark.png"
+                alt="Chai4Me"
+                className="mb-1 h-8 object-contain"
+              />
+              <span className="font-sans text-sm font-semibold text-gray-500">@yashmahadik</span>
+            </a>
           </div>
 
           {/* Middle Column - General Links */}
@@ -94,7 +109,7 @@ export function Footer() {
               <a href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Email
               </a>
-              <a href="tel:+918451921771" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+              <a href="tel:+917977922735" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Phone
               </a>
               <a href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">

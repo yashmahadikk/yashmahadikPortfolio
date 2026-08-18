@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { MessageCircle, X, Send } from 'lucide-react'
+import { MessageCircle, X, Send, Sparkles } from 'lucide-react'
 
 interface Message {
   id: string
@@ -97,19 +97,25 @@ export function PortfolioChatbot() {
   if (!isMounted) return null
 
   return (
-    <div className="fixed bottom-24 right-4 z-50 flex flex-col items-end gap-4">
-      {/* Chat Window */}
+    <div className="fixed bottom-6 right-4 z-50 flex flex-col items-end gap-3 sm:right-6">
       {isOpen && (
-        <div className="w-96 h-96 bg-background border border-border rounded-lg shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-200">
-          {/* Header */}
-          <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
-            <h3 className="font-semibold">Ask me anything</h3>
+        <div className="flex h-[min(34rem,calc(100vh-7rem))] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl animate-in fade-in slide-in-from-bottom-2 duration-200">
+          <div className="flex items-center justify-between border-b border-border bg-foreground p-4 text-background">
+            <div className="flex items-center gap-3">
+              <div className="flex size-9 items-center justify-center rounded-full bg-background/15">
+                <Sparkles size={17} aria-hidden="true" />
+              </div>
+              <div>
+                <h3 className="font-semibold">Yash&apos;s Portfolio Assistant</h3>
+                <p className="text-xs text-primary-foreground/70">Ask about my work and experience</p>
+              </div>
+            </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 hover:bg-primary/80 rounded transition-colors"
-              aria-label="Close chatbot"
+              className="rounded-md p-1.5 transition-colors hover:bg-background/15"
+              aria-label="Close Yash's Portfolio Assistant"
             >
-              <X size={20} />
+              <X size={19} />
             </button>
           </div>
 
@@ -118,7 +124,7 @@ export function PortfolioChatbot() {
             {messages.length === 0 && (
               <div className="flex items-center justify-center h-full text-muted-foreground text-center">
                 <p className="text-sm">
-                  Hi! I&apos;m an AI version of Yash. Ask me about my projects, experience, books I&apos;ve read, or anything else!
+                  Hi, I&apos;m Yash&apos;s Portfolio Assistant. Ask me about projects, product experience, skills, or how to get in touch.
                 </p>
               </div>
             )}
@@ -131,7 +137,7 @@ export function PortfolioChatbot() {
                 <div
                   className={`max-w-xs px-4 py-2 rounded-lg ${
                     message.role === 'user'
-                      ? 'bg-primary text-primary-foreground rounded-br-none'
+                      ? 'bg-foreground text-background rounded-br-none'
                       : 'bg-muted text-muted-foreground rounded-bl-none'
                   }`}
                 >
@@ -169,7 +175,7 @@ export function PortfolioChatbot() {
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="p-2 bg-foreground text-background rounded-lg hover:bg-primary/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               aria-label="Send message"
             >
               <Send size={18} />
@@ -178,13 +184,13 @@ export function PortfolioChatbot() {
         </div>
       )}
 
-      {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="hidden p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
-        aria-label="Open chatbot"
+        className="flex size-12 items-center justify-center rounded-full bg-foreground text-background shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+        aria-label="Open Yash's Portfolio Assistant"
+        aria-expanded={isOpen}
       >
-        <MessageCircle size={24} />
+        <MessageCircle size={20} aria-hidden="true" />
       </button>
     </div>
   )

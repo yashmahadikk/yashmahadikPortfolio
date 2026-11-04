@@ -4,6 +4,14 @@ import { ArrowRight } from "lucide-react"
 export function HomeExperienceSection() {
   const experiences = [
     {
+      company: "Saleshandy",
+      role: "Product Manager Growth",
+      period: "Aug 2026 - Oct 2026",
+      location: "Mumbai",
+      status: "Completed",
+      logo: "📈"
+    },
+    {
       company: "Devanagari Ventures",
       role: "PM & Co Founder",
       period: "May 2024 - May 2026",

@@ -10,6 +10,22 @@ export const metadata = {
 
 const experiences = [
   {
+    company: 'Saleshandy',
+    role: 'Product Manager Growth',
+    period: 'Aug 2026 - Oct 2026',
+    location: 'Mumbai',
+    status: 'Completed',
+    logo: '📈',
+    description: 'Led growth-focused product initiatives and experiments to improve acquisition, activation, and customer value.',
+    responsibilities: [
+      'Growth strategy and experiment prioritization',
+      'Product-led acquisition and activation initiatives',
+      'Funnel analysis and KPI tracking',
+      'Cross-functional collaboration with marketing, design, and engineering',
+    ],
+    skills: ['Product Management', 'Growth', 'Experimentation', 'Analytics'],
+  },
+  {
     company: 'Devanagari Ventures',
     role: 'PM & Co Founder',
     period: 'May 2024 - May 2026',

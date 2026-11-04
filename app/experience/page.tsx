@@ -10,6 +10,22 @@ export const metadata = {
 
 const experiences = [
   {
+    company: 'Saleshandy',
+    role: 'Product Manager Growth',
+    period: 'Aug 2026 - Oct 2026',
+    location: 'Mumbai',
+    status: 'Completed',
+    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2RUpg8FNZizUbD1UiveZxsPQ2fYy4W.png',
+    description: 'Led growth-focused product initiatives and experiments to improve acquisition, activation, and customer value.',
+    responsibilities: [
+      'Growth strategy and experiment prioritization',
+      'Product-led acquisition and activation initiatives',
+      'Funnel analysis and KPI tracking',
+      'Cross-functional collaboration with marketing, design, and engineering',
+    ],
+    skills: ['Product Management', 'Growth', 'Experimentation', 'Analytics'],
+  },
+  {
     company: 'Devanagari Ventures',
     role: 'PM & Co Founder',
     period: 'May 2024 - May 2026',
@@ -85,7 +101,11 @@ export default function ExperiencePage() {
                 {/* Header */}
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <div className="flex items-start gap-4">
-                    <div className="text-4xl">{exp.logo}</div>
+                    {exp.company === 'Saleshandy' ? (
+                <img src={exp.logo} alt="Saleshandy logo" className="size-12 rounded-lg object-contain" />
+              ) : (
+                <div className="text-4xl">{exp.logo}</div>
+              )}
                     <div>
                       <h2 className="text-2xl font-semibold text-foreground">{exp.company}</h2>
                       <p className="text-lg text-primary font-medium mb-1">{exp.role}</p>

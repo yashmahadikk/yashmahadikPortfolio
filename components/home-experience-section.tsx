@@ -4,6 +4,14 @@ import { ArrowRight } from "lucide-react"
 export function HomeExperienceSection() {
   const experiences = [
     {
+      company: "Saleshandy",
+      role: "Product Manager Growth",
+      period: "Aug 2026 - Oct 2026",
+      location: "Mumbai",
+      status: "Completed",
+      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2RUpg8FNZizUbD1UiveZxsPQ2fYy4W.png"
+    },
+    {
       company: "Devanagari Ventures",
       role: "PM & Co Founder",
       period: "May 2024 - May 2026",
@@ -38,7 +46,11 @@ export function HomeExperienceSection() {
           {experiences.map((exp, idx) => (
             <div key={idx} className="flex gap-6">
               <div className="text-3xl flex-shrink-0 w-12 h-12 flex items-center justify-center">
-                {exp.logo}
+                {exp.company === "Saleshandy" ? (
+                  <img src={exp.logo} alt="Saleshandy logo" className="size-12 rounded-lg object-contain" />
+                ) : (
+                  exp.logo
+                )}
               </div>
               <div className="flex-1">
                 <div className="flex items-start justify-between mb-2">

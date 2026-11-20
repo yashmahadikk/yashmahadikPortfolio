@@ -46,6 +46,28 @@ const defaultProjects = [
     bg_color: "bg-amber-50",
   },
   {
+    project_id: "saleshandy-import-list",
+    category: "SALESHANDY · LEAD FINDER",
+    title: "Lead Finder: Import List",
+    subtitle: "Bring prospect lists into Saleshandy without paying twice",
+    description: "Designed the Import New List experience for teams moving from tools like Apollo, Lusha, or Clay. Users can bring existing prospect data into Saleshandy, match it against Lead Finder, and exclude records they already own from future searches—while reusing imported profiles in their CRM and sequences.",
+    metrics: ["CSV Import", "Deduplication", "Lead Finder"],
+    bg_color: "bg-slate-50",
+    prototype: "https://csvelf.vercel.app",
+    prd: "https://blobs.vusercontent.net/blob/%5BPasted%20777%20lines%5D-0A9Yg8PVjxfXbMS0IV6GQRy5bUzYqZ",
+  },
+  {
+    project_id: "saleshandy-email-lookup",
+    category: "SALESHANDY · LEAD FINDER",
+    title: "Email Lookup",
+    subtitle: "Find the right prospect from an email address",
+    description: "Designed an email-based people lookup that matches against Saleshandy’s own database of roughly 8–10 million profiles—without relying on third-party data vendors. The matching approach parses name and company-domain clues, including partial-name patterns with n-gram tokenization, and was reported to reach at least 97% accuracy.",
+    metrics: ["8–10M Profile Database", "97%+ Matching Accuracy", "No Vendor Data"],
+    bg_color: "bg-slate-50",
+    prototype: "https://emaillookup.vercel.app",
+    prd: "https://blobs.vusercontent.net/blob/%5BPasted%20609%20lines%5D-XR8Rf2MWP2sQtIdAohC0luD16NcwNB",
+  },
+  {
     project_id: "measureai",
     category: "COMPUTER VISION",
     title: "MeasureAI",
@@ -125,7 +147,35 @@ export default function WorkPage() {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project: any) => (
+            {projects.map((project: any) => project.prototype ? (
+              <article
+                key={project.project_id || project.id}
+                className={`${project.bg_color} dark:bg-card flex flex-col rounded-lg p-8 transition-all duration-300 hover:shadow-lg`}
+              >
+                <div className="mb-4">
+                  <p className="text-primary text-xs font-semibold tracking-wider mb-1">{project.category}</p>
+                  <h3 className="text-2xl font-serif text-foreground">{project.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{project.subtitle}</p>
+                </div>
+
+                <p className="mb-6 line-clamp-4 flex-1 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+
+                <div className="mb-6 flex flex-wrap gap-2">
+                  {project.metrics?.map((metric: string) => (
+                    <span key={metric} className="rounded bg-white/60 px-2 py-1 text-xs font-medium text-foreground dark:bg-white/10">{metric}</span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-5">
+                  <a href={project.prototype} target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-medium text-primary hover:underline underline-offset-2">
+                    View Prototype <ArrowUpRight size={16} className="ml-2" />
+                  </a>
+                  <a href={project.prd} target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-medium text-primary hover:underline underline-offset-2">
+                    Read PRD <ArrowUpRight size={16} className="ml-2" />
+                  </a>
+                </div>
+              </article>
+            ) : (
               <Link
                 key={project.project_id || project.id}
                 href={`/work/${project.project_id || project.id}`}
@@ -133,28 +183,17 @@ export default function WorkPage() {
               >
                 <div className="flex items-start gap-3 mb-4">
                   <div className="flex-1">
-                    <p className="text-primary text-xs font-semibold tracking-wider mb-1">
-                      {project.category}
-                    </p>
-                    <h3 className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
+                    <p className="text-primary text-xs font-semibold tracking-wider mb-1">{project.category}</p>
+                    <h3 className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
                     <p className="text-sm text-muted-foreground mt-1">{project.subtitle}</p>
                   </div>
                 </div>
-
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
-                  {project.description}
-                </p>
-
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.metrics?.map((metric: string, i: number) => (
-                    <span key={i} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">
-                      {metric}
-                    </span>
+                    <span key={i} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">{metric}</span>
                   ))}
                 </div>
-
                 <div className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2">
                   View Project
                   <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

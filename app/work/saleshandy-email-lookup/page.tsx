@@ -11,7 +11,7 @@ export default function EmailLookupPage() {
     <SaleshandyFeaturePage
       title="Email Lookup"
       subtitle="Find the person behind an email address using Saleshandy’s own profile data—not third-party vendor lookups."
-      description="Email Lookup was designed to help sales teams resolve work-email-only lists directly in Lead Finder and Data Enrichment. The matching approach first checked for an exact stored email, then used the email’s name and company-domain clues to identify likely profiles. N-gram tokenization helped interpret less predictable name formats, including initials and partial names. The project targeted at least 97% matching accuracy across an internal profile database of roughly 8–10 million records."
+      description="Email Lookup was designed to help sales teams resolve work-email-only lists directly in Lead Finder and Data Enrichment. The matching approach first checked for an exact stored email, then used the email’s name and company-domain clues to identify likely profiles. N-gram tokenization helped interpret less predictable name formats, including initials and partial names. The project targeted at least 97% matching accuracy across Saleshandy’s internal database of 918 million profiles."
       prototypeUrl="https://emaillookup.vercel.app"
       prdUrl="/work/saleshandy-email-lookup/prd"
       highlights={[

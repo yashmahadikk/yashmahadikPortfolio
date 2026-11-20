@@ -129,7 +129,7 @@ function parseDocument(content: string): PrdDocument {
 
     const numbered = getNumberedHeading(lines, index)
     if (numbered && !lines[numbered.end + 1]?.trim()) {
-      const id = slugify(`${numbered.number}-${numbered.title}`)
+      const id = `prd-${slugify(`${numbered.number}-${numbered.title}`)}`
       if (!numbered.number.includes(".")) {
         currentSection = { number: numbered.number, title: numbered.title, id, blocks: [] }
         sections.push(currentSection)

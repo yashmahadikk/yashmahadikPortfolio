@@ -4,6 +4,7 @@ import { Figtree } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { PortfolioChatbot } from '@/components/portfolio-chatbot'
+import { ContentProtection } from '@/components/content-protection'
 import './globals.css'
 
 const figtree = Figtree({ subsets: ['latin'] })
@@ -61,6 +62,7 @@ export default function RootLayout({
       <body className={`${figtree.className} font-sans antialiased bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
+          <ContentProtection />
           <PortfolioChatbot />
           {process.env.NODE_ENV === 'production' && <Analytics />}
         </ThemeProvider>

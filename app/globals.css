@@ -143,6 +143,69 @@
 }
 
 @layer base {
+  .dark .case-studies-theme [class~="bg-white"],
+  .dark .case-studies-theme [class~="bg-gray-50"],
+  .dark .case-studies-theme [class~="bg-gray-100"],
+  .dark .case-studies-theme [class~="bg-gray-200"],
+  .dark .case-studies-theme [class~="bg-slate-50"],
+  .dark .case-studies-theme [class~="bg-slate-100"],
+  .dark .case-studies-theme [class~="bg-blue-50"],
+  .dark .case-studies-theme [class~="bg-blue-100"],
+  .dark .case-studies-theme [class~="bg-cyan-50"],
+  .dark .case-studies-theme [class~="bg-green-50"],
+  .dark .case-studies-theme [class~="bg-green-100"],
+  .dark .case-studies-theme [class~="bg-indigo-50"],
+  .dark .case-studies-theme [class~="bg-pink-50"],
+  .dark .case-studies-theme [class~="bg-pink-100"],
+  .dark .case-studies-theme [class~="bg-purple-50"],
+  .dark .case-studies-theme [class~="bg-purple-100"],
+  .dark .case-studies-theme [class~="bg-red-50"],
+  .dark .case-studies-theme [class~="bg-red-100"],
+  .dark .case-studies-theme [class~="bg-orange-50"],
+  .dark .case-studies-theme [class~="bg-orange-100"],
+  .dark .case-studies-theme [class~="bg-amber-50"],
+  .dark .case-studies-theme [class~="bg-amber-100"],
+  .dark .case-studies-theme [class~="bg-emerald-100"],
+  .dark .case-studies-theme [class~="bg-yellow-50"] {
+    background-color: var(--card) !important;
+    color: var(--card-foreground) !important;
+  }
+
+  .dark .case-studies-theme section[class*="bg-"] {
+    background-color: var(--muted) !important;
+    color: var(--foreground) !important;
+  }
+
+  .dark .case-studies-theme a[class*="bg-"] {
+    background-color: var(--card) !important;
+    color: var(--card-foreground) !important;
+  }
+
+  .dark .case-studies-theme [class~="border-slate-200"],
+  .dark .case-studies-theme [class~="border-red-100"],
+  .dark .case-studies-theme [class~="border-red-200"],
+  .dark .case-studies-theme [class~="border-blue-100"],
+  .dark .case-studies-theme [class~="border-blue-200"],
+  .dark .case-studies-theme [class~="border-purple-200"],
+  .dark .case-studies-theme [class~="border-green-200"],
+  .dark .case-studies-theme [class~="border-amber-100"],
+  .dark .case-studies-theme [class~="border-amber-200"],
+  .dark .case-studies-theme [class~="border-pink-200"] {
+    border-color: var(--border) !important;
+  }
+
+  .dark .case-studies-theme [class~="text-gray-700"],
+  .dark .case-studies-theme [class~="text-red-700"],
+  .dark .case-studies-theme [class~="text-red-800"],
+  .dark .case-studies-theme [class~="text-blue-700"],
+  .dark .case-studies-theme [class~="text-green-700"],
+  .dark .case-studies-theme [class~="text-orange-700"],
+  .dark .case-studies-theme [class~="text-amber-700"],
+  .dark .case-studies-theme [class~="text-emerald-700"],
+  .dark .case-studies-theme [class~="text-purple-700"],
+  .dark .case-studies-theme [class~="text-pink-700"] {
+    color: var(--foreground) !important;
+  }
   * {
     @apply border-border outline-ring/50;
   }

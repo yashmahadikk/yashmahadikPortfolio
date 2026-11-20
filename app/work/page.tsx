@@ -54,7 +54,7 @@ const defaultProjects = [
     metrics: ["CSV Import", "Deduplication", "Lead Finder"],
     bg_color: "bg-slate-50",
     prototype: "https://csvelf.vercel.app",
-    prd: "https://blobs.vusercontent.net/blob/%5BPasted%20777%20lines%5D-0A9Yg8PVjxfXbMS0IV6GQRy5bUzYqZ",
+    prd: "/work/saleshandy-import-list/prd",
   },
   {
     project_id: "saleshandy-email-lookup",
@@ -65,7 +65,7 @@ const defaultProjects = [
     metrics: ["8–10M Profile Database", "97%+ Matching Accuracy", "No Vendor Data"],
     bg_color: "bg-slate-50",
     prototype: "https://emaillookup.vercel.app",
-    prd: "https://blobs.vusercontent.net/blob/%5BPasted%20609%20lines%5D-XR8Rf2MWP2sQtIdAohC0luD16NcwNB",
+    prd: "/work/saleshandy-email-lookup/prd",
   },
   {
     project_id: "measureai",
@@ -147,35 +147,7 @@ export default function WorkPage() {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project: any) => project.prototype ? (
-              <article
-                key={project.project_id || project.id}
-                className={`${project.bg_color} dark:bg-card flex flex-col rounded-lg p-8 transition-all duration-300 hover:shadow-lg`}
-              >
-                <div className="mb-4">
-                  <p className="text-primary text-xs font-semibold tracking-wider mb-1">{project.category}</p>
-                  <h3 className="text-2xl font-serif text-foreground">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{project.subtitle}</p>
-                </div>
-
-                <p className="mb-6 line-clamp-4 flex-1 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-
-                <div className="mb-6 flex flex-wrap gap-2">
-                  {project.metrics?.map((metric: string) => (
-                    <span key={metric} className="rounded bg-white/60 px-2 py-1 text-xs font-medium text-foreground dark:bg-white/10">{metric}</span>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap gap-5">
-                  <a href={project.prototype} target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-medium text-primary hover:underline underline-offset-2">
-                    View Prototype <ArrowUpRight size={16} className="ml-2" />
-                  </a>
-                  <a href={project.prd} target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-medium text-primary hover:underline underline-offset-2">
-                    Read PRD <ArrowUpRight size={16} className="ml-2" />
-                  </a>
-                </div>
-              </article>
-            ) : (
+            {projects.map((project: any) => (
               <Link
                 key={project.project_id || project.id}
                 href={`/work/${project.project_id || project.id}`}
@@ -188,10 +160,10 @@ export default function WorkPage() {
                     <p className="text-sm text-muted-foreground mt-1">{project.subtitle}</p>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">{project.description}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.metrics?.map((metric: string, i: number) => (
-                    <span key={i} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">{metric}</span>
+                  {project.metrics?.map((metric: string) => (
+                    <span key={metric} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">{metric}</span>
                   ))}
                 </div>
                 <div className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2">

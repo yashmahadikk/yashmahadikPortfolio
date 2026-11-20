@@ -1,0 +1,609 @@
+Lead Finder
+/
+PRD
+On this page
+1. Overview & Problem Statement
+2. Success Metrics
+3. Target Users & Use Cases
+4. User Stories
+5. Entry Points
+5.1 Lead Finder Email filter
+5.2 Data Enrichment Email field
+5.3 Screens and sketches
+6. Matching Mechanics
+6.1 How an email is read
+6.2 With other Lead Finder filters
+6.4 Data Enrichment matching
+7. After "Search"
+7.1 Lead Finder results
+7.2 Data Enrichment output
+7.3 Credits and messaging
+8. Other Features That Will Get Affected
+8.1 Lead Finder
+8.3 Data Enrichment
+8.4 AI and automation
+9. Data Validation & Edge Cases
+9.1 Input validation
+9.2 Edge cases
+9.3 Acceptance tests
+10. Error Messages
+11. Notifications
+12. Communications & GTM
+Analytics events
+C. Out of scope and optional follow-ons
+D. Dependencies and risks
+13. Tradeoffs
+13.1 Tradeoffs by step
+13.2 Tradeoffs across the whole feature
+Email Lookup
+Prepared by product team
+Product Requirements Document
+Target Launch
+Q4 2026
+Platform
+Desktop Web (V1)
+Stakeholders
+Product, Engineering, Marketing, Sales
+Search the PRD  ( / )
+All (56)
+Lead Finder (F)
+Data Enrichment (E)
+Expand all
+Collapse all
+Problem statement
+
+Users hold lists where the only reliable field is an email address: event and webinar exports, inbound form fills, decayed CRM exports, client-supplied lists. Saleshandy cannot resolve them today. Lead Finder has no email input, Data Enrichment needs First + Last Name or a LinkedIn URL to find a person, and Sage handles one email at a time and drops the names when given several. Users export to FullEnrich or Apollo and re-import, send without personalisation, or leave the list unused. Competitors now ship reverse email lookup as a named feature at 1 credit per person found.
+
+What we are building
+
+This PRD adds email as an input in two places: an Email filter in the Lead Finder People tab (single input or Bulk Search), and Email as a mappable field in Data Enrichment for People enrichment. The Companies tab and Company enrichment do not get an Email input. Both use the same rule. Each email is first looked up against the emails we already hold on Lead Finder profiles; if one matches, that profile is the result. If not, the address is split into first name, last name, company domain and any trailing number. The people with that name at that domain are ordered by tenure in their current role, and the number picks the position: no number is the longest-tenured, 2 is the second. We look up only our own database, never a vendor.
+
+Decisions taken
+
+#	Decision	Consequence
+1	One filter, named Email.	One chip, one limit, one set of rules, in the People tab only
+2	It behaves like every other bulk filter. Limit 2,000 in Bulk Search; same loading, results and error behaviour	No new screens; the only error the filter raises is the 2,000 limit
+3	Each email is first looked up against the emails we hold on Lead Finder profiles database. With no exact match, it is read as first name + last name @ company domain, plus any trailing number. Only an address with at least one name token can match.	Role and company addresses return nothing; a bare domain is not an email, so it stays a chip and returns nothing
+3a	Among the people with that name at that domain, the trailing number picks the position by tenure in their current role: no number is the longest-tenured, 2 the second-longest, 3 the third. When tenure ties, the number is larger than the number of candidates, or an initial still matches several people, no one is picked and every candidate is shown	Most first.last and first.last2 emails resolve to one profile; uncertain cases fall back to showing the candidates
+4	The user can paste anything. Every value becomes a chip, counts toward the 2,000 limit and is searched, as in the LinkedIn URL filter; only a valid email can match. Personal addresses (Gmail, Rediff, Hotmail, Outlook, Proton, Yahoo and other non-company domains) are accepted and looked up in our own database only: if one is stored on a profile, that profile is shown; if not, there is no result, the way an email pasted into the LinkedIn URL filter returns nothing	No warnings, no refusal; the user sees the difference in the counts
+5	An email we already hold on a profile is an exact match and returns that profile, whether or not this user has revealed it	Exact matches skip the name logic; emails we don't hold use name + number + tenure
+6	A mixed paste works address by address: work emails match by stored email or by name + domain; personal emails match only when we hold them; company and role addresses return nothing	One result set, with no per-email breakdown; the user reads the difference in the counts
+7	Data Enrichment gets Email as a mappable field, sufficient on its own. Matching follows the same steps: exact stored-email lookup first, then name + number + tenure; a row that does not resolve to one person gets the several-candidates treatment (E8), and one with no candidates is Unmatched	A file with only an email column becomes enrichable
+Goals
+
+Let a user who has only email addresses find the people behind them, and the companies they work at, inside Saleshandy, without exporting to another tool
+Reuse the matching that is already in production (Name and Company-domain filters) so the feature is a new input, not a new matching system
+Keep the filter identical in behaviour to the other bulk filters, so nothing about loading, limits, results or credits has to be relearned
+Make an email-only file enrichable in Data Enrichment
+Non-goals
+
+Vendor reverse lookup: emails are looked up only against Saleshandy's own database, never sent to a vendor
+Personal-email resolution beyond our own database: a personal-domain address is matched only when we already hold it on a profile; it is not searched by name or sent to a vendor
+Any new screen: validation summaries, warnings, progress messages, cancel, per-email grouping and CSV import into Bulk Search are optional follow-ons, not scope
+Changes to credits or reveal pricing: reveals and enrichment charge as today; the phone-only reveal question is tracked separately
+Sage: routing a pasted list to the Email filter is a follow-on once the filter exists
+Targets for the first 60 days after general availability. The events that feed them are listed in Appendix B; none can be back-filled, so they ship with the feature.
+
+Metric	Target
+Users that apply the Email filter at least once	Set from Lead Finder weekly actives after two weeks of data
+Median results-to-emails ratio for name-matchable addresses	Track; 0.8–1.5 suggests healthy matching, above 3 suggests domain-only dominates
+Share of email searches followed by a reveal, save or sequence action	The conversion that justifies the feature
+Email-mapped enrichment jobs: matched share, No name share, Personal share, Duplicate share	Sets expectations before anyone calls a 40 % match rate a failure
+Report-issue rate per 1,000 email searches	Quality
+Support tickets mentioning email lookup, before and after	Should fall for "how do I" and be watched for "wrong person"
+A baseline exists today: the count of prospects across workspaces that have an email and no name. That is the size of the problem before launch.
+
+Where the lists come from decides which rule fires most: event exports are mostly work emails; inbound forms are mostly personal; CRM exports are a mix with role addresses in them.
+
+User	List they hold	What they want
+SDR or outbound rep	Webinar or event export, 200–3,000 work emails	See who the people are, pick the right ones, add to a sequence with name and title filled
+RevOps or data owner	CRM export, 2,000–50,000 rows, emails reliable, names and titles stale	Refresh name, title and company in bulk without leaving Saleshandy
+Account researcher	A handful of addresses from a thread or a signature	Check who someone is and who else works there
+Agency	Client-supplied lists, per client	Qualify and load at volume, scoped to the client
+Inbound or marketing	Form fills and signups, mostly personal addresses	Would like identity; will get no match in this phase and needs to see that clearly in the counts
+As an SDR, I want to paste my attendee emails into Lead Finder and see the matching people, so I can reveal and sequence the right ones
+As an SDR, when an email is a shared name at a company, I want to see every candidate, so I can pick the right one instead of the tool guessing
+As a researcher, I want to paste the addresses from an email thread and see who they are, knowing that a company address like info@acme.com returns nothing
+As a RevOps owner, I want to map an email column in Data Enrichment with nothing else and get name, title and company back, so I can clean a decayed export
+As a RevOps owner, I want rows that could not be matched marked Unmatched with a reason, so I know what to do with them
+As any user, I want the Email filter to behave like LinkedIn URLs and the other bulk filters, so I do not have to learn a new flow
+This phase has two entry points: the Email filter in Lead Finder, and the Email field in Data Enrichment. Two shortcuts return the user to an Email search they already ran: a saved filter and a recent search. Sage, the public API, the Claude Code plugin and the Chrome extension are not entry points in this phase.
+
+Entry point	Where	How the user starts	What comes back
+Email filter, People	Lead Finder → People → filters, beside Name	Type or paste one email into the single input (up to 200 characters), or open + Bulk Search for a list	People with that name at the domain
+Email field, Data Enrichment (People)	Data Enrichment → upload a file → field mapping	Map a column to Email, alone or with other fields	One enriched row per matched email
+Saved filter, People	Lead Finder → People → Saved Filters, at the bottom of the filter panel	Pick the filter by its name	The whole saved combination, the email list and the other filters, is applied again and the search runs (F5)
+Recent search, People	Lead Finder → People → Total or New tab, before any filter is applied	Click an entry such as "Total, yash.mahadik@deloitte.com+200"	The same emails are applied again and the search runs on that tab
+ID	Requirement
+F1	A filter named Email appears in the People tab, in the same filter group as Name, with a Bulk Search entry like LinkedIn URL. The Companies tab does not get an Email filter
+F2	One filter, one chip, one limit. There is no Work Email or Company Email split
+F3	The applied chip shows the count and the first few addresses with "+N", the same as the LinkedIn URL chip. Extracted names and domains are never shown as filter values
+F4	A flag icon sits next to the applied Email filter, as on Company Domain and LinkedIn URL. On hover the tooltip reads "Report issue with Email". Clicking it opens the existing Report issue dialog, titled "Report issue with Email", with the same quick-select options every filter has — Returns irrelevant results, Missing values I need, Not relevant categories, Too few matches, Outdated data — an optional note, and Cancel and Send feedback ("Sending…" while it sends). There are no Email-specific options
+F4a	The single Email input shows the placeholder "Enter Email", with "+ Bulk Search" below it. The Bulk Search modal is titled "Bulk Search", with an "Email" label and mail icon above the field, and the placeholder "Enter Email (e.g. john@company.com) separated by commas, semicolon or line breaks." The counter sits at the bottom right of the field, with Cancel and Search below, as in the LinkedIn URL modal
+F5	The Email filter can be saved with Save Filter, together with every other filter applied at that moment. When the user later selects that saved filter from Saved Filters, the whole combination — the email list and the other filters — is applied again and the search runs, the same way saved filters work today. The saved filter keeps the email list exactly as it was when saved; the Saved Filters list shows it by name, not by its addresses
+ID	Requirement
+E1	Email is a mappable field in the field selector for People enrichment, alongside the existing fields. It is not added to Company enrichment
+E2	Email is sufficient on its own. A file with only an email column passes validation for People enrichment; the First + Last Name requirement is waived when Email is mapped
+E3	Email is auto-detected the way it is today; the user can change the mapping for auto detection make sure we consider column headers named as Emails, Work emails, email
+E4	When Email is mapped together with First Name and Last Name, the mapped names are used for matching and the email supplies the domain. When the mapped names and the email-derived names disagree, the mapped names win
+E5	When Email is mapped together with LinkedIn URL, LinkedIn URL wins for that row; Email is used only for rows where the LinkedIn cell is empty, email is a fallback method. If first name and last name & domain are mapped then email will be used for profiles not having any of the feilds missing in the row.
+E6	When Email is mapped together with Company Domain , the mapped domain is matched with, email is used for rows not having domains.
+E6a	A column mapped as Email that does not hold emails is not blocked at mapping. The user can go further; the job runs, every row whose Email cell is not a valid email is Unmatched, reason "Invalid email", nothing is enriched and no credits are charged
+E6b	Email addresses mapped into any field other than Email (Company Domain, First Name, LinkedIn URL and the rest) are not parsed as emails. Those rows go unmatched, as any invalid value in that field does today. Only the Email field reads an address
+Sketches of every surface the Email filter touches in Lead Finder, in the order a user meets them. They show structure and copy, not final visual design.
+
+Entry point: the Email filter, opened in the People filter panel (F1, F4a)
+
+┌──────────────────────────────────────────┐
+│ Personal (8)                           ▴ │
+│ Name                                   + │
+│ Location                               + │
+│ Email                                  − │
+│   ┌──────────────────────────────────┐   │
+│   │ Enter Email                      │   │
+│   └──────────────────────────────────┘   │
+│   + Bulk Search                          │
+│ LinkedIn URL                           + │
+│ LinkedIn Followers                     + │
+└──────────────────────────────────────────┘
+Bulk Search modal: empty, opened from "+ Bulk Search" (F4a)
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Bulk Search                                                              × │
+│ ────────────────────────────────────────────────────────────────────────── │
+│ ▸ Email                                                                    │
+│ ┌──────────────────────────────────────────────────────────────────────┐   │
+│ │ Enter Email (e.g. john@company.com) separated by commas,             │   │
+│ │ semicolon or line breaks.                                            │   │
+│ │                                                                      │   │
+│ │                                                                      │   │
+│ │                                                             0/2000   │   │
+│ └──────────────────────────────────────────────────────────────────────┘   │
+│ ────────────────────────────────────────────────────────────────────────── │
+│                 [ Cancel ]   [ Search ]  (disabled until a value is added) │
+└────────────────────────────────────────────────────────────────────────────┘
+Bulk Search modal: values pasted, each one a chip with a ×, the counter at the bottom right (F6, F7, F10)
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Bulk Search                                                              × │
+│ ────────────────────────────────────────────────────────────────────────── │
+│ ▸ Email                                                                    │
+│ ┌──────────────────────────────────────────────────────────────────────┐   │
+│ │ [ yash.mahadik@deloitte.com × ]  [ jane.doe@acme.com × ]             │   │
+│ │ [ john@gmail.com × ]  [ SDR Manager × ]                              │   │
+│ │ Enter Email▏   (Enter, comma or paste adds a chip)                   │   │
+│ │                                                                      │   │
+│ │                                                             4/2000   │   │
+│ └──────────────────────────────────────────────────────────────────────┘   │
+│ ────────────────────────────────────────────────────────────────────────── │
+│                                                    [ Cancel ]   [ Search ] │
+└────────────────────────────────────────────────────────────────────────────┘
+Bulk Search modal: over 2,000 values, the only error the filter raises (F10)
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Bulk Search                                                              × │
+│ ────────────────────────────────────────────────────────────────────────── │
+│ ▸ Email                                                                    │
+│ ┌──────────────────────────────────────────────────────────────────────┐   │
+│ │ [ a1@acme.com × ]  [ a2@acme.com × ]  …                              │   │
+│ │                                                                      │   │
+│ │                                                          2140/2000   │   │
+│ └──────────────────────────────────────────────────────────────────────┘   │
+│ You can add maximum 2000 keywords   (red)                                  │
+│ ────────────────────────────────────────────────────────────────────────── │
+│                                        [ Cancel ]   [ Search ]  (disabled) │
+└────────────────────────────────────────────────────────────────────────────┘
+Applied Filters: the Email chip list, the flag and the "+N" expander (F3, F4)
+
+┌──────────────────────────────────────────────┐
+│ Applied Filters (1)             Clear All  ▴ │
+│ ──────────────────────────────────────────── │
+│ ▸ Email                        ⚐  [ 8 × ]  + │
+│     [ yash.mahadik@del…  × ]                 │
+│     [ john@gmail.com     × ]                 │
+│     [ SDR Manager        × ]   [ +5 ]        │
+└──────────────────────────────────────────────┘
+   ⚐ on hover:  "Report issue with Email"
+   [ +5 ] expands the rest of the list in place;
+   it does not open Bulk Search
+Report issue dialog, opened from the flag (F4)
+
+┌────────────────────────────────────────────────────────┐
+│ Report issue with Email                              × │
+│ ────────────────────────────────────────────────────── │
+│ ○ Returns irrelevant results                           │
+│ ○ Missing values I need                                │
+│ ○ Not relevant categories                              │
+│ ○ Too few matches                                      │
+│ ○ Outdated data                                        │
+│                                                        │
+│ ┌──────────────────────────────────────────────────┐   │
+│ │ Add a note (optional)                            │   │
+│ │                                                  │   │
+│ │                                                  │   │
+│ └──────────────────────────────────────────────────┘   │
+│ ────────────────────────────────────────────────────── │
+│                         [ Cancel ]   [ Send feedback ] │
+└────────────────────────────────────────────────────────┘
+Save Filter dialog, opened from "Save Filter" at the bottom of the panel (F5)
+
+┌────────────────────────────────────────────────────┐
+│ Save Filter                                      × │
+│ ────────────────────────────────────────────────── │
+│ Filter name                                        │
+│ ┌──────────────────────────────────────────────┐   │
+│ │ Enter a name                                 │   │
+│ └──────────────────────────────────────────────┘   │
+│ A saved filter with this name already exists       │
+│ ────────────────────────────────────────────────── │
+│                              [ Cancel ]   [ Save ] │
+└────────────────────────────────────────────────────┘
+Saved Filters menu, opened from "Saved Filters" at the bottom of the panel (F5)
+
+┌──────────────────────────────────────┐
+│ ┌──────────────────────────────────┐ │
+│ │ Search                           │ │
+│ └──────────────────────────────────┘ │
+│ Q3 webinar attendees           ✎  ⌫  │
+│ Deloitte + SDR titles          ✎  ⌫  │
+│ CRM refresh, India             ✎  ⌫  │
+└──────────────────────────────────────┘
+▯ Saved Filters                     Save Filter
+Picking a name applies the whole saved combination
+and runs the search. The list shows names, never addresses.
+Recent Searches on an empty Total or New screen, after a Bulk Search has run (Entry Points)
+
+┌────────────────────────────────────────────────────────────────┐
+│ Recent Searches                                                │
+│ Your latest prospecting activity                               │
+│                                                                │
+│ ┌────────────────────────────────────────────────────────────┐ │
+│ │ ◔  Total, yash.mahadik@deloitte.com+200                ⌫   │ │
+│ │     13 minutes ago                                         │ │
+│ │ ────────────────────────────────────────────────────────   │ │
+│ │ ◔  New, jane.doe@acme.com+2                            ⌫   │ │
+│ │     2 hours ago                                            │ │
+│ └────────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────┘
+Shown on an empty Total or New screen. Clicking an entry applies
+its emails again and runs the search on that tab.
+Results in Total and New (F26, F27)
+
+┌────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ [ Total 2 ]  New 2  Saved 194                                                                      │
+│ ────────────────────────────────────────────────────────────────────────────────────────────────── │
+│ ☐  Name                 Work Email       Personal Email           Job Title            Company     │
+│ ────────────────────────────────────────────────────────────────────────────────────────────────── │
+│ ☐  Harshkumar Pasi      [View Email]     [View Personal Email]    Head of AI Labs      Schbang     │
+│ ☐  Jane Doe             [View Email]     [View Personal Email]    —                    —           │
+└────────────────────────────────────────────────────────────────────────────────────────────────────┘
+The pasted address is never shown in the Name column: a profile we hold shows its
+name; an address we do not hold shows the name read from it (jane.doe → Jane Doe).
+Zero results: the existing empty state (F28)
+
+┌────────────────────────────────────────────────────────────────────┐
+│                                                                    │
+│                        (  ?  )                                     │
+│                                                                    │
+│                   No results found                                 │
+│ Results matching this query could not be displayed. Please try     │
+│ refining your search or clearing some of your filters.             │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+Data Enrichment: field mapping with Email (E1, E2)
+
+┌────────────────────────────────────────────────────────────────────┐
+│ Map your columns                                                   │
+│ ────────────────────────────────────────────────────────────────── │
+│ Your file                Saleshandy field                          │
+│ ────────────────────────────────────────────────────────────────── │
+│ work_email           →   [ Email                      ▾ ]          │
+│ company              →   [ Company Name               ▾ ]          │
+│ ────────────────────────────────────────────────────────────────── │
+│ Email alone is enough: First + Last Name is not required.          │
+│                                          [ Cancel ]   [ Continue ] │
+└────────────────────────────────────────────────────────────────────┘
+Search layer
+
+Every pasted email, and every email-mapped row in Data Enrichment, goes through four layers in order. Each layer runs only if the one before it does not settle the email. The requirements below (6.1–6.4) define each layer in detail; the tradeoffs of each layer are in section 13.
+
+Layer	What it does	Outcome
+1. Saleshandy database lookup	Exact match of the email against emails stored on profiles (F19)	Found: the exact profile is shown. Not found: layer 2
+2. Name + domain	Name read from the email, matched at that company (F12–F18)	One person: shown. Several: layer 3. None: layer 4
+3. Name + domain + tenure at current role	The way the email is framed (number, initial, fragment) plus tenure at current role picks the likely owner (F19a)	One likely profile shown. If it still cannot narrow to one, every candidate is shown (F19b)
+4. No match	Nothing found at layers 1–3	No profile is shown
+Every pasted value goes through the same steps: is it a valid email; do we already hold it (F19); if not, can a name be read from it (F12–F18); and if several people share that name at the domain, which one the number and tenure point to (F19a–F19c). The answer decides whether the email returns one profile, several candidates, or nothing.
+
+Stored email first; then name at the domain, picked by number and tenure
+Pasted value
+a chip; counts toward 2,000
+Valid email?
+no
+Not an email (title, company, URL, bare domain):
+No result for that value
+yes
+Held on a
+profile? (F19)
+yes
+Exact match: that profile
+work and personal emails; valid stored emails only
+no
+Work email with
+a name in it?
+no
+If not, then no result
+role, company, personal not held
+yes
+That name or initial at the domain,
+ordered by tenure at current role
+Tie, number too big,
+or initial too
+vague?
+yes
+No pick: all candidates shown
+Data Enrichment: several-candidates treatment (E8)
+no
+One profile: the likely owner by number
+Personal emails (Gmail, Yahoo, Outlook…) are accepted, not ignored:
+they are looked up in our own database only (F18).
+If we hold the address, that profile is shown; if not, there is no result.
+ID	Requirement
+F12	The local part is split on ., _ and - into name tokens. Two or more name tokens give first and last name (first and last tokens); one token gives a first name only. A trailing number is kept, not removed, because a number is easy to detect reliably, unlike an initial hidden inside a word.
+The number is used only when the name search finds several profiles with the same first name, or the same first name and surname, at that domain. We do not decide who joined first from the number alone. We read each candidate's tenure at current role field (in months) in our database and order them by it, longest first (F19a). The person who has been there longest is likely to have the cleaner, un-numbered address, because they got it first.
+Example: if one Yash at Saleshandy has 60 months in their current role and another has 36,
+yash@saleshandy.com likely belongs to the 60-month Yash and yash2@saleshandy.com to the 36-month Yash. yash.mahadik@ and yash.mahadik2@ work the same way among the Yash Mahadiks.
+When the search finds only one profile, the number is dropped and the search continues with the words as the name (F19c). Digits elsewhere in the local part are dropped.
+Risk: this does not work when an earlier holder has left. Their profile is no longer current at that domain, so the remaining people move up, and the number can point to the wrong person. For example, if the 60-month Yash has left,
+yash2@ would land on whoever is now second, not on the 36-month Yash who owns it
+F13	Name tokens are matched as exact tokens against Name (yash matches Yash, not Yashal). Both orders are tried for two tokens (smith.jane@ matches Jane Smith as the same way in name filter )
+F13a	A token that is a single letter is treated as an initial: the start of the other name. In yash.m@saleshandy.com, yash is the first name and m means the surname starts with M, so the candidates are every Yash at Saleshandy whose surname starts with M (Mahadik, Mahajan…). In y.mahadik@saleshandy.com, mahadik is the surname and y means the first name starts with Y (Yash, Yogesh…). Both orders are tried, as in F13. If several people still match, the tenure at current role logic (F19a) is applied to try to match one profile; if it cannot, all of them are shown (F19b)
+F14	The domain is matched against Company Domain exactly as the Company Domain filter matches today.
+F15	In people email If no name token can be read (role accounts such as info@, sales@, hr@, support@, noreply@; digits only; a single character), the address is counted but returns no match. There is no domain-only fallback: only an address with at least one name token can return people
+F16	A one-token local part (yash@) searches first name + domain; the candidates are ordered and picked as in F19a–F19c
+F17	A local part with no separator — first name and last name joined (yashmahadik@), initial plus surname (ymahadik@, jsmith@), or first name plus initial (yashm@) — is accepted like any other email. It is first looked up as an exact stored email (F19). If we don't hold it, the whole local part is searched as a first name, the same way yash@ is, because the system cannot tell where an initial or a surname begins. So ymahadik@ searches for people whose first name is "ymahadik" at that domain, which usually returns nothing, the same as typing that string into the Lead Finder Name filter
+F18	A personal or non-company domain (Gmail, Yahoo, Hotmail, Outlook, Rediff, Proton, iCloud, GMX, Yandex and the rest) is looked up against our own database only (F19). If the address is stored on a profile, that profile is shown. If it is not, the user gets no result: the name logic does not run for personal domains, because there is no company domain to search. No warning is shown
+F19	Every email, work or personal, is first looked up against the emails stored on Lead Finder profiles, after normalisation (F11). Only stored emails marked valid count. If exactly one profile holds the email (for a work email, one currently at that domain), that profile is the result and the name logic does not run, whether or not this user has revealed it. If the only holder of a work email has left the company, the email falls through to the name logic, since the address may have been reused. If several current profiles hold it, F19a picks among them. With no stored match, a work email goes to the name logic and a personal email returns nothing (F18)
+F19a	Name logic pick: take everyone currently at the domain whose first name, and last name when the email has one, matches (an initial matches the start of the name, F13a). Order them by the tenure at current role field (in months), longest first, and pick the likely owner from the number: no number is the longest tenure, 2 the second-longest, 3 the third. The filter returns that one profile; Data Enrichment enriches the row with it
+F19b	Whenever the logic cannot narrow an email to one profile, no one is picked: two candidates have the same tenure, the number is larger than the number of candidates (which also covers birth years and IDs such as yash.mahadik89@), or an initial still matches several people (F13a). The filter then shows every lead the search found for that email in Lead Finder; Data Enrichment gives the row the several-candidates treatment (E8). This will most likely happen when a user pastes name + domain emails of people with the same or similar names working at one organisation
+F19c	With only one candidate, that person is the result whatever the number
+F20	A mixed paste produces one result set: exact matches (work and personal), name-logic picks and candidate sets together; role and company addresses, and personal addresses we don't hold, contribute nothing
+ID	Requirement
+F21	Email works the way Name + Company Domain filter work , so every other filter applies to its results exactly as it does today when Name and Company Domain are set.
+F21a	The pick (F19, F19a) is made across all candidates before any other filter applies. Other filters, exclude lists, Do Not Contact, Skip already owned and One lead per company then apply to the picked person; they never renumber the candidates. If the picked person fails a filter, that email returns nothing, and the next candidate is not substituted
+F22	Skip already owned and One lead per company apply after matching, as today. One lead per company collapses several emails at one domain into one row; no change to its default in this phase
+Data Enrichment works per row and must return one person per row. The same steps apply: exact stored-email lookup (F19), then name + number + tenure (F19a). Where the filter would show several candidates (F19b), the row gets the several-candidates treatment instead (E8).
+
+ID	Requirement
+E7	Each email is normalised and matched exactly as in the Lead Finder filter: stored-email lookup first (F19), then split into first name, last name, domain and number (F11, F12, F13, F14) and picked by tenure (F19a–F19c)
+E8	People enrichment: an exact stored-email match, or the profile picked by number and tenure (F19a), is the match. When no one can be picked (F19b) → the same treatment People enrichment gives today when first name, last name and domain are mapped and several people match. None → Unmatched, reason "No match found in database"
+E9	People enrichment: a row with no readable name (info@, sales@, digits) cannot pick one person from the domain → Unmatched, reason "No match found in database
+E9a	People enrichment: a local part with no separator (ymahadik@, yashm@) follows the same flow as the filter (F17): exact stored-email lookup first, then the whole local part as one first-name token at the domain. If the exact lookup misses and the first-name search finds nobody → Unmatched, reason "No match". "No name in email" is not used for these rows
+E10	People enrichment: a personal or non-company domain is matched only if we hold that email on a profile (F18, F19); otherwise Unmatched, reason "No match found in database"
+E12	Invalid or empty email cells → Unmatched, reason "Invalid email"
+E13	Duplicate emails in a file are matched once: the first row carrying the email is enriched and charged, where credits apply; every later row with the same email is Unmatched, reason "Duplicate". Duplicates are detected after normalisation (F11), so Jane.smith@Acme.com and jane.smith2@acme.com will be treated same way first name + Last Name + Company domain mapped in enrichment
+E14	Stored emails are used (F19): a row whose email we hold on a current profile at that domain is an exact match. This applies only to rows matched through Email; where LinkedIn URL or mapped names are used (E4–E6), those win as today
+What the user sees once a Lead Finder search runs or an enrichment job completes. None of it is new UI: results, counts, loading and credits follow existing Lead Finder and Data Enrichment behaviour.
+
+ID	Requirement
+F26	Results appear in Total and New with the counts, rows and pagination every filtered search has. An email that resolves to one profile (an exact match or a pick) contributes one row; an email with no pick contributes all its candidates. There is no per-email grouping and no unmatched list in this phase
+F27	The pasted addresses are never shown as revealed fields. Reveal, save, add to sequence and export behave exactly as today, including credits
+F28	Zero results shows the existing empty state with its current copy
+F29	Loading is the existing full-page skeleton with no message and no cancel
+ID	Requirement
+E15	Matched rows receive the same enriched columns People enrichment returns today (name, title, company, domain, industry, size, location, LinkedIn URL and the rest), appended to the file
+E16	Existing values in the file are not overwritten by enriched values; enrichment fills blanks. The user's email column is left untouched
+E17	Unmatched rows show the reason: No match, No name in email, Personal email, Invalid email, Duplicate. One generic Unmatched for all five generates tickets
+E18	The job summary reports matched and unmatched by reason, duplicates included, in the existing job history
+ID	Requirement
+E19	Credits are charged on success as today. Returning the address the user supplied is never a success and never a charge; the success test for an email-mapped row is net-new profile fields
+E20	Enrichment copy that says "find emails" is wrong for a file that already has emails. The type or its labels need a name for finding the profile behind an email; the exact wording is an open question
+E21	If the user also asks for phone numbers, the phone reveal charges as today; the email portion of any bundle is not charged when the user supplied the email
+The Email filter is a new input to an existing search, so most of Saleshandy sees it only as another filtered result. The real impact sits in five places: search load, the change to Data Enrichment mapping, what happens when a result found by email is revealed and turned into a prospect, how filter state is stored, and Sage's awareness of the new filter.
+
+The five that need action before launch
+
+Search load is not comparable to LinkedIn URL. A LinkedIn URL lookup is an exact key match. An email becomes a name match plus a domain match, tried in both name orders (F13), so 2,000 emails can be up to 4,000 name-and-domain clauses joined with OR. The non-functional requirement that response time "should match LinkedIn URL" is optimistic; the load test in stage 1 must measure this path specifically, and the 2,000 limit should be set from the result.
+E6b changes behaviour for existing Data Enrichment users. Today, mapping an email column to Company Domain returns company data by accident. After launch those rows go unmatched. Check how many jobs map emails to Company Domain today; if the number is material, auto-suggest the Email field on those columns and mention the change in release notes.
+The revealed email may not be the pasted email. For emails we hold, the exact lookup (F19) returns the profile that has that address, so this mostly disappears. For name-logic picks, revealing a person can still return a different address from the one pasted (an alias, an older address, or a namesake's). Auto-prospect and "add to prospects" then create a prospect with our email, not theirs, and if the pasted address already exists as a prospect, the user can end up with two prospects for one person.
+Filter state has to hold 2,000 emails. Wherever Lead Finder serialises filters — the page URL, Saved Filters, recent searches, shared links, the Report issue payload — 2,000 addresses may exceed size limits and put customer PII in logs and URLs. Store the list server-side and reference it by ID, the way the LinkedIn URL bulk filter should already do; confirm it does.
+Sage must understand the Email filter. Sage reads and edits the applied filters. If a user applies Email and then asks Sage to "narrow these to CEOs", Sage has to keep the Email filter; if its filter schema does not know the new type, it may drop it or error.
+Module	What changes or could break	What to do
+Filter panel	New Email filter in the People tab, placed in the Name group (F1)	Design the entry; confirm placement (open question)
+Bulk Search modal	Email becomes a Bulk Search type with the same 2,000 limit, counter, chips, dedupe and limit message as LinkedIn URL (F5–F10)	Reuse the LinkedIn URL modal; add email parsing and normalisation (F11)
+Single input	Holds one email, up to 200 characters, as Company Domain does; several emails pasted into it count as one (F9). Lists go through + Bulk Search	Reuse the Company Domain input and its 200-character limit
+Applied Filters panel	New chip with count and "+N" (F3); extracted names and domains must not leak into the Name or Company Domain chips	Verify that the hidden name and domain values never render as user-editable filters
+Search service	Name + domain clauses per email, both orders, joined with OR; Company Email uses domains only	Load-test at 500, 1,000, 2,000; add query timeout and partial-failure handling; watch search-cluster CPU after launch
+Result counts	Total and New now reflect email-derived matches; Total can exceed the number of emails (namesakes) or be far below it (no-name and personal addresses)	Help copy explains that Total is people found, not emails matched
+Pagination and sort	Results follow the default relevance order, not the pasted order	Accept for now; pasted-order sort is a follow-on if users ask
+Skip already owned	Hides matches already in the workspace; with email input, users may expect "owned" to mean the pasted address	Verify it keys on the person record, as today
+One lead per company	Collapses several emails at one domain into one row (F24)	Verify; consider showing a hint when it is on with Email applied
+Saved Filters	A saved search now can hold up to 2,000 addresses	Saving is allowed and restores the full filter combination (F5). Store the list by reference; confirm size limits and retention
+Recent searches	Would otherwise display addresses	Show "Email: 350", never the list
+URL and shareable state	If filters are encoded in the URL, 2,000 emails will not fit and will expose PII	Server-side filter state with an ID
+List inclusion / exclusion (Company List, people lists)	Combine with Email by AND like any filter	Regression test: Email plus an exclusion list removes excluded people
+Report issue	Flag next to the Email filter with the same tooltip pattern and quick-select options as every other filter (F4)	Reuse the dialog unchanged; route Email reports with the other filter reports
+Module	What changes or could break
+Field selector and auto-detect	New Email field (E1); columns already auto-detected as email must now map to Email, not Company Domain
+Validation	First + Last Name no longer required when Email is mapped (E2); a non-email column mapped as Email is allowed through (E6a)
+Matching pipeline	New email parse step, fallbacks from LinkedIn URL and mapped names (E4, E5), mapped domain precedence (E6), duplicate handling (E13)
+Job summary and history	Unmatched reasons, duplicates counted (E17, E18)
+Credits	Success means net-new profile fields, never the returned email (E19, E21)
+Module	What changes or could break	What to do
+Sage in Lead Finder	Today, several emails collapse to a domain filter and drop names. After launch, Sage should set the Email filter. Even before that, Sage must preserve an Email filter the user applied when it edits other filters	Add Email to Sage's filter schema at launch; routing a pasted list to the filter is a follow-on (non-goal)
+Claude Code plugin enrich-leads	Accepts LinkedIn, domain or name at company; email is not an input	Decide whether to add email as a fourth input with the same rules; not in scope unless decided
+Public API, Zapier, n8n	If they expose Lead Finder filters or Data Enrichment mapping, Email is a new parameter	Decide parity; if exposed, the same limits and rules apply
+LinkedIn Chrome extension	Works from LinkedIn profiles, not emails	None
+ID	Requirement
+F5	Bulk Search accepts up to 2,000 values per filter, the current Bulk Search limit, counted the way the LinkedIn URL filter counts them. The limit is independent of other bulk parameters
+F6	Values are separated by commas, semicolons or line breaks, as the modal's placeholder says (F4a). Spaces and tabs are not separators: a column copied from a sheet works (one value per line), but a@x.com b@x.com on one line is one value
+F7	Every pasted value becomes a chip with an ×, whether or not it is an email, as in the LinkedIn URL modal. If the pasted text holds the same value more than once, only one occurrence is pasted: one chip, counted once toward the 2,000, as in the LinkedIn URL Bulk Search. The check ignores upper and lower case, and the first spelling is kept
+F8	Every value counts toward 2,000 and is searched. A value that is not a valid email — a job title, a company name, a URL, SDR Manager@Apollo.io — has no name and domain to extract, so it returns nothing. No message is shown
+F9	The single-value Email input takes one value of up to 200 characters, the same as the Company Domain input. A paste longer than 200 characters is cut to the first 200. Several emails pasted into it are one entry, so only one email is counted and searched. Lists go through Bulk Search, opened from "+ Bulk Search" under the input
+F10	A live counter at the bottom right of the field shows values against the limit ("155/2000"). Above 2,000, "You can add maximum 2000 keywords" appears in red below the field and Search is disabled until the user trims, exactly as in the LinkedIn URL modal. The string is the existing Bulk Search one, reused unchanged. This is the only error the filter raises
+F11	Addresses are normalised before matching: lowercased, surrounding <> and display names removed, mailto: removed, +tag removed from the local part, trailing punctuation removed, subdomains stripped to the registrable domain (uk.acme.com → acme.com)
+Each case names the expected behaviour in the Lead Finder filter and in Data Enrichment where they differ.
+
+Input and normalisation
+
+Case	Filter	Data Enrichment
+"Jane Smith" <jane@acme.com>, mailto:, angle brackets, trailing , or .	Stripped to the bare address	Same
+A header row or non-email text ("Email", "N/A", a phone number)	Becomes a chip, counts toward 2,000 and is searched; returns nothing; no message	Row Unmatched: Invalid email
+Jane@Acme.com and jane@acme.com	One address; only the first is pasted as a chip and the repeat is not counted	First row enriched; the repeat Unmatched: Duplicate (E13)
+Same address pasted or listed twice	Only one occurrence is pasted: one chip, counted once, as LinkedIn URL does	First occurrence enriched; later rows Unmatched: Duplicate
+More than 2,000 values pasted	Counter shows e.g. 2,140/2000; "You can add maximum 2000 keywords" below the field; Search disabled	Not applicable; file limits as today
+1,800 emails plus 500 lines of other text	2,300/2000: over the limit, Search disabled until the user removes values; the other text counts like any value	—
+Text with an @ that is not an email (SDR Manager@Apollo.io, Sales Officer@Reliance Industries Limited)	Chip, counted, searched; the spaces make it invalid, so it returns nothing	Unmatched: Invalid email
+Several emails In one column	—	Treated same way as Multiple linkedin url's in one row ( not enriched)
+Two or more emails pasted into the single input	One entry; only one email is counted and searched (F9). ( in smaller single entry box)	—
+Empty Feild or only separators	—	Empty cell → Invalid email
+Leading or trailing whitespace, non-breaking spaces, zero-width characters from a web copy	Trimmed before validation	Same
+Uppercase domain (jane@ACME.COM)	Lowercased	Same
+Quoted local parts ("jane smith"@acme.com)	Valid per RFC but unusual; the quoted string is one token with symbols removed, so it usually returns no match	Unmatched: No name in email
+Unicode in the local part (josé@acme.com)	Accents folded for name matching (jose)	Same
+Local part and name extraction
+
+Case	Filter	Data Enrichment
+first.last@, first_last@, first-last@	First + last + domain	Same; one match required
+firstlast@ (yashmahadik@) with no separator	Accepted. Exact lookup first (F19); if not held, yashmahadik is searched as a first name, which usually returns nothing (F17)	Exact match if held; otherwise Unmatched: No match
+first@	First + domain; the longest-tenured person with that first name is picked (F19a), or all are shown if no one can be picked (F19b)	Picked as in F19a; when no one can be picked, same treatment as name + domain enrichment (E8)
+last.first@ (smith.jane@)	Both orders tried (F13)	Same
+first.middle.last@, first.last2@	First and last tokens; middle dropped; the trailing number is kept as the position (F12, F19a)	Same
+flast@, firstl@ (ymahadik@, jsmith@, yashm@)	Accepted. Exact lookup first (F19); if not held, the whole token (ymahadik, jsmith, yashm) is searched as a first name, which usually returns nothing, because the initial and the surname cannot be told apart (F17)	Exact match if held; otherwise Unmatched: No match
+ymahadik2@ (no separator, trailing number)	Token ymahadik, position 2, then the usual tenure pick (F12, F17, F19a)	Same
+j.smith@ (initial as its own token)	Initial: surname Smith, first name starting with J (F13a); tenure logic picks one if it can (F19a), otherwise all are shown (F19b)	Same pick; when no one can be picked, E8 treatment
+yash.m@ (first name plus surname initial)	Every Yash whose surname starts with M (Mahadik, Mahajan…); tenure logic picks one if it can (F13a, F19a), otherwise all are shown (F19b)	Same pick; when no one can be picked, E8 treatment
+Digits only, single character, random string	Counted, no match; no name token to search	Unmatched: No name in email
+Role accounts (info@, sales@, hr@, support@, careers@, noreply@, team@)	Counted, no match; there is no domain-only fallback	Unmatched: No name in email
+Domains
+
+Case	Filter	Data Enrichment
+Gmail, Yahoo, Hotmail, Outlook, Live, Rediff, Proton, iCloud, GMX, Yandex, AOL, Zoho personal	Looked up in our database only: the profile if we hold the email; otherwise no result; no warning (F18)	Exact match if held; otherwise Unmatched (E10)
+Subdomains (uk.acme.com, mail.acme.com)	Stripped to acme.com	Same
+Parked, expired or typo domains (gmial.com, acme.con)	No company record → no match	Unmatched: No match
+Disposable domains (mailinator.com)	No company record → no match	Unmatched: No match
+Matching and results
+
+Case	Filter	Data Enrichment
+Five Yashes at Saleshandy from yash@saleshandy.com	Exact match if we hold the email; otherwise the longest-tenured Yash (no number is position 1). Yashal and Yashwant are excluded (exact token). All five are shown if tenure ties or the number is larger than the number of candidates	Same pick; when no one can be picked, E8 treatment
+yash@deloitte.com and yash2@deloitte.com in the same paste or file	Two different values, so two chips, 2/2000, and two searches. Each is first looked up as an exact email; otherwise yash@ points to the longest-tenured Yash at Deloitte and yash2@ to the second-longest (F19a). With only one Yash, both point to him and he appears once	Two rows, each matched the same way, so they can resolve to two different people. If both resolve to the same person, both rows get that person; whether the second is charged is an open question
+Two Jane Smiths at one company	Exact match if held; otherwise picked by tenure and number; both shown if no one can be picked	Same pick; when no one can be picked, E8 treatment
+Exact stored-email match on someone who has left the company	Not used: the holder has left, so the email falls through to the name logic (F19)	Same
+Number larger than the number of candidates (yash.mahadik89@ with two Yash Mahadiks)	No pick; both shown (F19b)	E8 treatment
+Two candidates with the same tenure	No pick; all shown (F19b)	E8 treatment
+The same email stored on two current profiles (duplicate records)	Picked between those two by tenure and number (F19)	Same
+Stored email marked invalid or unverified	Not an exact match (F19)	Same
+The picked person fails another filter (e.g. Job title)	No row for that email; the next candidate is not substituted (F21a)	—
+The earlier holder of the un-numbered address has left, so their profile is no longer at that domain	The remaining people move up by tenure, so yash2@ can point to the wrong Yash and yash@ to a later joiner. Known risk of the tenure logic (F12); no fix in this phase	Same; the row is enriched with the wrong person
+Filters, tabs and settings
+
+Case	Filter	Data Enrichment
+Email + Job title (CEO, CTO)	Only candidates whose title matches	—
+Email + Seniority or Decision maker	Narrows; also disambiguates shared first names	—
+Email + conflicting Company Name filter	No rows for those emails	—
+Email + Keywords	Applied to profile text as today; keyword limit unchanged	—
+One lead per company on	Several emails at one domain collapse to one row	—
+Skip already owned on	Owned matches hidden	—
+Email applied, then user edits a chip (removes one address)	Search re-runs as for any bulk filter	—
+Recent searches	Show One email and chip count as any other bulk filter does example if searched in total then Total yashmahadik@saleshandy.com+200 13 minutes ago.	—
+Browser back and forward	Filter state restored as for other filters	—
+Two Bulk Search filters both at 2,000 (Email + LinkedIn URL)	4,000 values in one query; combined with AND so usually empties results; performance check	—
+Data Enrichment only
+
+Case	Expected behaviour
+File has Email + First + Last	Mapped names win; email supplies the domain (E4)
+File has Email + LinkedIn URL	LinkedIn wins where present (E5)
+File has Email + Company Domain that disagrees	The mapped domain is used for matching; the email supplies the domain only for rows with no domain (E6)
+Email column mapped to another field (Company Domain, First Name, LinkedIn URL)	Rows go unmatched; only the Email field parses addresses (E6b). The accidental match that mapping emails as Company Domain gives today stops. Same as
+A column that is not emails (names, phone numbers, URLs) mapped as Email	Mapping is not blocked; the job runs, If other matching options feilds are not mapped so in email fallback every row Unmatched: nothing enriched, no credits (E6a)
+Same email on 200 rows	First row enriched and charged once; the other 199 Unmatched: Duplicate
+Email column with mixed valid and invalid cells	Row by row; invalid rows Unmatched: Invalid email
+Very large file where most rows are personal emails	Unmatched for personal emails
+Matching for a local part with no separator (F17, E9a), and the role-account case that must not change.
+
+#	Input	Data we hold	Lead Finder filter	Data Enrichment
+T1	ymahadik@acme.com	The address is a stored, valid email on a profile currently at acme.com	Exact match: that profile is the result; the name logic does not run (F19)	Exact match: that profile enriches the row
+T2	ymahadik@acme.com	Address not stored; no one at acme.com has the first name "ymahadik"	No result	Unmatched: No match
+T3	yashm@acme.com	Address not stored; a person at acme.com whose first name is "Yashm"	That person is the result	That person enriches the row
+T4	ymahadik2@acme.com	Address not stored	Token ymahadik, position 2, then the usual tenure-based pick (F12, F19a)	Same token and position; no one picked → E8 treatment, nobody found → Unmatched: No match
+T5	info@acme.com	Any	No name in the local part: no result	Unmatched: No name in email
+No new error message is introduced: the 2,000 limit reuses the existing Bulk Search string. Everything else reuses existing copy, or is deliberately silent so the Email filter behaves like the other filters.
+
+Surface	Trigger	Message	Behaviour
+Bulk Search modal	More than 2,000 values pasted	"You can add maximum 2000 keywords" (existing Bulk Search string), in red below the field, with the N/2000 counter	Search disabled until the user trims (F10)
+Bulk Search modal	Non-email values in the paste	None	Kept as chips, counted and searched; they return nothing (F8)
+Lead Finder results	Personal domain, or no name in the local part	None	Counted in the chip; usually no rows (F15, F18)
+Lead Finder results	No results at all	Existing empty state: "No results found. Results matching this query could not be displayed. Please try refining your search or clearing some of your filters."	Unchanged (F28)
+Lead Finder results	Search timeout or server error	Existing Lead Finder error	Unchanged
+Data Enrichment mapping	A non-email column mapped as Email	None at mapping	Job runs; rows Unmatched: Invalid email (E6a)
+Data Enrichment output	A row is not matched	The Unmatched reason label below	Per row (E17)
+Report issue	Flag on the Email chip	Tooltip on hover and dialog title: "Report issue with Email"; the same quick-select options as every filter	F4
+No new system notifications. The Email filter sends none, like every other Lead Finder filter, and Data Enrichment jobs with Email mapped notify exactly as other enrichment jobs do today, on the channels the user has configured. The one new notice is the launch announcement telling users the Email filter exists (section 12).
+
+Event	Today	With Email mapped
+Enrichment job started	As configured	No change
+Enrichment job completed	In-app and email as configured, with the job summary	No Change
+Enrichment job failed	As configured	No change
+Credits run out during a job	As configured	No change
+Item	What changes	Owner	When
+Help centre: How to use Lead Finder	Step 2, People tab: add Email to the list of filters, with a short "Search by email" part covering where the filter is, typing one email or pasting up to 2,000 through + Bulk Search, separators (commas, semicolons, line breaks), how matching works (first name + last name + domain, initials, and the tenure pick when several people share a name), and what usually returns nothing (personal domains and joined names like ymahadik@ unless we already hold that exact email, and role addresses like info@). Step 4, Save the Filter: note that an Email filter is saved together with the other filters	Support / Docs	Before general availability
+Help centre: Data Enrichment articles (How CSV Enrichment Works in Lead Finder)	Email as a mappable field, usable on its own; the five Unmatched reasons and what each means	Support / Docs	Before general availability
+FAQs	New entries on the Lead Finder FAQ: Why didn't some of my emails return a result? How many emails can I search at once? Does searching by email cost credits? Why do I see more than one person for one email? Can I search personal email addresses? Can I save an Email filter?	Support / Docs	Before general availability
+Blog	Publish a how-to: finding the people behind an email list with Lead Finder. Use cases (event and webinar lists, CRM clean-up), step by step, combining Email with job title or seniority, and the limits	Marketing	At general availability
+Launch notification	Tell users the Email filter exists: an in-app announcement in Lead Finder (the top banner pattern used for the Chrome extension) and the product updates email or release notes, linking to the help article	Product	At general availability
+Demo account	Add the Email filter to the demo account. The user can type or paste emails, including through + Bulk Search, and the results show dummy data, the same way every other filter in the demo account returns dummy data. The single input, the Bulk Search modal, the counter and the 2,000 limit behave as in the live product	Product	Before limited release, so Sales and CS can demo it
+Events must ship with the feature; none of these can be back-filled.
+
+Event	Properties	Why
+email_filter_opened	entry (single input, Bulk Search)	Adoption
+email_filter_applied	count_values, count_not_email, count_personal_domain, count_no_name, count_name_matchable, other_filters_active	Input mix per search; how often personal and role addresses appear
+email_filter_results	total_count, new_count, count_exact_match, count_picked, count_candidates_shown, count_no_match, ratio_results_to_emails, duration_ms	Match yield and performance
+email_filter_limit_hit	count_attempted	Whether 2,000 is the wall users hit
+email_filter_report_issue	reason (one of the five standard options), has_note	Quality signal
+lead_action_from_email_search	action (reveal, save, sequence, export), row_count	Whether the filter leads to revenue actions
+enrichment_job_email_mapped	rows, mapped_with (email_only, email_plus_names, email_plus_linkedin), matched, unmatched_by_reason	Data Enrichment yield and reasons
+None of these is needed to ship. Each is a separate decision, and several depend on launch data.
+
+Item	What it would add	Trigger to revisit
+CSV import into Bulk Search above 2,000	Upload a file, up to 10,000 addresses, async job, email column auto-detected, file not saved	email_filter_limit_hit volume
+Validation summary on paste	Accepted, personal, not-an-email, duplicate counts, each viewable	Support tickets asking "why did only 600 of my 2,000 match?"
+Personal-email warning	Refuse or flag personal addresses at paste time	Same signal as above, plus count_personal_domain share
+Progress message and cancel	"Matching 1,840 emails…" and a Cancel after Search	duration_ms at 2,000
+Specific empty and error states	Unmatched addresses listed with reasons in the filter, not only in enrichment	If the summary is adopted
+Per-email grouping or matched-from column	Map rows back to the address that produced them	If users report they cannot tell which email matched
+Vendor reverse lookup	Look up emails we don't hold through a vendor, charged per person found; the only route to personal emails and to people missing from our database	Demand for personal-email resolution; vendor cost
+Sage routing	Sage passes a pasted list to the Email filter instead of building filters	After the filter ships
+—	Stops billing the email half of a bundle to a user who supplied the email	Finance decision; tracked in the research doc
+Alias-domain map	Match acme.io to the acme.com record	Report-issue reasons and logged misses
+List Import reconciliation	How an email-derived list behaves as an include or exclude list, which match on first and last name	When List Import ships
+Dependencies
+
+Bulk Search's LinkedIn URL path at 2,000 values, reused for the query shape and the modal
+Name and Company Domain filter behaviour, including how Company Domain handles aliases today; the Email filter inherits both.
+Company Domain field coverage in the database; every domain match depends on it
+Data Enrichment field selector, validation and job summary, extended with the Email field and five Unmatched reasons
+The consumer-domain list, new reference data with an owner
+The existing Report issue dialog, reused unchanged with the standard filter options
+Analytics pipeline for the events in Appendix B/
+The stored-email index on Lead Finder profiles, with each email's verification status
+The start date of each person's current role, for tenure ordering
+Every email goes through the same search layer, one step at a time, and stops at the first step that gives an answer:
+
+Saleshandy database lookup. If the email is stored on a profile, that exact profile is shown (F19). If not, go to step 2.
+Name + domain. Search the first name and surname read from the email at that company (F12–F17). If one person matches, show them. If several match, go to step 3.
+Name + domain + tenure at current role. Use the way the email is framed (the number, initials, fragments) and each candidate's tenure at current role to pick the likely owner (F12, F13a, F19a).
+No single match. If steps 1–3 cannot narrow the email to one person, every lead the search found is shown (F19b). If nothing was found at all, there is no result.
+Each step trades something away. The tables below set out what, so the risks are understood before build rather than discovered in support tickets.
+
+Step	What it gets right	What it gives up or can get wrong	How this phase handles it
+1. Database lookup	Exact, fast, cheap (a key match). Handles nicknames, initials, joined names and personal emails whenever we hold the address	Only works for emails we already store, so coverage depends on our data. A stored email can be stale: the person left but the profile wasn't updated, or the company gave the address to a new hire. A guessed or unverified email stored on the wrong profile becomes a confident wrong answer. Duplicate records can hold the same email. Users can paste several guessed addresses and see which one is real, which works as free email verification	Only valid stored emails count; if the holder has left, the email falls to step 2; several holders go to step 3
+2. Name + domain	Free, uses the filters already in production, resolves most first.last@ emails at small and mid-size companies	Namesakes produce several profiles and the user can't tell which owns the email. Companies frame emails differently (flast, firstl, joined names), so some never match. Short forms and nicknames are missed by exact tokens (Yashal owning yash@). Names stored differently in our data (missing surname, middle name in the first-name field) miss. Alias and subsidiary domains miss. If the real owner isn't in our database, a namesake is shown instead	Exact tokens to keep results clean; both name orders tried; initials and fragments handled in step 3
+3. Name + domain + tenure	Narrows the common same-name case to one profile without new data	If the email is expired or the employee has left, positions shift and the result is likely wrong when several profiles share the name. A number in the email can still point to the wrong profile: it may be a birth year or ID, a second sending mailbox of the same person, a counter that starts at 1 rather than 2, or a reused address. Not every organisation frames emails the same way: one Yash Mahadik may get yash.mahadik2@, another yash.m@, another ymahadik@, so the profile may not be matched at all. Promotions reset tenure at current role, so an early joiner can look recent. Tenure can be missing, approximate or tied. Initials and fragments widen the candidate set, so the pick is less reliable. A confident wrong pick does more harm than showing all candidates	No pick on ties or a number larger than the candidate count; all candidates shown instead (F19b); risk stated in F12
+4. No single match	Honest: the user sees every candidate and chooses	The user has to tell namesakes apart and may reveal several people to check, paying credits each time. A long list for one email is noise. "No result" doesn't mean the person doesn't exist, only that we don't hold them	Results look like any other Lead Finder search; the cost of choosing stays with the user
+Area	Tradeoff
+Trust and support	A high number of reports for the wrong profile is likely, especially after a user reveals the email and finds it isn't theirs. Our data isn't fully reliable (stale roles, missing tenure, wrong stored emails), and the feature surfaces that directly. The standard Report issue options have no "Wrong person", so these reports will arrive as "Returns irrelevant results" and be hard to separate
+Picking one versus showing all	Picking one profile is what users want, but every pick can be wrong. Showing all is always honest but makes the user do the work.
+Coverage versus precision	Every rule that finds more people (initials, fragments, prefixes, ) also brings in more wrong candidates. Every rule that keeps results clean (exact tokens) misses real owners
+No labels on results	The user can't tell whether a row came from an exact database match, a tenure pick or a list of candidates. A tenure guess looks as certain as an exact match
+Free search, paid reveal	Searching by email is free, so the user gets name, title and company without spending credits. Competitors charge 1 credit per person found for this. Users who already have the email still pay to reveal it
+Data Enrichment	A wrong pick in a file is a wrong row written into the user's data and, where credits apply, a paid wrong answer. It is harder to spot than in the Lead Finder results
+Data freshness	Results change as our data changes: the same email can resolve to a different profile after a job change or a tenure update

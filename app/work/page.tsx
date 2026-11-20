@@ -46,6 +46,28 @@ const defaultProjects = [
     bg_color: "bg-amber-50",
   },
   {
+    project_id: "saleshandy-import-list",
+    category: "SALESHANDY · LEAD FINDER",
+    title: "Lead Finder: Import List",
+    subtitle: "Bring prospect lists into Saleshandy without paying twice",
+    description: "Designed the Import New List experience for teams moving from tools like Apollo, Lusha, or Clay. Users can bring existing prospect data into Saleshandy, match it against Lead Finder, and exclude records they already own from future searches—while reusing imported profiles in their CRM and sequences.",
+    metrics: ["CSV Import", "Deduplication", "Lead Finder"],
+    bg_color: "bg-slate-50",
+    prototype: "https://csvelf.vercel.app",
+    prd: "/work/saleshandy-import-list/prd",
+  },
+  {
+    project_id: "saleshandy-email-lookup",
+    category: "SALESHANDY · LEAD FINDER",
+    title: "Email Lookup",
+    subtitle: "Find the right prospect from an email address",
+    description: "Designed an email-based people lookup that matches against Saleshandy’s own database of 918 million profiles—without relying on third-party data vendors. The matching approach parses name and company-domain clues, including partial-name patterns with n-gram tokenization, and was reported to reach at least 97% accuracy.",
+    metrics: ["918M Profile Database", "97%+ Matching Accuracy", "No Vendor Data"],
+    bg_color: "bg-slate-50",
+    prototype: "https://emaillookup.vercel.app",
+    prd: "/work/saleshandy-email-lookup/prd",
+  },
+  {
     project_id: "measureai",
     category: "COMPUTER VISION",
     title: "MeasureAI",
@@ -133,28 +155,17 @@ export default function WorkPage() {
               >
                 <div className="flex items-start gap-3 mb-4">
                   <div className="flex-1">
-                    <p className="text-primary text-xs font-semibold tracking-wider mb-1">
-                      {project.category}
-                    </p>
-                    <h3 className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
+                    <p className="text-primary text-xs font-semibold tracking-wider mb-1">{project.category}</p>
+                    <h3 className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
                     <p className="text-sm text-muted-foreground mt-1">{project.subtitle}</p>
                   </div>
                 </div>
-
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
-                  {project.description}
-                </p>
-
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.metrics?.map((metric: string, i: number) => (
-                    <span key={i} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">
-                      {metric}
-                    </span>
+                  {project.metrics?.map((metric: string) => (
+                    <span key={metric} className="px-2 py-1 bg-white/60 dark:bg-white/10 text-xs font-medium text-foreground rounded">{metric}</span>
                   ))}
                 </div>
-
                 <div className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-2">
                   View Project
                   <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

@@ -149,4 +149,26 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  body,
+  body * {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  input,
+  textarea,
+  select,
+  [contenteditable='true'],
+  [role='textbox'] {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  img,
+  picture,
+  video {
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
 }

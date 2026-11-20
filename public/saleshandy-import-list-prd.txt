@@ -1,0 +1,777 @@
+Back to Lead Finder
+Lead Finder: Import New List · Product Requirements Document
+Expand All
+Collapse All
+Lead Finder: Import New List
+Product Requirements Document
+Version
+Final — Production-Ready
+Target Launch
+Q4 2026
+Platform
+Desktop Web (V1)
+Stakeholders
+Product, Engineering, Design, Marketing, Sales
+This revision removes Data Enrichment and Email Verification from the Import New List flow entirely — importing and matching a list is now free, with no credits charged at any step. See Sections 1, 2, 5, 10–12, 14–15, and 17 for what changed.
+Table of Contents
+1
+Overview & Problem Statement
+2
+Success Metrics
+3
+Target Users & Use Cases
+4
+User Stories
+5
+Plan Gating
+6
+Entry Points
+7
+The Import Wizard — 3 Screens
+8
+Screen 1: Upload File
+9
+Screen 2: Map Fields
+10
+Screen 3: Review & Import
+11
+Matching Mechanics
+12
+After "Done"
+13
+Using Imported Lists in Search
+14
+Data Validation & Edge Cases
+15
+Notifications
+16
+Security & Compliance
+17
+Appendices
+18
+Billing & Compare Plans
+1
+Overview & Problem Statement
+
+The Problem
+Sales teams evaluating or onboarding to Saleshandy are often migrating from competing platforms (Apollo, Lusha, ZoomInfo) with existing prospect and company lists. Today, they must either:
+
+Manually re-search for these contacts in Lead Finder (wasting time and credits)
+Use third-party enrichment tools to supplement their lists (abandoning Saleshandy as a source of truth)
+Risk re-purchasing records they already own, since there's no way to exclude already-owned contacts from search
+This friction creates a gap between signup and activation, and drives churn as users bounce between platforms.
+
+The Solution
+Import New List lets users upload their existing contact and company lists directly into Lead Finder. The platform:
+
+Matches their data against the Saleshandy database
+Excludes matched records from future searches to prevent re-purchasing
+Saves the list for reuse in Lead Finder search filters
+This keeps users in-platform, reduces onboarding friction, and helps establish Saleshandy as the source of truth for their prospect data. Importing and matching a list is entirely free — no credits are charged at any step.
+
+Business Goals
+Goal	Delivery Mechanism
+1. Reduce onboarding friction	Eliminate re-searching; activate migration users faster
+2. Reduce churn	Become the source of truth for their prospect data
+3. Drive Pro plan upgrades	Feature is gated to Pro and above (see Section 5)
+2
+Success Metrics
+
+Tracked via PostHog.
+
+Metric	What It Tells Us
+Lists imported	Adoption volume; onboarding engagement
+Total records uploaded	Migration depth
+Matched vs. Unmatched rate	Data quality signal; database coverage
+List exclusion application	Whether imported lists get used in search filters afterward
+Screen drop-off	Funnel friction (Upload → Map Fields → Review & Import)
+Upgrade-to-Pro conversion from this gate	How much this feature drives plan upgrades
+Target Metrics
+Minimum adoption: 15% of Pro+ onboarding users complete at least one import in their first 30 days
+Minimum reuse: 25% of created lists get applied to a search filter within 90 days
+3
+Target Users & Use Cases
+
+Primary Users
+User Profile	Use Case
+Migrating Sales Reps	Switching from Apollo/Lusha to Saleshandy; need to import existing prospect lists without re-purchasing data
+Migrating Teams	Entire sales org transitioning from a competitor; bulk onboarding
+Secondary Users (Upsell)
+User Profile	Opportunity
+Existing Saleshandy users	Upload contact lists from events, purchased databases, or marketing campaign lists to deduplicate and clean up their data before outreach
+4
+User Stories
+
+5
+Plan Gating
+
+This is a Pro-gated feature. Users on Free or Starter plans see an upgrade prompt instead of the import wizard when they try to access it. Trial users are not restricted — Trial gets the same access as Pro and Scale, so a user evaluating the product can experience this feature during their trial window rather than hitting the gate.
+
+┌──────────────────────────────────────────────┐
+│                  ✨                          │
+│                                              │
+│     Upgrade to Pro to Import New List        │
+│                                              │
+│  ✓ Import CSV of contacts you already own     │
+│  ✓ Exclude your imported data from Lead       │
+│    Finder so you never pay credits for leads  │
+│    you already have                           │
+│  ✓ Keep your list private, shared with your   │
+│    team, or public                            │
+│                                              │
+│            [Upgrade to Pro]                  │
+│              Maybe Later                     │
+└──────────────────────────────────────────────┘
+The icon is a cluster of 3 golden sparkle stars (one large, two smaller) inside a soft circular badge (not a lock).
+
+The 3 bullets shown depend on which record type (People or Company) the user was trying to import when the gate fired:
+
+Record Type	Bullets
+People	Import CSV of contacts you already own · Exclude your imported data from Lead Finder so you never pay credits for leads you already have · Keep your list private, shared with your team, or public
+Companies	Import any CSV of the companies you already own · Exclude your imported companies from Lead Finder so you never pay credits for companies you already have · Keep your list private, shared with your team, or public
+Aspect	Detail
+Gated plans	Free, Starter
+Access	Trial, Pro, and Scale
+Trigger	Clicking any entry point into the import flow (see Section 6)
+[Upgrade to Pro]	Prototype-only: flips the account to Pro locally and closes the modal — there is no real upgrade page in this build
+[Maybe Later]	Dismisses the modal; user stays on the current page
+Billing-page changes for this feature are covered separately in Section 18 — Billing & Compare Plans. That page (a marketing/upgrade surface a user can browse anytime) is a different surface from this in-product gate (which only fires on an actual entry-point click), so it's broken out on its own rather than folded in here.
+
+Demo Accounts
+A demo/sandbox Saleshandy account gets no extra restriction beyond the plan gating above — the option stays visible and usable exactly as it does for a real account on an eligible plan. It only ever runs this prototype's own static behavior: the user can upload a file, walk through all 3 screens, and see the created list appear in the Saved tab and in the Include/Exclude selectors. Nothing beyond that — there's no live backend either way, so a demo account isn't a reduced experience relative to a real one here.
+
+6
+Entry Points
+
+There are two places that lead into the same import wizard. Both are just different doors into the identical 3-screen flow.
+
+Entry Point A: List Inclusion / Exclusion (Filters panel)
+Clicking [+] next to People List or Company List in the Filters panel expands an inline panel with two selectors: Include lists and Exclude lists.
+
+┌────────────────────────────┐
+│  LIST INCLUSION / EXCLUSION│
+├────────────────────────────┤
+│  People List           [+] │
+│  Company List           [+]│
+└────────────────────────────┘
+Include lists and Exclude lists are two independent dropdowns, not one shared panel — each has its own scrollable checklist of the user's existing lists, and each ends with its own "Import New List" row as the last item in that same scrolling list (not a separate, fixed link pinned below it). As more lists get added, "Import New List" keeps sliding further down with them instead of staying fixed in place at the bottom of the panel.
+
+┌────────────────────────────┐
+│  Include lists              │
+│  [Select lists          ▾] │
+│   ☐ export_enriched_2026-…  │
+│   ☐ Yash M List              │
+│   ☐ Yash Map                 │
+│   ☐ Yash FD                  │
+│   ↑ Import New List          │  ← last row, scrolls with the rest
+└────────────────────────────┘
+┌────────────────────────────┐
+│  Exclude lists               │
+│  [Select lists          ▾] │
+│   ☐ export_enriched_2026-…  │
+│   ☐ Yash M List              │
+│   ↑ Import New List          │  ← its own separate row, same pattern
+└────────────────────────────┘
+Clicking "Import New List" in either dropdown opens the same 3-screen wizard (after the Plan Gating check in Section 5).
+
+Entry Point B: Create New List modal
+Elsewhere in the product (the Saved tab's list-creation flow), a "Create New List" modal is available for creating a plain list manually:
+
+┌──────────────────────────────┐
+│  Create New List              │
+│                              │
+│  List Name                    │
+│  [Type name______________]    │
+│                              │
+│  Share with                   │
+│  [Team                   ▾]  │
+│                              │
+│  Team                         │
+│  [Select Teams           ▾]  │
+│  ┌──────────────────────┐    │
+│  │ 🔍 Search here         │    │
+│  │                        │    │
+│  │      📁 No Data        │    │
+│  └──────────────────────┘    │
+│                              │
+│  ↑ Import New List             │
+│                              │
+│           [Cancel] [Create]   │
+└──────────────────────────────┘
+This modal's primary purpose is creating an empty list by hand (List Name + Share With + Create). The "Import New List" link inside it is a shortcut into the same 3-screen wizard used by Entry Point A.
+
+A Team field appears directly below Share with, but only once Share with is set to Team — unlike Screen 2's always-reserved column, this modal is a simple vertical stack of fields, so Team just inserts itself into the flow rather than occupying reserved space up front. Clicking its "Select Teams" trigger opens the same search-field-plus-"No Data" picker described for Screen 2 above; this prototype has no multi-team data model, so that empty state is all either picker can ever show.
+
+Same Flow Either Way
+Regardless of which entry point is used, the destination is identical: the same Upload File → Map Fields → Review & Import wizard, described in the rest of this document. Neither entry point changes the wizard's behavior — they're just different places a user might be standing when they decide to import a list.
+
+7
+The Import Wizard — 3 Screens
+
+The entire experience is exactly 3 screens, shown as steps in a header: Upload File → Map Fields → Review & Import. There is no separate processing screen, no separate results screen, and no post-completion screen — matching's brief loading state lives inside Screen 3 itself (see Section 10), and the wizard closes after Screen 3 with the user returning to the app to a confirmation toast.
+
+Screen 1              Screen 2            Screen 3
+Upload File    →    Map Fields    →    Review & Import
+(drag/drop CSV)    (List Name,        (match counts +
+                    Share With,        Done)
+                    field mapping)
+Navigation
+Action	Effect
+[Back] on any screen	Returns to the previous screen, preserving everything entered
+[Next] on Screen 1	Disabled until a valid file is uploaded; advances to Map Fields
+[Next] on Screen 2	Disabled while required fields are unmapped, while the List Name duplicates an existing list, or while the mapped Email column (Email for People, Company Email for Companies) looks invalid — see Section 9's "List Name & Share With" and "Invalid Email Mapping". Otherwise advances to Review & Import, which opens into a 1–5 second matching loading state before showing the result (see Section 10)
+[X] (top-right, any screen)	Closes the wizard without creating a list
+8
+Screen 1: Upload File
+
+┌──────────────────────────────────────────┐
+│  Import New List                    [X]  │
+│  Upload File > Map Fields > Review & Import│
+│                                          │
+│  ┌────────────────────────────────────┐ │
+│  │                                    │ │
+│  │              ↑                     │ │
+│  │   Drag & drop your CSV file here   │ │
+│  │        or click to browse          │ │
+│  │   CSV files only, max 25 MB &      │ │
+│  │         10,000 records             │ │
+│  │                                    │ │
+│  └────────────────────────────────────┘ │
+│                                          │
+│  [requirement text — see below]          │
+│                                          │
+│  ↓ Try sample file      [Back]  [Next]  │
+└──────────────────────────────────────────┘
+Unlike Screens 2 and 3 (where [Back] sits on the far left and the primary action on the far right), this screen's footer is laid out differently: a "Try sample file" download link sits on the far left, and [Back] and [Next] are grouped together on the right instead of being spread apart.
+
+"Try sample file" Download
+A real, working feature — clicking it downloads a ready-made sample CSV so the user can try the wizard without their own file:
+
+Record Type	File Downloaded
+People	SH_People_Sample.csv
+Companies	SH_Companies_Sample.csv
+The download uses the browser's native file-download behavior (no in-app preview) and is available regardless of whether Plan Gating has been passed already.
+
+File Constraints
+Constraint	Value
+Format	CSV only
+Max file size	25 MB
+Max records	10,000
+Max columns	100
+Upload method	Drag-and-drop or click to browse
+Requirement Text (exact copy, differs by list type)
+People:
+
+"Your CSV must include either a LinkedIn URL, or First Name, Last Name, along with Company Name, Company Domain/Website, or Email. The more fields you provide, the more accurate your results."
+
+Company:
+
+"Your CSV must include either a Company LinkedIn URL or a Company Domain/Website. Adding Company Name improves accuracy."
+
+Validation Errors
+Scenario	Message
+Not a CSV	"This file is not a valid CSV. Please upload a comma-separated (.csv) file."
+Over 25 MB	"File exceeds 25 MB size limit. Please reduce the file size and try again."
+Over 10,000 records	"File exceeds the 10,000 record limit. Please reduce the number of rows and try again."
+Over 100 columns	"File exceeds the 100 column limit. Please reduce the number of columns and try again."
+No data rows	"Your file has no data rows. Please upload a CSV with at least one data row."
+Duplicate column headers	"The uploaded file has duplicate column headers. Please ensure the column header is unique and re-upload the file."
+Unsupported file encoding (e.g. non-UTF-8 CSVs that produce garbled/replacement characters)	"File encoding is not supported. Please save your file as UTF-8 encoded CSV."
+Parse failure	"Failed to parse CSV file. Please check the file format."
+Minimum Required Fields (enforced before "Next" proceeds meaningfully)
+List Type	Required
+People	LinkedIn URL alone, OR Work Email alone, OR First Name + Last Name + at least one of (Company Name, Company Domain/Website) — any one of these is sufficient by itself; First Name/Last Name are never required when LinkedIn URL or Work Email is mapped (see Section 11). Personal Email does not count toward this; it's mappable but purely a data field, not an identifier
+Company	Company LinkedIn URL, Company Domain/Website, or Company Name — any single one of these three is sufficient on its own (plain either/or; none of the three is individually mandatory)
+Known copy inconsistency: the on-screen error banner shown when this rule isn't met for Companies currently reads "Please map Company Name and at least one of: Domain or LinkedIn URL" — implying Company Name is mandatory plus one more field. That's a stricter, different rule than what actually gates the [Next] button (the plain either/or above). The banner text should be corrected to match the real rule, or the rule should be tightened to match the banner — currently they disagree.
+
+9
+Screen 2: Map Fields
+
+A single screen with two parts: List Name & Share With at the top, and the Field Mapping table below it.
+
+┌────────────────────────────────────────────────────────────┐
+│  Import New List                                      [X]  │
+│  Upload File > Map Fields > Review & Import                 │
+│                                                               │
+│  List Name         Share with        Team                    │
+│  [apollo-conta▮]   [Team      ▾]    [Select Teams      ▾]    │
+│                                       ┌─────────────────┐    │
+│                                       │ 🔍 Search here   │    │
+│                                       │                  │    │
+│                                       │   📁 No Data     │    │
+│                                       └─────────────────┘    │
+│                                                               │
+│  ┌──────────────────────────────────────────────┐ │
+│  │Saleshandy Fields│Your CSV Fields│Preview│      │ │
+│  │First Name       │[First Name ▾] │Tarun..│      │ │
+│  │Last Name        │[Last Name ▾]  │Kumar..│      │ │
+│  │Company Name     │[Company Name▾]│Deloitte│  🗑  │ │
+│  │LinkedIn URL     │[Person LinkedIn│http://..│ 🗑 │ │
+│  │Company Domain/  │[Website ▾]    │https://..│ 🗑 │ │
+│  │ Website         │               │         │     │ │
+│  │Email            │[Select column]│   —     │ 🗑  │ │
+│  │Phone            │[Select column]│   —     │ 🗑  │ │
+│  │Job Title        │[Select column]│   —     │ 🗑  │ │
+│  │ ...every other mappable field, same pattern │    │ │
+│  └──────────────────────────────────────────────┘ │
+│  Note: Only mapped fields will be added to the      │
+│  list.                                               │
+│                                                      │
+│  [Back]                             [Next]          │
+└──────────────────────────────────────────────────────┘
+List Name & Share With
+Field	Behavior
+List Name	Text input; defaults to the uploaded file's name; user can edit freely. Required — [Next] stays grayed out while it's empty, the same as any other unmet requirement on this screen
+List Name — duplicate check	Live, on every keystroke — if the trimmed, case-insensitive name matches any list the user already has (any record type, any share scope), the input gets a red border and "A list with this name already exists. Choose a different name." appears in red below it, and [Next] stays grayed out until the name changes. Same visual treatment as the "Create New List" modal's own name collision (Section 6, Entry Point B)
+Share with	Dropdown: Private (Only me) / Team / Public — defaults to Private (Only me). List Name, Share with, and Team occupy equal-width columns (~33% each) at all times, so choosing Team causes no layout shift
+Team (shown only when Share with = Team)	A "Select Teams" dropdown, blank/unlabeled until Team is chosen — its ~33% column is reserved from the start so nothing reflows when it appears. Clicking it opens a search field plus a "No Data" empty state, matching the same picker offered in the plain "Create New List" modal (Section 6, Entry Point B). This prototype has no multi-team data model, so the empty state is the only state it can show
+Field Mapping Table
+Four columns: Saleshandy Fields (fixed, left) → Your CSV Fields (dropdown of the user's own CSV columns) → Preview (sample values from the mapped column) → a delete icon (see "Deleting a Row" below). The "Field Mapping" heading itself has been removed from above the table — the table just starts directly under List Name / Share With.
+
+Copy that used to sit above the table now sits below it instead, as a plain note: "Only mapped fields will be added to the list."
+
+Default Fields Shown (in this order)
+Every mappable field is now listed by default — there's no longer a distinction between a handful of "default" rows and everything else tucked behind a picker.
+
+People: First Name, Last Name, Company Name, LinkedIn URL, Company Domain/Website, Work Email, Personal Email — followed by every other Person and Company field available (Phone, Job Title, Department, Company Size, Funding Amount, and so on — see Appendix B for the complete list), in a fixed order.
+
+Company: Company LinkedIn URL, Company Domain/Website, Company Name — followed by every other Company field available (Company Phone, Employee Count, Industry Type, and so on — see Appendix B), in a fixed order.
+
+Auto-Detection Keywords
+Status: not yet built. Every "Your CSV Fields" dropdown currently opens on "Select column..." — nothing in the current prototype pre-selects a column for the user. This subsection specifies how it should work: matching a user's own CSV header against each Saleshandy field so the common case (a header that's already an obvious match, like "Email" or "Company Name") is mapped automatically, leaving "Select column..." only for headers that genuinely need a human judgment call.
+
+Matching rules:
+
+Matching is case-insensitive and ignores spacing, underscores, and hyphens — "First_Name", "first-name", and "FIRST NAME" all match "First Name" the same way.
+Each CSV header is matched against fields in the same fixed order they're listed in (Section 9's "Default Fields Shown" / Appendix B) — core identity fields are checked first, so a header that could plausibly fit more than one field resolves to whichever field is checked first.
+A qualified phrase always wins over a bare generic keyword: a header explicitly named "Person LinkedIn URL" or "Company LinkedIn URL" maps to that specific field and never crosses over to the other record type's LinkedIn field, even though both share the generic "linkedin" keyword — the qualified phrase is checked ahead of the bare keyword for exactly this reason.
+A header that doesn't match any keyword list for any field is left unmapped ("Select column...") for the user to map by hand — auto-detection never guesses a field it isn't reasonably confident about.
+Every auto-mapped field can still be changed or cleared by the user like any other row (see "Deleting a Row" below) — auto-detection only sets the starting point, it doesn't lock anything in.
+People Fields
+
+Field	Matches On
+First Name	first, firstname, fname, given, forename
+Last Name	last, lastname, lname, surname, family
+Company Name	company, organization, organisation, employer, firm, business
+LinkedIn URL	person linkedin url, personal linkedin, linkedin, linked in, li url, profile
+Company Domain/Website	domain, website, url, web, company domain, company website
+Work Email	work email, business email, email
+Personal Email	personal email
+Phone	phone, mobile, cell, telephone, contact number
+Job Title	title, job title, position, role, designation
+Years of Experience	years of experience, experience, yoe, total experience
+Tenure in Current Role	tenure, time in role, current role tenure, months in role
+Skills	skills, skillset, competencies, expertise
+Active Experiences	active experience, current experiences, ongoing roles
+Past Companies	past companies, previous employers, work history, former companies
+Department	department, team, division, function
+Socials	socials, social links, social media, social profiles
+Location	location, city, address, region, geo
+Company HQ Location	hq location, headquarters, company hq, hq address
+Company Industry	industry, sector, vertical, company industry
+Management Level	management level, seniority, level, job level
+Decision Maker	decision maker, is decision maker, buyer role
+Current Company Experience	current company tenure, time at company, years at company
+Company Size	company size, employee count, headcount, org size
+Company Revenue	revenue, annual revenue, company revenue, sales
+Company Founding Year	founded, founding year, year founded, established
+Is B2B	b2b, is b2b, business type
+Funding Amount	funding, funding amount, total funding, raised
+Funding Date	funding date, last funded, date funded
+Company Socials	company socials, company social links, company twitter
+Projected Salary	salary, projected salary, estimated salary, compensation
+Degree	degree, education, qualification
+School	school, university, college, alma mater
+Followers	followers, follower count, connections
+Job Changed On	job change date, role change date, started role on
+Company Fields
+
+Field	Matches On
+Company LinkedIn URL	company linkedin url, company linkedin, linkedin company page, org linkedin, linkedin
+Company Domain/Website	domain, website, url, web, company domain, company website
+Company Name	company, organization, organisation, business name, employer name
+Company Email	company email, general email, info email, contact email
+Company Phone	company phone, main phone, office phone, contact number
+Socials	socials, social links, company social media
+Location	location, city, address, hq
+Founded Year	founded, founding year, year founded, established
+Industry Type	industry, sector, vertical, industry type
+Is B2B	b2b, is b2b, business type
+Ownership Status	ownership, ownership status, public/private, company type
+Company Description	description, about, company description, summary
+LinkedIn Followers	linkedin followers, follower count, li followers
+Employee Count	employee count, headcount, number of employees, staff size
+Employee Count by Department	employees by department, department headcount
+Employee Count by Designation	employees by designation, headcount by title
+Active Job Posting Count	open jobs, job postings, active postings, hiring count
+Executive Departure	executive departure, exec left, leadership exit
+Executive Arrival	executive arrival, exec joined, leadership hire
+Competitors Company	competitors, competitor companies, rivals
+Annual Revenue	annual revenue, revenue, yearly revenue, sales
+Last Funding Round	funding round, last round, series, funding stage
+Last Raised Amount	amount raised, last raised, funding raised
+Last Funding Date	funding date, last funded, date funded
+Funding Rounds	funding rounds, number of rounds, total rounds
+EBIT	ebit, earnings before interest and tax
+EBITDA	ebitda, earnings before interest tax depreciation amortization
+EBITDA Margin	ebitda margin
+EBIT Margin	ebit margin
+Gross Profit	gross profit
+Gross Profit Margin	gross profit margin, gross margin
+Net Income	net income, net profit, net earnings
+Total Operating Expense	operating expense, opex, total expenses
+Cost of Goods Sold	cogs, cost of goods sold, cost of sales
+Stock Information	stock, ticker, stock symbol, stock info
+SIC Codes	sic, sic code, sic codes
+NAIC Codes	naics, naic code, naics code
+Categories and Keywords	categories, keywords, tags, category
+Technologies	tech stack, technologies, tools used, tech
+Website Visitor Count	website traffic, visitor count, monthly visitors
+Website Visitor Count by Country	visitors by country, traffic by country
+Website Visitor Count by Gender	visitors by gender, traffic by gender
+Product Review Score	review score, product rating, review rating
+Employee Review Score	glassdoor score, employee rating, employer review score
+Deleting a Row
+Every row has a delete icon, including First Name and Last Name — there's no field that hides it. What the icon actually does differs by field:
+
+Field	Delete behavior
+First Name, Last Name, Company Name, LinkedIn URL, Company Domain/Website, Work Email	Clears the mapping (resets to "Select column...") — the row itself stays, since these are fixed identity/matching fields that a list always needs a shot at populating
+Every other field	Removes the row entirely from the table
+For the fields that only clear, delete is a single click with a single effect. For every other field, delete is a two-stage click: the first click clears the mapping (the row stays, now empty); a second click, once it's already empty, removes the row entirely.
+
+"+ Add More"
+"+ Add More" no longer opens a field picker to browse the whole catalog — since everything is already listed by default, there's nothing left to search for. Instead, it only appears once the user has actually deleted at least one row, and clicking it shows a small list containing only the field(s) that were deleted, letting the user restore them. A restored field reappears at the bottom of the table (not back in its original position), so the fields the user is actively working with stay together near the top.
+
+Invalid Email Mapping
+Both People and Company imports — every record type has its own Email concept (Email for People, Company Email for Companies), and either one can get the wrong column mapped to it. No column mapped to Email at all is not flagged here — that's a legitimate, deliberate choice. For People, it costs the user something concrete (see Section 12's "Prospect Auto-Add Rule": the list still gets created, it just won't auto-populate Prospects); Companies have no Prospects concept, so leaving Company Email unmapped costs nothing at all. Either way, only a column that is mapped to Email but doesn't actually contain email addresses gets flagged — a wrong-column mapping (e.g. Phone mapped to Email by mistake), not ordinary missing data.
+
+Email (optional)                          Company Email (optional)
+┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐
+│  Job Title                            ▾  │   │  Company Phone                        ▾  │
+└──────────────────────────────────────────┘   └──────────────────────────────────────────┘
+Mapped values aren't emails.                    Mapped values aren't emails.
+        (People)                                        (Companies)
+Presented inline, directly under the row — a red border on the dropdown plus the message in small red text beneath it, the same treatment the List Name duplicate check above uses. No modal, no popup; nothing else on the screen changes. Identical copy and treatment for both record types — only which row it can appear under differs.
+
+Aspect	Behavior
+Trigger	The Email row (People) or Company Email row (Companies) is mapped to a column, live, the moment that mapping is made — not gated on clicking [Next] first
+"Any real email" test	Whether the column contains any genuine-looking email, not what fraction of it does — a column mapped correctly but sparsely populated (blank cells, or an export's own placeholder dashes) still counts as valid the moment it holds even one real address
+Blocks progress?	Yes. [Next] stays grayed out for as long as this is true
+Clears when	The user clears that row's mapping back to "Select column..." (a legitimate no-email state, not flagged — see above) or maps a different column whose values do look like real emails
+10
+Screen 3: Review & Import
+
+This single screen shows the matching result — there is no separate processing screen. Matching is the only thing the user waits on, and it's free; nothing on this screen costs credits.
+
+Loading State (Matching)
+The screen opens into a loading state — a spinner where the completion checkmark will land, headline "Matching your list" — for as long as real matching takes, then resolves into the completed card. Only that header block (the spinner/checkmark icon and the headline) actually changes between the two states — both render inside a fixed-height slot so nothing else on the screen shifts position when it flips. There is no Cancel action on this screen while matching is running — [X] (top-right) remains the only way out.
+
+┌────────────────────────────────────────────────────┐
+│  Import New List                              [X]  │
+│  Upload File > Map Fields > Review & Import│
+│                                                      │
+│                     ↻ (spinner)                      │
+│              Matching your list                     │
+│                                                      │
+│  Total Records                                 84    │
+│  Matched                                       84    │
+│  Unmatched Fields                          ↓    0    │
+│  Note: Only matched records will be added to         │
+│  your list.                                          │
+└──────────────────────────────────────────────────────┘
+Aspect	Behavior
+Duration	1–5 seconds, scaling with the file's record count (and general web traffic) — a 20-row file resolves near the low end, a file near the 10,000-row ceiling near the high end
+Header	Spinner + "Matching your list" — this is the only part of the screen that differs from the completed state
+Total Records / Matched / Unmatched Fields	Shown immediately, not hidden until matching resolves — and visibly count up together toward their real values over the loading window (all three land on the true numbers exactly as the header flips to complete), rather than sitting blank or static the whole time. The underlying match is already resolved the instant loading starts; the count-up is a paced reveal of numbers that are already known, not a live tally of work actually completing row by row
+[Done]	Stays disabled until the header flips to complete, regardless of what the stat rows are already showing
+Once resolved, the screen shows the completed state exactly as before:
+
+┌────────────────────────────────────────────────────┐
+│  Import New List                              [X]  │
+│  Upload File > Map Fields > Review & Import│
+│                                                      │
+│                     ✓                                │
+│            Matching Completed                       │
+│      We found matches for your file and it's        │
+│               ready to import.                       │
+│                                                      │
+│  Total Records                                127    │
+│  Matched                                      127    │
+│  Unmatched Fields                          ↓    0    │
+│  Note: Only matched records will be added to         │
+│  your list.                                          │
+│                                                      │
+│  [Back]                                    [Done]    │
+└──────────────────────────────────────────────────────┘
+With Data Enrichment gone, this card is now the only thing on the screen — it fills essentially the whole panel on its own, in larger type than before, instead of sharing the space with an enrichment card underneath it. [Back] and [Done] sit in the footer exactly as they do on the other two screens, and stay pinned to the same fixed width the [Next] button uses on Screens 1 and 2, so the three read as the same-sized action rather than differing by a few px based on which word is longer.
+
+Matching Summary
+Field	Meaning
+Total Records	Total rows in the uploaded CSV
+Matched	Rows successfully identified in the Saleshandy database (shown in green)
+Unmatched Fields	Count of rows that could not be matched (shown in red). The icon next to it is a download button, not an expand/collapse control — clicking it exports the unmatched rows as a CSV file (referred to elsewhere in this PRD as the Failed Report, with a reason column — "No matching identifier", "No matching lead found in database", or "Duplicate profile", see Section 14); it doesn't reveal an inline list. It's disabled (with a "No Unmatched records" tooltip) when the count is 0.
+Note	"Only matched records will be added to your list." — unmatched rows are simply not included
+"Done" Button
+Clicking this button creates the list immediately from matched records. There is no separate confirmation screen — the wizard closes and the user sees a success toast (see Section 12). If zero records matched, this button stays disabled and the status card above switches to a warning state instead — there's nothing to create a list from.
+
+11
+Matching Mechanics
+
+Matching (free)
+The system checks every uploaded row against the Saleshandy database using the mapped fields. This is the only processing step in the whole wizard — there's no follow-on enrichment or verification step, and no credits are charged at any point in this flow.
+
+Matching Identifiers (backend logic)
+The system attempts to identify each row using, in priority order:
+
+Priority	Identifier	Notes
+1	LinkedIn URL	Highest confidence; sufficient on its own — even with no First Name/Last Name mapped at all, since the name is backfilled from the matched database record (see Section 14)
+2	Work Email	Also sufficient on its own — no First Name/Last Name required. Whether it actually matches depends on whether that specific address has a profile on file in Saleshandy's database, not just whether it's validly formatted: a generic/role address (e.g. info@company.com) or one Saleshandy simply has no record of does not match. When it does match, First/Last Name and Company Domain are all backfilled from the matched record for whatever the CSV didn't supply — same treatment as LinkedIn URL (see Section 14)
+3	First Name + Last Name + Company Domain	The fallback when neither LinkedIn URL nor Work Email resolves
+This logic runs behind the scenes; the user only sees the resulting Total Records / Matched / Unmatched Fields summary on Screen 3, not a tier-by-tier breakdown.
+
+A row that's missing the identifier at one tier still gets a shot at the next: e.g. a row with a mapped LinkedIn URL column that happens to be blank for that particular row falls through to tier 2 or 3 the same as any row that never had LinkedIn mapped at all. A row is only Not Matched when none of its tiers resolve.
+
+Mixed work/personal addresses in one Work Email column: a CSV column mapped to Work Email can still contain a mix of real work addresses and personal-style ones (e.g. common personal-email domains) row by row. Only the rows whose value is recognizably a work address are used for tier-2 matching; a row whose mapped value is personal-style is treated as if tier 2 didn't resolve for that row, and it falls through to tier 3 (or Not Matched if tier 3 doesn't resolve either) — the column mapping itself isn't flagged as invalid (see Section 9's "Invalid Email Mapping"), since the column overall does contain real emails, just not a usable identifier for every row.
+
+Deduplication
+Rows sharing the same LinkedIn URL are deduplicated — but not by silently disappearing. The first occurrence is matched normally; every later occurrence is treated as Unmatched instead. It's included in Total Records and the Unmatched Fields count like any other unmatched row, and it appears in the downloadable Failed Report with "Duplicate profile" as its reason — the same treatment Data Enrichment already uses for its own duplicate rows. Rows with no LinkedIn URL mapped have nothing to dedupe on and are processed normally as separate records, even if they look like duplicates by name or company.
+
+12
+After "Done"
+
+Clicking "Done" on Screen 3 does the following, in order — there's no credit or affordability check, since nothing in this flow is charged:
+
+The wizard closes immediately.
+A success toast appears at the bottom of the screen:
+✓ "Lead Finder List created successfully"
+
+The list becomes available inside the Include lists / Exclude lists selectors under People List or Company List (see Section 13), and every record in it carries a system-applied "Imported" tag (see "Provenance Tag" below).
+There is no live per-record table, no background job, and no dedicated post-completion actions screen — the toast above is the entire completion experience.
+
+Provenance Tag
+Every record that lands in a list via this wizard carries an "Imported" tag — a system tag, not a user-editable one, applied at the point the list is created rather than something the user sets themselves.
+
+Aspect	Behavior
+Where it shows	In the record's own Tags column in the Saved list view (the combined table showing every record across a user's Private/Public/Team lists) — not as a badge on the list itself in the Lists sidebar
+Scope	Applies to every record in a list created through Import New List — People and Company records alike; a list created via the plain "Create New List" modal (Section 6, Entry Point B) and populated some other way does not get it. Unlike the Prospect Auto-Add Rule below, which only ever applies to People, the Imported tag itself is record-type-agnostic
+Purpose	Lets a user tell which records in the combined Saved view arrived via import versus search/save, without needing to check which list each row belongs to
+Editability	System-applied — it isn't offered as a tag a user can add or remove by hand the way their own tags are
+Prospect Auto-Add Rule
+Resolves the open question "Prospect View for Lists Without Emails." Separately from this feature, Lead Finder has a product-wide setting — off by default — that automatically saves a lead as a Prospect the moment real contact info is revealed for it. Imported records aren't a special case, but a Prospect record requires an email, so:
+
+Record has	Auto-added as a Prospect when the setting is on?
+A revealed Work Email or Personal Email — sourced from Saleshandy via enrichment/reveal	Yes
+A CSV-mapped Email/Work Email/Personal Email value, present on an imported row that hasn't been enriched yet	No. A mapped email shows with an Unverified indicator (see Section 13) rather than a real Saleshandy reveal/enrichment — present, but not "revealed," so it doesn't satisfy this check on its own
+None of the above — no contact info has been revealed for this record yet	No
+This is the same "has revealed contact info" check that already gates the manual "Save as Prospect" action available on any record in the Saved view — a mapped CSV value doesn't count toward it, only a value that's actually come from Saleshandy. Imported records aren't held to a different standard, they just have two extra reasons (a CSV import can arrive with no email data at all, or with one that hasn't been enriched yet) to land in a "no" row above. Companies are unaffected, since Prospects are a person/contact concept rather than a company one — this rule only ever applies to People imports. A user who leaves Email unmapped entirely isn't warned about this trade-off up front (see Section 9's "Invalid Email Mapping" — that check only ever fires for a column that's mapped but wrong, not for one left unmapped); they only see its effect later, in the Saved tab.
+
+Landing in the "no" row isn't a dead end, though: a record with no email still shows the standard "View Email" reveal action right there in the Saved view — the same affordance any record gets in the New or Total tabs, not a reduced one because it arrived via import. A user can reveal it manually at any point after the list is created; doing so satisfies the "has contact info" check above, so the record becomes eligible for automatic Prospect creation from that point on, even though it wasn't at import time.
+
+13
+Using Imported Lists in Search
+
+A created list is not shown as a flat checkbox list directly under "People List" — it becomes an option inside the Include lists and Exclude lists dropdowns, reached the same way described in Entry Point A:
+
+┌────────────────────────────┐
+│  People List             X │
+│  Include lists              │
+│  [Select lists          ▾] │
+│  Exclude lists               │
+│  [Select lists          ▾] │
+│   ☐ Yash Apollo Import       │
+│   ☐ Yash M List               │
+│   ☐ Yash Map                  │
+│   ☐ Yash FD                   │
+│   ↑ Import New List           │
+└────────────────────────────┘
+Interaction	Behavior
+Checkbox next to a list (in Include lists)	Search results are limited to records found in that list
+Checkbox next to a list (in Exclude lists)	Search results exclude records found in that list
+"Import New List" (bottom of either dropdown)	Opens the same 3-screen wizard (Entry Point A)
+Multiple lists checked within one selector	Combine with OR logic; Include and Exclude combine with other active filters using AND logic
+Imported Data in the Total and Saved Tabs
+An imported record is treated identically in both tabs — no provenance icon, no tooltip. Whatever the user imported shows up exactly as-is, field by field — matching still runs behind the scenes for search/filter purposes (see Section 11), but it never overwrites what's displayed until the row is actually enriched.
+
+Field state	What shows
+Mapped on Screen 2 (present in the CSV)	The imported value, shown directly — no reveal action needed for that field
+Mapped, and the field is Email specifically	The imported value, plus an Unverified indicator next to it — the same status an email gets anywhere else in the product before it's been through Saleshandy's own verification
+Left unmapped (not present in the CSV)	The normal reveal-gated action for that field — Reveal Email / Reveal Phone / Reveal Personal Email, or "Enrich Full Profile" for the whole row — exactly like any row that's never been enriched
+The Actions column is a separate concern from the field values above, and it stays gated until the row is enriched — in both tabs alike:
+
+Action	Available on an un-enriched imported row?
+Save to List (per-row, Actions column)	Yes — enriches the row as part of completing the action, then adds it to the list. One step, not two
+Save as Prospect (per-row, Actions column)	No — grayed out until the row has been enriched some other way
+Add to Sequence (per-row, Actions column)	No — grayed out until the row has been enriched some other way
+Add to Sequence (header/bulk action, run over a selection)	Yes, unaffected by the row-level gating above — enriches any included imported row first, then completes, exactly like it already does for any other unrevealed lead swept into the same selection
+Once enriched — via any of the paths above, on any field — Saleshandy's data replaces the imported values for that field for good.
+
+14
+Data Validation & Edge Cases
+
+Scenario	Handling
+Row's primary identifier is blank for that row (e.g. LinkedIn URL is mapped, but empty in that record), while a fallback identifier (Work Email or Company Domain) is present	Matched using the next available identifier tier (see Section 11) — not treated as invalid just because the top-priority field is empty
+Invalid rows — no identifier resolves at any tier (LinkedIn URL, Work Email, and First+Last Name+Company Domain are all blank or unmapped for that row)	Auto-skipped during matching. Listed in the Failed Report with reason "No matching identifier" — there was nothing to even attempt a lookup with
+Row has a mapped Work Email (or LinkedIn URL), but that specific value has no profile on file in Saleshandy's database — e.g. a generic/role address like info@company.com, or one Saleshandy simply doesn't recognize	Unmatched, with reason "No matching lead found in database" in the Failed Report — distinct from "No matching identifier," since an identifier was present and attempted, it just didn't resolve to anyone
+A column mapped to Work Email contains a mix of real work addresses and personal-style addresses (e.g. common personal-email domains), row by row	Only rows whose value is recognizably a work address are matched on tier 2; a row whose value is personal-style is treated as tier 2 not resolving for that row and falls through to tier 3, or to Unmatched (reason "No matching lead found in database") if tier 3 doesn't resolve either. The column mapping itself is not flagged as invalid — see Section 9's "Invalid Email Mapping," which only fires when a mapped column doesn't contain email data at all
+People row matched using LinkedIn URL or Work Email alone — First Name / Last Name were never mapped, or were mapped but blank for that row	Name is not left blank: since Saleshandy's database already has a First Name / Last Name on file for that matched profile, the matched record's name is filled in on the created list from the database, not from the CSV
+Duplicate rows (same LinkedIn URL)	The first occurrence is matched normally; every later occurrence counts as Unmatched, not silently dropped — it's included in Total Records and the Unmatched Fields count, and appears in the Failed Report with reason "Duplicate profile" (see Section 11)
+Duplicate rows with no LinkedIn URL mapped	Nothing to dedupe on; processed normally as separate records
+Match status	Binary: Matched or Not Matched — no confidence scores are shown to the user
+A record's field (e.g. Email, Work Email, Phone, or a profile field like Job Title) already holds a value mapped from the original CSV on Screen 2, and the user later runs that field's enrichment/reveal action from the Saved tab, after the list has already been created	The enrichment result overwrites the existing mapped value — Saleshandy's enrichment data is treated as more accurate and current than whatever the CSV originally provided. This only happens post-creation, from a deliberate per-record action the user takes in the Saved tab; nothing is overwritten automatically as part of creating the list on Screen 3
+A lead's Work Email or Personal Email was already revealed through Saleshandy before this import, and the same lead is then imported again via CSV	The revealed email is retained — CSV data never overwrites it. Saleshandy-sourced data beats CSV-sourced data regardless of which happened first: this is the same precedence as the row above, just in the opposite order (reveal first, import second, instead of import first, reveal second)
+A row's matched identity is a lead that's already sitting in the user's own Saved tab (i.e., already enriched/interacted with before this import)	Matched, not Unmatched — and populated from the data already on file in Saved, not from the fresh CSV row's values. Being in Saved already means the user enriched it before, and that data is treated as more accurate than whatever this CSV import brings for the same lead; carrying two different values for the same lead across Saved and a list would be inconsistent
+A row's matched identity already belongs to another list (e.g. it's already in list X)	Still added to the new list. Lists are independent — existing membership in one list never blocks or dedupes a lead out of a different one; the same lead can belong to more than one list at a time
+Auto Prospect (the product-wide setting from Section 12's "Prospect Auto-Add Rule") is on, and an imported row's CSV data included a usable email, but the row hasn't been enriched yet	No Prospect entry is created at import time — a CSV-mapped email only ever shows with an Unverified indicator (see Section 13), never a real Saleshandy reveal/enrichment, so it doesn't satisfy the "revealed contact info" check
+The user later reveals/enriches that same imported row's email (individually, via "Add to List," or via a header/bulk action)	Now the Prospect Auto-Add Rule fires: a Prospect entry is created, with its email verification status shown as Unverified — the same status a prospect imported into the CRM gets. Coming in via CSV import doesn't skip or shortcut verification, it just delays the check until the data is actually revealed
+List Name exactly matches the name of a list the user already has	Blocked live on Map Fields, not at Done — [Next] stays grayed out with an inline error, "A list with this name already exists. Choose a different name.", the moment the name collides (see Section 9's "List Name & Share With"). The user must change the name before advancing past Map Fields at all
+An imported row appears in the Total tab or Saved tab and has not yet been enriched	No provenance icon, in either tab. Each field shows independently: a mapped field displays its imported value as-is (Email additionally shows an Unverified indicator); an unmapped field shows its normal reveal action (Reveal Email / Reveal Phone / Reveal Personal Email / Enrich Full Profile). In the Actions column, only "Save to List" is available (and enriches the row as it completes) — "Save as Prospect" and "Add to Sequence" stay grayed out until the row is enriched some other way (see Section 13)
+User runs the header/bulk "Add to Sequence" (either tab) over a selection that includes one or more un-enriched imported rows	Unaffected by the per-row Actions-column gating above — each affected row is enriched first, then the action completes, exactly like it already does for any other unrevealed lead swept into the same selection; no separate confirmation step for the enrichment side effect
+15
+Notifications
+
+This feature produces exactly one notification.
+
+Trigger	Channel	Content
+List created (immediately, in-app)	Toast	"Lead Finder List created successfully"
+The toast fires the moment "Done" is clicked and confirms the list was created. There's nothing else to wait on afterward — matching is the only processing step, it already finished before "Done" became clickable (see Section 10), and nothing runs in the background after that.
+
+Removed in this revision: earlier versions of this feature also ran background enrichment/verification jobs after list creation, surfaced through notification-bell "peek" and dropdown cards (processing → complete states) and, for email verification specifically, an emailed credit consumption report. None of that applies anymore now that Screen 3 no longer offers any enrichment or verification option — this feature has no background jobs and no notification surface beyond the toast above.
+
+16
+Security & Compliance
+
+Aspect	Standard
+Encryption at rest	AES-256; all uploaded CSVs encrypted
+Encryption in transit	HTTPS/TLS 1.3
+Access control	V1: all account users with Pro+ access see all lists; V2: role-based access
+Manual deletion	Permanent and irreversible
+DPA / GDPR / SOC 2 / CCPA	Covered under existing Saleshandy platform compliance
+Rate Limiting
+Measure	Limit
+Max records per file	10,000
+Max file size	25 MB
+Max columns per file	100
+17
+Appendices
+
+Appendix A — Analytics Events (PostHog)
+Status: not yet instrumented. This table describes the intended tracking plan. No PostHog calls exist anywhere in the current prototype codebase — none of the events below actually fire today. Treat this as a spec for engineering to implement, not a description of current behavior.
+
+Event	Trigger	Key Properties
+import_list_gate_shown	Non-Pro user hits an entry point	plan_tier
+import_list_gate_upgrade_clicked	User clicks "Upgrade to Pro" from the gate	plan_tier
+import_list_wizard_opened	Wizard opens (Pro+ user), from either entry point	list_type (People/Company), entry_point (A/B)
+import_list_file_uploaded	File parsed successfully	file_size, row_count, column_count
+import_list_field_mapping_completed	User advances from Map Fields to Review & Import	fields_mapped_count
+import_list_matching_completed	Matching finishes on Screen 3	total_records, matched, unmatched
+import_list_created	"Done" clicked and list is created	list_id, list_name, total_records, matched_records
+import_list_wizard_abandoned	Wizard closed before "Done"	screen_reached
+import_list_used_in_search	List checkbox applied in Include lists / Exclude lists	list_id, direction (include/exclude)
+Appendix B — Full Field List (shown by default on Screen 2)
+Every field below is listed as its own row by default now (see Section 9) — "Add More" only ever restores one of these if it was deleted, it doesn't introduce anything new. Order matches how the rows actually appear on screen (core identity fields first, then everything else in this order).
+
+People — core fields (always first, "clear only" delete — see Section 9): First Name · Last Name · Company Name · LinkedIn URL · Company Domain/Website · Work Email
+
+People — ungrouped (no category header shown): Personal Email · Phone
+
+People — Basic Information: Job Title · Years of Experience · Tenure in Current Role · Skills · Active Experiences · Past Companies · Department
+
+People — Contact Information: Socials
+
+People — Location: Location · Company HQ Location
+
+People — Company Information: Company Industry · Management Level · Decision Maker · Current Company Experience · Company Size · Company Revenue · Company Founding Year · Is B2B · Funding Amount · Funding Date · Company Socials
+
+People — Network & Education: Projected Salary · Degree · School · Followers · Job Changed On
+
+(Previous versions of this appendix only listed 2 People buckets — "Person Information" and "Company Information" — and omitted Phone, Past Companies, and the plain "Location" field entirely. The 7 groups above are the accurate, complete set.)
+
+Company — core fields (always first, "clear only" delete): Company LinkedIn URL · Company Domain/Website · Company Name
+
+Company — ungrouped (no category header shown): Company Email · Company Phone
+
+Company — Basic Information: Socials · Location · Founded Year · Industry Type · Is B2B · Ownership Status · Company Description · LinkedIn Followers
+
+Company — Employees & Operations: Employee Count · Employee Count by Department · Employee Count by Designation · Active Job Posting Count · Executive Departure · Executive Arrival · Competitors Company
+
+Company — Financial & Funding: Annual Revenue · Last Funding Round · Last Raised Amount · Last Funding Date · Funding Rounds · EBIT · EBITDA · EBITDA Margin · EBIT Margin · Gross Profit · Gross Profit Margin · Net Income · Total Operating Expense · Cost of Goods Sold · Stock Information
+
+Company — Digital & Technology: SIC Codes · NAIC Codes · Categories and Keywords · Technologies · Website Visitor Count · Website Visitor Count by Country · Website Visitor Count by Gender · Product Review Score · Employee Review Score
+
+(Previous versions of this appendix omitted Company Email, Company's own "Location" field, and Annual Revenue entirely.)
+
+Note: category headers above are organizational only — the actual Map Fields table (Section 9) doesn't render category labels between rows; every field is just one continuous list in this order. Only fields the user actually maps are added to the list (see the Note under Section 9's Field Mapping table). There is no separate fixed "output columns" schema beyond what's mappable here — nothing gets added afterward, though a mapped field's value can still be overwritten later by enrichment (see that same Note, and Section 14).
+
+Appendix C — Error Messages
+Scenario	Message
+Not a CSV	"This file is not a valid CSV. Please upload a comma-separated (.csv) file."
+Over 25 MB	"File exceeds 25 MB size limit. Please reduce the file size and try again."
+Over 10,000 records	"File exceeds the 10,000 record limit. Please reduce the number of rows and try again."
+Over 100 columns	"File exceeds the 100 column limit. Please reduce the number of columns and try again."
+No data rows	"Your file has no data rows. Please upload a CSV with at least one data row."
+Duplicate column headers	"The uploaded file has duplicate column headers. Please ensure the column header is unique and re-upload the file."
+Unsupported file encoding	"File encoding is not supported. Please save your file as UTF-8 encoded CSV."
+Parse failure	"Failed to parse CSV file. Please check the file format."
+Appendix D — User Acceptance Criteria
+Scenario 1: New Customer Migration
+
+✓ Customer on a Pro plan uploads a 5,000-row prospect list from Apollo
+✓ System matches 3,200 records — for free, with no credits charged
+✓ Clicking "Done" creates the list immediately; sees "Lead Finder List created successfully" toast
+✓ List is selectable from the Include lists / Exclude lists dropdown under People List; every record in it carries the system "Imported" tag (Section 12)
+Scenario 2: Duplicate Prevention
+
+✓ Customer uploads a company list
+✓ List is created for free with matched records only
+✓ Customer checks the list inside the Exclude lists dropdown under Company List
+✓ Search results automatically exclude these companies
+✓ No credits spent re-purchasing data the customer already owns
+Scenario 3: Non-Pro User
+
+✓ Customer on the Starter plan opens the Include lists or Exclude lists dropdown and clicks "Import New List"
+✓ Sees the "Upgrade to Pro to Import New List" gate instead of the wizard
+✓ Clicking "Maybe Later" dismisses it with no import started
+⚠ Clicking "Upgrade to Pro" doesn't go to any plan upgrade page in this prototype — it just flips the account to Pro locally and closes the modal (see Section 5)
+Scenario 4: Field Mapping Flexibility
+
+✓ Customer sees every mappable People field listed by default on Screen 2, not just a handful
+✓ Customer deletes a few fields they don't have data for (e.g. Skills, Followers) — those rows disappear
+✓ Customer clicks "+ Add More," sees only the fields just deleted, and restores one — it reappears at the bottom of the table
+✓ Matching still works correctly using the mapped identifiers
+✓ Only the mapped fields appear in the resulting list
+18
+Billing & Compare Plans
+
+Separate from the in-product Plan Gating modal (Section 5) — that gate only fires when a user actually clicks an entry point into the import flow. This section covers the other surface: the Billing → Compare Plans page, a marketing/upgrade page a user can browse anytime (independent of whether they've ever touched the import wizard), showing what each plan tier includes.
+
+New Row: Import Data in Lead Finder
+One new row is added to the Starter / Pro / Scale feature grid so the feature is visible before a user ever hits the in-product gate:
+
+ Waterfall Enrichment (9 Providers)         ✗    ✓    ✓
+ Reveal Email & Phone Info                  ✓    ✓    ✓
+ Real-Time Verified Contacts                ✓    ✓    ✓
+ Pay Only for Verified Results              ✓    ✓    ✓
+ Priority Enrichment                        ✗    ✓    ✓
+ Advanced Company Data                      ✗    ✓    ✓
+ Manage Prospects in CRM                    ✓    ✓    ✓
+ List Building                              ✓    ✓    ✓
+ Import Data in Lead Finder                 ✗    ✓    ✓   ← new row
+ Export to CSV                              ✓    ✓    ✓
+ Push to Sequences                          ✓    ✓    ✓
+                                          Starter Pro  Scale
+Row	Starter	Pro	Scale
+Import Data in Lead Finder	✗	✓	✓
+Placed directly above Export to CSV — the two are the natural bookends of a list's lifecycle in the table (data in via import, data out via export). Matches the in-product gate: unavailable on Starter, available on Pro and Scale. The table itself only ever shows Starter/Pro/Scale as columns (no Free/Trial) — Trial isn't gated in the first place (see Section 5), and Free is the one other gated plan this table doesn't separately represent.
+
+Row Tooltip
+Every row label in this table is hoverable and shows a one-line explanatory tooltip above it on hover (e.g. List Building → "Group prospects into targeted lists for outreach."). Import Data in Lead Finder gets the same treatment:
+
+┌────────────────────────────────────────────────┐
+│  Import contacts or companies you already own   │
+│  into a ready-to-use Lead Finder list.          │
+└────────────────────────────────────────────────┘
+     Import Data in Lead Finder
+Row	Tooltip copy
+Import Data in Lead Finder	"Import contacts or companies you already own into a ready-to-use Lead Finder list."
+Prototype Status
+This page doesn't exist as a built screen in this prototype — "Billing & Subscription" is currently a non-interactive sidebar entry (see Sidebar nav). Everything in this section is spec for engineering to build, not a description of current behavior, the same footing as Appendix A's analytics tracking plan.

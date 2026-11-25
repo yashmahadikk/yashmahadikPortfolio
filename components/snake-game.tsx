@@ -137,7 +137,7 @@ export default function SnakeGame() {
   })
 
   return (
-    <section className="w-full max-w-4xl rounded-2xl border border-border bg-background p-3 sm:p-6" aria-label="Snake game">
+    <section className="w-full rounded-2xl border border-border bg-background p-3 sm:p-6" aria-label="Snake game">
       <header className="mb-5 flex items-start justify-between gap-4">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Nokia classic</p>
@@ -149,7 +149,7 @@ export default function SnakeGame() {
         </div>
       </header>
 
-      <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
+      <div className="mx-auto grid w-full max-w-3xl items-center gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
         <div
           className="relative mx-auto aspect-square w-full max-w-[min(100%,400px)] overflow-hidden rounded-xl border-2 border-foreground bg-muted/40 p-1"
           role="group"

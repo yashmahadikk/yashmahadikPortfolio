@@ -106,12 +106,12 @@ export default function Tetris() {
   const restart = () => { setBoard(createBoard()); setPiece(randomPiece()); setScore(0); setLevel(1); setIsOver(false); setIsPaused(false); setHasStarted(false) }
 
   return (
-    <div className="w-full max-w-4xl rounded-2xl border border-border bg-background p-3 sm:p-6">
+    <div className="w-full rounded-2xl border border-border bg-background p-3 sm:p-6">
       <div className="mb-5 flex items-start justify-between">
         <div><p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Classic arcade</p><h2 className="mt-1 text-2xl font-semibold text-foreground">Tetris</h2></div>
         <div className="flex gap-4 text-right font-mono text-xs text-muted-foreground"><span>Score <strong className="block text-foreground">{score}</strong></span><span>Level <strong className="block text-foreground">{level}</strong></span></div>
       </div>
-      <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
+      <div className="mx-auto grid w-full max-w-3xl items-center gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
         <div className="tetris-board relative mx-auto aspect-[1/2] w-full max-w-[280px] rounded-xl border-2 border-foreground bg-muted/40 p-1">
           <div className="grid h-full grid-cols-10 grid-rows-20 gap-px bg-border">
             {visibleBoard.flatMap((row, y) => row.map((cell, x) => <div key={`${x}-${y}`} className={cell ?? 'bg-background'} />))}

@@ -45,7 +45,7 @@ export default function GameExperience({
   return (
     <main className="min-h-screen bg-background">
       <section className="px-5 pb-16 pt-28 sm:px-8 md:pb-24 md:pt-36">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-8">
           <Link href="/games" className="inline-flex min-h-11 w-fit items-center gap-2 rounded-lg text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
             <ArrowLeft size={16} aria-hidden="true" />
             All games

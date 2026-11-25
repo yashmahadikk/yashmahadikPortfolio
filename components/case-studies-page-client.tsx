@@ -62,7 +62,7 @@ export function CaseStudiesPageClient({ caseStudiesByCategory, categoryLabels }:
                   <Link
                     key={study.id || study.slug}
                     href={study.link || `/case-studies/${study.slug}`}
-                    className={`${study.bg_color || study.bgColor} group p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer`}
+                    className={`${study.bg_color || study.bgColor} dark:!bg-card dark:!text-card-foreground group p-8 rounded-lg h-full flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer`}
                   >
                     <div className="mb-4">
                       <h3 className="text-xl font-serif text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-3">

@@ -80,6 +80,7 @@ export default function InfiniteTicTacToe() {
   const [roundScores, setRoundScores] = useState({ player: 0, ai: 0 })
   const [roundsPlayed, setRoundsPlayed] = useState(0)
   const [matchWinner, setMatchWinner] = useState<MatchWinner | null>(null)
+  const [previewMoveIndex, setPreviewMoveIndex] = useState<number | null>(null)
 
   const makeMove = useCallback((index: number, player: Player, currentBoard: (Player | null)[], currentPlayerMoves: Move[], currentAiMoves: Move[]) => {
     if (currentBoard[index] !== null) return currentBoard
@@ -225,19 +226,32 @@ export default function InfiniteTicTacToe() {
 
       <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
         <div className="mx-auto grid aspect-square w-full max-w-[min(100%,380px)] grid-cols-3 gap-2 rounded-xl bg-border p-2 sm:gap-3 sm:p-3" role="group" aria-label="Tic Tac Toe board">
-          {board.map((cell, index) => (
-            <button
-              key={index}
-              type="button"
-              aria-label={`Row ${Math.floor(index / 3) + 1}, column ${(index % 3) + 1}${cell ? `, ${cell === 'Player' ? 'X' : 'O'}` : ', empty'}`}
-              aria-disabled={gameStatus !== 'playing' || aiThinking || cell !== null}
-              onClick={() => handlePlayerMove(index)}
-              disabled={gameStatus !== 'playing' || aiThinking || cell !== null}
-              className={`aspect-square rounded-lg font-sans text-4xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:text-6xl ${cell === null ? 'bg-background text-foreground hover:bg-muted' : cell === 'Player' ? 'bg-primary text-primary-foreground' : 'bg-destructive text-destructive-foreground'}`}
-            >
-              {cell === 'Player' ? 'X' : cell === 'AI' ? 'O' : ''}
-            </button>
-          ))}
+          {board.map((cell, index) => {
+            const isRemovalPreview = previewMoveIndex !== null
+              && playerMoves.length === 3
+              && playerMoves[0]?.position === index
+
+            return (
+              <button
+                key={index}
+                type="button"
+                aria-label={`Row ${Math.floor(index / 3) + 1}, column ${(index % 3) + 1}${cell ? `, ${cell === 'Player' ? 'X' : 'O'}` : ', empty'}${isRemovalPreview ? ', will disappear on your next move' : ''}`}
+                aria-disabled={gameStatus !== 'playing' || aiThinking || cell !== null}
+                onPointerEnter={() => cell === null && gameStatus === 'playing' && !aiThinking && setPreviewMoveIndex(index)}
+                onPointerLeave={() => setPreviewMoveIndex(null)}
+                onFocus={() => cell === null && gameStatus === 'playing' && !aiThinking && setPreviewMoveIndex(index)}
+                onBlur={() => setPreviewMoveIndex(null)}
+                onClick={() => {
+                  setPreviewMoveIndex(null)
+                  handlePlayerMove(index)
+                }}
+                disabled={gameStatus !== 'playing' || aiThinking || cell !== null}
+                className={`aspect-square rounded-lg font-sans text-4xl font-semibold transition-[filter,opacity,transform,colors] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:text-6xl ${cell === null ? 'bg-background text-foreground hover:bg-muted' : cell === 'Player' ? 'bg-primary text-primary-foreground' : 'bg-destructive text-destructive-foreground'} ${isRemovalPreview ? 'scale-95 opacity-50 blur-[2px]' : ''}`}
+              >
+                {cell === 'Player' ? 'X' : cell === 'AI' ? 'O' : ''}
+              </button>
+            )
+          })}
         </div>
 
         <aside className="flex flex-col gap-4" aria-label="Match status and controls">

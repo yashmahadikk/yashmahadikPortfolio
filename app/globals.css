@@ -235,3 +235,9 @@
     user-drag: none;
   }
 }
+
+@media (max-width: 639px) {
+  .tetris-board {
+    width: min(100%, max(150px, calc((100svh - 420px) / 2)));
+  }
+}

@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Games | Yash Mahadik',
-  description: 'Play games with AI. Start with Infinite Tic Tac Toe.',
+  description: 'Play classic arcade and strategy games, including AI-powered challenges.'
 }
 
 export default function GamesPage() {

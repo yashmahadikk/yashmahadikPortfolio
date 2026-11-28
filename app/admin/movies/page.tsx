@@ -1,16 +1,6 @@
 
 "use client"
 
-/*
- * File: app/movies/page.tsx
- *
- * Standalone Movies page.
- * Uses the existing Supabase movies table.
- * No database changes or additional dependencies.
- * Existing admin functionality remains unchanged.
- * Requires build and browser testing in the existing project.
- */
-
 import { useEffect, useMemo, useRef, useState } from "react"
 
 import {

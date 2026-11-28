@@ -1,5 +1,6 @@
 
 import Link from "next/link"
+import { ToolsShowMore } from "@/components/tools-show-more"
 import {
   ArrowUpRight,
   ArrowDown,
@@ -1307,27 +1308,14 @@ function CategorySection({
 
       {/* Responsive software directory */}
 
-      <div
-        className="
-          grid
-          grid-cols-2
-          gap-3
-          md:grid-cols-3
-          md:gap-4
-          lg:grid-cols-4
-          2xl:grid-cols-5
-          2xl:gap-5
-        "
-      >
-
+      <ToolsShowMore>
         {tools.map((tool) => (
           <ToolCard
             key={toolKey(tool.name)}
             tool={tool}
           />
         ))}
-
-      </div>
+      </ToolsShowMore>
 
     </section>
   )

@@ -16,17 +16,17 @@ export function Footer() {
             
             {/* Social Icons */}
             <div className="flex gap-4 mb-6">
-              <a href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards" className="text-muted-foreground hover:text-primary transition-colors">
-                <Mail size={20} />
+              <a aria-label="Email Yash" href="mailto:yashmahadik2005@gmail.com?subject=Let's Connect - Product Management Discussion&body=Hi Yash,%0A%0AI'd like to connect with you regarding product management, strategy, or a potential collaboration.%0A%0ALooking forward to hearing from you!%0A%0ABest regards" className="inline-flex size-11 items-center justify-center rounded text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                <Mail aria-hidden="true" size={20} />
               </a>
-              <a href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Product and strategy insights">
-                <Linkedin size={20} />
+              <a aria-label="LinkedIn profile" href="https://linkedin.com/in/yashmahadik2" target="_blank" rel="noopener noreferrer" className="inline-flex size-11 items-center justify-center rounded text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" title="Product and strategy insights">
+                <Linkedin aria-hidden="true" size={20} />
               </a>
-              <a href="https://x.com/yash_mahadik" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter size={20} />
+              <a aria-label="X profile" href="https://x.com/yash_mahadik" target="_blank" rel="noopener noreferrer" className="inline-flex size-11 items-center justify-center rounded text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                <Twitter aria-hidden="true" size={20} />
               </a>
-              <a href="https://github.com/yashmahaadik" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                <Github size={20} />
+              <a aria-label="GitHub profile" href="https://github.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="inline-flex size-11 items-center justify-center rounded text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                <Github aria-hidden="true" size={20} />
               </a>
             </div>
 
@@ -104,7 +104,7 @@ export function Footer() {
               <a href="https://x.com/yash_mahadik" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 Twitter / X
               </a>
-              <a href="https://github.com/yashmahaadik" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+              <a href="https://github.com/yashmahadikk" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
                 GitHub
               </a>
               <a href="https://drive.google.com/drive/folders/1jll4Xyqc_uIfkDlBFyuh_4Y6SufN_P5D?usp=drive_link" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors block flex items-center gap-2">

@@ -22,7 +22,8 @@ export function PortfolioChatbot() {
   }, [])
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    messagesEndRef.current?.scrollIntoView({ behavior })
   }, [messages])
 
   const handleSendMessage = async (e: React.FormEvent) => {
@@ -97,9 +98,9 @@ export function PortfolioChatbot() {
   if (!isMounted) return null
 
   return (
-    <div className="fixed bottom-6 right-4 z-50 flex flex-col items-end gap-3 sm:right-6">
+    <div className="relative z-50 flex w-full flex-col items-end gap-3 px-4 py-4 lg:fixed lg:bottom-6 lg:right-6 lg:w-auto lg:p-0">
       {isOpen && (
-        <div className="flex h-[min(34rem,calc(100vh-7rem))] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl animate-in fade-in slide-in-from-bottom-2 duration-200">
+        <div id="portfolio-chat-panel" className="flex h-[min(34rem,calc(100svh-7rem))] w-full max-w-sm flex-col overflow-hidden rounded-xl border border-border bg-background shadow-xl animate-in fade-in slide-in-from-bottom-2 duration-200 sm:w-[calc(100vw-2rem)]">
           <div className="flex items-center justify-between border-b border-border bg-foreground p-4 text-background">
             <div className="flex items-center gap-3">
               <div className="flex size-9 items-center justify-center rounded-full bg-background/15">
@@ -167,8 +168,12 @@ export function PortfolioChatbot() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              aria-label="Ask Yash's portfolio assistant"
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault()
+              }}
               placeholder="Ask me something..."
-              className="flex-1 px-3 py-2 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+              className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               disabled={isLoading}
               autoFocus
             />
@@ -187,8 +192,9 @@ export function PortfolioChatbot() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex size-12 items-center justify-center rounded-full bg-foreground text-background shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
-        aria-label="Open Yash's Portfolio Assistant"
-        aria-expanded={isOpen}
+              aria-controls={isOpen ? "portfolio-chat-panel" : undefined}
+              aria-label={isOpen ? "Close Yash's Portfolio Assistant" : "Open Yash's Portfolio Assistant"}
+              aria-expanded={isOpen}
       >
         <MessageCircle size={20} aria-hidden="true" />
       </button>

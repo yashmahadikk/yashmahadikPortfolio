@@ -7,7 +7,7 @@ export default function YeezyNEECaseStudy() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/#case-studies" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/case-studies" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft size={18} />
             <span className="text-sm font-medium">Back to Case Studies</span>
           </Link>
@@ -357,7 +357,7 @@ export default function YeezyNEECaseStudy() {
                 Get In Touch
               </Link>
               <Link
-                href="/#case-studies"
+                href="/case-studies"
                 className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-transparent text-foreground font-semibold text-sm md:text-base border border-border rounded-md hover:border-primary hover:text-primary transition-colors"
               >
                 View More Case Studies

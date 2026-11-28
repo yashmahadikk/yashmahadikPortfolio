@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { ArrowLeft, ArrowUpRight, FileText, PanelsTopLeft } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
+import { SaleshandyFeatureActions } from "@/components/saleshandy-feature-actions"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
@@ -48,17 +49,11 @@ export function SaleshandyFeaturePage({
               ))}
             </ul>
           </div>
-          <aside className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6">
-            <h2 className="mb-2 text-lg font-semibold text-foreground">Explore the work</h2>
-            <a href={prototypeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted">
-              <span className="inline-flex items-center gap-2"><PanelsTopLeft size={17} /> Open prototype</span>
-              <ArrowUpRight size={16} />
-            </a>
-            <Link href={prdUrl} className="inline-flex items-center justify-between gap-3 rounded-xl bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
-              <span className="inline-flex items-center gap-2"><FileText size={17} /> Read full PRD</span>
-              <ArrowUpRight size={16} />
-            </Link>
-          </aside>
+          <SaleshandyFeatureActions
+            prototypeUrl={prototypeUrl}
+            prdUrl={prdUrl}
+            project={title === "Email Lookup" ? "saleshandy-email-lookup" : "saleshandy-import-list"}
+          />
         </div>
       </section>
       <Footer />

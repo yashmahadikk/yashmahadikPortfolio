@@ -150,7 +150,7 @@ export default function WorkPage() {
             {projects.map((project: any) => (
               <Link
                 key={project.project_id || project.id}
-                href={`/work/${project.project_id || project.id}`}
+                href={project.project_id === "electronic-soundbook" || project.id === "electronic-soundbook" ? "/case-studies/electronic-soundbook" : `/work/${project.project_id || project.id}`}
                 className={`${project.bg_color} dark:bg-card p-8 rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group`}
               >
                 <div className="flex items-start gap-3 mb-4">

@@ -11,14 +11,6 @@ import {
   ChevronDown,
   PenTool,
   BookOpen,
-  Briefcase,
-  Users,
-  Award,
-  Zap,
-  Globe,
-  Film,
-  Compass,
-  ListChecks,
   RefreshCw,
 } from "lucide-react"
 
@@ -940,122 +932,6 @@ function BlogHero() {
 }
 
 /* =========================================================
-   PRESERVE EXISTING EXPLORE DESTINATIONS
-
-   Replaces the oversized cards with a compact directory.
-========================================================= */
-
-const exploreLinks = [
-  {
-    title: "Case studies",
-    description: "Product research and analysis",
-    href: "/case-studies",
-    icon: Briefcase,
-  },
-  {
-    title: "Mentors & people",
-    description: "People who inspire me",
-    href: "/mentors",
-    icon: Users,
-  },
-  {
-    title: "Certificates",
-    description: "Learning and achievements",
-    href: "/certificates",
-    icon: Award,
-  },
-  {
-    title: "My journey",
-    description: "How I got here",
-    href: "/journey",
-    icon: Compass,
-  },
-  {
-    title: "Tools & software",
-    description: "Things I use",
-    href: "/tools",
-    icon: Zap,
-  },
-  {
-    title: "Bucket list",
-    description: "Things I want to do",
-    href: "/bucket-list",
-    icon: ListChecks,
-  },
-  {
-    title: "Books",
-    description: "My personal library",
-    href: "/books",
-    icon: BookOpen,
-  },
-  {
-    title: "Movies",
-    description: "My film diary",
-    href: "/movies",
-    icon: Film,
-  },
-  {
-    title: "Curated links",
-    description: "Interesting discoveries",
-    href: "/curated-links",
-    icon: Globe,
-  },
-]
-
-function ExploreSection() {
-  return (
-    <section className="border-t border-border py-10 md:py-14">
-      <p className="mb-4 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-        Beyond the journal
-      </p>
-
-      <h2 className="font-serif text-3xl tracking-tight">
-        There&apos;s more to explore.
-      </h2>
-
-      <p className="mt-3 text-sm text-muted-foreground">
-        The other things that keep me curious.
-      </p>
-
-      <div className="mt-7 grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-        {exploreLinks.map((item) => {
-          const Icon = item.icon
-
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="group flex min-h-[76px] items-center gap-3 border-b border-border py-4 transition-colors hover:text-primary"
-            >
-              <Icon
-                size={18}
-                strokeWidth={1.4}
-                className="shrink-0 text-muted-foreground"
-              />
-
-              <div className="min-w-0 flex-1">
-                <h3 className="text-sm font-medium">
-                  {item.title}
-                </h3>
-
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-
-              <ArrowUpRight
-                size={13}
-                className="shrink-0 text-muted-foreground"
-              />
-            </Link>
-          )
-        })}
-      </div>
-    </section>
-  )
-}
-
-/* =========================================================
    MAIN BLOG PAGE
 ========================================================= */
 
@@ -1563,9 +1439,6 @@ export default function BlogPage() {
             </>
           )}
 
-          {/* Existing personal website destinations */}
-
-          <ExploreSection />
         </div>
       </main>
 

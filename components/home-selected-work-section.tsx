@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { ArrowUpRight, FileText, PanelsTopLeft } from "lucide-react"
+import { HomePortfolioCover } from "@/components/home-portfolio-cover"
 import { trackPortfolioEvent } from "@/lib/portfolio-analytics"
 
 const featuredProjects = [
@@ -40,14 +41,17 @@ export function HomeSelectedWorkSection() {
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
           {featuredProjects.map((project) => (
-            <article key={project.id} className="group relative flex h-full flex-col rounded-md border border-border bg-card p-4 transition-colors hover:border-primary/60 lg:p-6">
+            <article key={project.id} className="group relative flex h-full flex-col overflow-hidden rounded-md border border-border bg-card transition-colors hover:border-primary/60">
               <Link
                 href={project.href}
                 aria-label={`Explore project: ${project.title}`}
                 onClick={() => trackPortfolioEvent("project_card_click", { project: project.id })}
                 className="absolute inset-0 z-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               />
-              <div className="relative z-10 flex flex-1 flex-col gap-4 pointer-events-none">
+              <div className="pointer-events-none">
+                <HomePortfolioCover id={project.id} title={project.title} />
+              </div>
+              <div className="pointer-events-none relative z-10 flex flex-1 flex-col gap-4 p-4 lg:p-6">
                 <div>
                   <p className="mb-2 text-xs font-semibold tracking-wider text-muted-foreground">{project.category}</p>
                   <h3 className="text-xl font-serif text-foreground transition-colors group-hover:text-primary lg:text-2xl">{project.title}</h3>
@@ -59,7 +63,7 @@ export function HomeSelectedWorkSection() {
                   <ArrowUpRight aria-hidden="true" size={16} />
                 </span>
               </div>
-              <div className="relative z-20 mt-3 flex flex-wrap gap-x-4 gap-y-2 border-t border-border pt-3">
+              <div className="relative z-20 mx-4 mt-0 flex flex-wrap gap-x-4 gap-y-2 border-t border-border pt-3 lg:mx-6">
                 <a
                   href={project.prototype}
                   target="_blank"

@@ -43,21 +43,21 @@ export function HomeExploreSection() {
   ]
 
   return (
-    <section className="py-24 md:py-32 px-6 border-b border-border">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-12">Explore</h2>
+    <section className="border-b border-border px-5 py-10 lg:px-6 lg:py-32">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="mb-6 text-3xl font-semibold text-foreground lg:mb-12 lg:text-4xl">Explore</h2>
         
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-2 md:gap-6">
           {items.map((item) => {
             const Icon = item.icon
             return (
               <Link key={item.href} href={item.href} className="group">
-                <div className="p-6 rounded-lg border border-border hover:border-primary transition-colors hover:bg-card/50 h-full bg-card/30">
-                  <Icon size={24} className="text-primary mb-4" />
+                <div className="h-full rounded-lg border border-border bg-card/30 p-4 transition-colors hover:border-primary hover:bg-card/50 lg:p-6">
+                  <Icon size={20} className="mb-3 text-primary lg:mb-4 lg:size-6" />
                   <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="hidden text-sm text-muted-foreground lg:block">
                     {item.description}
                   </p>
                 </div>

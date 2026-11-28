@@ -6,24 +6,24 @@ const emailHref = "mailto:yashmahadik2005@gmail.com?subject=Let's%20Connect%20-%
 
 export function HomeHeroSection() {
   return (
-    <section className="border-b border-border px-6 pb-16 pt-28 md:pb-20 md:pt-36">
+    <section className="border-b border-border px-5 pb-10 pt-8 lg:px-6 lg:pb-20 lg:pt-36">
       <div className="mx-auto max-w-4xl">
-        <h1 className="mb-4 text-5xl font-sans font-semibold leading-tight text-foreground md:text-6xl">
+        <h1 className="mb-3 text-[clamp(2.5rem,11vw,2.75rem)] font-sans font-semibold leading-tight text-foreground lg:mb-4 lg:text-6xl">
           yash mahadik
         </h1>
-        <p className="mb-4 max-w-3xl text-2xl font-medium leading-[1.3] text-foreground md:text-3xl">
+        <p className="mb-3 max-w-3xl text-[23px] font-medium leading-[1.3] text-foreground lg:mb-4 lg:text-3xl">
           Product Manager. Builder. Curious by default.
         </p>
-        <p className="mb-3 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+        <p className="mb-2 max-w-3xl text-base leading-relaxed text-muted-foreground lg:mb-3 lg:text-lg">
           I explore complex problems, challenge assumptions and build products at the intersection of business, technology and human behaviour.
         </p>
-        <p className="mb-7 text-sm leading-relaxed text-muted-foreground">
+        <p className="mb-5 text-sm leading-relaxed text-muted-foreground lg:mb-7">
           5 years of experience across product management, project management, and startup operations.
         </p>
 
         <HomeHeroActions />
 
-        <div className="mb-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
+        <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground lg:mb-6 lg:gap-x-6 lg:gap-y-3">
           <div className="flex items-center gap-2">
             <MapPin aria-hidden="true" size={16} />
             <span>Mumbai, Maharashtra</span>

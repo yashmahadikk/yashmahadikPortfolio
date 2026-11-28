@@ -32,6 +32,7 @@ export const caseStudyEntries: CaseStudyEntry[] = [
     bgColor: "bg-amber-50",
     link: "/case-studies/amazon-prime",
     contentClassification: "Wireframing & design",
+    featured: true,
   },
   {
     id: "sprintup",

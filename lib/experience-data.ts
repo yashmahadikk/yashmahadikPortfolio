@@ -31,7 +31,7 @@ export const experiences: Experience[] = [
     ],
     skills: ["Product Management", "Growth", "Product Discovery", "Product Requirements"],
     projects: [
-      { label: "Lead Finder — Import List", href: "/work/saleshandy-import-list" },
+      { label: "Lead Finder - Import List", href: "/work/saleshandy-import-list" },
       { label: "Email Lookup", href: "/work/saleshandy-email-lookup" },
     ],
   },
@@ -80,20 +80,20 @@ export const experiences: Experience[] = [
   {
     id: "jsk-foods",
     company: "JSK Foods",
-    role: "Family Business — Food Production & Sales",
+    role: "Operations",
     period: "Aug 2021 – Apr 2023",
     location: "Mumbai",
     logo: {
       type: "image",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fs0cOb2KlEFVj0SBBWpNkKLHTc8hYT.png",
+      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-nnWAnV2nZEdMFMSKK1CaXIy4qGutLS.png",
       alt: "JSK Snacks logo",
     },
     description: "This was my family business. We make and sell food products, including cookies, biscuits, and other baked goods. My work gave me practical exposure to the day-to-day realities of making and selling physical products.",
     responsibilities: [
-      "Supported the family-run business making and selling cookies, biscuits, and baked goods.",
+      "Handled operations for the family business that makes and sells cookies, biscuits, and other baked goods.",
       "Helped coordinate suppliers and the practical steps involved in producing and selling food products.",
-      "Contributed to business operations and process improvements as part of the family business.",
+      "Contributed to day-to-day business operations and process improvements.",
     ],
-    skills: ["Food Production", "Business Operations", "Sales", "Supplier Coordination"],
+    skills: ["Operations", "Food Production", "Supplier Coordination", "Business Operations"],
   },
 ]

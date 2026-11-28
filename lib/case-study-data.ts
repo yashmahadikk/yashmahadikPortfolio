@@ -37,7 +37,7 @@ export const caseStudyEntries: CaseStudyEntry[] = [
   {
     id: "sprintup",
     title: "SprintUp: Voice-Activated Project Management for Engineering Teams",
-    description: "A deep-dive PRD into SprintUp's voice-activated project management system — covering problem framing, user research, feature prioritisation, technical architecture decisions, and the go-to-market strategy. Includes the full requirements document behind the product's core loop.",
+    description: "A deep-dive PRD into SprintUp's voice-activated project management system, covering problem framing, user research, feature prioritisation, technical architecture decisions, and the go-to-market strategy. Includes the full requirements document behind the product's core loop.",
     category: "prd",
     categoryLabel: "Product Strategy",
     bgColor: "bg-indigo-50",
@@ -108,7 +108,7 @@ export const caseStudyEntries: CaseStudyEntry[] = [
   {
     id: "chase",
     title: "Increasing Financial Feature Engagement: Unlocking $1.9B in Annual Revenue (projected opportunity)",
-    description: "New product feature development strategy for Chase Compass — an AI-powered financial navigation platform designed to increase engagement and unlock substantial annual revenue.",
+    description: "New product feature development strategy for Chase Compass, an AI-powered financial navigation platform designed to increase engagement and unlock substantial annual revenue.",
     category: "new-product-development",
     categoryLabel: "New Product Development",
     bgColor: "bg-blue-100",
@@ -129,7 +129,7 @@ export const caseStudyEntries: CaseStudyEntry[] = [
   {
     id: "notion",
     title: "Building Notion's AI Layer: A Feature Strategy to Capture the $47B Productivity Market",
-    description: "New product feature strategy for Notion AI — seamless AI integration into workflows. How Notion expanded from a document tool into a $10B+ AI-first workspace platform through strategic feature development.",
+    description: "New product feature strategy for Notion AI, with seamless AI integration into workflows. How Notion expanded from a document tool into a $10B+ AI-first workspace platform through strategic feature development.",
     category: "new-product-development",
     categoryLabel: "New Product Development",
     bgColor: "bg-gray-50",
@@ -149,7 +149,7 @@ export const caseStudyEntries: CaseStudyEntry[] = [
   {
     id: "electronic-soundbook",
     title: "Electronic Soundbook: From Brief to Shelf",
-    description: "A product development journey — Building a screen-free alternative to smartphones for toddlers across five global markets with zero redesigns post-DVT. Covers research, engineering, compliance architecture, prototyping, and go-to-market strategy.",
+    description: "A product development journey building a screen-free alternative to smartphones for toddlers across five global markets with zero redesigns post-DVT. Covers research, engineering, compliance architecture, prototyping, and go-to-market strategy.",
     category: "product-journey",
     categoryLabel: "New Product Development",
     bgColor: "bg-teal-50",

@@ -59,7 +59,7 @@ export default async function ExperienceDetailPage({ params }: ExperienceDetailP
             <ul className="flex flex-col gap-5">
               {experience.responsibilities.map((responsibility) => (
                 <li key={responsibility} className="flex gap-3 text-base leading-relaxed text-muted-foreground">
-                  <span aria-hidden="true" className="text-foreground">—</span>
+                  <span aria-hidden="true" className="text-foreground">•</span>
                   <span>{responsibility}</span>
                 </li>
               ))}

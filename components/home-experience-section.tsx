@@ -1,79 +1,20 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { ExperienceAccordion } from "./experience-accordion"
+import { experiences } from "@/lib/experience-data"
 
 export function HomeExperienceSection() {
-  const experiences = [
-    {
-      company: "Saleshandy",
-      role: "Product Manager Growth",
-      period: "Aug 2026 - Oct 2026",
-      location: "Mumbai",
-      status: "Completed",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2RUpg8FNZizUbD1UiveZxsPQ2fYy4W.png"
-    },
-    {
-      company: "Devanagari Ventures",
-      role: "PM & Co Founder",
-      period: "May 2024 - May 2026",
-      location: "Mumbai",
-      status: "Active",
-      logo: "🚀"
-    },
-    {
-      company: "Funspire.in",
-      role: "Product Manager",
-      period: "May 2023 - May 2024",
-      location: "Mumbai",
-      status: "Completed",
-      logo: "🎯"
-    },
-    {
-      company: "JSK Foods",
-      role: "Operations",
-      period: "Aug 2021 - Apr 2023",
-      location: "Mumbai",
-      status: "Completed",
-      logo: "🍛"
-    }
-  ]
-
   return (
-    <section className="py-24 md:py-32 px-6 border-b border-border">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-12">Experience</h2>
-        
-        <div className="space-y-12">
-          {experiences.map((exp, idx) => (
-            <div key={idx} className="flex gap-6">
-              <div className="text-3xl flex-shrink-0 w-12 h-12 flex items-center justify-center">
-                {exp.company === "Saleshandy" ? (
-                  <img src={exp.logo} alt="Saleshandy logo" className="size-12 rounded-lg object-contain" />
-                ) : (
-                  exp.logo
-                )}
-              </div>
-              <div className="flex-1">
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground">{exp.company}</h3>
-                    <p className="text-muted-foreground">{exp.role}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm text-muted-foreground">{exp.period}</p>
-                    <p className="text-sm text-muted-foreground">{exp.location}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <Link 
-          href="/experience" 
-          className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium mt-12"
+    <section id="experience" className="border-b border-border px-6 py-20 md:py-24 scroll-mt-24">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="mb-8 text-3xl font-semibold text-foreground md:text-4xl">Experience</h2>
+        <ExperienceAccordion experiences={experiences} />
+        <Link
+          href="/experience"
+          className="mt-8 inline-flex min-h-11 items-center gap-2 font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           See full experience
-          <ArrowRight size={16} />
+          <ArrowRight aria-hidden="true" size={16} />
         </Link>
       </div>
     </section>

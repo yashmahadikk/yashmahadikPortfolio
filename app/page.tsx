@@ -2,6 +2,8 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { HomeHeroSection } from "@/components/home-hero-section"
 import { HomeExperienceSection } from "@/components/home-experience-section"
+import { HomeSelectedWorkSection } from "@/components/home-selected-work-section"
+import { HomeFeaturedCaseStudiesSection } from "@/components/home-featured-case-studies-section"
 import { HomeBlogSection } from "@/components/home-blog-section"
 import { HomeExploreSection } from "@/components/home-explore-section"
 import { HomeThinkingPartnerSection } from "@/components/home-thinking-partner-section"
@@ -13,6 +15,8 @@ export default async function Home() {
       <Navigation />
       <HomeHeroSection />
       <HomeExperienceSection />
+      <HomeSelectedWorkSection />
+      <HomeFeaturedCaseStudiesSection />
       <HomeBlogSection />
       <HomeExploreSection />
       <HomeThinkingPartnerSection />

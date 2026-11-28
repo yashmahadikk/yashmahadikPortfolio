@@ -26,7 +26,7 @@ export function HeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
           <Link
-            href="#work"
+            href="/work"
             className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors rounded-md"
           >
             Explore Portfolio

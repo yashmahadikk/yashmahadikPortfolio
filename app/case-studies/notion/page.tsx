@@ -12,7 +12,7 @@ export default function NotionCaseStudyPage() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-4">
-          <Link href="/#case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft size={18} />
             Back to Case Studies
           </Link>
@@ -248,7 +248,7 @@ export default function NotionCaseStudyPage() {
           <p className="text-muted-foreground mb-6">
             Notion's AI strategy shows how product companies can integrate emerging technologies without losing focus on their core value proposition. By making AI contextual and maintaining user control, Notion positioned itself as an AI-first workspace rather than a tool that bolted AI on as an afterthought.
           </p>
-          <Link href="/#case-studies" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors">
+          <Link href="/case-studies" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors">
             <ArrowLeft size={18} />
             Back to All Case Studies
           </Link>

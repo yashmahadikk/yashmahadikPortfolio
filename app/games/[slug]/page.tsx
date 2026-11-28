@@ -24,7 +24,7 @@ const games = {
     title: 'Nokia Snake',
     eyebrow: 'Arcade · Classic',
     description: 'Guide the growing snake across the board, collect food, and avoid the walls and your own tail.',
-    instructions: 'Use the arrow keys or WASD to steer. Press Space to pause, or use the on-screen controls.',
+    instructions: 'Use arrow keys or WASD, or swipe the board on mobile. Press Space to pause; on-screen arrows are also available.',
   },
 } as const
 

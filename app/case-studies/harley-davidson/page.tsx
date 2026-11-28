@@ -12,7 +12,7 @@ export default function HarleyDavidsonCaseStudy() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm z-50 border-b border-border">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
-          <Link href="/#case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm md:text-base">
+          <Link href="/case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm md:text-base">
             <ArrowLeft size={16} className="md:w-5 md:h-5" />
             <span className="hidden sm:inline">Back to Case Studies</span>
             <span className="sm:hidden">Back</span>
@@ -592,7 +592,7 @@ export default function HarleyDavidsonCaseStudy() {
               Get In Touch
             </Link>
             <Link
-              href="/#case-studies"
+              href="/case-studies"
               className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-foreground font-semibold border border-border hover:border-primary hover:text-primary transition-colors"
             >
               View More Case Studies

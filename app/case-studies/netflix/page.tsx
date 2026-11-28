@@ -12,7 +12,7 @@ export default function NetflixCaseStudyPage() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-4">
-          <Link href="/#case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft size={18} />
             Back to Case Studies
           </Link>
@@ -277,7 +277,7 @@ export default function NetflixCaseStudyPage() {
           <p className="text-muted-foreground mb-6">
             Netflix's recommendation engine is a masterclass in how data analytics creates defensible competitive advantage. By combining scale, talent, infrastructure, and relentless measurement, Netflix transformed recommendation technology from a feature into a strategic moat that competitors still struggle to match.
           </p>
-          <Link href="/#case-studies" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors">
+          <Link href="/case-studies" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors">
             <ArrowLeft size={18} />
             Back to All Case Studies
           </Link>

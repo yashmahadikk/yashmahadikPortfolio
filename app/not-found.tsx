@@ -21,7 +21,7 @@ const sitemap = [
 const socials = [
   { label: 'LinkedIn', href: 'https://linkedin.com/in/yashmahadik2', icon: Linkedin },
   { label: 'Twitter / X', href: 'https://x.com/yash_mahadik', icon: Twitter },
-  { label: 'GitHub', href: 'https://github.com/yashmahaadik', icon: Github },
+  { label: 'GitHub', href: 'https://github.com/yashmahadikk', icon: Github },
   { label: 'Email', href: 'mailto:yashmahadik2005@gmail.com', icon: Mail },
 ]
 

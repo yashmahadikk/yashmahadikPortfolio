@@ -78,15 +78,32 @@ export default function Tetris() {
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft') move(-1, 0)
-      if (event.key === 'ArrowRight') move(1, 0)
-      if (event.key === 'ArrowDown') move(0, 1)
-      if (event.key === 'ArrowUp') rotatePiece(1)
-      if (event.key === ' ') { event.preventDefault(); setIsPaused((current) => !current) }
+      if (!hasStarted || isPaused || isOver) return
+
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault()
+        move(-1, 0)
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault()
+        move(1, 0)
+      }
+      if (event.key === 'ArrowDown') {
+        event.preventDefault()
+        move(0, 1)
+      }
+      if (event.key === 'ArrowUp') {
+        event.preventDefault()
+        rotatePiece(1)
+      }
+      if (event.code === 'Space') {
+        event.preventDefault()
+        setIsPaused(true)
+      }
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [move, rotatePiece])
+  }, [hasStarted, isOver, isPaused, move, rotatePiece])
 
   useEffect(() => {
     if (!hasStarted || isPaused || isOver) return

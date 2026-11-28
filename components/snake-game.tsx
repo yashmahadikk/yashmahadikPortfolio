@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import { Pause, Play, RotateCcw } from 'lucide-react'
 
 type Point = { x: number; y: number }
@@ -43,6 +43,7 @@ export default function SnakeGame() {
   const [bestScore, setBestScore] = useState(0)
   const [status, setStatus] = useState<GameStatus>('ready')
   const direction = useRef<Direction>('right')
+  const touchStart = useRef<Point | null>(null)
 
   const changeDirection = useCallback((next: Direction) => {
     if (OPPOSITE[direction.current] !== next) direction.current = next
@@ -76,7 +77,7 @@ export default function SnakeGame() {
 
   useEffect(() => {
     if (status !== 'playing') return
-    const timer = window.setInterval(moveSnake, 145)
+    const timer = window.setInterval(moveSnake, 110)
     return () => window.clearInterval(timer)
   }, [moveSnake, status])
 
@@ -87,19 +88,42 @@ export default function SnakeGame() {
         w: 'up', d: 'right', s: 'down', a: 'left',
       }
       const nextDirection = keys[event.key] ?? keys[event.key.toLowerCase()]
-      if (nextDirection) {
+
+      if (status === 'playing' && nextDirection) {
         event.preventDefault()
         changeDirection(nextDirection)
       }
-      if (event.code === 'Space') {
+      if (event.code === 'Space' && (status === 'playing' || status === 'paused')) {
         event.preventDefault()
-        setStatus((current) => current === 'playing' ? 'paused' : current === 'paused' ? 'playing' : current)
+        setStatus((current) => current === 'playing' ? 'paused' : 'playing')
       }
     }
 
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [changeDirection])
+  }, [changeDirection, status])
+
+  const handleBoardPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== 'touch' || status !== 'playing') return
+    touchStart.current = { x: event.clientX, y: event.clientY }
+    event.currentTarget.setPointerCapture(event.pointerId)
+  }
+
+  const handleBoardPointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const start = touchStart.current
+    touchStart.current = null
+    if (!start || status !== 'playing') return
+
+    const deltaX = event.clientX - start.x
+    const deltaY = event.clientY - start.y
+    if (Math.max(Math.abs(deltaX), Math.abs(deltaY)) < 24) return
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      changeDirection(deltaX > 0 ? 'right' : 'left')
+    } else {
+      changeDirection(deltaY > 0 ? 'down' : 'up')
+    }
+  }
 
   const restart = () => {
     const initialSnake = INITIAL_SNAKE.map((part) => ({ ...part }))
@@ -151,9 +175,12 @@ export default function SnakeGame() {
 
       <div className="mx-auto grid w-full max-w-3xl items-center gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
         <div
-          className="relative mx-auto aspect-square w-full max-w-[min(100%,400px)] overflow-hidden rounded-xl border-2 border-foreground bg-muted/40 p-1"
+          className={`relative mx-auto aspect-square w-full max-w-[min(100%,400px)] overflow-hidden rounded-xl border-2 border-foreground bg-muted/40 p-1 ${status === 'playing' ? 'touch-none' : 'touch-pan-y'}`}
           role="group"
           aria-label={`Snake game board. Score ${score}. ${status === 'over' ? 'Game over.' : status === 'won' ? 'You won.' : ''}`}
+          onPointerDown={handleBoardPointerDown}
+          onPointerUp={handleBoardPointerUp}
+          onPointerCancel={() => { touchStart.current = null }}
         >
           <div aria-hidden="true" className="grid h-full grid-cols-[repeat(20,minmax(0,1fr))] grid-rows-[repeat(20,minmax(0,1fr))] gap-px bg-border">
             {gridCells}
@@ -199,7 +226,8 @@ export default function SnakeGame() {
             </button>
           </div>
           <p className="text-center font-mono text-[11px] text-muted-foreground lg:text-left">
-            Arrow keys or WASD to steer · Space to pause
+            <span className="hidden lg:inline">Arrow keys or WASD to steer · Space to pause</span>
+            <span className="lg:hidden">Swipe the board or tap the arrows to steer</span>
           </p>
         </div>
       </div>

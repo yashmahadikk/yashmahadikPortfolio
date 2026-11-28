@@ -10,12 +10,12 @@ import './globals.css'
 const figtree = Figtree({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Yash Mahadik | Product Manager & Founder',
-  description: 'Product portfolio showcasing AI-powered solutions, enterprise transformation, and digital innovation. 4 years in product management, 5 years in project management.',
+  title: 'Yash Mahadik | Product Manager & Builder',
+  description: 'Product portfolio featuring product management experience, selected work, case studies, and perspectives on building thoughtful products.',
   generator: 'Yash',
   icons: {
     icon: '/apple-touch-icon.png',
-    apple: '/apple-touch-icon.png',
+    apple: [{ url: '/apple-touch-icon.png' }, { url: '/apple-icon.png' }],
     other: [
       {
         url: '/icon-light-32x32.png',
@@ -47,7 +47,6 @@ export const metadata: Metadata = {
         type: 'image/png',
       },
     ],
-    apple: '/apple-icon.png',
   },
 }
 

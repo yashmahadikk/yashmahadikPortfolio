@@ -1,0 +1,163 @@
+export interface CaseStudyEntry {
+  id: string
+  title: string
+  description: string
+  category: string
+  categoryLabel: string
+  bgColor: string
+  link: string
+  contentClassification?: string
+  featured?: boolean
+  pptLink?: string
+}
+
+export const caseStudyEntries: CaseStudyEntry[] = [
+  {
+    id: "zepto",
+    title: "Turning Notifications Into Revenue: A Product Teardown of Push Strategy",
+    description: "A deep analysis of how quick commerce platforms can leverage AI-driven personalization and interactive notifications to boost engagement and conversion.",
+    category: "product-teardown",
+    categoryLabel: "Product Teardown",
+    bgColor: "bg-purple-50",
+    link: "/case-studies/zepto",
+    contentClassification: "Product teardown",
+    featured: true,
+  },
+  {
+    id: "amazon-prime",
+    title: "Redesigning Discovery: How Amazon Prime Can Reduce Content Abandonment by 40%",
+    description: "Wireframes and user flows for Amazon Prime's content discovery redesign with interactive prototypes.",
+    category: "wireframing",
+    categoryLabel: "Wireframing & Design",
+    bgColor: "bg-amber-50",
+    link: "/case-studies/amazon-prime",
+    contentClassification: "Wireframing & design",
+    featured: true,
+  },
+  {
+    id: "sprintup",
+    title: "SprintUp: Voice-Activated Project Management for Engineering Teams",
+    description: "A deep-dive PRD into SprintUp's voice-activated project management system, covering problem framing, user research, feature prioritisation, technical architecture decisions, and the go-to-market strategy. Includes the full requirements document behind the product's core loop.",
+    category: "prd",
+    categoryLabel: "Product Strategy",
+    bgColor: "bg-indigo-50",
+    link: "/case-studies/sprintup",
+    contentClassification: "PRD",
+    featured: true,
+  },
+  {
+    id: "the-hindu",
+    title: "Converting 32M Monthly Visitors Into Paying Subscribers",
+    description: "Comprehensive data analytics and growth funnel optimization for The Hindu's subscription model.",
+    category: "data-analytics",
+    categoryLabel: "Data & Analytics",
+    bgColor: "bg-red-50",
+    link: "/case-studies/the-hindu",
+    contentClassification: "Data & analytics",
+  },
+  {
+    id: "swiggy",
+    title: "Doubling Meaningful Reviews & Unlocking $800M in Annual GOV (projected opportunity)",
+    description: "Analytics-driven case study on Swiggy's review engagement metrics and conversion optimization.",
+    category: "data-analytics",
+    categoryLabel: "Data & Analytics",
+    bgColor: "bg-orange-50",
+    link: "/case-studies/swiggy",
+    contentClassification: "Data & analytics",
+  },
+  {
+    id: "netflix",
+    title: "Optimising Netflix's Recommendation Engine to Increase Viewing Time by 20%",
+    description: "Deep dive into Netflix's data analytics framework for personalized recommendations. How machine learning models increased viewing time by 20% and reduced churn through predictive analytics.",
+    category: "data-analytics",
+    categoryLabel: "Data & Analytics",
+    bgColor: "bg-red-100",
+    link: "/case-studies/netflix",
+    contentClassification: "Data & analytics",
+  },
+  {
+    id: "harley-davidson",
+    title: "Enjoy Till It Lasts: Unlocking $1.5B Before the ICE Era Ends (projected opportunity)",
+    description: "Market analysis and competitive positioning strategy for Harley-Davidson in the transitioning motorcycle industry.",
+    category: "market-case-study",
+    categoryLabel: "Market Analysis",
+    bgColor: "bg-orange-100",
+    link: "/case-studies/harley-davidson",
+    contentClassification: "Market analysis",
+  },
+  {
+    id: "yeezy",
+    title: "The Anti-User Experience: How YEEZY Scored 1.7/10 on UX and Still Won",
+    description: "Market case study on YEEZY's deliberate rejection of UX conventions and its commercial success.",
+    category: "market-case-study",
+    categoryLabel: "Market Analysis",
+    bgColor: "bg-gray-100",
+    link: "/case-studies/yeezy",
+    contentClassification: "Market analysis",
+  },
+  {
+    id: "figma",
+    title: "From Free Tools to Enterprise: How Figma Captured the Design Market",
+    description: "Strategic market analysis of Figma's competitive positioning, pricing strategy, and network effects that transformed the $50B+ design tools landscape.",
+    category: "market-case-study",
+    categoryLabel: "Market Analysis",
+    bgColor: "bg-pink-100",
+    link: "/case-studies/figma",
+    contentClassification: "Market analysis",
+  },
+  {
+    id: "chase",
+    title: "Increasing Financial Feature Engagement: Unlocking $1.9B in Annual Revenue (projected opportunity)",
+    description: "New product feature development strategy for Chase Compass, an AI-powered financial navigation platform designed to increase engagement and unlock substantial annual revenue.",
+    category: "new-product-development",
+    categoryLabel: "New Product Development",
+    bgColor: "bg-blue-100",
+    link: "/case-studies/chase",
+    contentClassification: "New product development",
+  },
+  {
+    id: "cred",
+    title: "Breaking the Monthly Habit: Transforming a $6.4B App with 3% DAU/MAU",
+    description: "New product feature development strategy for CRED's daily engagement layer and habit formation.",
+    category: "new-product-development",
+    categoryLabel: "New Product Development",
+    bgColor: "bg-slate-100",
+    link: "/case-studies/cred",
+    contentClassification: "New product development",
+    pptLink: "https://canva.link/credcasestudybyyash",
+  },
+  {
+    id: "notion",
+    title: "Building Notion's AI Layer: A Feature Strategy to Capture the $47B Productivity Market",
+    description: "New product feature strategy for Notion AI, with seamless AI integration into workflows. How Notion expanded from a document tool into a $10B+ AI-first workspace platform through strategic feature development.",
+    category: "new-product-development",
+    categoryLabel: "New Product Development",
+    bgColor: "bg-gray-50",
+    link: "/case-studies/notion",
+    contentClassification: "New product development",
+  },
+  {
+    id: "jpmc-india",
+    title: "JPMC India Market Entry: GTM Strategy & Revenue Roadmap",
+    description: "Go-to-market strategy and market entry execution plan for JPMC's India expansion.",
+    category: "go-to-market",
+    categoryLabel: "Product Strategy",
+    bgColor: "bg-blue-50",
+    link: "/case-studies/jpmc-india",
+    contentClassification: "Go-to-market strategy",
+  },
+  {
+    id: "electronic-soundbook",
+    title: "Electronic Soundbook: From Brief to Shelf",
+    description: "A product development journey building a screen-free alternative to smartphones for toddlers across five global markets with zero redesigns post-DVT. Covers research, engineering, compliance architecture, prototyping, and go-to-market strategy.",
+    category: "product-journey",
+    categoryLabel: "New Product Development",
+    bgColor: "bg-teal-50",
+    link: "/case-studies/electronic-soundbook",
+    contentClassification: "Product journey",
+    featured: true,
+    pptLink: "https://canva.link/5pkm57zpt9t04qt",
+  },
+]
+
+export const featuredCaseStudies = caseStudyEntries.filter((study) => study.featured)

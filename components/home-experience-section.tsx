@@ -5,9 +5,9 @@ import { experiences } from "@/lib/experience-data"
 
 export function HomeExperienceSection() {
   return (
-    <section id="experience" className="border-b border-border px-6 py-20 md:py-24 scroll-mt-24">
+    <section id="experience" className="scroll-mt-20 border-b border-border px-5 py-10 lg:scroll-mt-24 lg:px-6 lg:py-24">
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-8 text-3xl font-semibold text-foreground md:text-4xl">Experience</h2>
+        <h2 className="mb-6 text-3xl font-semibold text-foreground lg:mb-8 lg:text-4xl">Experience</h2>
         <ExperienceAccordion experiences={experiences} />
         <Link
           href="/experience"

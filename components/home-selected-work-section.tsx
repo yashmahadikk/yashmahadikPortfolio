@@ -10,6 +10,7 @@ const featuredProjects = [
     category: "SALESHANDY · LEAD FINDER",
     title: "Lead Finder — Import List",
     description: "Designed the Import New List experience for teams moving from tools like Apollo, Lusha, or Clay. Users can bring existing prospect data into Saleshandy, match it against Lead Finder, and exclude records they already own from future searches—while reusing imported profiles in their CRM and sequences.",
+    mobileDescription: "Helped teams import prospect lists, match owned records, and reuse profiles across their CRM and sequences.",
     href: "/work/saleshandy-import-list",
     prototype: "https://csvelf.vercel.app",
     prd: "/work/saleshandy-import-list/prd",
@@ -19,6 +20,7 @@ const featuredProjects = [
     category: "SALESHANDY · LEAD FINDER",
     title: "Email Lookup",
     description: "Designed an email-based people lookup that matches against Saleshandy's own database of 918 million profiles—without relying on third-party data vendors. The matching approach parses name and company-domain clues, including partial-name patterns with n-gram tokenization, and was reported to reach at least 97% accuracy.",
+    mobileDescription: "Designed an email lookup that matches against Saleshandy's 918 million profiles, with reported accuracy of at least 97%.",
     href: "/work/saleshandy-email-lookup",
     prototype: "https://emaillookup.vercel.app",
     prd: "/work/saleshandy-email-lookup/prd",
@@ -27,18 +29,18 @@ const featuredProjects = [
 
 export function HomeSelectedWorkSection() {
   return (
-    <section className="border-b border-border px-6 py-20 md:py-24">
+    <section className="border-b border-border px-5 py-10 lg:px-6 lg:py-24">
       <div className="mx-auto max-w-4xl">
-        <header className="mb-8">
-          <h2 className="mb-3 text-3xl font-semibold text-foreground md:text-4xl">Selected Work</h2>
+        <header className="mb-6 lg:mb-8">
+          <h2 className="mb-3 text-3xl font-semibold text-foreground lg:text-4xl">Selected Work</h2>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
             A selection of products and features I've worked on, from problem discovery to execution.
           </p>
         </header>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
           {featuredProjects.map((project) => (
-            <article key={project.id} className="group relative flex h-full flex-col rounded-md border border-border bg-card p-6 transition-colors hover:border-primary/60">
+            <article key={project.id} className="group relative flex h-full flex-col rounded-md border border-border bg-card p-4 transition-colors hover:border-primary/60 lg:p-6">
               <Link
                 href={project.href}
                 aria-label={`Explore project: ${project.title}`}
@@ -48,13 +50,10 @@ export function HomeSelectedWorkSection() {
               <div className="relative z-10 flex flex-1 flex-col gap-4 pointer-events-none">
                 <div>
                   <p className="mb-2 text-xs font-semibold tracking-wider text-muted-foreground">{project.category}</p>
-                  <h3 className="text-2xl font-serif text-foreground transition-colors group-hover:text-primary">{project.title}</h3>
+                  <h3 className="text-xl font-serif text-foreground transition-colors group-hover:text-primary lg:text-2xl">{project.title}</h3>
                 </div>
-                <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-                <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
-                  <span className="rounded-sm border border-border px-2 py-1">PRD</span>
-                  <span className="rounded-sm border border-border px-2 py-1">Prototype</span>
-                </div>
+                <p className="hidden flex-1 text-sm leading-relaxed text-muted-foreground lg:block">{project.description}</p>
+                <p className="flex-1 text-sm leading-relaxed text-muted-foreground lg:hidden">{project.mobileDescription}</p>
                 <span className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary">
                   Explore project
                   <ArrowUpRight aria-hidden="true" size={16} />

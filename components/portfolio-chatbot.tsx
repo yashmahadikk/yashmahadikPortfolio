@@ -22,6 +22,12 @@ export function PortfolioChatbot() {
   }, [])
 
   useEffect(() => {
+    const openAssistant = () => setIsOpen(true)
+    window.addEventListener('portfolio-assistant:open', openAssistant)
+    return () => window.removeEventListener('portfolio-assistant:open', openAssistant)
+  }, [])
+
+  useEffect(() => {
     const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
     messagesEndRef.current?.scrollIntoView({ behavior })
   }, [messages])
@@ -98,9 +104,9 @@ export function PortfolioChatbot() {
   if (!isMounted) return null
 
   return (
-    <div className="relative z-50 flex w-full flex-col items-end gap-3 px-4 py-4 lg:fixed lg:bottom-6 lg:right-6 lg:w-auto lg:p-0">
+    <div className="fixed bottom-4 right-4 z-50 flex w-[calc(100vw-2rem)] max-w-sm flex-col items-end gap-3 p-0 lg:bottom-6 lg:right-6 lg:w-auto">
       {isOpen && (
-        <div id="portfolio-chat-panel" className="flex h-[min(34rem,calc(100svh-7rem))] w-full max-w-sm flex-col overflow-hidden rounded-xl border border-border bg-background shadow-xl animate-in fade-in slide-in-from-bottom-2 duration-200 sm:w-[calc(100vw-2rem)]">
+        <div id="portfolio-chat-panel" className="flex h-[min(34rem,calc(100dvh-6rem))] w-full max-w-sm flex-col overflow-hidden rounded-xl border border-border bg-background shadow-xl animate-in fade-in slide-in-from-bottom-2 duration-200 lg:w-[min(24rem,calc(100vw-2rem))]">
           <div className="flex items-center justify-between border-b border-border bg-foreground p-4 text-background">
             <div className="flex items-center gap-3">
               <div className="flex size-9 items-center justify-center rounded-full bg-background/15">
@@ -108,12 +114,12 @@ export function PortfolioChatbot() {
               </div>
               <div>
                 <h3 className="font-semibold">Yash&apos;s Portfolio Assistant</h3>
-                <p className="text-xs text-primary-foreground/70">Ask about my work and experience</p>
+                <p className="text-xs text-background/70">Ask about my work and experience</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="rounded-md p-1.5 transition-colors hover:bg-background/15"
+              className="inline-flex size-11 items-center justify-center rounded-md transition-colors hover:bg-background/15"
               aria-label="Close Yash's Portfolio Assistant"
             >
               <X size={19} />
@@ -173,14 +179,13 @@ export function PortfolioChatbot() {
                 if (event.key === 'Enter' && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault()
               }}
               placeholder="Ask me something..."
-              className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              className="min-h-11 flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               disabled={isLoading}
-              autoFocus
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="p-2 bg-foreground text-background rounded-lg hover:bg-primary/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg bg-foreground text-background transition-colors hover:bg-primary/80 disabled:cursor-not-allowed disabled:opacity-50"
               aria-label="Send message"
             >
               <Send size={18} />
@@ -191,7 +196,7 @@ export function PortfolioChatbot() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex size-12 items-center justify-center rounded-full bg-foreground text-background shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+        className="hidden size-12 items-center justify-center rounded-full bg-foreground text-background shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl lg:flex"
               aria-controls={isOpen ? "portfolio-chat-panel" : undefined}
               aria-label={isOpen ? "Close Yash's Portfolio Assistant" : "Open Yash's Portfolio Assistant"}
               aria-expanded={isOpen}

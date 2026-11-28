@@ -8,11 +8,11 @@ const emailHref = "mailto:yashmahadik2005@gmail.com?subject=Let's%20Connect%20-%
 
 export function HomeHeroActions() {
   return (
-    <div className="mb-8 flex flex-wrap items-center gap-3">
+    <div className="mb-5 flex flex-wrap items-center gap-2 lg:mb-8 lg:gap-3">
       <Link
         href="/work"
         onClick={() => trackPortfolioEvent("hero_work_cta_click")}
-        className="inline-flex min-h-11 items-center justify-center rounded bg-foreground px-5 py-3 font-medium text-background transition-colors hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        className="inline-flex min-h-11 flex-1 items-center justify-center whitespace-nowrap rounded bg-foreground px-3 py-3 text-sm font-medium text-background transition-colors hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:flex-initial sm:px-5 sm:text-base"
       >
         Explore my work
       </Link>
@@ -21,14 +21,14 @@ export function HomeHeroActions() {
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackPortfolioEvent("resume_cta_click")}
-        className="inline-flex min-h-11 items-center justify-center rounded border border-border px-5 py-3 font-medium text-foreground transition-colors hover:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        className="inline-flex min-h-11 flex-1 items-center justify-center whitespace-nowrap rounded border border-border px-3 py-3 text-sm font-medium text-foreground transition-colors hover:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:flex-initial sm:px-5 sm:text-base"
       >
         Resume
       </a>
       <a
         href={emailHref}
         onClick={() => trackPortfolioEvent("contact_cta_click", { placement: "hero" })}
-        className="inline-flex min-h-11 items-center justify-center rounded px-3 py-3 font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        className="inline-flex min-h-9 w-full items-center justify-start rounded px-0 py-1 font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:min-h-11 lg:w-auto lg:justify-center lg:px-3 lg:py-3"
       >
         Get in touch
       </a>

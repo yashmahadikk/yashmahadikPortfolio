@@ -3,11 +3,11 @@ import { ArrowRight } from "lucide-react"
 
 export function HomeThinkingPartnerSection() {
   return (
-    <section className="py-24 md:py-32 px-6 border-b border-border">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-12">Need a Thinking Partner?</h2>
+    <section className="border-b border-border px-5 py-10 lg:px-6 lg:py-32">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="mb-6 text-3xl font-semibold text-foreground lg:mb-12 lg:text-4xl">Need a Thinking Partner?</h2>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           {/* 1:1 Sessions */}
           <div>
             <h3 className="text-xl font-semibold text-foreground mb-3">1:1 Sessions</h3>
@@ -21,7 +21,7 @@ export function HomeThinkingPartnerSection() {
               href="https://calendar.app.google/7XqQhTTXGzGNLyHp9"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-foreground text-background font-medium hover:bg-foreground/90 transition-colors rounded"
+              className="inline-flex min-h-11 items-center rounded bg-foreground px-5 py-3 font-medium text-background transition-colors hover:bg-foreground/90"
             >
               Book a Session
               <ArrowRight size={16} className="ml-2" />
@@ -41,7 +41,7 @@ export function HomeThinkingPartnerSection() {
               href="https://linkedin.com/in/yashmahadik2"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 border border-border text-foreground font-medium hover:border-foreground transition-colors rounded"
+              className="inline-flex min-h-11 items-center rounded border border-border px-5 py-3 font-medium text-foreground transition-colors hover:border-foreground"
             >
               Follow on LinkedIn
               <ArrowRight size={16} className="ml-2" />

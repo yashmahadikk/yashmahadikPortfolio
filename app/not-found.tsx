@@ -534,15 +534,15 @@ function LostMap() {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-svh bg-background text-foreground">
 
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-5 md:px-8">
+      <div className="mx-auto flex min-h-svh max-w-6xl flex-col px-5 md:px-8">
 
         {/* ===============================================
             MINIMAL HEADER
         ================================================ */}
 
-        <header className="flex items-center justify-between border-b border-border py-6 md:py-8">
+        <header className="flex items-center justify-between border-b border-border py-3 md:py-4">
 
           <Link
             href="/"
@@ -567,34 +567,34 @@ export default function NotFound() {
             MAIN ERROR SECTION
         ================================================ */}
 
-        <section className="grid items-center gap-8 py-10 md:gap-14 md:py-20 lg:grid-cols-[1fr_1fr] lg:py-24">
+        <section className="grid items-center gap-3 py-3 md:gap-5 md:py-4 lg:grid-cols-[1fr_1fr]">
 
           {/* Text content */}
 
           <div className="order-2 lg:order-1">
 
-            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               Not every path leads somewhere.
             </p>
 
-            <h1 className="font-serif text-[clamp(2.75rem,5.5vw,4.5rem)] font-normal leading-[1.08] tracking-tight">
+            <h1 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.05] tracking-tight">
 
               This page wandered
 
-              <span className="mt-2 block italic text-muted-foreground">
+              <span className="block italic text-muted-foreground">
                 off the map.
               </span>
 
             </h1>
 
-            <p className="mt-6 max-w-md text-base leading-[1.8] text-muted-foreground md:text-lg">
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
 
               Even good products have dead ends.
               This happens to be one of mine.
 
             </p>
 
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-2 max-w-md text-xs leading-relaxed text-muted-foreground">
 
               The link may be outdated, or the page may
               never have existed. Either way, there are
@@ -604,7 +604,7 @@ export default function NotFound() {
 
             {/* Primary recovery actions */}
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-4 flex flex-wrap items-center gap-3">
 
               <Link
                 href="/"
@@ -634,7 +634,7 @@ export default function NotFound() {
 
           {/* Coded illustration */}
 
-          <div className="order-1 mx-auto w-full max-w-[460px] lg:order-2">
+          <div className="order-1 mx-auto w-full max-w-[420px] lg:order-2">
 
             <LostMap />
 
@@ -658,9 +658,9 @@ export default function NotFound() {
             RECOMMENDED DESTINATIONS
         ================================================ */}
 
-        <section className="border-t border-border py-8 md:py-12">
+        <section className="border-t border-border py-3 md:py-4">
 
-          <div className="mb-6 flex items-center gap-3">
+          <div className="mb-2 flex items-center gap-3">
 
             <Compass
               size={17}
@@ -674,7 +674,7 @@ export default function NotFound() {
 
           </div>
 
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
 
             {destinations.map((destination) => {
               const Icon = destination.icon
@@ -683,10 +683,10 @@ export default function NotFound() {
                 <Link
                   key={destination.href}
                   href={destination.href}
-                  className="group flex min-w-0 flex-col rounded-md border border-border p-4 transition-colors hover:border-primary/60 hover:bg-muted/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-6"
+                  className="group flex min-w-0 flex-col rounded-md border border-border p-3 transition-colors hover:border-primary/60 hover:bg-muted/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-3"
                 >
 
-                  <div className="mb-5 flex items-center justify-between">
+                  <div className="mb-2 flex items-center justify-between">
 
                     <Icon
                       size={23}
@@ -705,7 +705,7 @@ export default function NotFound() {
                     {destination.label}
                   </h3>
 
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground md:text-sm">
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground md:text-sm">
                     {destination.description}
                   </p>
 
@@ -725,7 +725,7 @@ export default function NotFound() {
 
           <details className="group">
 
-            <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-5 [&::-webkit-details-marker]:hidden">
+            <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 py-3 [&::-webkit-details-marker]:hidden">
 
               <div className="flex items-center gap-3">
 
@@ -780,9 +780,9 @@ export default function NotFound() {
             PERSONAL FOOTER
         ================================================ */}
 
-        <footer className="mt-auto py-8 md:py-10">
+        <footer className="mt-auto py-1 md:py-2">
 
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+          <div className="flex flex-col justify-between gap-3 md:flex-row md:items-center">
 
             <div>
 
@@ -790,12 +790,7 @@ export default function NotFound() {
                 Not lost. Just exploring.
               </p>
 
-              <p className="mt-2 text-xs text-muted-foreground">
-
-                Curious by default.
-
-              </p>
-
+              
             </div>
 
             {/* Existing social links */}
@@ -822,7 +817,7 @@ export default function NotFound() {
 
           </div>
 
-          <div className="mt-7 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5">
+          <div className="mt-1 flex flex-wrap items-center justify-between gap-2 border-t border-border pt-1">
 
             <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
               404 — End of this road

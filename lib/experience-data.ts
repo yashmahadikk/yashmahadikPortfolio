@@ -66,7 +66,7 @@ export const experiences: Experience[] = [
     location: "Mumbai",
     logo: {
       type: "image",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7iEhcu67Z4NQvKWBC9jgxBcFUSGqxs.png",
+      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/funspire.in-32x32-l4e6Wj0t3F6co944KTT9ZMHmdnXy2c.png",
       alt: "Funspire wordmark",
     },
     description: "Funspire is where my hands-on product work started. I worked as an Assistant Product Manager on a sports-entertainment product, contributing to the product roadmap and collaborating with design and engineering to shape the experience.",

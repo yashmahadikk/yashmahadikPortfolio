@@ -14,13 +14,39 @@ export const metadata: Metadata = {
   description: 'Product portfolio featuring product management experience, selected work, case studies, and perspectives on building thoughtful products.',
   generator: 'Yash',
   icons: {
-    icon: [
+    icon: '/apple-touch-icon.png',
+    apple: [{ url: '/apple-touch-icon.png' }, { url: '/apple-icon.png' }],
+    other: [
       {
-        url: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-nnWAnV2nZEdMFMSKK1CaXIy4qGutLS.png',
+        url: '/icon-light-32x32.png',
+        media: '(prefers-color-scheme: light)',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: '/icon-192x192.png',
+        media: '(prefers-color-scheme: light)',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        url: '/icon-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: '/icon-512x512.png',
+        media: '(prefers-color-scheme: dark)',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+      {
+        url: '/icon.png',
+        sizes: '32x32',
         type: 'image/png',
       },
     ],
-    apple: [{ url: '/apple-touch-icon.png' }, { url: '/apple-icon.png' }],
   },
 }
 

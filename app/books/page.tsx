@@ -1,15 +1,6 @@
 
 "use client"
 
-/*
- * Replace components/books-section.tsx with this file.
- *
- * Keep app/books/page.tsx and its existing Navigation and Footer.
- * All book content is fetched from the existing Supabase books table.
- * No database migrations or additional dependencies.
- * Build and browser testing are required within the existing project.
- */
-
 import {
   useEffect,
   useMemo,
